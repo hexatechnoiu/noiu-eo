@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Booking;
+use App\Models\Inbox;
+use App\Models\Package;
+use App\Models\Package_category;
+use App\Models\Package_type;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,7 +18,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
+        Package_category::factory(2)->create();
+        Package_type::factory(5)->create();
+        Package::factory(25)->create();
+        Inbox::factory(10)->create();
+        Booking::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
