@@ -19,8 +19,8 @@
                 <a href="#">
                     <h1 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Meeting</h1>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -34,8 +34,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Pemasangan Backdrop</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -49,8 +49,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">LED Screen Videotron</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -64,8 +64,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Live Streaming</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -79,8 +79,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Sound System</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -94,8 +94,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Spin 360 Video Both</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 0<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>

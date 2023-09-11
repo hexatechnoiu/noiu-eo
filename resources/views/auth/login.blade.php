@@ -5,6 +5,7 @@
     <section class="flex flex-col items-center justify-center px-6 py-10 mx-auto md:h-screen">
         <div class="w-full bg-white rounded-lg shadow-xl border border-Neutral-20 my-4 sm:max-w-md">
         <img src="{{ asset('img/logo-eo-blue.svg') }}" class="h-16 mt-6 mx-auto" alt="NOIU Logo" />
+
             @if (session()->has('success'))
                 <div class="bg-green-600 text-white p-1.5">
                     {{ session('success') }}
@@ -25,22 +26,34 @@
                     @endif
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-black">Email</label>
-                        <input type="email" name="email" id="email" class="bg-white border border-Neutral-20 text-black sm:text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
+                        <input value="{{old('email')}}" type="email" name="email" id="email" class="bg-white border border-Neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
+                        @error('email')
+                        <div class="text-red-900">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @enderror
                     </div>
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-black">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Your Password" class="bg-white border border-Neutral-20 text-black sm:text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" required>
+                        <input type="password" name="password" id="password" placeholder="Your Password" class="bg-white border border-Neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" required>
+                        @error('password')
+                        <div class="text-red-900">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @enderror
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-start">
                         </div>
                     </div>
-                    <button type="submit" class="w-full text-white bg-Primary-40 hover:text-black hover:bg-Secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <button type="submit" class="w-full text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         Sign in
                     </button>
                     <p class="text-sm text-center font-light text-Neutral-60">
                         Don’t have an account yet?
-                        <a href="register" class="font-medium text-Primary-40 hover:opacity-70 duration-[400ms]">Sign up</a>
+                        <a href="register" class="font-medium text-primary-40 hover:opacity-70 duration-[400ms]">Sign up</a>
                     </p>
                 </form>
             </div>
@@ -48,11 +61,11 @@
     </section>
 
     {{-- Modal --}}
-    
+
 {{-- <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
     Toggle modal
   </button>
-  
+
   <div id="popup-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <div class="relative w-full max-w-md max-h-full">
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">

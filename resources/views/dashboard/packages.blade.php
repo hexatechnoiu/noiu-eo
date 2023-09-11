@@ -6,7 +6,7 @@
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
             <div class="flex items-start mb-8 max-w-screen-sm gap-[15vw] md:gap-[25vw]">
-                <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight text-black bg-Secondary-40 hover:text-white hover:bg-Primary-40 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
+                <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight text-black bg-secondary-40 hover:text-white hover:bg-primary-40 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
                 <h2 class="flex justify-center mb-2 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Packages</h2>
             </div>
             <!-- Start coding here -->
@@ -19,12 +19,12 @@
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-magnifying-glass w-5 h-5 text-Neutral-60"></i>
                                 </div>
-                                <input type="text" id="simple-search" class="bg-white border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full pl-10 p-2" placeholder="Search" required>
+                                <input type="text" id="simple-search" class="bg-white border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2" placeholder="Search" required>
                             </div>
                         </form>
                     </div>
                     <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                        <button type="button" id="createPackageModalButton" data-modal-target="createPackageModal" data-modal-toggle="createPackageModal" class="flex items-center justify-center text-white bg-Primary-40 hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:ring-Primary-10 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
+                        <button type="button" id="createPackageModalButton" data-modal-target="createPackageModal" data-modal-toggle="createPackageModal" class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-primary-10 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
                             <i class="fa-solid fa-plus mr-2"></i>
                             <span>Add New Package</span>
                         </button>
@@ -53,7 +53,7 @@
                                     <td class="px-4 py-3">{{ $pkg->price }}</td>
                                     <td scope="row" class="px-4 py-3 max-w-[12rem] truncate">{{ $pkg->desc }}</td>
                                     <td class="px-4 py-3 flex items-center justify-end">
-                                        <button id="package-dropdown-button" data-dropdown-toggle="package-dropdown" class="inline-flex items-center font-medium hover:bg-Neutral-20 py-3.5 px-2 text-center text-Neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-Primary-10 focus:border-Primary-10" type="button">
+                                        <button id="package-dropdown-button" data-dropdown-toggle="package-dropdown" class="inline-flex items-center font-medium hover:bg-Neutral-20 py-3.5 px-2 text-center text-Neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
                                             <i class="fa-solid fa-ellipsis fa-lg"></i>
                                         </button>
                                         <div id="package-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-Neutral-20 shadow">
@@ -146,7 +146,7 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="image" class="block mb-2 text-sm font-medium text-black">Image</label>
-                            <input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full cursor-pointer">
+                            <input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
                             @error('image')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -155,11 +155,11 @@
                         </div>
                         <div>
                             <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
-                            <input type="text" name="packageName" id="packageName" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Package Name" required="">
+                            <input type="text" name="packageName" id="packageName" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Package Name" required="">
                         </div>
                         <div>
                             <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
-                            <select id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5">
+                            <select id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                                 <option selected="">Select Category</option>
                                 <option value="Outbound">Outbound</option>
                                 <option value="Offroad">Offroad</option>
@@ -170,14 +170,14 @@
                         </div>
                         <div>
                             <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
-                            <input type="text" name="price" id="price" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
+                            <input type="text" name="price" id="price" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="description" class="block mb-2 text-sm font-medium text-black">Description</label>
-                            <textarea name="description" id="description" rows="4" class="block p-2.5 w-full text-sm text-black bg-Neutral-10 rounded-lg border border-Neutral-30 focus:ring-Primary-20 focus:border-Primary-40" placeholder="Write Package Description Here"></textarea>
+                            <textarea name="description" id="description" rows="4" class="block p-2.5 w-full text-sm text-black bg-Neutral-10 rounded-lg border border-Neutral-30 focus:ring-primary-20 focus:border-primary-40" placeholder="Write Package Description Here"></textarea>
                         </div>
                     </div>
-                    <button type="submit" class="inline-flex items-center text-white bg-Primary-40 hover:text-black hover:bg-Secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <button type="submit" class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         <i class="fa fa-plus mr-2"></i>
                         Add New Package
                     </button>
@@ -205,7 +205,7 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="image" class="block mb-2 text-sm font-medium text-black">Image</label>
-                            <input type="file" id="image" name="image" value="outbound2.jpg" class="form-control @error('image') is-invalid @enderror bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full cursor-pointer">
+                            <input type="file" id="image" name="image" value="outbound2.jpg" class="form-control @error('image') is-invalid @enderror bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
                             @error('image')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -214,11 +214,11 @@
                         </div>
                         <div>
                             <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
-                            <input type="text" name="packageName" id="packageName" value="Paket Outbound 2 Hari 1 Malam" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Package Name" required="">
+                            <input type="text" name="packageName" id="packageName" value="Paket Outbound 2 Hari 1 Malam" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Package Name" required="">
                         </div>
                         <div>
                             <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
-                            <select name="category" id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5">
+                            <select name="category" id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                                 <option selected="">Select Category</option>
                                 <option value="Outbound">Outbound</option>
                                 <option value="Offroad">Offroad</option>
@@ -229,15 +229,15 @@
                         </div>
                         <div>
                             <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
-                            <input type="text" name="price" id="price" value="Rp. 850.000 /Orang" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
+                            <input type="text" name="price" id="price" value="Rp. 850.000 /Orang" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                         </div>
                         <div class="sm:col-span-2">
                             <label for="description" class="block mb-2 text-sm font-medium text-black">Description</label>
-                            <textarea name="description" id="description" rows="4" class="block p-2.5 w-full text-sm text-black bg-Neutral-10 rounded-lg border border-Neutral-30 focus:ring-Primary-20 focus:border-Primary-40" placeholder="Write Package Description Here">Program Fun Games / Competition Games, Hotel 1 Malam, High Rope ( Flying Fox - 2 Line Bridge - Turun Tebing ) Makan 3X, Coffie Break, Acara Hiburan by MC + Solo Organ, Peserta Min 20 Pax</textarea>
+                            <textarea name="description" id="description" rows="4" class="block p-2.5 w-full text-sm text-black bg-Neutral-10 rounded-lg border border-Neutral-30 focus:ring-primary-20 focus:border-primary-40" placeholder="Write Package Description Here">Program Fun Games / Competition Games, Hotel 1 Malam, High Rope ( Flying Fox - 2 Line Bridge - Turun Tebing ) Makan 3X, Coffie Break, Acara Hiburan by MC + Solo Organ, Peserta Min 20 Pax</textarea>
                         </div>
                     </div>
                     <div class="flex items-center space-x-4">
-                        <button type="submit" class="text-white bg-Primary-40 hover:text-black hover:bg-Secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        <button type="submit" class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Update Package
                         </button>
                         <button type="button" class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
@@ -273,11 +273,11 @@
                 </div>
                 <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-3 sm:space-x-4">
-                        <button type="button" class="text-white inline-flex items-center bg-Primary-40 hover:text-black hover:bg-Secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        <button type="button" class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             <i class="fa-solid fa-pen-to-square mr-2"></i>
                             Edit
                         </button>
-                        <button type="button" class="py-2.5 px-5 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 hover:text-Primary-40 duration-[400ms] focus:z-10 focus:ring-4 focus:ring-Primary-10">Preview</button>
+                        <button type="button" class="py-2.5 px-5 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 hover:text-primary-40 duration-[400ms] focus:z-10 focus:ring-4 focus:ring-primary-10">Preview</button>
                     </div>
                     <button type="button" class="inline-flex items-center text-white bg-red-600 hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         <i class="fa-solid fa-trash-can mr-2"></i>
@@ -302,7 +302,7 @@
                 </div>
                 <p class="mb-4 text-Neutral-60">Are you sure you want to delete this package?</p>
                 <div class="flex justify-center items-center space-x-4">
-                    <button data-modal-toggle="deleteModal" type="button" class="py-2 px-3 text-sm font-medium text-Neutral-60 bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Primary-10 hover:text-black focus:z-10">No, cancel</button>
+                    <button data-modal-toggle="deleteModal" type="button" class="py-2 px-3 text-sm font-medium text-Neutral-60 bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
                     <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300">Yes, I'm sure</button>
                 </div>
             </div>

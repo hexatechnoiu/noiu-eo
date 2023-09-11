@@ -6,7 +6,7 @@
 <section class="bg-white p-3 sm:p-5 antialiased">
     <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
         <div class="flex items-start mb-8 max-w-screen-sm gap-[16vw] md:gap-[25vw]">
-            <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight text-black bg-Secondary-40 hover:text-white hover:bg-Primary-40 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
+            <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight text-black bg-secondary-40 hover:text-white hover:bg-primary-40 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
             <h2 class="flex justify-center mb-2 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Booking</h2>
         </div>
         <!-- Start coding here -->
@@ -19,12 +19,12 @@
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <i class="fa-solid fa-magnifying-glass w-5 h-5 text-Neutral-60"></i>
                             </div>
-                            <input type="text" id="simple-search" class="bg-white border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full pl-10 p-2" placeholder="Search" required>
+                            <input type="text" id="simple-search" class="bg-white border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2" placeholder="Search" required>
                         </div>
                     </form>
                 </div>
                 <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                    <button type="button" id="createBookingModalButton" data-modal-target="createBookingModal" data-modal-toggle="createBookingModal" class="flex items-center justify-center text-white bg-Primary-40 hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:ring-Primary-10 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
+                    <button type="button" id="createBookingModalButton" data-modal-target="createBookingModal" data-modal-toggle="createBookingModal" class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-primary-10 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
                         <i class="fa-solid fa-plus mr-2"></i>
                         <span>Booking Now</span>
                     </button>
@@ -46,7 +46,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                             <tr class="border-b">
                                 <td class="px-4 py-3">Hafiz Haekal</td>
                                 <td class="px-4 py-3 max-w-[14rem]">Paket Outbound 2 Hari 1 Malam</td>
@@ -55,7 +55,7 @@
                                 <td class="px-4 py-3">Rp. 850.000</td>
                                 <td class="px-4 py-3">Gopay</td>
                                 <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="booking-dropdown-button" data-dropdown-toggle="booking-dropdown" class="inline-flex items-center font-medium hover:bg-Neutral-20 py-3.5 px-2 text-center text-Neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-Primary-10 focus:border-Primary-10" type="button">
+                                    <button id="booking-dropdown-button" data-dropdown-toggle="booking-dropdown" class="inline-flex items-center font-medium hover:bg-Neutral-20 py-3.5 px-2 text-center text-Neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
                                         <i class="fa-solid fa-ellipsis fa-lg"></i>
                                     </button>
                                     <div id="booking-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-Neutral-20 shadow">
@@ -82,7 +82,7 @@
                                     </div>
                                 </td>
                             </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -148,15 +148,15 @@
                 <div class="grid gap-4 mb-4 sm:grid-cols-3">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
-                        <input type="text" name="name" id="name" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Your Name" required="">
+                        <input type="text" name="name" id="name" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Name" required="">
                     </div>
                     <div>
                         <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone Number</label>
-                        <input type="number" name="phone" id="phone" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="085771805236" required="">
+                        <input type="number" name="phone" id="phone" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="085771805236" required="">
                     </div>
                     <div>
                         <label for="payment" class="block mb-2 text-sm font-medium text-black">Payment Method</label>
-                        <select id="payment" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5">
+                        <select id="payment" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                             <option selected="">Select Payment Method</option>
                             <option value="Debit">Debit</option>
                             <option value="Credit">Credit</option>
@@ -171,11 +171,11 @@
                 <div class="grid gap-4 mb-4 sm:grid-cols-3">
                     <div>
                         <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
-                        <input type="text" name="packageName" id="packageName" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Package Name" required="">
+                        <input type="text" name="packageName" id="packageName" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Package Name" required="">
                     </div>
                     <div>
                         <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
-                        <select id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5">
+                        <select id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                             <option selected="">Select Category</option>
                             <option value="Outbound">Outbound</option>
                             <option value="Offroad">Offroad</option>
@@ -186,18 +186,18 @@
                     </div>
                     <div>
                         <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
-                        <input type="date" name="date" id="date" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
+                        <input type="date" name="date" id="date" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                     </div>
                     <div>
                         <label for="amount" class="block mb-2 text-sm font-medium text-black">Amount</label>
-                        <input type="number" name="amount" id="amount" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="10" required>
+                        <input type="number" name="amount" id="amount" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="10" required>
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
-                        <input type="text" name="price" id="price" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
+                        <input type="text" name="price" id="price" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                     </div>
                 </div>
-                <button type="submit" class="inline-flex items-center text-white bg-Primary-40 hover:text-black hover:bg-Secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 text-center">
+                <button type="submit" class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 text-center">
                     <i class="fa fa-plus mr-2"></i>
                     Booking
                 </button>
@@ -226,15 +226,15 @@
                 <div class="grid gap-4 mb-4 sm:grid-cols-3">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
-                        <input type="text" name="name" id="name" value="Hafiz Haekal" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Your Name" required="">
+                        <input type="text" name="name" id="name" value="Hafiz Haekal" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Name" required="">
                     </div>
                     <div>
                         <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone Number</label>
-                        <input type="number" name="phone" id="phone" value="087894818815" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="085771805236" required="">
+                        <input type="number" name="phone" id="phone" value="087894818815" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="085771805236" required="">
                     </div>
                     <div>
                         <label for="payment" class="block mb-2 text-sm font-medium text-black">Payment Method</label>
-                        <select id="payment" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5">
+                        <select id="payment" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                             <option selected="">Select Payment Method</option>
                             <option value="Debit">Debit</option>
                             <option value="Credit">Credit</option>
@@ -249,11 +249,11 @@
                 <div class="grid gap-4 mb-4 sm:grid-cols-3">
                     <div>
                         <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
-                        <input type="text" name="packageName" id="packageName" value="Paket Outbound 2 Hari 1 Malam" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Package Name" required="">
+                        <input type="text" name="packageName" id="packageName" value="Paket Outbound 2 Hari 1 Malam" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Package Name" required="">
                     </div>
                     <div>
                         <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
-                        <select id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5">
+                        <select id="category" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                             <option selected="">Select Category</option>
                             <option value="Outbound">Outbound</option>
                             <option value="Offroad">Offroad</option>
@@ -264,19 +264,19 @@
                     </div>
                     <div>
                         <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
-                        <input type="date" name="date" id="date" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
+                        <input type="date" name="date" id="date" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                     </div>
                     <div>
                         <label for="amount" class="block mb-2 text-sm font-medium text-black">Amount</label>
-                        <input type="number" name="amount" id="amount" value="1" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="10" required>
+                        <input type="number" name="amount" id="amount" value="1" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="10" required>
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
-                        <input type="text" name="price" id="price" value="Rp. 850.000" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-Primary-20 focus:border-Primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
+                        <input type="text" name="price" id="price" value="Rp. 850.000" class="bg-Neutral-10 border border-Neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button type="submit" class="text-white bg-Primary-40 hover:text-black hover:bg-Secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <button type="submit" class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         Update Booking
                     </button>
                     <button type="button" class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
@@ -342,11 +342,11 @@
             </div>
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-3 sm:space-x-4">
-                    <button type="button" class="text-white inline-flex items-center bg-Primary-40 hover:text-black hover:bg-Secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <button type="button" class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         <i class="fa-solid fa-pen-to-square mr-2"></i>
                         Edit
                     </button>
-                    <button type="button" class="py-2.5 px-5 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 hover:text-Primary-40 duration-[400ms] focus:z-10 focus:ring-4 focus:ring-Primary-10">Preview</button>
+                    <button type="button" class="py-2.5 px-5 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 hover:text-primary-40 duration-[400ms] focus:z-10 focus:ring-4 focus:ring-primary-10">Preview</button>
                 </div>
                 <button type="button" class="inline-flex items-center text-white bg-red-600 hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     <i class="fa-solid fa-trash-can mr-2"></i>
@@ -371,7 +371,7 @@
             </div>
             <p class="mb-4 text-Neutral-60">Are you sure you want to delete this booked?</p>
             <div class="flex justify-center items-center space-x-4">
-                <button data-modal-toggle="deleteModal" type="button" class="py-2 px-3 text-sm font-medium text-Neutral-60 bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-Primary-10 hover:text-black focus:z-10">No, cancel</button>
+                <button data-modal-toggle="deleteModal" type="button" class="py-2 px-3 text-sm font-medium text-Neutral-60 bg-white rounded-lg border border-Neutral-30 hover:bg-Neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
                 <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300">Yes, I'm sure</button>
             </div>
         </div>

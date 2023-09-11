@@ -1,5 +1,7 @@
 import "./bootstrap";
-import "flowbite";
+import '@fortawesome/fontawesome-free/css/all.css'
+import 'flowbite';
+import '../css/App.css'
 
 // Mendapatkan elemen tombol outbound
 const dropdownButtonOutbound = document.getElementById(

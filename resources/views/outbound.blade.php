@@ -21,10 +21,10 @@
                 <a href="#">
                     <h1 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Outbound Grafika Cikole</h1>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 225.000<span
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 225.000<span
                         class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
                 <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -39,10 +39,10 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Outbound 2 Hari 1 Malam</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 850.000<span
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 850.000<span
                         class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
                 <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -57,10 +57,10 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Outbound 3 Hari 2 Malam</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 1.250.000<span
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 1.250.000<span
                         class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
                 <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -76,10 +76,10 @@
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Outbound + Paintball Grafika
                         Cikole</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 315.000<span
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 315.000<span
                         class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
                 <a href="#"
-                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -105,8 +105,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Offroad Family</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 265.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 265.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -120,8 +120,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Fun Offroad</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 369.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 369.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -135,8 +135,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Adventure Offroad + Paintball</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 395.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 395.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -150,8 +150,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Offroad + Outbound</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 895.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 895.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -177,8 +177,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Rafting Pangalengan Family</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 150.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 150.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -192,8 +192,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Rafting Pangalengan</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 185.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 185.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -207,8 +207,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Rafting + Games</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 275.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 275.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -222,8 +222,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Rafting + Outbound + Paintball</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 365.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 365.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -237,8 +237,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">One Day Rafting + Games Ciater Subang</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 250.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 250.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -264,8 +264,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Paintball Battle Family</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 125.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 125.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
@@ -279,8 +279,8 @@
                 <a href="#">
                     <h5 class="mb-2 text-xl font-bold tracking-tight text-black">Paket Outbound Sumedang</h5>
                 </a>
-                <p class="mb-2 text-lg font-semibold tracking-tight text-Primary-40">Rp 185.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
-                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-Primary-40 rounded-lg hover:text-black hover:bg-Secondary-40 focus:ring-4 focus:outline-none focus:ring-Secondary-20 duration-200">
+                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp 185.000<span class="text-sm font-medium text-Neutral-60"> /Orang</span></p>
+                <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-200">
                     See Detail
                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                 </a>
