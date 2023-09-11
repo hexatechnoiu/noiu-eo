@@ -55,12 +55,12 @@ Route::get('/booking', function () {
 
 Route::controller(DashboardController::class)->group(
     function () {
-        Route::get('/dashboard', 'index');
-        Route::get('/dashboard/users', 'user');
-        Route::get('/dashboard/packages', 'packages');
-        Route::get('/dashboard/categories', 'categories');
+        Route::get('/dashboard', 'index')->middleware('auth');
+        Route::get('/dashboard/users', 'user')->middleware('auth');
+        Route::get('/dashboard/packages', 'packages')->middleware('auth');
+        Route::get('/dashboard/categories', 'categories')->middleware('auth');
     }
-)->name('dashboard')->middleware('auth');
+)->name('dashboard');
 
 
 Route::controller(UserController::class)->group(function () {
