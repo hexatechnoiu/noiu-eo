@@ -2,7 +2,7 @@
     <div class="pt-10 px-12 mt-10 lg:mt-20 lg:ml-[250px]">
         <div class="flex flex-col lg:flex-row gap-16 mx-auto max-w-screen-xl xl:gap-16">
             <div class="lg:w-[35%]">
-                <img src="{{ asset('img/logo-eo.svg') }}" class="h-16 mb-6" alt="NOIU Logo" />
+                <img src="<?php echo e(asset('img/logo-eo.svg')); ?>" class="h-16 mb-6" alt="NOIU Logo" />
                 <p class="max-w-2xl mb-5 font-light text-white text-lg">NOIU Event Organizer Solusi untuk kenyamanan dan kemudahan: Liburan, Outbound, Gathering, MICE Perusahaan / Keluarga anda</p>
                 <div class="flex flex-row gap-4">
                     <div class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
@@ -72,3 +72,4 @@
         <span class="text-xs sm:text-base font-light text-white text-center">© 2023 <a href="#">Hexatech™</a>. All Rights Reserved.</span>
     </div>
 </footer>
+<?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/partials/footer.blade.php ENDPATH**/ ?>

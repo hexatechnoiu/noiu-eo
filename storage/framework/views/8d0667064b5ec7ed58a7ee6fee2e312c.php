@@ -1,6 +1,4 @@
-@extends('layouts.dashboardmain')
-
-@section('container')
+<?php $__env->startSection('container'); ?>
 
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
@@ -188,4 +186,6 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.dashboardmain', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/dashboard/categories.blade.php ENDPATH**/ ?>

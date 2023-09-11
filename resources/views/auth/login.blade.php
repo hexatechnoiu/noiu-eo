@@ -3,7 +3,7 @@
 @section('container')
 
     <section class="flex flex-col items-center justify-center px-6 py-10 mx-auto md:h-screen">
-        <div class="w-full bg-white rounded-lg shadow-xl border border-Neutral-20 my-4 sm:max-w-md">
+        <div class="w-full bg-white rounded-lg shadow-xl border border-neutral-20 my-4 sm:max-w-md">
         <img src="{{ asset('img/logo-eo-blue.svg') }}" class="h-16 mt-6 mx-auto" alt="NOIU Logo" />
 
             @if (session()->has('success'))
@@ -19,14 +19,14 @@
                 <form class="space-y-4 md:space-y-6" action="/login" method="POST">
                     @csrf
                     @if (session()->has('loginError'))
-                        <div class="text-red-900">
+                        <div class="bg-red-900 text-white p-1.5">
                             {{ session('loginError') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-black">Email</label>
-                        <input value="{{old('email')}}" type="email" name="email" id="email" class="bg-white border border-Neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
+                        <input value="{{old('email')}}" type="email" name="email" id="email" class="bg-white border border-neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
                         @error('email')
                         <div class="text-red-900">
                             {{ $message }}
@@ -36,7 +36,7 @@
                     </div>
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-black">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Your Password" class="bg-white border border-Neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" required>
+                        <input type="password" name="password" id="password" placeholder="Your Password" class="bg-white border border-neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" required>
                         @error('password')
                         <div class="text-red-900">
                             {{ $message }}
@@ -51,7 +51,7 @@
                     <button type="submit" class="w-full text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         Sign in
                     </button>
-                    <p class="text-sm text-center font-light text-Neutral-60">
+                    <p class="text-sm text-center font-light text-neutral-60">
                         Don’t have an account yet?
                         <a href="register" class="font-medium text-primary-40 hover:opacity-70 duration-[400ms]">Sign up</a>
                     </p>

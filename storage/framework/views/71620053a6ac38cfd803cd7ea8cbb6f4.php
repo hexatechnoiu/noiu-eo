@@ -33,4 +33,4 @@
 </body>
 
 </html>
-<?php /**PATH /home/azfasa15/laravel_noiu/resources/views/layouts/main.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/layouts/main.blade.php ENDPATH**/ ?>

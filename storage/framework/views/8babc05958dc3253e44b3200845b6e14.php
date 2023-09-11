@@ -1,6 +1,4 @@
-@extends('layouts.dashboardmain')
-
-@section('container')
+<?php $__env->startSection('container'); ?>
 
     <section class="bg-white">
         <div class="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
@@ -408,4 +406,6 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.dashboardmain', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/dashboard/index.blade.php ENDPATH**/ ?>

@@ -1,9 +1,7 @@
-@extends('layouts.main')
+<?php $__env->startSection('container'); ?>
 
-@section('container')
 
-{{-- Hero Section --}}
-<section class="bg-center bg-no-repeat bg-cover bg-neutral-40 bg-blend-multiply lg:h-[100vh]" style="background-image: url('{{ asset('img/noiu.jpg') }}')">
+<section class="bg-center bg-no-repeat bg-cover bg-neutral-40 bg-blend-multiply lg:h-[100vh]" style="background-image: url('<?php echo e(asset('img/noiu.jpg')); ?>')">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-44 lg:py-56">
         <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-white sm:text-4xl md:text-5xl lg:text-6xl">Together We Make
             <span id="typewriter" class="text-secondary-40"></span>
@@ -17,53 +15,53 @@
     </div>
 </section>
 
-{{-- Clients Logo --}}
+
 <section class="bg-primary-40 py-6">
     <div class="logo-slider ml-10 lg:ml-24 space-x-7">
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo1.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo1.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo2.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo2.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo3.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo3.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo4.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo4.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo5.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo5.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo6.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo6.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo7.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo7.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo8.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo8.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo9.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo9.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default mt-4 md:mt-8">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo10.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo10.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default mt-4 md:mt-8">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo11.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo11.png')); ?>" alt="">
         </div>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo12.png') }}" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo12.png')); ?>" alt="">
         </div>
     </div>
 </section>
 
-{{-- Your Benefits --}}
+
 <section class="bg-white px-12 mt-10 lg:mt-20">
     <div class="flex flex-col lg:flex-row gap-8 items-center mx-auto max-w-screen-xl xl:gap-16">
         <div class="lg:w-[200px] lg:h-[320px] rounded-lg overflow-hidden cursor-pointer">
-            <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500" src="{{ asset('img/noiu.jpg') }}" alt="noiu image">
+            <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500" src="<?php echo e(asset('img/noiu.jpg')); ?>" alt="noiu image">
         </div>
         <div class="lg:w-3/4">
             <h2 class="mb-4 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">NOIU EVENT ORGANIZER</h2>
@@ -125,7 +123,7 @@
     </div>
 </section>
 
-{{-- Book --}}
+
 <section class="bg-primary-40 px-12 py-6 mt-10 lg:mt-20">
     <div class="flex flex-col md:flex-row mx-auto max-w-screen-xl py-6 gap-8 items-center xl:gap-16">
         <div class="lg:w-3/4">
@@ -140,7 +138,7 @@
     </div>
 </section>
 
-{{-- Google Maps --}}
+
 <section class="bg-white px-12 my-10 lg:mt-20">
     <div class="mx-auto max-w-screen-xl">
         <div class="w-full h-[400px] rounded-lg overflow-hidden">
@@ -149,4 +147,6 @@
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/home.blade.php ENDPATH**/ ?>

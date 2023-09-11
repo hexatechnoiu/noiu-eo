@@ -1,6 +1,4 @@
-@extends('layouts.main')
-
-@section('container')
+<?php $__env->startSection('container'); ?>
 
 <!-- Start block -->
 <section class="bg-white p-3 sm:p-5 antialiased">
@@ -47,41 +45,41 @@
                     </thead>
                     <tbody>
 
-                            <tr class="border-b">
-                                <td class="px-4 py-3">Hafiz Haekal</td>
-                                <td class="px-4 py-3 max-w-[14rem]">Paket Outbound 2 Hari 1 Malam</td>
-                                <td class="px-4 py-3">21/05/2006</td>
-                                <td class="px-4 py-3">1</td>
-                                <td class="px-4 py-3">Rp. 850.000</td>
-                                <td class="px-4 py-3">Gopay</td>
-                                <td class="px-4 py-3 flex items-center justify-end">
-                                    <button id="booking-dropdown-button" data-dropdown-toggle="booking-dropdown" class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
-                                        <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                    </button>
-                                    <div id="booking-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                        <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
-                                            <li>
-                                                <button type="button" data-modal-target="updateBookingModal" data-modal-toggle="updateBookingModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                    <span>Edit</span>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="readBookingModal" data-modal-toggle="readBookingModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-eye mr-2"></i>
-                                                    Preview
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                                    <i class="fa-solid fa-trash-can mr-2"></i>
-                                                    Delete
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr class="border-b">
+                            <td class="px-4 py-3">Hafiz Haekal</td>
+                            <td class="px-4 py-3 max-w-[14rem]">Paket Outbound 2 Hari 1 Malam</td>
+                            <td class="px-4 py-3">21/05/2006</td>
+                            <td class="px-4 py-3">1</td>
+                            <td class="px-4 py-3">Rp. 850.000</td>
+                            <td class="px-4 py-3">Gopay</td>
+                            <td class="px-4 py-3 flex items-center justify-end">
+                                <button id="booking-dropdown-button" data-dropdown-toggle="booking-dropdown" class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
+                                    <i class="fa-solid fa-ellipsis fa-lg"></i>
+                                </button>
+                                <div id="booking-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
+                                    <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
+                                        <li>
+                                            <button type="button" data-modal-target="updateBookingModal" data-modal-toggle="updateBookingModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                                <span>Edit</span>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-modal-target="readBookingModal" data-modal-toggle="readBookingModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                <i class="fa-solid fa-eye mr-2"></i>
+                                                Preview
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
+                                                <i class="fa-solid fa-trash-can mr-2"></i>
+                                                Delete
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
 
                     </tbody>
                 </table>
@@ -378,4 +376,6 @@
     </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/booking.blade.php ENDPATH**/ ?>

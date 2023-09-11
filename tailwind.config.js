@@ -5,7 +5,7 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.css",
         "./resources/**/*.vue",
-        "./node_modules/flowbite/**/*.js"
+        "./node_modules/flowbite/**/*.js",
     ],
     theme: {
         container: {
@@ -63,8 +63,5 @@ export default {
             },
         },
     },
-    plugins: [
-        require('flowbite/plugin'),
-    ],
-}
-
+    plugins: [require("flowbite/plugin")],
+};

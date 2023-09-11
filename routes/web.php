@@ -25,8 +25,8 @@ Route::get('/home', function () {
 
 Route::get('/outbound', function () {
     return view('outbound', [
-        "title" => "Package",
-        "active" => "package"
+        "title" => "Outbound",
+        "active" => "outbound"
     ]);
 })->name('outbound');
 

@@ -1,8 +1,6 @@
-@extends('layouts.main')
+<?php $__env->startSection('container'); ?>
 
-@section('container')
 
-{{-- Get In Touch --}}
 <section class="bg-white px-12 my-10">
     <div class="sm:grid sm:grid-cols-2 lg:flex-row gap-16 mx-auto max-w-screen-xl justify-center">
         <div class="">
@@ -43,7 +41,7 @@
     </div>
 </section>
 
-{{-- Our Team --}}
+
 <section class="bg-white">
     <div class="max-w-screen-xl text-center py-8 px-4 mx-auto lg:py-16 lg:px-6">
         <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
@@ -52,7 +50,7 @@
         </div>
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <div class="max-w-xs text-sm text-center text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto mb-5 p-14 hover:scale-110 transition-transform duration-[400ms]">
-                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset('img/team/hafiz.jpg') }}" alt="Hafiz Haekal">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="<?php echo e(asset('img/team/hafiz.jpg')); ?>" alt="Hafiz Haekal">
                 <h3 class="mb-1 text-xl font-bold tracking-tight text-black">
                     Hafiz Haekal
                 </h3>
@@ -73,7 +71,7 @@
                 </div>
             </div>
             <div class="max-w-xs text-center text-sm text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto mb-5 p-14 hover:scale-110 transition-transform duration-[400ms]">
-                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset('img/team/azfa.jpg') }}" alt="Muhammad Azfa Salman Akbar">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="<?php echo e(asset('img/team/azfa.jpg')); ?>" alt="Muhammad Azfa Salman Akbar">
                 <h3 class="mb-1 text-xl font-bold tracking-tight text-black">
                     Muhammad Azfa
                 </h3>
@@ -94,7 +92,7 @@
                 </div>
             </div>
             <div class="max-w-xs text-sm text-center text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto mb-5 p-14 hover:scale-110 transition-transform duration-[400ms]">
-                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset('img/team/ghazy.jpg') }}" alt="M Ghazy M A">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="<?php echo e(asset('img/team/ghazy.jpg')); ?>" alt="M Ghazy M A">
                 <h3 class="mb-1 text-xl font-bold tracking-tight text-black">
                     M Ghazy
                 </h3>
@@ -115,7 +113,7 @@
                 </div>
             </div>
             <div class="max-w-xs text-center text-sm text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto p-14 hover:scale-110 transition-transform duration-[400ms]">
-                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset('img/team/ristin.jpg') }}" alt="Ristin Iman Andini">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="<?php echo e(asset('img/team/ristin.jpg')); ?>" alt="Ristin Iman Andini">
                 <h3 class="mb-1 text-xl font-bold tracking-tight text-black">
                     Ristin Iman A
                 </h3>
@@ -136,7 +134,7 @@
                 </div>
             </div>
             <div class="max-w-xs text-sm text-center text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto p-14 hover:scale-110 transition-transform duration-[400ms]">
-                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset('img/team/della.jpg') }}" alt="Della Friska Ardiana">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="<?php echo e(asset('img/team/della.jpg')); ?>" alt="Della Friska Ardiana">
                 <h3 class="mb-1 text-xl font-bold tracking-tight text-black">
                     Della Friska A
                 </h3>
@@ -157,7 +155,7 @@
                 </div>
             </div>
             <div class="max-w-xs text-sm text-center text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto p-14 hover:scale-110 transition-transform duration-[400ms]">
-                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset('img/team/aini.jpg') }}" alt="Siti Nuraini Maryam">
+                <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="<?php echo e(asset('img/team/aini.jpg')); ?>" alt="Siti Nuraini Maryam">
                 <h3 class="mb-1 text-xl font-bold tracking-tight text-black">
                     Siti Nuraini M
                 </h3>
@@ -181,4 +179,6 @@
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/contact.blade.php ENDPATH**/ ?>

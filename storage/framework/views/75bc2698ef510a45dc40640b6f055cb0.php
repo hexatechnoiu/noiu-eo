@@ -1,6 +1,4 @@
-@extends('layouts.dashboardmain')
-
-@section('container')
+<?php $__env->startSection('container'); ?>
 
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
@@ -46,7 +44,7 @@
                         </thead>
                         <tbody>
                             <tr class="border-b">
-                                <td class="w-1 px-4 py-3"><img src="{{ asset('img/team/hafiz.jpg') }}" alt=""></td>
+                                <td class="w-1 px-4 py-3"><img src="<?php echo e(asset('img/team/hafiz.jpg')); ?>" alt=""></td>
                                 <td class="px-4 py-3">Hafiz Haekal</td>
                                 <td class="px-4 py-3">hafizhaekal03@gmail.com</td>
                                 <td class="px-4 py-3">087894818815</td>
@@ -80,7 +78,7 @@
                                 </td>
                             </tr>
                             <tr class="border-b">
-                                <td class="w-1 px-4 py-3"><img src="{{ asset('img/team/azfa.jpg') }}" alt=""></td>
+                                <td class="w-1 px-4 py-3"><img src="<?php echo e(asset('img/team/azfa.jpg')); ?>" alt=""></td>
                                 <td class="px-4 py-3">Muhammad Azfa</td>
                                 <td class="px-4 py-3">azfasa15@gmail.com</td>
                                 <td class="px-4 py-3">085156105763</td>
@@ -114,7 +112,7 @@
                                 </td>
                             </tr>
                             <tr class="border-b">
-                                <td class="w-1 px-4 py-3"><img src="{{ asset('img/team/ghazy.jpg') }}" alt=""></td>
+                                <td class="w-1 px-4 py-3"><img src="<?php echo e(asset('img/team/ghazy.jpg')); ?>" alt=""></td>
                                 <td class="px-4 py-3">M Ghazy</td>
                                 <td class="px-4 py-3">xylviet@gmail.com</td>
                                 <td class="px-4 py-3">085158266733</td>
@@ -210,12 +208,27 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="image" class="block mb-2 text-sm font-medium text-black">Profil Picture</label>
-                            <input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
-                            @error('image')
+                            <input type="file" id="image" name="image" class="form-control <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
+                            <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                 <div class="invalid-feedback">
-                                    {{ $message }}
+                                    <?php echo e($message); ?>
+
                                 </div>
-                            @enderror
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
@@ -258,12 +271,27 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="image" class="block mb-2 text-sm font-medium text-black">Profil Picture</label>
-                            <input type="file" id="image" name="image" value=".jpg" class="form-control @error('image') is-invalid @enderror bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
-                            @error('image')
+                            <input type="file" id="image" name="image" value=".jpg" class="form-control <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
+                            <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                 <div class="invalid-feedback">
-                                    {{ $message }}
+                                    <?php echo e($message); ?>
+
                                 </div>
-                            @enderror
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div>
                             <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
@@ -300,7 +328,7 @@
             <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
                 <!-- Modal header -->
                 <div class="flex justify-between mb-4 rounded-t sm:mb-5">
-                    <img class="mx-auto mb-4 w-36 h-36 rounded-full justify-center" src="{{ asset('img/team/hafiz.jpg') }}" alt="Hafiz Haekal">
+                    <img class="mx-auto mb-4 w-36 h-36 rounded-full justify-center" src="<?php echo e(asset('img/team/hafiz.jpg')); ?>" alt="Hafiz Haekal">
                     <div>
                         <button type="button" class="text-neutral-60 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 inline-flex" data-modal-toggle="readUserModal">
                             <i class="fa-solid fa-xmark fa-xl"></i>
@@ -352,4 +380,6 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.dashboardmain', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/dashboard/users.blade.php ENDPATH**/ ?>

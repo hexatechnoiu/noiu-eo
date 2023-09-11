@@ -1,6 +1,4 @@
-@extends('layouts.dashboardmain')
-
-@section('container')
+<?php $__env->startSection('container'); ?>
 
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
@@ -45,13 +43,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($packages as $pkg)
+                            <?php $__empty_1 = true; $__currentLoopData = $packages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pkg): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                 <tr class="border-b">
-                                    <td class="px-4 py-3">{{ $pkg->image }}</td>
-                                    <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->name }}</td>
-                                    <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->package_type->name }}</td>
-                                    <td class="px-4 py-3">{{ $pkg->price }}</td>
-                                    <td scope="row" class="px-4 py-3 max-w-[12rem] truncate">{{ $pkg->desc }}</td>
+                                    <td class="px-4 py-3"><?php echo e($pkg->image); ?></td>
+                                    <td class="px-4 py-3 max-w-[10rem]"><?php echo e($pkg->name); ?></td>
+                                    <td class="px-4 py-3 max-w-[10rem]"><?php echo e($pkg->package_type->name); ?></td>
+                                    <td class="px-4 py-3"><?php echo e($pkg->price); ?></td>
+                                    <td scope="row" class="px-4 py-3 max-w-[12rem] truncate"><?php echo e($pkg->desc); ?></td>
                                     <td class="px-4 py-3 flex items-center justify-end">
                                         <button id="package-dropdown-button" data-dropdown-toggle="package-dropdown" class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
                                             <i class="fa-solid fa-ellipsis fa-lg"></i>
@@ -80,8 +78,8 @@
                                         </div>
                                     </td>
                                 </tr>
-                            @empty
-                            @endforelse
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -146,12 +144,27 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="image" class="block mb-2 text-sm font-medium text-black">Image</label>
-                            <input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
-                            @error('image')
+                            <input type="file" id="image" name="image" class="form-control <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
+                            <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                 <div class="invalid-feedback">
-                                    {{ $message }}
+                                    <?php echo e($message); ?>
+
                                 </div>
-                            @enderror
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div>
                             <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
@@ -205,12 +218,27 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="image" class="block mb-2 text-sm font-medium text-black">Image</label>
-                            <input type="file" id="image" name="image" value="outbound2.jpg" class="form-control @error('image') is-invalid @enderror bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
-                            @error('image')
+                            <input type="file" id="image" name="image" value="outbound2.jpg" class="form-control <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?> bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
+                            <?php $__errorArgs = ['image'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                                 <div class="invalid-feedback">
-                                    {{ $message }}
+                                    <?php echo e($message); ?>
+
                                 </div>
-                            @enderror
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         <div>
                             <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
@@ -257,7 +285,7 @@
             <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
                 <!-- Modal header -->
                 <div class="flex justify-between mb-4 rounded-t sm:mb-5">
-                    <img class="mb-4 h-36" src="{{ asset('img/outbound2.jpg') }}" alt="Image">
+                    <img class="mb-4 h-36" src="<?php echo e(asset('img/outbound2.jpg')); ?>" alt="Image">
                     <div>
                         <button type="button" class="text-neutral-60 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 inline-flex" data-modal-toggle="readPackageModal">
                             <i class="fa-solid fa-xmark fa-xl"></i>
@@ -309,4 +337,6 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.dashboardmain', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/dashboard/packages.blade.php ENDPATH**/ ?>
