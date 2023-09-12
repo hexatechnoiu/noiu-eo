@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Models\Benefits;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::permanentRedirect('/', '/home');
+
 
 Route::get('/home', function () {
     return view('home', [
-        "title" => "Home",
-        "active" => "home"
+        "title" => "Anu",
+        "active" => "anu",
+        "benefits" => Benefits::latest()
     ]);
 })->name('home');
 
@@ -69,5 +71,4 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/register', 'store');
     Route::post('/login', 'authenticate');
     Route::post('/logout', 'logout');
-
 });

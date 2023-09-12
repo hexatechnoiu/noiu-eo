@@ -8,6 +8,7 @@ use App\Models\Inbox;
 use App\Models\Package;
 use App\Models\Package_category;
 use App\Models\Package_type;
+use App\Models\Benefits;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -24,6 +25,7 @@ class DatabaseSeeder extends Seeder
         Package::factory(25)->create();
         Inbox::factory(10)->create();
         Booking::factory(10)->create();
+        Benefits::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

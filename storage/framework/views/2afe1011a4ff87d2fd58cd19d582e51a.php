@@ -1,6 +1,7 @@
 <?php $__env->startSection('container'); ?>
 
 
+
 <section class="bg-center bg-no-repeat bg-cover bg-neutral-40 bg-blend-multiply lg:h-[100vh]" style="background-image: url('<?php echo e(asset('img/noiu.jpg')); ?>')">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-44 lg:py-56">
         <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-white sm:text-4xl md:text-5xl lg:text-6xl">Together We Make
@@ -18,42 +19,11 @@
 
 <section class="bg-primary-40 py-6">
     <div class="logo-slider ml-10 lg:ml-24 space-x-7">
+        <?php for($i = 1; $i <= 12; $i++): ?>
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo1.png')); ?>" alt="">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo' . $i . '.png')); ?>" alt="">
         </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo2.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo3.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo4.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo5.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo6.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo7.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo8.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo9.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default mt-4 md:mt-8">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo10.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default mt-4 md:mt-8">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo11.png')); ?>" alt="">
-        </div>
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="<?php echo e(asset('img/clients/logo12.png')); ?>" alt="">
-        </div>
+        <?php endfor; ?>
     </div>
 </section>
 
@@ -77,13 +47,8 @@
             <p class="text-neutral-60 sm:text-xl">Your Benefits List</p>
         </div>
         <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            <div>
-                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
-                    <i class="fa-solid fa-heart-circle-check fa-lg text-center text-primary-40"></i>
-                </div>
-                <h3 class="mb-2 text-xl font-bold">Pelayanan Ramah</h3>
-                <p class="text-neutral-60">Sebagai startup travel, kami meyakini bahwa customer service yang ramah dan fast response adalah salah satu hal yang mutlak ada di perusahaan kami.</p>
-            </div>
+            
+
             <div>
                 <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
                     <i class="fa-solid fa-thumbs-up fa-lg text-center text-primary-40"></i>

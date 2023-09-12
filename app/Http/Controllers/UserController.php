@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -78,7 +79,9 @@ class UserController extends Controller
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
-        return redirect('/login')->with('success', 'Registrated successfully');
+        // return redirect('/login')->with('success', 'Registrated successfully');
+        
+        return redirect('/login')->with('showModal', true);
     }
 
     /**
@@ -112,5 +115,4 @@ class UserController extends Controller
     {
         //
     }
-
 }
