@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Models\Benefits;
+use App\Models\Package_category;
+use App\Models\Package_type;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,16 +21,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home', function () {
     return view('home', [
-        "title" => "Anu",
-        "active" => "anu",
-        "benefits" => Benefits::latest()
+        "title" => "Beranda",
+        "active" => "home",
+        "benefits" => Benefits::latest()->get()
     ]);
 })->name('home');
 
 Route::get('/outbound', function () {
+    $package = Package_category::where(['id'=>1])->with('Package_types.Packages')->get();
     return view('outbound', [
         "title" => "Outbound",
-        "active" => "outbound"
+        "active" => "outbound",
+        "data" => $package
     ]);
 })->name('outbound');
 

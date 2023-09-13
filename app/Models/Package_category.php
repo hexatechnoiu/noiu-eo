@@ -19,4 +19,8 @@ class Package_category extends Model
     {
         return $this->hasMany(Package_type::class);
     }
+    public function Packages()
+    {
+        return $this->hasManyThrough(Package::class, Package_type::class);
+    }
 }

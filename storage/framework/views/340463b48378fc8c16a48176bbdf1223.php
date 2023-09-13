@@ -47,43 +47,17 @@
             <p class="text-neutral-60 sm:text-xl">Your Benefits List</p>
         </div>
         <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            
+            <?php $__currentLoopData = $benefits; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bft): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div>
+                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
+                    <i class="<?php echo e($bft->icon); ?> text-center text-primary-40"></i>
+                </div>
+                <h3 class="mb-2 text-xl font-bold"><?php echo e($bft->title); ?></h3>
+                <p class="text-neutral-60"><?php echo e($bft->desc); ?></p>
+            </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-            <div>
-                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
-                    <i class="fa-solid fa-thumbs-up fa-lg text-center text-primary-40"></i>
-                </div>
-                <h3 class="mb-2 text-xl font-bold">Mudah dan Nyaman</h3>
-                <p class="text-neutral-60">Kami hadir untuk membantu memudahkan kegiatan & perjalanan liburan anda. Sehingga anda dapat menikmati perjalanan dengan nyaman tanpa repot.</p>
-            </div>
-            <div>
-                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
-                    <i class="fa-solid fa-puzzle-piece fa-lg text-center text-primary-40"></i>
-                </div>
-                <h3 class="mb-2 text-xl font-bold">Fleksibel</h3>
-                <p class="text-neutral-60">Selain paket yang ditawarkan dengan program standar, anda juga dapat memesan itinerary / fasilitas sesuai dengan yang diinginkan.</p>
-            </div>
-            <div>
-                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
-                    <i class="fa-solid fa-award fa-lg text-center text-primary-40"></i>
-                </div>
-                <h3 class="mb-2 text-xl font-bold">Profesional</h3>
-                <p class="text-neutral-60">Kami memiliki team yang berpengalaman dan profesional. Anda akan mendapatkan kemudahan dan kenyamanan baik saat konsultasi mengenai paket dan program maupun saat kegiatan berlangsung</p>
-            </div>
-            <div>
-                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
-                    <i class="fa-solid fa-receipt fa-lg text-center text-primary-40"></i>
-                </div>
-                <h3 class="mb-2 text-xl font-bold">Harga Terjangkau</h3>
-                <p class="text-neutral-60">Harga yang kami tawarkan sangatlah kompetitif. Mengapa demikian ? Karena kami telah bekerja sama dengan banyak vendor seperti hotel, transportasi, restoran dan objek wisata.</p>
-            </div>
-            <div>
-                <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
-                    <i class="fa-solid fa-lock fa-lg text-center text-primary-40"></i>
-                </div>
-                <h3 class="mb-2 text-xl font-bold">Keamanan</h3>
-                <p class="text-neutral-60">NOIU merupakan perusahaan travel yang berlisensi dan resmi. Sehingga anda dapat mempercayakan kegiatan dan liburan anda kepada kami. Yang tentunya akan memberikan kenyamanan dan pengalaman yang tak terlupakan.</p>
-            </div>
+            
         </div>
     </div>
 </section>
@@ -114,4 +88,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/azfasa15/public_html/noiu-eo/resources/views/home.blade.php ENDPATH**/ ?>

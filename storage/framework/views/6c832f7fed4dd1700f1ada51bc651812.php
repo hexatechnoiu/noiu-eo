@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>NOIU</title>
+        <title><?php echo e($title); ?></title>
         <?php echo app('Illuminate\Foundation\Vite')(['resources/js/App.js']); ?>
 
         
@@ -23,11 +23,11 @@
                 <?php echo $__env->yieldContent('container'); ?>
             </div>
 
-        
+        <?php echo $__env->make('partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     </body>
 </html>
-<?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/layouts/dashboardmain.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/azfasa15/public_html/noiu-eo/resources/views/layouts/main.blade.php ENDPATH**/ ?>

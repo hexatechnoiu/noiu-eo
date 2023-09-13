@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -38,7 +37,7 @@ class UserController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard')->with('showAlert', true);
         } else {
-            return back()->with('loginError', "We're sorry but your email your password is incorrect");
+            return back()->with('loginError', "your password is incorrect");
         }
     }
     public function logout()
@@ -46,7 +45,7 @@ class UserController extends Controller
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('/');
+        return redirect(route('home'));
     }
 
     /**
@@ -63,25 +62,26 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'image' => 'image|mimes:png,jpg,svg,jpeg,webp,gif|max:4096',
+            'avatar' => 'image|mimes:png,jpg,svg,jpeg,webp,gif|max:4096',
             'email' => 'required|email:dns|unique:users',
             'name' => 'required|min:3|max:255',
             'phone' => 'required|numeric|digits_between:8,15|unique:users',
             'address' => 'required|max:255|min:3',
             'password' => 'required|min:8|max:255',
+            'confirm-password' => 'required|min:2|max:255',
         ]);
-        // if ($request->file('image')) {
-        //     $validatedData['image'] = $request->file('image')->store('avatars');
-        // }
-        if ($request->file('image')) {
-            $validatedData['avatar'] = Storage::disk('public')->putFile('avatars', $request->file('image'));
+
+        if ($validatedData['password'] !== $validatedData['confirm-password']) {
+            return redirect()->back()->withErrors(['confirm-password' => "Confirmed password seems did'nt match"]);
+        }
+
+        if ($request->file('avatar')) {
+            $validatedData['avatar'] = Storage::disk('public')->putFile('avatars', $request->file('avatar'));
         }
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
-        // return redirect('/login')->with('success', 'Registrated successfully');
-        
-        return redirect('/login')->with('showAlert', true);
+        return redirect()->back()->with('showAlert', true);
     }
 
     /**

@@ -32,4 +32,4 @@
         </div>
     </body>
 </html>
-<?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/azfasa15/public_html/noiu-eo/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/views/minimal.blade.php ENDPATH**/ ?>

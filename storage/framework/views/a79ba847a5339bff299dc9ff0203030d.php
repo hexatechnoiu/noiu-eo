@@ -72,4 +72,4 @@
         <span class="text-xs sm:text-base font-light text-white text-center">© 2023 <a href="#">Hexatech™</a>. All Rights Reserved.</span>
     </div>
 </footer>
-<?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/partials/footer.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/azfasa15/public_html/noiu-eo/resources/views/partials/footer.blade.php ENDPATH**/ ?>

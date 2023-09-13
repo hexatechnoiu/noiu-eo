@@ -148,7 +148,7 @@
             </div>
             <p class="mb-4 text-neutral-60">Are you sure you want to Logout?</p>
             <div class="flex justify-center items-center space-x-4">
-                <form action="/logout" method="post">
+                <form action="/logout" method="POST">
                     <?php echo csrf_field(); ?>
                     <button data-modal-toggle="logoutModal" type="button" class="py-2 px-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
                     <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10">Yes, I'm sure</button>
@@ -157,4 +157,4 @@
         </div>
     </div>
 </div>
-<?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/partials/sidebar.blade.php ENDPATH**/ ?>
+<?php /**PATH /home/azfasa15/public_html/noiu-eo/resources/views/partials/sidebar.blade.php ENDPATH**/ ?>

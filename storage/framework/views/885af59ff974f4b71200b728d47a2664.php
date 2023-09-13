@@ -33,11 +33,11 @@
                 <form class="space-y-4 md:space-y-6" action="/login" method="POST">
                     <?php echo csrf_field(); ?>
                     <?php if(session()->has('loginError')): ?>
-                        <div class="bg-red-900 text-white p-1.5">
-                            <?php echo e(session('loginError')); ?>
+                    <div class="flex bg-red-700 text-white p-1.5 rounded-lg justify-center">
+                        <?php echo e(session('loginError')); ?>
 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     <?php endif; ?>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-black">Email</label>
@@ -57,24 +57,27 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
-                    <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-black">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Your Password" class="bg-white border border-neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" required>
-                        <?php $__errorArgs = ['password'];
+                        <div class="relative flex items-center">
+                            <input type="password" name="password" id="password" placeholder="Your Password" autocomplete="none" class="bg-white border border-neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5 pr-10" required>
+                            <span id="togglePassword" class="toggle-password cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2" onclick="togglePasswordField('password', 'togglePassword')">
+                                <i id="eyeIcon" class="fas fa-eye-slash"></i>
+                            </span>
+                        </div>
+                    <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
-                        <div class="text-red-900">
-                            <?php echo e($message); ?>
+                    <div class="text-red-700">
+                        <?php echo e($message); ?>
 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>
-                    </div>
+unset($__errorArgs, $__bag); ?>                    
                     <div class="flex items-center justify-between">
                         <div class="flex items-start">
                         </div>
@@ -93,4 +96,21 @@ unset($__errorArgs, $__bag); ?>
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/auth/login.blade.php ENDPATH**/ ?>
+<script>
+    function togglePasswordField() {
+    const passwordField = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordField.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    }
+}
+
+</script>
+<?php echo $__env->make('layouts.dashboardmain', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/azfasa15/public_html/noiu-eo/resources/views/auth/login.blade.php ENDPATH**/ ?>

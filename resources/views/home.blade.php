@@ -49,7 +49,7 @@
             <p class="text-neutral-60 sm:text-xl">Your Benefits List</p>
         </div>
         <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            {{-- @foreach ($benefits as $bft)
+            @foreach ($benefits as $bft)
             <div>
                 <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
                     <i class="{{ $bft->icon }} text-center text-primary-40"></i>
@@ -57,9 +57,9 @@
                 <h3 class="mb-2 text-xl font-bold">{{ $bft->title }}</h3>
                 <p class="text-neutral-60">{{ $bft->desc }}</p>
             </div>
-            @endforeach --}}
+            @endforeach
 
-            <div>
+            {{-- <div>
                 <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
                     <i class="fa-solid fa-thumbs-up fa-lg text-center text-primary-40"></i>
                 </div>
@@ -93,7 +93,7 @@
                 </div>
                 <h3 class="mb-2 text-xl font-bold">Keamanan</h3>
                 <p class="text-neutral-60">NOIU merupakan perusahaan travel yang berlisensi dan resmi. Sehingga anda dapat mempercayakan kegiatan dan liburan anda kepada kami. Yang tentunya akan memberikan kenyamanan dan pengalaman yang tak terlupakan.</p>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
