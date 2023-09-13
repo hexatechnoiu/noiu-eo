@@ -33,14 +33,14 @@
                 <a href="/dashboard/users" class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
                     <div class="flex flex-col items-start leading-normal gap-2">
                         <p class="text-lg lg:text-xl font-bold text-white">Users</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">62</h5>
+                        <h5 class="text-2xl font-bold tracking-tight text-white">{{ $users }}</h5>
                     </div>
                     <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-user fa-2xl"></i></div>
                 </a>
                 <a href="/dashboard/packages" class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
                     <div class="flex flex-col items-start leading-normal gap-2">
                         <p class="text-lg lg:text-xl font-bold text-white">Packages</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">21</h5>
+                        <h5 class="text-2xl font-bold tracking-tight text-white">{{ $packages }}</h5>
                     </div>
                     <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-clipboard-list fa-2xl"></i></div>
                 </a>
@@ -48,7 +48,7 @@
                     class="flex flex-row items-center justify-between p-4 gap-10 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
                     <div class="flex flex-col items-start leading-normal gap-2">
                         <p class="text-lg lg:text-xl font-bold text-white">Categories</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">5</h5>
+                        <h5 class="text-2xl font-bold tracking-tight text-white">{{ $categories }}</h5>
                     </div>
                     <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-list-check fa-2xl"></i></div>
                 </a>

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Package;
+use App\Models\Package_category;
+use App\Models\Package_type;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,7 +14,8 @@ class DashboardController extends Controller
     {
         return view('dashboard.users', [
             "title" => "Users",
-            "active" => "dashboard"
+            "active" => "dashboard",
+            "users" => User::latest()->get()
         ]);
     }
     public function packages()
@@ -26,14 +30,19 @@ class DashboardController extends Controller
     {
         return view('dashboard.categories', [
             "title" => "Categories",
-            "active" => "dashboard"
+            "active" => "dashboard",
+            "categories" => Package_category::with('Package_types')->latest()->get()
         ]);
     }
     public function index()
     {
+
         return view('dashboard.index', [
             "title" => "Dashboard",
-            "active" => "dashboard"
+            "active" => "dashboard",
+            'users' => User::count(),
+            'packages' => Package::count(),
+            'categories' => Package_type::count()
         ]);
     }
 }

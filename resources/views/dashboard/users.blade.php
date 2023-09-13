@@ -45,7 +45,44 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($users as $u)
                             <tr class="border-b">
+                                <td class="w-1 px-4 py-3"><img src="{{ asset('/storage/'. $u->avatar)  }}"></td>
+                                <td class="px-4 py-3">{{ $u->name }}</td>
+                                <td class="px-4 py-3">{{ $u->email }}</td>
+                                <td class="px-4 py-3">{{ $u->phone }}</td>
+                                <td class="px-4 py-3 max-w-[12rem] truncate">{{ $u->address }}</td>
+                                <td class="px-4 py-3 my-6 flex items-center justify-end">
+                                    <button id="user-dropdown-button" data-dropdown-toggle="user-dropdown" class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
+                                        <i class="fa-solid fa-ellipsis fa-lg"></i>
+                                    </button>
+                                    <div id="user-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
+                                        <ul class="py-1 text-sm" aria-labelledby="user-dropdown-button">
+                                            <li>
+                                                <button type="button" data-modal-target="updateUserModal" data-modal-toggle="updateUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                    <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                                    <span>Edit</span>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button type="button" data-modal-target="readUserModal" data-modal-toggle="readUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                    <i class="fa-solid fa-eye mr-2"></i>
+                                                    Preview
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
+                                                    <i class="fa-solid fa-trash-can mr-2"></i>
+                                                    Delete
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+
+                            {{-- <tr class="border-b">
                                 <td class="w-1 px-4 py-3"><img src="{{ asset('img/team/hafiz.jpg') }}" alt=""></td>
                                 <td class="px-4 py-3">Hafiz Haekal</td>
                                 <td class="px-4 py-3">hafizhaekal03@gmail.com</td>
@@ -146,7 +183,7 @@
                                         </ul>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>

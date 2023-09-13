@@ -3,30 +3,36 @@
 @section('container')
 
 {{-- Get In Touch --}}
+@if (session()->has('success'))
+<p class="text-2xl font-bold ml-72">
+    {{ session('success') }}    
+</p>
+@endif
 <section class="bg-white px-12 my-10">
     <div class="sm:grid sm:grid-cols-2 lg:flex-row gap-16 mx-auto max-w-screen-xl justify-center">
         <div class="">
             <h2 class="mb-1 text-3xl tracking-tight font-extrabold text-black sm:text-4xl">Get in Touch</h2>
             <p class="max-w-2xl mb-6 font-light text-neutral-60 sm:text-lg">Number One I'ts You</p>
-            <form>
+            <form method="POST" action="/send">
+                @csrf
                 <div class="grid gap-6 my-6 md:grid-cols-2">
                     <div>
                         <label for="name" class="block mb-2 text-base font-medium text-black">Full Name</label>
-                        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Name" required>
+                        <input name="name" type="text" id="name" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Name" required>
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-base font-medium text-black">Email</label>
-                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
+                        <input name="email" type="email" id="email" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
                     </div>
                 </div>
                 <div class="mb-6">
                     <label for="message" class="block mb-2 text-base font-medium text-black">Message</label>
-                    <textarea id="message" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Message" required></textarea>
+                    <textarea name="message" id="message" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Message" required></textarea>
                 </div>
                 <div class="flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 sm:space-x-4">
-                    <a href="#" class="inline-flex justify-center items-center py-2 px-5 text-base font-normal text-center text-white rounded-lg bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms]">
+                    <button type="submit" href="#" class="inline-flex justify-center items-center py-2 px-5 text-base font-normal text-center text-white rounded-lg bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms]">
                         Submit
-                    </a>
+                    </button>
                 </div>
             </form>
         </div>

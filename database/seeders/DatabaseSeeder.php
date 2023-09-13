@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
         ]);
         
         Package_type::create([
-            'name' => 'Paintball',
+            'name' => 'Others',
             'status' => 'active',
             'package_category_id' => 1
         ]);

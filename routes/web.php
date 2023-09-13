@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InboxController;
 use App\Http\Controllers\UserController;
 use App\Models\Benefits;
 use App\Models\Package_category;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/home');
 
 Route::get('/home', function () {
     return view('home', [
@@ -37,9 +39,12 @@ Route::get('/outbound', function () {
 })->name('outbound');
 
 Route::get('/mice', function () {
+    $package = Package_category::where(['id'=>2])->with('Package_types.Packages')->get();
     return view('mice', [
         "title" => "Mice",
-        "active" => "mice"
+        "active" => "mice",
+        "data" => $package
+
     ]);
 })->name('mice');
 
@@ -56,7 +61,6 @@ Route::get('/booking', function () {
         "active" => "booking"
     ]);
 })->middleware('auth')->name('booking');
-
 
 
 Route::controller(DashboardController::class)->group(
@@ -76,3 +80,5 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/login', 'authenticate');
     Route::post('/logout', 'logout');
 });
+
+Route::post('/send', [InboxController::class, 'store']);
