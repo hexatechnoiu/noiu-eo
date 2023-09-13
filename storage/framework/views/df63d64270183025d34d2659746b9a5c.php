@@ -112,16 +112,12 @@
             <img src="<?php echo e(asset( '/storage/'. auth()->user()->avatar)); ?>" class="h-10 my-auto rounded-full"
                 alt="Profile" />
             <ul class="my-auto">
-                <li class="ml-3 text-white"><?php echo e(auth()->user()->name); ?></li>
+                <li class="ml-3 text-white max-w-[8rem] truncate"><?php echo e(auth()->user()->name); ?></li>
                 <li class="ml-3 text-white text-xs"><?php echo e(auth()->user()->role); ?></li>
             </ul>
-            <form class="ml-auto" action="/logout" method="POST">
-                <?php echo csrf_field(); ?>
-                <button type="submit" data-tooltip-target="tooltip-logout"
-                    class="p-2 ml-9 text-base font-normal text-white rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
-                    <i class="fa-solid fa-right-from-bracket fa-lg"></i>
-                </button>
-            </form>
+            <button type="button" data-tooltip-target="tooltip-logout" data-modal-target="logoutModal" data-modal-toggle="logoutModal" class="p-2 ml-9 text-base font-normal text-white rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+            </button>
             <div id="tooltip-logout" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-black rounded-lg shadow-sm opacity-0 transition-opacity duration-[400ms] tooltip">
                 Logout
                 <div class="tooltip-arrow" data-popper-arrow></div>
@@ -137,4 +133,28 @@
         </div>
     <?php endif; ?>
 </aside>
+
+
+<div id="logoutModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-md max-h-full">
+        <!-- Modal content -->
+        <div class="relative p-4 text-center bg-white rounded-lg shadow sm:p-5">
+            <button type="button" class="text-neutral-60 absolute top-2.5 right-2.5 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 ml-auto inline-flex items-center" data-modal-toggle="logoutModal">
+                <i class="fa-solid fa-xmark fa-xl"></i>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <div class="text-neutral-60 w-11 h-11 mt-3.5 mb-6 mx-auto">
+                <i class="fa-solid fa-person-walking-arrow-right text-4xl"></i>
+            </div>
+            <p class="mb-4 text-neutral-60">Are you sure you want to Logout?</p>
+            <div class="flex justify-center items-center space-x-4">
+                <form action="/logout" method="post">
+                    <?php echo csrf_field(); ?>
+                    <button data-modal-toggle="logoutModal" type="button" class="py-2 px-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
+                    <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10">Yes, I'm sure</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/partials/sidebar.blade.php ENDPATH**/ ?>

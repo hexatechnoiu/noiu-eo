@@ -1,8 +1,6 @@
-@extends('layouts.main')
+<?php $__env->startSection('container'); ?>
 
-@section('container')
-
-    @if (session('showAlert'))
+    <?php if(session('showAlert')): ?>
     <div class="flex justify-end mt-5 mr-5">
         <div id="alert-3" class="flex flex-row items-center p-4 mb-4 text-green-800 rounded-lg bg-green-100 fixed" role="alert">
             <div class="flex items-center">
@@ -21,44 +19,61 @@
             </div>
         </div>
     </div>
-    @endif
+    <?php endif; ?>
 
 
     <section class="flex flex-col items-center justify-center px-6 py-10 mx-auto md:h-screen">
         <div class="w-full bg-white rounded-lg shadow-xl border border-neutral-20 my-4 sm:max-w-md">
-        <img src="{{ asset('img/logo-eo-blue.svg') }}" class="h-16 mt-6 mx-auto" alt="NOIU Logo" />
+        <img src="<?php echo e(asset('img/logo-eo-blue.svg')); ?>" class="h-16 mt-6 mx-auto" alt="NOIU Logo" />
 
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
                     Sign in to Your Account
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="/login" method="POST">
-                    @csrf
-                    @if (session()->has('loginError'))
+                    <?php echo csrf_field(); ?>
+                    <?php if(session()->has('loginError')): ?>
                         <div class="bg-red-900 text-white p-1.5">
-                            {{ session('loginError') }}
+                            <?php echo e(session('loginError')); ?>
+
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @endif
+                    <?php endif; ?>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-black">Email</label>
-                        <input value="{{old('email')}}" type="email" name="email" id="email" class="bg-white border border-neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
-                        @error('email')
+                        <input value="<?php echo e(old('email')); ?>" type="email" name="email" id="email" class="bg-white border border-neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="hexatechnoiu@gmail.com" required>
+                        <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                         <div class="text-red-900">
-                            {{ $message }}
+                            <?php echo e($message); ?>
+
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @enderror
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
                     <div>
                         <label for="password" class="block mb-2 text-sm font-medium text-black">Password</label>
                         <input type="password" name="password" id="password" placeholder="Your Password" class="bg-white border border-neutral-20 text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" required>
-                        @error('password')
+                        <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
                         <div class="text-red-900">
-                            {{ $message }}
+                            <?php echo e($message); ?>
+
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
-                    @enderror
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="flex items-center justify-between">
                         <div class="flex items-start">
@@ -76,4 +91,6 @@
         </div>
     </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/auth/login.blade.php ENDPATH**/ ?>

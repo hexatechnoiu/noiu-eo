@@ -36,7 +36,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/dashboard')->with('showAlert', true);
         } else {
             return back()->with('loginError', "We're sorry but your email your password is incorrect");
         }
@@ -81,7 +81,7 @@ class UserController extends Controller
         User::create($validatedData);
         // return redirect('/login')->with('success', 'Registrated successfully');
         
-        return redirect('/login')->with('showModal', true);
+        return redirect('/login')->with('showAlert', true);
     }
 
     /**

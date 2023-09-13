@@ -114,4 +114,41 @@ let calcScrollValue = () => {
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
 
-// Modal
+// Popup Alert
+
+// Tambahkan kode JavaScript untuk mengatur bar waktu tersisa
+var alertElement = document.getElementById('alert-3');
+var timeBarElement = document.getElementById('time-bar');
+var closeButton = document.querySelector('[data-dismiss-target="#alert-3"]');
+
+// Fungsi untuk menghilangkan alert
+function hideAlert() {
+    alertElement.style.display = 'none';
+}
+
+// Fungsi untuk mengatur bar waktu tersisa
+function updateBar() {
+    var duration = 10000; // Waktu dalam milidetik (5 detik dalam contoh ini)
+    var interval = 100; // Interval untuk mengupdate bar
+
+    var increment = (interval / duration) * 100;
+    var currentValue = 100;
+
+    var intervalId = setInterval(function () {
+        currentValue -= increment;
+        timeBarElement.style.width = currentValue + '%';
+
+        if (currentValue <= 0) {
+            clearInterval(intervalId);
+            hideAlert();
+        }
+    }, interval);
+}
+
+// Tambahkan event listener untuk tombol close
+closeButton.addEventListener('click', function() {
+    hideAlert();
+});
+
+// Panggil fungsi untuk mengatur bar waktu tersisa
+updateBar();

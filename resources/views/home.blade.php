@@ -54,7 +54,7 @@
                 <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-10 lg:h-12 lg:w-12 transform hover:scale-x-[-1] transition-transform duration-[400ms] cursor-pointer">
                     <i class="{{ $bft->icon }} text-center text-primary-40"></i>
                 </div>
-                <h3 class="mb-2 text-xl font-bold">{{ $bft->name }}</h3>
+                <h3 class="mb-2 text-xl font-bold">{{ $bft->title }}</h3>
                 <p class="text-neutral-60">{{ $bft->desc }}</p>
             </div>
             @endforeach --}}
