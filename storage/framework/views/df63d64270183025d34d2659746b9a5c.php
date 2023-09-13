@@ -11,7 +11,7 @@
         <ul class="space-y-2">
             <li>
                 <a href="/" class="flex items-center p-2 pb-0">
-                    <img src="{{ asset('img/logo-eo.svg') }}" class="h-12 mb-6 text-white"
+                    <img src="<?php echo e(asset('img/logo-eo.svg')); ?>" class="h-12 mb-6 text-white"
                         alt="NOIU Logo" />
                     <button type="button" data-drawer-hide="default-sidebar" aria-controls="default-sidebar"
                         class="lg:hidden text-white bg-transparent hover:bg-secondary-40 hover:text-black rounded-lg text-sm py-4 px-2 my-auto absolute top-8 right-3 inline-flex items-center">
@@ -22,23 +22,23 @@
             </li>
             <li>
                 <a href="/home"
-                    class="{{ $active === 'home' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
+                    class="<?php echo e($active === 'home' ? 'bg-secondary-40 text-black group' : 'text-white'); ?> flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
                     <i class="fa-solid fa-house"></i>
                     <span class="ml-3">Home</span>
                 </a>
             </li>
             <li>
-                @if ($active === 'outbound')
+                <?php if($active === 'outbound'): ?>
                     <button type="button" id="dropdown-button-outbound"
-                        class="{{ $active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 w-full text-base font-normal rounded-lg"
+                        class="<?php echo e($active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white'); ?> flex items-center p-2 w-full text-base font-normal rounded-lg"
                         aria-controls="dropdown-outbound" data-collapse-toggle="dropdown-outbound">
                         <i class="fa-solid fa-person-hiking fa-lg"></i>
                         <span class="flex-1 ml-3 text-left whitespace-nowrap">Outbound Package</span>
                         <i class="fas fa-chevron-down ml-3"></i>
                     </button>
-                @else
+                <?php else: ?>
                     <div
-                        class="{{ $active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 w-full text-base font-normal rounded-lg transition cursor-pointer hover:bg-secondary-40 hover:text-black duration-[400ms]">
+                        class="<?php echo e($active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white'); ?> flex items-center p-2 w-full text-base font-normal rounded-lg transition cursor-pointer hover:bg-secondary-40 hover:text-black duration-[400ms]">
                         <a href="/outbound">
                             <i class="fa-solid fa-person-hiking fa-lg"></i>
                             <span class="flex-1 ml-3 text-left whitespace-nowrap">Outbound Package</span>
@@ -48,7 +48,7 @@
                                 data-collapse-toggle="dropdown-outbound"></i>
                         </div>
                     </div>
-                @endif
+                <?php endif; ?>
 
                 <ul id="dropdown-outbound" class="hidden py-2 space-y-2">
                     <li>
@@ -71,14 +71,14 @@
             </li>
             <li>
                 <a href="/mice"
-                    class="{{ $active === 'mice' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
+                    class="<?php echo e($active === 'mice' ? 'bg-secondary-40 text-black group' : 'text-white'); ?> flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
                     <i class="fa-solid fa-clipboard-list fa-lg"></i>
                     <span class="ml-3">Event Organizer</span>
                 </a>
             </li>
             <li>
                 <a href="/booking"
-                    class="{{ $active === 'booking' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                    class="<?php echo e($active === 'booking' ? 'bg-secondary-40 text-black group' : 'text-white'); ?> flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                     <i class="fa-solid fa-clipboard-check fa-lg"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Booking</span>
                     <span
@@ -89,31 +89,31 @@
             </li>
             <li>
                 <a href="/contact"
-                    class="{{ $active === 'contact' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                    class="<?php echo e($active === 'contact' ? 'bg-secondary-40 text-black group' : 'text-white'); ?> flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                     <i class="fa-solid fa-phone"></i>
                     <span class="ml-3">Contact Us</span>
                 </a>
             </li>
         </ul>
-        @auth
+        <?php if(auth()->guard()->check()): ?>
             <ul class="pt-5 mt-5 space-y-2 border-t border-white">
                 <li>
                     <a href="/dashboard"
-                        class="{{ $active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                        class="<?php echo e($active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white'); ?> flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                         <i class="fa-solid fa-gauge-high fa-lg"></i>
                         <span class="ml-3">Dashboard</span>
                     </a>
                 </li>
             </ul>
-        @endauth
+        <?php endif; ?>
     </div>
-    @auth
+    <?php if(auth()->guard()->check()): ?>
         <div class="absolute bottom-0 left-0 p-4 w-full whitespace-nowrap flex z-20 bg-primary-20 border-t border-white">
-            <img src="{{ asset( '/storage/'. auth()->user()->avatar) }}" class="h-10 my-auto rounded-full"
+            <img src="<?php echo e(asset( '/storage/'. auth()->user()->avatar)); ?>" class="h-10 my-auto rounded-full"
                 alt="Profile" />
             <ul class="my-auto">
-                <li class="ml-3 text-white max-w-[8rem] truncate">{{ auth()->user()->name }}</li>
-                <li class="ml-3 text-white text-xs">{{ auth()->user()->role }}</li>
+                <li class="ml-3 text-white max-w-[8rem] truncate"><?php echo e(auth()->user()->name); ?></li>
+                <li class="ml-3 text-white text-xs"><?php echo e(auth()->user()->role); ?></li>
             </ul>
             <button type="button" data-tooltip-target="tooltip-logout" data-modal-target="logoutModal" data-modal-toggle="logoutModal" class="p-2 ml-9 text-base font-normal text-white rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                 <i class="fa-solid fa-right-from-bracket fa-lg"></i>
@@ -123,18 +123,18 @@
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
         </div>
-    @endauth
-    @guest
+    <?php endif; ?>
+    <?php if(auth()->guard()->guest()): ?>
         <div class="flex z-20 absolute justify-end bottom-0 left-0 py-4 w-full whitespace-nowrap bg-primary-20 border-t border-white">
             <a href="/login" class="py-2 px-20 mx-auto text-base font-medium text-black rounded-lg bg-secondary-40 hover:bg-secondary-50 group duration-[400ms]">
                 <span class="mr-2">Login</span>
                 <i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>
             </a>
         </div>
-    @endguest
+    <?php endif; ?>
 </aside>
 
-{{-- Modal Logout --}}
+
 <div id="logoutModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
         <!-- Modal content -->
@@ -149,7 +149,7 @@
             <p class="mb-4 text-neutral-60">Are you sure you want to Logout?</p>
             <div class="flex justify-center items-center">
                 <form action="/logout" method="POST">
-                    @csrf
+                    <?php echo csrf_field(); ?>
                     <button data-modal-toggle="logoutModal" type="button" class="py-2 px-3 mr-4 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
                     <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10">Yes, I'm sure</button>
                 </form>
@@ -157,3 +157,4 @@
         </div>
     </div>
 </div>
+<?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/partials/sidebar.blade.php ENDPATH**/ ?>

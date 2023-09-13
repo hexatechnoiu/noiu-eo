@@ -37,7 +37,7 @@ class UserController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard')->with('showAlert', true);
         } else {
-            return back()->with('loginError', "your password is incorrect");
+            return back()->with('loginError', "Email or password is incorrect!");
         }
     }
     public function logout()
@@ -45,7 +45,7 @@ class UserController extends Controller
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect(route('home'));
+        return redirect(route('home'))->with('showAlert', true);
     }
 
     /**
@@ -62,7 +62,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'avatar' => 'image|mimes:png,jpg,svg,jpeg,webp,gif|max:4096',
+            'avatar' => 'required|image|mimes:png,jpg,svg,jpeg,webp,gif|max:4096',
             'email' => 'required|email:dns|unique:users',
             'name' => 'required|min:3|max:255',
             'phone' => 'required|numeric|digits_between:8,15|unique:users',
@@ -81,7 +81,7 @@ class UserController extends Controller
 
         $validatedData['password'] = Hash::make($validatedData['password']);
         User::create($validatedData);
-        return redirect()->back()->with('showAlert', true);
+        return redirect('/login')->with('showAlert', true);
     }
 
     /**

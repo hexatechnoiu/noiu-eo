@@ -3,8 +3,8 @@
 @section('container')
 
     @if (session('showAlert'))
-    <div class="flex justify-end mt-5 mr-5">
-        <div id="alert-3" class="flex flex-row items-center p-4 mb-4 text-green-800 rounded-lg bg-green-100 fixed" role="alert">
+    <div class="flex justify-end">
+        <div id="alert-3" class="flex flex-row items-center p-4 mb-4 mt-5 mr-5 text-green-800 rounded-lg bg-green-100 fixed" role="alert">
             <div class="flex items-center">
                 <i class="fa-solid fa-circle-check"></i>
                 <span class="sr-only">Info</span>

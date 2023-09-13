@@ -1,8 +1,6 @@
-@extends('layouts.dashboardmain')
+<?php $__env->startSection('container'); ?>
 
-@section('container')
-
-    @if (session('showAlert'))
+    <?php if(session('showAlert')): ?>
     <div class="flex justify-end">
         <div id="alert-3" class="flex flex-row items-center p-4 mb-4 mt-5 mr-5 text-green-800 rounded-lg bg-green-100 fixed" role="alert">
             <div class="flex items-center">
@@ -21,7 +19,7 @@
             </div>
         </div>
     </div>
-    @endif
+    <?php endif; ?>
 
     <section class="bg-white">
         <div class="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
@@ -429,4 +427,6 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.dashboardmain', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/dashboard/index.blade.php ENDPATH**/ ?>

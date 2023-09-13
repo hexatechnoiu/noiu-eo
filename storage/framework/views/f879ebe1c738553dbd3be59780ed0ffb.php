@@ -1,8 +1,6 @@
-@extends('layouts.dashboardmain')
+<?php $__env->startSection('container'); ?>
 
-@section('container')
-
-    @if (session('showAlert'))
+    <?php if(session('showAlert')): ?>
     <div class="flex justify-end">
         <div id="alert-3" class="flex flex-row items-center p-4 mb-4 mt-5 mr-5 text-green-800 rounded-lg bg-green-100 fixed" role="alert">
             <div class="flex items-center">
@@ -21,45 +19,13 @@
             </div>
         </div>
     </div>
-    @endif
-
-    <section class="bg-white">
-        <div class="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
-            <div class="mx-auto lg:mx-0 mb-4 max-w-screen-sm lg:mb-8">
-                <h2 class="text-2xl font-normal text-black">Dashboard</h2>
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-evenly gap-8 max-w-full p-6 bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
-                <a href="/dashboard/users" class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
-                    <div class="flex flex-col items-start leading-normal gap-2">
-                        <p class="text-lg lg:text-xl font-bold text-white">Users</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">62</h5>
-                    </div>
-                    <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-user fa-2xl"></i></div>
-                </a>
-                <a href="/dashboard/packages" class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
-                    <div class="flex flex-col items-start leading-normal gap-2">
-                        <p class="text-lg lg:text-xl font-bold text-white">Packages</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">21</h5>
-                    </div>
-                    <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-clipboard-list fa-2xl"></i></div>
-                </a>
-                <a href="/dashboard/categories"
-                    class="flex flex-row items-center justify-between p-4 gap-10 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
-                    <div class="flex flex-col items-start leading-normal gap-2">
-                        <p class="text-lg lg:text-xl font-bold text-white">Categories</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">5</h5>
-                    </div>
-                    <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-list-check fa-2xl"></i></div>
-                </a>
-            </div>
-        </div>
-    </section>
+    <?php endif; ?>
 
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
             <h2 class="flex justify-center mb-8 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Booking</h2>
+
             <!-- Start coding here -->
             <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
@@ -429,4 +395,6 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Praktik Kerja Lapangan (PKL)\noiu-eo\resources\views/booking.blade.php ENDPATH**/ ?>
