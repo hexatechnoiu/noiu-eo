@@ -15,6 +15,6 @@ class InboxController extends Controller
             'message' => 'required'
         ]);
         Inbox::create($data);
-        return redirect()->back()->with('success', 'Message sent successfully');
+        return redirect()->back()->with('inbox', 'Message sent successfully!');
     }
 }

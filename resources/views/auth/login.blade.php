@@ -4,7 +4,7 @@
 
     @if (session('showAlert'))
     <div class="flex justify-end">
-        <div id="alert-3" class="flex flex-row items-center p-4 mb-4 mt-5 mr-5 text-green-800 rounded-lg bg-green-100 fixed" role="alert">
+        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed" role="alert">
             <div class="flex items-center">
                 <i class="fa-solid fa-circle-check"></i>
                 <span class="sr-only">Info</span>
@@ -16,8 +16,8 @@
                 <span class="sr-only">Close</span>
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="w-full h-1 bg-gray-300 rounded-full mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-green-500 rounded-full" style="width: 100%;"></div>
+            <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
+                <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
             </div>
         </div>
     </div>

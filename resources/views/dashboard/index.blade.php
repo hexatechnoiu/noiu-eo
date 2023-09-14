@@ -4,20 +4,20 @@
 
     @if (session('showAlert'))
     <div class="flex justify-end">
-        <div id="alert-3" class="flex flex-row items-center p-4 mb-4 mt-5 mr-5 text-green-800 rounded-lg bg-green-100 fixed" role="alert">
+        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed" role="alert">
             <div class="flex items-center">
                 <i class="fa-solid fa-circle-check"></i>
                 <span class="sr-only">Info</span>
                 <div class="ml-4 mr-2 text-sm font-medium">
-                    Login successfully!
+                    Log In successfully!
                 </div>
             </div>
             <button type="button" class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="w-full h-1 bg-gray-300 rounded-full mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-green-500 rounded-full" style="width: 100%;"></div>
+            <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
+                <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
             </div>
         </div>
     </div>
@@ -33,14 +33,14 @@
                 <a href="/dashboard/users" class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
                     <div class="flex flex-col items-start leading-normal gap-2">
                         <p class="text-lg lg:text-xl font-bold text-white">Users</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">{{ $users }}</h5>
+                        <h5 class="text-2xl font-bold tracking-tight text-white">62</h5>
                     </div>
                     <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-user fa-2xl"></i></div>
                 </a>
                 <a href="/dashboard/packages" class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
                     <div class="flex flex-col items-start leading-normal gap-2">
                         <p class="text-lg lg:text-xl font-bold text-white">Packages</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">{{ $packages }}</h5>
+                        <h5 class="text-2xl font-bold tracking-tight text-white">21</h5>
                     </div>
                     <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-clipboard-list fa-2xl"></i></div>
                 </a>
@@ -48,7 +48,7 @@
                     class="flex flex-row items-center justify-between p-4 gap-10 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
                     <div class="flex flex-col items-start leading-normal gap-2">
                         <p class="text-lg lg:text-xl font-bold text-white">Categories</p>
-                        <h5 class="text-2xl font-bold tracking-tight text-white">{{ $categories }}</h5>
+                        <h5 class="text-2xl font-bold tracking-tight text-white">5</h5>
                     </div>
                     <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-list-check fa-2xl"></i></div>
                 </a>

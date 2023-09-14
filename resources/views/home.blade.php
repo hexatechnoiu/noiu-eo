@@ -4,20 +4,20 @@
 
     @if (session('showAlert'))
     <div class="flex justify-end">
-        <div id="alert-3" class="flex flex-row items-center p-4 mb-4 mt-5 mr-5 text-red-700 rounded-lg bg-red-200 fixed" role="alert">
+        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-red-700 bg-red-200 fixed" role="alert">
             <div class="flex items-center">
                 <i class="fa-solid fa-circle-check"></i>
                 <span class="sr-only">Info</span>
                 <div class="ml-4 mr-2 text-sm font-medium">
-                    Logout successfully!
+                    Log Out successfully!
                 </div>
             </div>
             <button type="button" class="text-red-700 hover:bg-red-300 duration-[400ms] rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="w-full h-1 bg-gray-300 rounded-full mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-red-700 rounded-full" style="width: 100%;"></div>
+            <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
+                <div id="time-bar" class="h-1 bg-red-700" style="width: 100%;"></div>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
     <div class="logo-slider ml-10 lg:ml-24 space-x-7">
         @for ($i = 1; $i <= 12; $i++)
         <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo' . $i . '.png') }}" alt="">
+            <img class="w-12 md:w-24 my-auto hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo' . $i . '.png') }}" alt="">
         </div>
         @endfor
     </div>

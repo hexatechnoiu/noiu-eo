@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\InboxController;
-use App\Http\Controllers\UserController;
 use App\Models\Benefits;
 use App\Models\Package_category;
-use App\Models\Package_type;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\InboxController;
+use App\Http\Controllers\DashboardController;
+use App\Models\OurTeam;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +50,11 @@ Route::get('/mice', function () {
 })->name('mice');
 
 Route::get('/contact', function () {
+    $ot = ourTeam::latest()->get();
     return view('contact', [
         "title" => "Contact",
-        "active" => "contact"
+        "active" => "contact",
+        "ourTeams" => $ot
     ]);
 })->name('contact');
 

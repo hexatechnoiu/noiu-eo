@@ -11,34 +11,28 @@
         <ul class="space-y-2">
             <li>
                 <a href="/" class="flex items-center p-2 pb-0">
-                    <img src="{{ asset('img/logo-eo.svg') }}" class="h-12 mb-6 text-white"
-                        alt="NOIU Logo" />
-                    <button type="button" data-drawer-hide="default-sidebar" aria-controls="default-sidebar"
-                        class="lg:hidden text-white bg-transparent hover:bg-secondary-40 hover:text-black rounded-lg text-sm py-4 px-2 my-auto absolute top-8 right-3 inline-flex items-center">
+                    <img src="{{ asset('img/logo-eo.svg') }}" class="h-12 mb-6 text-white" alt="NOIU Logo" />
+                    <button type="button" data-drawer-hide="default-sidebar" aria-controls="default-sidebar" class="lg:hidden text-white bg-transparent hover:bg-secondary-40 hover:text-black rounded-lg text-sm py-4 px-2 my-auto absolute top-8 right-3 inline-flex items-center">
                         <i class="fa-solid fa-xmark fa-xl"></i>
                         <span class="sr-only">Close menu</span>
                     </button>
                 </a>
             </li>
             <li>
-                <a href="/home"
-                    class="{{ $active === 'home' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
+                <a href="/home" class="{{ $active === 'home' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
                     <i class="fa-solid fa-house"></i>
                     <span class="ml-3">Home</span>
                 </a>
             </li>
             <li>
                 @if ($active === 'outbound')
-                    <button type="button" id="dropdown-button-outbound"
-                        class="{{ $active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 w-full text-base font-normal rounded-lg"
-                        aria-controls="dropdown-outbound" data-collapse-toggle="dropdown-outbound">
+                    <button type="button" id="dropdown-button-outbound" class="{{ $active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 w-full text-base font-normal rounded-lg" aria-controls="dropdown-outbound" data-collapse-toggle="dropdown-outbound">
                         <i class="fa-solid fa-person-hiking fa-lg"></i>
                         <span class="flex-1 ml-3 text-left whitespace-nowrap">Outbound Package</span>
                         <i class="fas fa-chevron-down ml-3"></i>
                     </button>
                 @else
-                    <div
-                        class="{{ $active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 w-full text-base font-normal rounded-lg transition cursor-pointer hover:bg-secondary-40 hover:text-black duration-[400ms]">
+                    <div class="{{ $active === 'outbound' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 w-full text-base font-normal rounded-lg transition cursor-pointer hover:bg-secondary-40 hover:text-black duration-[400ms]">
                         <a href="/outbound">
                             <i class="fa-solid fa-person-hiking fa-lg"></i>
                             <span class="flex-1 ml-3 text-left whitespace-nowrap">Outbound Package</span>
@@ -52,33 +46,27 @@
 
                 <ul id="dropdown-outbound" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="#outbound"
-                            class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Outbound</a>
+                        <a href="#outbound" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Outbound</a>
                     </li>
                     <li>
-                        <a href="#offroad"
-                            class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Offroad</a>
+                        <a href="#offroad" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Offroad</a>
                     </li>
                     <li>
-                        <a href="#rafting"
-                            class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Rafting</a>
+                        <a href="#rafting" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Rafting</a>
                     </li>
                     <li>
-                        <a href="#others"
-                            class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Others</a>
+                        <a href="#others" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Others</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="/mice"
-                    class="{{ $active === 'mice' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
+                <a href="/mice" class="{{ $active === 'mice' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
                     <i class="fa-solid fa-clipboard-list fa-lg"></i>
                     <span class="ml-3">Event Organizer</span>
                 </a>
             </li>
             <li>
-                <a href="/booking"
-                    class="{{ $active === 'booking' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                <a href="/booking" class="{{ $active === 'booking' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                     <i class="fa-solid fa-clipboard-check fa-lg"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Booking</span>
                     <span
@@ -88,8 +76,7 @@
                 </a>
             </li>
             <li>
-                <a href="/contact"
-                    class="{{ $active === 'contact' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                <a href="/contact" class="{{ $active === 'contact' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                     <i class="fa-solid fa-phone"></i>
                     <span class="ml-3">Contact Us</span>
                 </a>
@@ -98,8 +85,7 @@
         @auth
             <ul class="pt-5 mt-5 space-y-2 border-t border-white">
                 <li>
-                    <a href="/dashboard"
-                        class="{{ $active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                    <a href="/dashboard" class="{{ $active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                         <i class="fa-solid fa-gauge-high fa-lg"></i>
                         <span class="ml-3">Dashboard</span>
                     </a>
@@ -112,23 +98,25 @@
             <img src="{{ asset( '/storage/'. auth()->user()->avatar) }}" class="h-10 my-auto rounded-full"
                 alt="Profile" />
             <ul class="my-auto">
-                <li class="ml-3 text-white max-w-[8rem] truncate">{{ auth()->user()->name }}</li>
+                <li class="ml-3 text-white max-w-[100px] truncate">{{ auth()->user()->name }}</li>
                 <li class="ml-3 text-white text-xs">{{ auth()->user()->role }}</li>
             </ul>
             <button type="button" data-tooltip-target="tooltip-logout" data-modal-target="logoutModal" data-modal-toggle="logoutModal" class="p-2 ml-9 text-base font-normal text-white rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                 <i class="fa-solid fa-right-from-bracket fa-lg"></i>
             </button>
             <div id="tooltip-logout" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-black rounded-lg shadow-sm opacity-0 transition-opacity duration-[400ms] tooltip">
-                Logout
+                Log Out
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
         </div>
     @endauth
     @guest
-        <div class="flex z-20 absolute justify-end bottom-0 left-0 py-4 w-full whitespace-nowrap bg-primary-20 border-t border-white">
-            <a href="/login" class="py-2 px-20 mx-auto text-base font-medium text-black rounded-lg bg-secondary-40 hover:bg-secondary-50 group duration-[400ms]">
-                <span class="mr-2">Login</span>
-                <i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i>
+        <div class="flex flex-wrap z-20 absolute justify-center bottom-0 left-0 py-4 px-2 w-full whitespace-nowrap bg-primary-20 gap-2">
+            <a href="/register" class="py-[7px] px-[77px] mx-auto text-base font-medium text-secondary-40 rounded-lg bg-transparent border-[3px] border-secondary-40 hover:scale-105 hover:shadow-md hover:shadow-secondary-50 group duration-[400ms]">
+                <span class="mr-2">Sign Up</span>
+            </a>
+            <a href="/login" class="py-[8px] px-[85px] mx-auto text-base font-medium text-black rounded-lg bg-secondary-40 hover:scale-105 hover:shadow-md hover:shadow-secondary-50 group duration-[400ms]">
+                <span class="mr-2">Log In</span>
             </a>
         </div>
     @endguest
@@ -146,11 +134,11 @@
             <div class="text-neutral-60 w-11 h-11 mt-3.5 mb-6 mx-auto">
                 <i class="fa-solid fa-person-walking-arrow-right text-4xl"></i>
             </div>
-            <p class="mb-4 text-neutral-60">Are you sure you want to Logout?</p>
+            <p class="mb-4 text-neutral-60">Are you sure you want to Log Out?</p>
             <div class="flex justify-center items-center">
                 <form action="/logout" method="POST">
                     @csrf
-                    <button data-modal-toggle="logoutModal" type="button" class="py-2 px-3 mr-4 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
+                    <button data-modal-toggle="logoutModal" type="button" class="py-2 px-3 mr-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
                     <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10">Yes, I'm sure</button>
                 </form>
             </div>

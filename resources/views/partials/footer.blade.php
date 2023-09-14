@@ -5,18 +5,18 @@
                 <img src="{{ asset('img/logo-eo.svg') }}" class="h-16 mb-6" alt="NOIU Logo" />
                 <p class="max-w-2xl mb-5 font-light text-white text-lg">NOIU Event Organizer Solusi untuk kenyamanan dan kemudahan: Liburan, Outbound, Gathering, MICE Perusahaan / Keluarga anda</p>
                 <div class="flex flex-row gap-4">
-                    <div class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
-                        <a href="https://wa.me/6285771805236/" target="blank"><i class="fa-brands fa-whatsapp fa-xl text-center"></i></a>
-                    </div>
-                    <div class="flex justify-center items-center w-10 h-10 text-xl rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
-                        <a href="https://www.instagram.com/noiu.eo/" target="blank"><i class="fa-brands fa-instagram fa-lg text-center"></i></a>
-                    </div>
-                    <div class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
-                        <a href="https://www.facebook.com/" target="blank"><i class="fa-brands fa-facebook-f fa-lg text-center"></i></a>
-                    </div>
-                    <div class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
-                        <a href="https://www.tiktok.com/@noiu.eo" target="blank"><i class="fa-brands fa-tiktok fa-lg text-center"></i></a>
-                    </div>
+                    <a href="https://wa.me/6285771805236/" target="blank" class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
+                        <i class="fa-brands fa-whatsapp fa-xl text-center"></i>
+                    </a>
+                    <a href="https://www.instagram.com/noiu.eo/" target="blank" class="flex justify-center items-center w-10 h-10 text-xl rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
+                        <i class="fa-brands fa-instagram fa-lg text-center"></i>
+                    </a>
+                    <a href="https://www.facebook.com/" target="blank" class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
+                        <i class="fa-brands fa-facebook-f fa-lg text-center"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@noiu.eo" target="blank" class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
+                        <i class="fa-brands fa-tiktok fa-lg text-center"></i>
+                    </a>
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row lg:w-[600px] gap-10 lg:ml-10 max-w-screen-xl">
