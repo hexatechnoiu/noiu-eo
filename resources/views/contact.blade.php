@@ -3,7 +3,7 @@
 @section('container')
 
 @if (session()->has('inbox'))
-<div class="flex justify-center mr-[350px]">
+<div class="flex justify-end lg:mr-[635px]">
     <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-10 mr-5 text-primary-40 bg-primary-10 fixed animate-fade-in" role="alert">
         <div class="flex items-center">
             <i class="fa-solid fa-circle-check"></i>

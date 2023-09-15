@@ -126,7 +126,7 @@
             <p class="max-w-2xl font-light text-white sm:text-xl">Number One I'ts You</p>
         </div>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a href="/package" class="inline-flex justify-center items-center py-3 px-7 text-lg font-normal text-center text-black rounded-lg bg-secondary-40 hover:text-white hover:bg-secondary-60 focus:ring-4 focus:ring-secondary-50 duration-[400ms]">
+            <a href="/package" class="inline-flex justify-center items-center py-3 px-7 text-lg font-normal text-center rounded-lg text-black bg-secondary-40 border-[3px] border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 duration-[400ms]">
                 Booking Now
             </a>
         </div>

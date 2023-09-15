@@ -17,11 +17,11 @@ class PackageFactory extends Factory
     public function definition(): array
     {
         return [
-            'picture' => 'https://source.unsplash.com/random/96x96',
+            'picture' => 'https://source.unsplash.com/random/1202x866',
             'name' => $this->faker->name(),
-            'desc' => $this->faker->sentence(mt_rand(1, 10)),
             'price' => $this->faker->numberBetween(125000, 1250000),
             'unit' => $this->faker->sentence(1),
+            'desc' => $this->faker->sentence(20),
             'package_type_id' => $this->faker->numberBetween(1, 5)
         ];
     }

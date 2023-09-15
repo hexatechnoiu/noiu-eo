@@ -50,7 +50,7 @@ Route::get('/mice', function () {
 })->name('mice');
 
 Route::get('/contact', function () {
-    $ot = ourTeam::latest()->get();
+    $ot = ourTeam::get();
     return view('contact', [
         "title" => "Contact",
         "active" => "contact",

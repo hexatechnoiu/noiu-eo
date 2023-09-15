@@ -252,6 +252,46 @@
 
     <!-- Read modal -->
     <div id="readPackageModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-5xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
+                <!-- Modal header -->
+                <div class="flex flex-row gap-4">
+                    <div class="flex justify-between mb-4 rounded-t sm:mb-5 w-[80rem]">
+                        <img class="mb-4 w-full rounded-lg" src="{{ asset('img/outbound2.jpg') }}" alt="Image">
+                    </div>
+                    <div>
+                        <h3 class="mb-6 text-2xl text-black font-semibold">Paket Outbound 2 Hari 1 Malam</h3>
+                        <dt class="mt-2 font-semibold leading-none text-black">Category</dt><dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Outbound</dd></dl>
+                        <dt class="mt-2 font-semibold leading-none text-black">Price</dt><dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. 850.000 /Orang</dd></dl>
+                        <dl><dt class="mt-2 font-semibold leading-none text-black">Description</dt><dd class="mb-4 font-light text-neutral-60 sm:mb-5">Program Fun Games / Competition Games, Hotel 1 Malam, High Rope ( Flying Fox - 2 Line Bridge - Turun Tebing ) Makan 3X, Coffie Break, Acara Hiburan by MC + Solo Organ, Peserta Min 20 Pax</dd>
+                    </div>
+                    <div>
+                        <button type="button" class="text-neutral-60 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 inline-flex" data-modal-toggle="readPackageModal">
+                            <i class="fa-solid fa-xmark fa-xl"></i>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-3 sm:space-x-4">
+                        <button type="button" class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            <i class="fa-solid fa-pen-to-square mr-2"></i>
+                            Edit
+                        </button>
+                        <button type="button" class="py-2.5 px-5 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 hover:text-primary-40 duration-[400ms] focus:z-10 focus:ring-4 focus:ring-primary-10">Preview</button>
+                    </div>
+                    <button type="button" class="inline-flex items-center text-white bg-red-600 hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        <i class="fa-solid fa-trash-can mr-2"></i>
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{-- <div id="readPackageModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-xl max-h-full">
             <!-- Modal content -->
             <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
@@ -286,7 +326,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Delete modal -->
     <div id="deleteModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

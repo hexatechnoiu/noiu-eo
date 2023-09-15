@@ -1,7 +1,7 @@
 import "./bootstrap";
-import '@fortawesome/fontawesome-free/css/all.css'
-import 'flowbite';
-import '../css/App.css'
+import "@fortawesome/fontawesome-free/css/all.css";
+import "flowbite";
+import "../css/App.css";
 
 // Mendapatkan elemen tombol outbound
 const dropdownButtonOutbound = document.getElementById(
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Slick
-$('.logo-slider').slick({
+$(".logo-slider").slick({
     slidesToShow: 5,
     slidesToScroll: 1,
     arrows: false,
@@ -80,15 +80,15 @@ $('.logo-slider').slick({
             breakpoint: 641, // Breakpoint for mobile devices
             settings: {
                 slidesToShow: 4,
-            }
+            },
         },
         {
             breakpoint: 426, // Breakpoint for mobile devices
             settings: {
                 slidesToShow: 3,
-            }
-        }
-    ]
+            },
+        },
+    ],
 });
 
 // Scroll To Top
@@ -117,13 +117,13 @@ window.onload = calcScrollValue;
 // Popup Alert
 
 // Tambahkan kode JavaScript untuk mengatur bar waktu tersisa
-var alertElement = document.getElementById('alert-3');
-var timeBarElement = document.getElementById('time-bar');
+var alertElement = document.getElementById("alert-3");
+var timeBarElement = document.getElementById("time-bar");
 var closeButton = document.querySelector('[data-dismiss-target="#alert-3"]');
 
 // Fungsi untuk menghilangkan alert
 function hideAlert() {
-    alertElement.style.display = 'none';
+    alertElement.style.display = "none";
 }
 
 // Fungsi untuk mengatur bar waktu tersisa
@@ -136,7 +136,7 @@ function updateBar() {
 
     var intervalId = setInterval(function () {
         currentValue -= increment;
-        timeBarElement.style.width = currentValue + '%';
+        timeBarElement.style.width = currentValue + "%";
 
         if (currentValue <= 0) {
             clearInterval(intervalId);
@@ -145,14 +145,14 @@ function updateBar() {
     }, interval);
 }
 
+closeButton.
 // Tambahkan event listener untuk tombol close
-closeButton.addEventListener('click', function() {
+closeButton.addEventListener("click", function () {
     hideAlert();
 });
 
 // Panggil fungsi untuk mengatur bar waktu tersisa
 updateBar();
-
 
 // togglePassword (eye) Login
 function togglePasswordField() {
@@ -168,4 +168,4 @@ function togglePasswordField() {
         eyeIcon.classList.remove("fa-eye");
         eyeIcon.classList.add("fa-eye-slash");
     }
-};
+}

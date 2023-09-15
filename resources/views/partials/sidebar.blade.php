@@ -95,7 +95,7 @@
     </div>
     @auth
         <div class="absolute bottom-0 left-0 p-4 w-full whitespace-nowrap flex z-20 bg-primary-20 border-t border-white">
-            <img src="{{ asset( '/storage/'. auth()->user()->avatar) }}" class="h-10 my-auto rounded-full"
+            <img src="{{ asset( '/storage/'. auth()->user()->avatar) }}" class="h-10 w-10 my-auto rounded-full object-cover"
                 alt="Profile" />
             <ul class="my-auto">
                 <li class="ml-3 text-white max-w-[100px] truncate">{{ auth()->user()->name }}</li>
@@ -112,10 +112,10 @@
     @endauth
     @guest
         <div class="flex flex-wrap z-20 absolute justify-center bottom-0 left-0 py-4 px-2 w-full whitespace-nowrap bg-primary-20 gap-2">
-            <a href="/register" class="py-[7px] px-[77px] mx-auto text-base font-medium text-secondary-40 rounded-lg bg-transparent border-[3px] border-secondary-40 hover:scale-105 hover:shadow-md hover:shadow-secondary-50 group duration-[400ms]">
+            <a href="/register" class="py-[7px] px-[77px] mx-auto text-base font-medium rounded-lg text-secondary-40 bg-transparent border-2 border-secondary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-50 group duration-[400ms]">
                 <span class="mr-2">Sign Up</span>
             </a>
-            <a href="/login" class="py-[8px] px-[85px] mx-auto text-base font-medium text-black rounded-lg bg-secondary-40 hover:scale-105 hover:shadow-md hover:shadow-secondary-50 group duration-[400ms]">
+            <a href="/login" class="py-[7px] px-[84px] mx-auto text-base font-medium rounded-lg text-black bg-secondary-40 border-2 border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 group duration-[400ms]">
                 <span class="mr-2">Log In</span>
             </a>
         </div>
@@ -145,3 +145,19 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    viewModal = function (item) {
+    let name = document.getElementById("name_modal");
+    let desc = document.getElementById("desc_modal");
+    let unit = document.getElementById("unit_modal");
+    let price = document.getElementById("price_modal");
+    let img = document.getElementById("img_modal");
+    name.innerHTML = item.name;
+    desc.innerHTML = item.desc;
+    unit.innerHTML = item.unit;
+    price.innerHTML = item.price;
+    img.src = item.img;
+};
+</script>
