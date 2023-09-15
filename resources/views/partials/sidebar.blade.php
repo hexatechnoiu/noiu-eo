@@ -69,10 +69,6 @@
                 <a href="/booking" class="{{ $active === 'booking' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                     <i class="fa-solid fa-clipboard-check fa-lg"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Booking</span>
-                    <span
-                        class="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full">
-                        6
-                    </span>
                 </a>
             </li>
             <li>
