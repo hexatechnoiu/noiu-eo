@@ -29,7 +29,7 @@ class PackageController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
-        //
+        
     }
 
     /**

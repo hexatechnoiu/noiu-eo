@@ -127,7 +127,7 @@
         </div>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
             <a href="/package" class="inline-flex justify-center items-center py-3 px-7 text-lg font-normal text-center rounded-lg text-black bg-secondary-40 border-[3px] border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 duration-[400ms]">
-                Booking Now
+                Book Now
             </a>
         </div>
     </div>
@@ -137,7 +137,7 @@
 <section class="bg-white px-12 my-10 lg:mt-20">
     <div class="mx-auto max-w-screen-xl">
         <div class="w-full h-[400px] rounded-lg overflow-hidden">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31685.62218651873!2d107.73568!3d-6.926088000000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c34340474011%3A0x9b168ae56ab4d897!2snoiu%20event%20organizer!5e0!3m2!1sid!2sid!4v1693284698058!5m2!1sid!2sid" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d31685.62218651873!2d107.73568!3d-6.926088000000001!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c34340474011%3A0x9b168ae56ab4d897!2snoiu%20event%20organizer!5e0!3m2!1sid!2sid!4v1693284698058!5m2!1sid!2sid" class="w-full h-full" style="border:0;" allowfullscreen="" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </section>

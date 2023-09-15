@@ -2,25 +2,7 @@
 
 @section('container')
 
-<script>
-    
-    viewModal = function(array, category) {
-        let picture_modal = document.getElementById('img_modal');
-        let name_modal = document.getElementById('name_modal');
-        let category_modal = document.getElementById('category_modal');
-        let unit_modal = document.getElementById('unit_modal');
-        let price_modal = document.getElementById('price_modal');
-        let desc_modal = document.getElementById('desc_modal');
 
-        picture_modal.src = array.picture;
-        name_modal.innerHTML = array.name;
-        category_modal.innerHTML = array.category;
-        unit_modal.innerHTML = array.unit;
-        price_modal.innerHTML = array.price;
-        desc_modal.innerHTML = array.desc;
-    }
-
-</script>
 
     @foreach ($data as $pc)
         @foreach ($pc->package_types as $tpkg)
@@ -41,7 +23,10 @@
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-black">{{ $pkg->name }}</h5>
                                 <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp.
                                     {{ $pkg->price }}<span class="text-sm font-medium text-neutral-60"> /Orang</span></p>
-                                <button id="btnSeeDetail" onclick="viewModal({{ $pkg }})" data-anu="{{ $tpkg->name }}" type="button" data-modal-target="seeDetailModal" data-modal-toggle="seeDetailModal" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-[400ms]">
+                                <button id="btnSeeDetail{{ $pkg->id }}" onclick="ViewModal({{ $pkg->id }})" data-category="{{ $tpkg->name }}"
+                                    data-name="{{ $pkg->name }}" data-picture="{{ $pkg->picture }}"
+                                    data-unit="{{ $pkg->unit }}" data-price="{{ $pkg->price }}"
+                                    data-desc="{!! $pkg->desc !!}" type="button" data-modal-target="seeDetailModal" data-modal-toggle="seeDetailModal" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-[400ms]">
                                     See Detail
                                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                                 </button>

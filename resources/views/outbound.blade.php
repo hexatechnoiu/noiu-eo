@@ -1,47 +1,34 @@
 @extends('layouts.main')
 
 @section('container')
-
-<script>
-    
-    viewModal = function(array, category) {
-        let picture_modal = document.getElementById('img_modal');
-        let name_modal = document.getElementById('name_modal');
-        let category_modal = document.getElementById('category_modal');
-        let unit_modal = document.getElementById('unit_modal');
-        let price_modal = document.getElementById('price_modal');
-        let desc_modal = document.getElementById('desc_modal');
-
-        picture_modal.src = array.picture;
-        name_modal.innerHTML = array.name;
-        category_modal.innerHTML = array.category;
-        unit_modal.innerHTML = array.unit;
-        price_modal.innerHTML = array.price;
-        desc_modal.innerHTML = array.desc;
-    }
-
-</script>
-
     @foreach ($data as $pc)
         @foreach ($pc->package_types as $tpkg)
             <section id="{{ $tpkg->name }}" class="bg-center bg-no-repeat bg-white bg-blend-multiply pt-20 pb-5">
                 <div class="px-4 mx-auto max-w-screen-xl text-center">
-                    <h1 class="mb-2 text-3xl font-extrabold tracking-tight leading-none text-black sm:text-4xl md:text-5xl lg:text-6xl">
+                    <h1
+                        class="mb-2 text-3xl font-extrabold tracking-tight leading-none text-black sm:text-4xl md:text-5xl lg:text-6xl">
                         {{ $tpkg->name }} Package</h1>
                     <p class="mb-8 text-lg font-normal text-neutral-40 lg:text-xl sm:px-16 lg:px-48">
                         Paket {{ $tpkg->name }}</p>
                 </div>
                 <div class="flex flex-wrap justify-start right lg:mx-0">
                     @foreach ($tpkg->packages as $pkg)
-                        <div class="max-w-xs bg-white border border-neutral-20 rounded-lg shadow mx-auto md:mx-0 mb-5 md:ml-9">
+                        <div
+                            class="max-w-xs bg-white border border-neutral-20 rounded-lg shadow mx-auto md:mx-0 mb-5 md:ml-9">
                             <div class="rounded-t-lg w-[318px] h-[229px] overflow-hidden">
-                                <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500" src="{{ $pkg->picture }}" alt="" />
+                                <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500"
+                                    src="{{ $pkg->picture }}" alt="" />
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-black">{{ $pkg->name }}</h5>
                                 <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp.
                                     {{ $pkg->price }}<span class="text-sm font-medium text-neutral-60"> /Orang</span></p>
-                                <button id="btnSeeDetail" onclick="viewModal({{ $pkg }})" data-anu="{{ $tpkg->name }}" type="button" data-modal-target="seeDetailModal" data-modal-toggle="seeDetailModal" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-[400ms]">
+                                <button id="btnSeeDetail{{ $pkg->id }}" onclick="ViewModal({{ $pkg->id }})" data-category="{{ $tpkg->name }}"
+                                    data-name="{{ $pkg->name }}" data-picture="{{ $pkg->picture }}"
+                                    data-unit="{{ $pkg->unit }}" data-price="{{ $pkg->price }}"
+                                    data-desc="{{ $pkg->desc }}" type="button" data-modal-target="seeDetailModal"
+                                    data-modal-toggle="seeDetailModal"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-[400ms]">
                                     See Detail
                                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                                 </button>
@@ -53,14 +40,14 @@
         @endforeach
     @endforeach
     {{-- See Detail Modal --}}
-    <div id="seeDetailModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed bottom-0 right-0 left-0 z-50 w-full md:inset-0 h-[calc(100% - 1rem)] max-h-full">
+    <div id="seeDetailModal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed bottom-0 right-0 left-0 z-50 w-full md:inset-0 h-[calc(100% - 1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-5xl max-h-full">
             <!-- Modal content -->
-            <div
-                class="relative p-4 bg-white rounded-lg shadow sm:p-5">
+            <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
                 <!-- Modal header -->
                 <div class="flex flex-row gap-4">
-                    <div class="flex justify-between mb-4 rounded-t sm:mb-5 w-[60rem]">
+                    <div class="flex justify-between mb-4 rounded-t sm:mb-5 w-1/2 sm:w-full lg:w-2/4">
                         <img id="img_modal" class="mb-4 w-full rounded-lg" alt="Image">
                     </div>
                     <div>
@@ -71,8 +58,8 @@
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Price</dt>
-                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span
-                                    id="price_modal"></span> /<span id="unit_modal"></span></dd>
+                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="price_modal"></span>
+                                /<span id="unit_modal"></span></dd>
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Description</dt>

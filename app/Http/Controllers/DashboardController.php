@@ -21,8 +21,8 @@ class DashboardController extends Controller
     public function packages()
     {
         return view('dashboard.packages', [
-            "packages" => Package::with('package_type')->latest()->get(),
-            "title" => "Packages",
+            "package_type" => Package_type::with('Packages')->get(),
+            "title" => "Packages | Dashboard",
             "active" => "dashboard"
         ]);
     }

@@ -6,8 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PackageController;
 use App\Models\OurTeam;
-
+use App\Models\Package;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +86,4 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::post('/send', [InboxController::class, 'store']);
+Route::post('/package', [PackageController::class, 'store']);

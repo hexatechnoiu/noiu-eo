@@ -45,7 +45,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($packages as $pkg)
+                            @forelse ($package_type as $pkg_type)
+                            @foreach ($pkg_type->packages as $pkg)
+                                
                                 <tr class="border-b">
                                     <td class="px-4 py-3">{{ $pkg->image }}</td>
                                     <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->name }}</td>
@@ -80,7 +82,10 @@
                                         </div>
                                     </td>
                                 </tr>
+                            @endforeach
+
                             @empty
+                            <p>empty :/</p>
                             @endforelse
                         </tbody>
                     </table>
@@ -142,7 +147,8 @@
                 </div>
 
                 <!-- Modal body -->
-                <form action="/package">
+                <form action="/package" method="POST">
+                    @method('create')
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="image" class="block mb-2 text-sm font-medium text-black">Image</label>
@@ -159,13 +165,11 @@
                         </div>
                         <div>
                             <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
-                            <select id="category" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
+                            <select id="category" name="package_type_id" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                                 <option selected="">Select Category</option>
-                                <option value="Outbound">Outbound</option>
-                                <option value="Offroad">Offroad</option>
-                                <option value="Rafting">Rafting</option>
-                                <option value="Meeting">Meeting</option>
-                                <option value="Others">Others</option>
+                                @foreach ($package_type as $pt)
+                                <option value="{{ $pt->id }}">{{ $pt->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div>

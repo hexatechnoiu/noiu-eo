@@ -3,15 +3,42 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "flowbite";
 import "../css/App.css";
 
-// Mendapatkan elemen tombol outbound
+
+if (window.location.pathname.includes('outbound') || window.location.pathname.includes('mice')) {
+
+    window.ViewModal = (id) => {
+        let img_modal = document.getElementById('img_modal');
+        let name_modal = document.getElementById('name_modal');
+        let category_modal = document.getElementById('category_modal');
+        let unit_modal = document.getElementById('unit_modal');
+        let price_modal = document.getElementById('price_modal');
+        let desc_modal = document.getElementById('desc_modal');
+        let seedetail = document.getElementById('btnSeeDetail' + id);
+        let nama = seedetail.getAttribute('data-name')
+        let picture = seedetail.getAttribute('data-picture')
+        let category = seedetail.getAttribute('data-category')
+        let unit = seedetail.getAttribute('data-unit')
+        let price = seedetail.getAttribute('data-price')
+        let desc = seedetail.getAttribute('data-desc')
+        img_modal.src = picture ?? '';
+        name_modal.innerHTML = nama ?? 'Nama Produk';
+        category_modal.innerHTML = category ?? 'Kategori';
+        unit_modal.innerHTML = unit ?? 'Satuan';
+        price_modal.innerHTML = price ?? 'Harga Produk';
+        desc_modal.innerHTML = desc ?? 'Deskripsi Produk';
+        return;
+    }
+}
+
 const dropdownButtonOutbound = document.getElementById(
     "dropdown-button-outbound"
 );
 
-// Tambahkan event listener pada tombol dropdown outbound
-dropdownButtonOutbound.addEventListener("click", function () {
-    toggleIcon(this);
-});
+if (dropdownButtonOutbound) {
+    dropdownButtonOutbound.addEventListener("click", function () {
+        toggleIcon(this);
+    });
+}
 
 // Fungsi untuk toggle ikon tombol
 function toggleIcon(button) {
@@ -63,8 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-
-    typeNextLetter();
+    if (typewriter) {
+        typeNextLetter();
+    }
 });
 
 // Slick
@@ -117,9 +145,9 @@ window.onload = calcScrollValue;
 // Popup Alert
 
 // Tambahkan kode JavaScript untuk mengatur bar waktu tersisa
-var alertElement = document.getElementById("alert-3");
-var timeBarElement = document.getElementById("time-bar");
-var closeButton = document.querySelector('[data-dismiss-target="#alert-3"]');
+let alertElement = document.getElementById("alert-3");
+let timeBarElement = document.getElementById("time-bar");
+let closeButton = document.querySelector('[data-dismiss-target="#alert-3"]');
 
 // Fungsi untuk menghilangkan alert
 function hideAlert() {
@@ -128,13 +156,13 @@ function hideAlert() {
 
 // Fungsi untuk mengatur bar waktu tersisa
 function updateBar() {
-    var duration = 10000; // Waktu dalam milidetik (5 detik dalam contoh ini)
-    var interval = 100; // Interval untuk mengupdate bar
+    let duration = 10000; // Waktu dalam milidetik (5 detik dalam contoh ini)
+    let interval = 100; // Interval untuk mengupdate bar
 
-    var increment = (interval / duration) * 100;
-    var currentValue = 100;
+    let increment = (interval / duration) * 100;
+    let currentValue = 100;
 
-    var intervalId = setInterval(function () {
+    let intervalId = setInterval(function () {
         currentValue -= increment;
         timeBarElement.style.width = currentValue + "%";
 
@@ -145,27 +173,31 @@ function updateBar() {
     }, interval);
 }
 
-closeButton.
 // Tambahkan event listener untuk tombol close
-closeButton.addEventListener("click", function () {
-    hideAlert();
-});
+if (closeButton) {
+    closeButton.addEventListener("click", function () {
+        hideAlert();
+    });
+}
 
 // Panggil fungsi untuk mengatur bar waktu tersisa
-updateBar();
+if (alertElement) {
+    updateBar();
+}
 
 // togglePassword (eye) Login
 function togglePasswordField() {
     const passwordField = document.getElementById("password");
     const eyeIcon = document.getElementById("eyeIcon");
-
-    if (passwordField.type === "password") {
-        passwordField.type = "text";
-        eyeIcon.classList.remove("fa-eye-slash");
-        eyeIcon.classList.add("fa-eye");
-    } else {
-        passwordField.type = "password";
-        eyeIcon.classList.remove("fa-eye");
-        eyeIcon.classList.add("fa-eye-slash");
+    if (passwordField || eyeIcon) {
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+        }
     }
 }
