@@ -19,7 +19,6 @@ class PackageFactory extends Factory
         return [
             'picture' => 'https://source.unsplash.com/random/1202x866',
             'name' => $this->faker->name(),
-            'category' => $this->faker->sentence(1),
             'price' => $this->faker->numberBetween(125000, 1250000),
             'unit' => $this->faker->sentence(1),
             'desc' => $this->faker->sentence(20),

@@ -4,8 +4,48 @@ import "flowbite";
 import "../css/App.css";
 
 
-if (window.location.pathname.includes('outbound') || window.location.pathname.includes('mice')) {
+    window.transfer_data = (id) => {
+    let button = document.getElementById('package-dropdown-button' + id);
 
+    let thename = button.getAttribute('data-name')
+    let cat_nane = button.getAttribute('data-category')
+    let thedesc = button.getAttribute('data-desc')
+    let pic = button.getAttribute('data-picture')
+    let theprice = button.getAttribute('data-price')
+    let cat_id = button.getAttribute('data-cat_id')
+
+    let prepic = document.getElementById('pre-pic');
+    let predesc = document.getElementById('pre-desc');
+    let prename = document.getElementById('pre-name');
+    let preprice = document.getElementById('pre-price');
+    let precat = document.getElementById('pre-category');
+
+    prename.innerHTML = thename
+    precat.innerHTML = cat_nane
+    predesc.innerHTML = thedesc
+    preprice.innerHTML = theprice
+    prepic.src = pic;
+
+    let uname = document.getElementById('update_name');
+    let umodal = document.getElementById('update_modal');
+    let dform = document.getElementById('delete_form');
+
+    let udesc = document.getElementById('update_desc');
+    let uprice = document.getElementById('update_price');
+    let uupdate_category = document.getElementById('update_category');
+    
+    
+    dform.action = "/dashboard/packages/" + id;
+    umodal.action = "/dashboard/packages/" + id;
+    uname.value = thename;
+    udesc.InnerHTML = thedesc;
+    uprice.value = theprice;
+    uupdate_category.selectedIndex = cat_id;
+    udesc.value = thedesc;
+    return
+}
+
+if (window.location.pathname.includes('outbound') || window.location.pathname.includes('mice')) {
     window.ViewModal = (id) => {
         let img_modal = document.getElementById('img_modal');
         let name_modal = document.getElementById('name_modal');

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Package;
+use App\Models\Package_type;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
-use App\Models\Package;
 
 class PackageController extends Controller
 {
@@ -13,7 +15,11 @@ class PackageController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.packages', [
+            "package_type" => Package_type::with('Packages')->get(),
+            "title" => "Packages | Dashboard",
+            "active" => "dashboard"
+        ]);
     }
 
     /**
@@ -29,7 +35,23 @@ class PackageController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
-        
+        $valData = $request->validate([
+            'picture' => 'image|file|mimes:png,jpg,svg,gif,jpeg,webp',
+            'name' => 'required',
+            'desc' => 'required',
+            'price' => 'required|numeric',
+            'package_type_id' => 'exists:package_types,id'
+        ]);
+
+        $valData['unit'] = 'orang';
+
+        if ($request->file('picture')) {
+            $valData['picture'] = Storage::disk('public')->putFile('picture', $request->file('picture'));
+        }
+
+        Package::create($valData);
+
+        return redirect()->back()->with(['success' => 'Package created successfully']);
     }
 
     /**
@@ -53,7 +75,24 @@ class PackageController extends Controller
      */
     public function update(UpdatePackageRequest $request, Package $package)
     {
-        //
+        $data = $request->validate(
+            [
+                'picture' => 'image|file|max:2048|mimes:png,jpg,svg,jpeg,webp',
+                'name' => 'required',
+                'desc' => 'required',
+                'price'  => 'required|numeric',
+                'package_type_id' => 'exists:package_types,id'
+            ]
+        );
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+        Package::where('id', $package->id)->update($data);
+        return redirect()->back()->with('success', 'Package has been updated');
     }
 
     /**
@@ -61,6 +100,7 @@ class PackageController extends Controller
      */
     public function destroy(Package $package)
     {
-        //
+        Package::destroy($package->id);
+        return redirect()->back()->with('success', 'Package ID: ' . $package->id . ' Has Been deleted sucessfully');
     }
 }

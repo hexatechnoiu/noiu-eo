@@ -141,19 +141,3 @@
         </div>
     </div>
 </div>
-
-
-<script>
-    viewModal = function (item) {
-    let name = document.getElementById("name_modal");
-    let desc = document.getElementById("desc_modal");
-    let unit = document.getElementById("unit_modal");
-    let price = document.getElementById("price_modal");
-    let img = document.getElementById("img_modal");
-    name.innerHTML = item.name;
-    desc.innerHTML = item.desc;
-    unit.innerHTML = item.unit;
-    price.innerHTML = item.price;
-    img.src = item.img;
-};
-</script>

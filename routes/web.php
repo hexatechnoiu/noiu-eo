@@ -71,7 +71,7 @@ Route::controller(DashboardController::class)->group(
     function () {
         Route::get('/dashboard', 'index')->middleware('auth');
         Route::get('/dashboard/users', 'user')->middleware('auth');
-        Route::get('/dashboard/packages', 'packages')->middleware('auth');
+        // Route::get('/dashboard/packages', 'packages')->middleware('auth');
         Route::get('/dashboard/categories', 'categories')->middleware('auth');
     }
 )->name('dashboard');
@@ -86,4 +86,4 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::post('/send', [InboxController::class, 'store']);
-Route::post('/package', [PackageController::class, 'store']);
+Route::resource('/dashboard/packages', PackageController::class)->middleware('auth');

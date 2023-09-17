@@ -6,7 +6,6 @@ use App\Models\Package;
 use App\Models\Package_category;
 use App\Models\Package_type;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
@@ -20,11 +19,7 @@ class DashboardController extends Controller
     }
     public function packages()
     {
-        return view('dashboard.packages', [
-            "package_type" => Package_type::with('Packages')->get(),
-            "title" => "Packages | Dashboard",
-            "active" => "dashboard"
-        ]);
+
     }
     public function categories()
     {

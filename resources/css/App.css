@@ -5,7 +5,9 @@
 }
 
 @layer utilities {
-    
+    .invalid-feedback{
+        @apply py-2 border-2 bg-[#ff000055] border-[#ff0000]
+    } 
 }
 
 @tailwind base;

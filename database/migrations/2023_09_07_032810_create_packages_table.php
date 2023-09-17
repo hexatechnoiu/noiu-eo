@@ -14,7 +14,6 @@ return new class extends Migration {
             $table->id();
             $table->string('picture');
             $table->string('name');
-            $table->string('category');
             $table->text('desc');
             $table->bigInteger('price');
             $table->string('unit');
