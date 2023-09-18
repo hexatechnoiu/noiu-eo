@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Package;
 use App\Models\Package_type;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
@@ -35,6 +36,7 @@ class PackageController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
+        $request['price'] = str_replace('.', '', $request->price);
         $valData = $request->validate([
             'picture' => 'image|file|mimes:png,jpg,svg,gif,jpeg,webp',
             'name' => 'required',
@@ -75,6 +77,7 @@ class PackageController extends Controller
      */
     public function update(UpdatePackageRequest $request, Package $package)
     {
+        $request['price'] = str_replace(['.', ','], '', $request->price);
         $data = $request->validate(
             [
                 'picture' => 'image|file|max:2048|mimes:png,jpg,svg,jpeg,webp',
@@ -85,12 +88,13 @@ class PackageController extends Controller
             ]
         );
 
-        if ($request->file('image')) {
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+        if ($request->file('picture')) {
+            if ($request->oldPicture) {
+                Storage::delete($request->oldPicture);
             }
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $data['picture'] = Storage::disk('public')->putFile('picture', $request->file('picture'));
         }
+
         Package::where('id', $package->id)->update($data);
         return redirect()->back()->with('success', 'Package has been updated');
     }

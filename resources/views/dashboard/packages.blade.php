@@ -3,28 +3,53 @@
 @section('container')
 
     @if (session('success'))
-    <div class="flex justify-end">
-        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed z-50" role="alert">
-            <div class="flex items-center">
-                <i class="fa-solid fa-circle-check"></i>
-                <span class="sr-only">Info</span>
-                <div class="ml-4 mr-2 text-sm font-medium">
-                    {{ session('success') }}
+        <div class="flex justify-end">
+            <div id="alert-3"
+                class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed z-50"
+                role="alert">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span class="sr-only">Info</span>
+                    <div class="ml-4 mr-2 text-sm font-medium">
+                        {{ session('success') }}
+                    </div>
+                </div>
+                <button type="button"
+                    class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8"
+                    data-dismiss-target="#alert-3" aria-label="Close">
+                    <span class="sr-only">Close</span>
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
+                    <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
                 </div>
             </div>
-            <button type="button" class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
+        </div>
+    @endif
+
+    @foreach ($errors->all() as $e)
+    <div class="flex justify-end">
+        <div id="alert-3"
+            class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-red-700 bg-red-200 fixed z-50"
+            role="alert">
+            <div class="flex items-center">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span class="sr-only">Info</span>
+                <div class="ml-4 mr-2 text-sm font-medium">
+                    {{ $e }}
+                </div>
+            </div>
+            <button type="button"
+                class="text-red-700 hover:bg-red-300 duration-[400ms] rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 inline-flex items-center justify-center h-8 w-8"
+                data-dismiss-target="#alert-3" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
+                <div id="time-bar" class="h-1 bg-red-700" style="width: 100%;"></div>
             </div>
         </div>
     </div>
-    @endif
-
-    @foreach ($errors->all() as $e)
-        <div class="top-0 right-0 z-auto bg-sky-900 text-sky-100">{{ $e }}</div>
     @endforeach
 
     <!-- Start block -->
@@ -81,22 +106,21 @@
                             @forelse ($package_type as $pkg_type)
                                 @foreach ($pkg_type->packages as $pkg)
                                     <tr class="border-b">
-                                        <td class="px-4 py-3 max-w-[5rem]"><img src="{{ asset('/storage/' . $pkg->picture) }}"></td>
+                                        <td class="px-4 py-3 max-w-[5rem]"><img
+                                                src="{{ asset('/storage/' . $pkg->picture) }}"></td>
                                         <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->name }}</td>
                                         <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->package_type->name }}</td>
                                         <td class="px-4 py-3">{{ number_format($pkg->price, 0, ',', '.') }}</td>
                                         <td scope="row" class="px-4 py-3 max-w-[12rem] truncate">{{ $pkg->desc }}</td>
                                         <td class="px-4 py-8 flex items-center justify-end">
                                             <button id="package-dropdown-button{{ $pkg->id }}"
-                                            data-picture="{{ asset('/storage/'.$pkg->picture) }}"
-                                            data-id="{{ $pkg->id }}"
-                                            data-name="{{ $pkg->name }}"
-                                            data-cat_id="{{ $pkg->package_type->id }}"
-                                            data-category="{{ $pkg->package_type->name }}"
-                                            data-price="{{ number_format($pkg->price, 0, ',', '.') }}"
-                                            data-desc="{{ $pkg->desc }}"
-
-                                            onclick="transfer_data({{ $pkg->id }})"
+                                                data-picture="{{ $pkg->picture }}"
+                                                data-picture-url="{{ asset('/storage/' . $pkg->picture) }}"
+                                                data-id="{{ $pkg->id }}" data-name="{{ $pkg->name }}"
+                                                data-cat_id="{{ $pkg->package_type->id }}"
+                                                data-category="{{ $pkg->package_type->name }}"
+                                                data-price="{{ number_format($pkg->price, 0, ',', '.') }}" data-desc="{{ $pkg->desc }}"
+                                                onclick="transfer_data({{ $pkg->id }})"
                                                 data-dropdown-toggle="package-dropdown"
                                                 class="font-medium hover:bg-neutral-20 py-1.5 px-2 my-auto text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
                                                 type="button">
@@ -234,8 +258,9 @@
                             <select id="category" name="package_type_id"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                                 <option>Select Category</option>
+
                                 @foreach ($package_type as $pt)
-                                    <option value="{{ $pt->id }}" id="{{ $pt->name }}">{{ $pt->name }}</option>
+                                    <option value="{{ $pt->id }}">{{ $pt->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -283,6 +308,7 @@
                 <form enctype="multipart/form-data" id="update_modal" method="POST">
                     @csrf
                     @method('put')
+                    <input type="hidden" class="hidden" id="oldPicture">
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
                             <label for="update_picture" class="block mb-2 text-sm font-medium text-black">Picture</label>
@@ -295,16 +321,18 @@
                             @enderror
                         </div>
                         <div>
-                            <label for="update_name" class="block mb-2 text-sm font-medium text-black">Package Name</label>
+                            <label for="update_name" class="block mb-2 text-sm font-medium text-black">Package
+                                Name</label>
                             <input type="text" name="name" id="update_name" value="{{ old('name') }}"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                                 placeholder="Package Name" required>
                         </div>
                         <div>
-                            <label for="update_category" class="block mb-2 text-sm font-medium text-black">Category</label>
+                            <label for="update_category"
+                                class="block mb-2 text-sm font-medium text-black">Category</label>
                             <select id="update_category" name="package_type_id"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
-                                <option selected="">Select Category</option>
+                                <option>Select Category</option>
                                 @foreach ($package_type as $pt)
                                     <option value="{{ $pt->id }}">{{ $pt->name }}</option>
                                 @endforeach
@@ -353,7 +381,8 @@
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Price</dt>
-                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="pre-price"></span> /Pax</dd>
+                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="pre-price"></span>
+                                /Pax</dd>
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Description</dt>
@@ -406,6 +435,3 @@
     </div>
 
 @endsection
-
-
-

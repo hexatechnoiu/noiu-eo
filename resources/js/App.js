@@ -4,45 +4,63 @@ import "flowbite";
 import "../css/App.css";
 
 window.transfer_data = (id) => {
-    let button = document.getElementById("package-dropdown-button" + id);
+    // Tombol
+    let tombol_opsi = document.getElementById("package-dropdown-button" + id);
 
-    let thename = button.getAttribute("data-name");
-    let cat_nane = button.getAttribute("data-category");
-    let thedesc = button.getAttribute("data-desc");
-    let pic = button.getAttribute("data-picture");
-    let theprice = button.getAttribute("data-price");
-    let cat_id = button.getAttribute("data-cat_id");
 
-    let prepic = document.getElementById("pre-pic");
-    let predesc = document.getElementById("pre-desc");
+    // RAW untuk jaga jaga
+    let rawPicture = tombol_opsi.getAttribute("data-raw-picture");
+    let rawPrice = tombol_opsi.getAttribute("data-raw-price");
+
+
+    // nama
+    let namaDariDB = tombol_opsi.getAttribute("data-name");
     let prename = document.getElementById("pre-name");
-    let preprice = document.getElementById("pre-price");
-    let precat = document.getElementById("pre-category");
-
-    prename.innerHTML = thename;
-    precat.innerHTML = cat_nane;
-    predesc.innerHTML = thedesc;
-    preprice.innerHTML = theprice;
-    prepic.src = pic;
-
+    prename.innerHTML = namaDariDB;
     let uname = document.getElementById("update_name");
+    uname.value = namaDariDB;
+
+    // kategori (pre = preview)
+    let namaKategoriDariDB = tombol_opsi.getAttribute("data-category");
+    let IdKategori = tombol_opsi.getAttribute("data-cat_id");
+    let precat = document.getElementById("pre-category");
+    let upCat = document.getElementById("update_category");
+    precat.innerHTML = namaKategoriDariDB;
+    upCat.selectedIndex = IdKategori;
+
+
+    // Harga
+    let hargaDariDB = tombol_opsi.getAttribute("data-price");
+    let preprice = document.getElementById("pre-price");
+    let uprice = document.getElementById("update_price");
+    preprice.innerHTML = hargaDariDB;
+    uprice.value = hargaDariDB;
+
+
+
+    // Deskripsi
+    let DeskripsiDariDB = tombol_opsi.getAttribute("data-desc");
+    let udesc = document.getElementById("update_desc");
+    let predesc = document.getElementById("pre-desc");
+    predesc.innerHTML = DeskripsiDariDB;
+    udesc.value = DeskripsiDariDB;
+    udesc.InnerHTML = DeskripsiDariDB;
+
+    // Picture
+    let picture = tombol_opsi.getAttribute("data-picture");
+    let pictureURL = tombol_opsi.getAttribute("data-picture-url");
+    let prepic = document.getElementById("pre-pic");
+    let oldPicture = document.getElementById("oldPicture");
+    oldPicture.value = picture;
+    prepic.src = pictureURL;
+
+    // Ganti Aksi form nya
     let umodal = document.getElementById("update_modal");
     let dform = document.getElementById("delete_form");
-
-    let udesc = document.getElementById("update_desc");
-    let uprice = document.getElementById("update_price");
-    let uupdate_category = document.getElementById("update_category");
-
     dform.action = "/dashboard/packages/" + id;
     umodal.action = "/dashboard/packages/" + id;
-    uname.value = thename;
-    udesc.InnerHTML = thedesc;
-    uprice.value = theprice;
-    uupdate_category.selectedIndex = cat_id;
-    udesc.value = thedesc;
     return;
 };
-
 if (
     window.location.pathname.includes("outbound") ||
     window.location.pathname.includes("mice")
