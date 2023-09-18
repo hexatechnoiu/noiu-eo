@@ -84,7 +84,7 @@
                                         <td class="px-4 py-3 max-w-[5rem]"><img src="{{ asset('/storage/' . $pkg->picture) }}"></td>
                                         <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->name }}</td>
                                         <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->package_type->name }}</td>
-                                        <td class="px-4 py-3">{{ $pkg->price }}</td>
+                                        <td class="px-4 py-3">{{ number_format($pkg->price, 0, ',', '.') }}</td>
                                         <td scope="row" class="px-4 py-3 max-w-[12rem] truncate">{{ $pkg->desc }}</td>
                                         <td class="px-4 py-8 flex items-center justify-end">
                                             <button id="package-dropdown-button{{ $pkg->id }}"
@@ -93,7 +93,7 @@
                                             data-name="{{ $pkg->name }}"
                                             data-cat_id="{{ $pkg->package_type->id }}"
                                             data-category="{{ $pkg->package_type->name }}"
-                                            data-price="{{ $pkg->price }}"
+                                            data-price="{{ number_format($pkg->price, 0, ',', '.') }}"
                                             data-desc="{{ $pkg->desc }}"
 
                                             onclick="transfer_data({{ $pkg->id }})"
@@ -353,7 +353,7 @@
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Price</dt>
-                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="pre-price"></span> /<span id="unit_modal"></span></dd>
+                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="pre-price"></span> /Pax</dd>
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Description</dt>

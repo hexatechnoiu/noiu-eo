@@ -3,38 +3,36 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import "flowbite";
 import "../css/App.css";
 
+window.transfer_data = (id) => {
+    let button = document.getElementById("package-dropdown-button" + id);
 
-    window.transfer_data = (id) => {
-    let button = document.getElementById('package-dropdown-button' + id);
+    let thename = button.getAttribute("data-name");
+    let cat_nane = button.getAttribute("data-category");
+    let thedesc = button.getAttribute("data-desc");
+    let pic = button.getAttribute("data-picture");
+    let theprice = button.getAttribute("data-price");
+    let cat_id = button.getAttribute("data-cat_id");
 
-    let thename = button.getAttribute('data-name')
-    let cat_nane = button.getAttribute('data-category')
-    let thedesc = button.getAttribute('data-desc')
-    let pic = button.getAttribute('data-picture')
-    let theprice = button.getAttribute('data-price')
-    let cat_id = button.getAttribute('data-cat_id')
+    let prepic = document.getElementById("pre-pic");
+    let predesc = document.getElementById("pre-desc");
+    let prename = document.getElementById("pre-name");
+    let preprice = document.getElementById("pre-price");
+    let precat = document.getElementById("pre-category");
 
-    let prepic = document.getElementById('pre-pic');
-    let predesc = document.getElementById('pre-desc');
-    let prename = document.getElementById('pre-name');
-    let preprice = document.getElementById('pre-price');
-    let precat = document.getElementById('pre-category');
-
-    prename.innerHTML = thename
-    precat.innerHTML = cat_nane
-    predesc.innerHTML = thedesc
-    preprice.innerHTML = theprice
+    prename.innerHTML = thename;
+    precat.innerHTML = cat_nane;
+    predesc.innerHTML = thedesc;
+    preprice.innerHTML = theprice;
     prepic.src = pic;
 
-    let uname = document.getElementById('update_name');
-    let umodal = document.getElementById('update_modal');
-    let dform = document.getElementById('delete_form');
+    let uname = document.getElementById("update_name");
+    let umodal = document.getElementById("update_modal");
+    let dform = document.getElementById("delete_form");
 
-    let udesc = document.getElementById('update_desc');
-    let uprice = document.getElementById('update_price');
-    let uupdate_category = document.getElementById('update_category');
-    
-    
+    let udesc = document.getElementById("update_desc");
+    let uprice = document.getElementById("update_price");
+    let uupdate_category = document.getElementById("update_category");
+
     dform.action = "/dashboard/packages/" + id;
     umodal.action = "/dashboard/packages/" + id;
     uname.value = thename;
@@ -42,32 +40,35 @@ import "../css/App.css";
     uprice.value = theprice;
     uupdate_category.selectedIndex = cat_id;
     udesc.value = thedesc;
-    return
-}
+    return;
+};
 
-if (window.location.pathname.includes('outbound') || window.location.pathname.includes('mice')) {
+if (
+    window.location.pathname.includes("outbound") ||
+    window.location.pathname.includes("mice")
+) {
     window.ViewModal = (id) => {
-        let img_modal = document.getElementById('img_modal');
-        let name_modal = document.getElementById('name_modal');
-        let category_modal = document.getElementById('category_modal');
-        let unit_modal = document.getElementById('unit_modal');
-        let price_modal = document.getElementById('price_modal');
-        let desc_modal = document.getElementById('desc_modal');
-        let seedetail = document.getElementById('btnSeeDetail' + id);
-        let nama = seedetail.getAttribute('data-name')
-        let picture = seedetail.getAttribute('data-picture')
-        let category = seedetail.getAttribute('data-category')
-        let unit = seedetail.getAttribute('data-unit')
-        let price = seedetail.getAttribute('data-price')
-        let desc = seedetail.getAttribute('data-desc')
-        img_modal.src = picture ?? '';
-        name_modal.innerHTML = nama ?? 'Nama Produk';
-        category_modal.innerHTML = category ?? 'Kategori';
-        unit_modal.innerHTML = unit ?? 'Satuan';
-        price_modal.innerHTML = price ?? 'Harga Produk';
-        desc_modal.innerHTML = desc ?? 'Deskripsi Produk';
+        let img_modal = document.getElementById("img_modal");
+        let name_modal = document.getElementById("name_modal");
+        let category_modal = document.getElementById("category_modal");
+        // let unit_modal = document.getElementById('unit_modal');
+        let price_modal = document.getElementById("price_modal");
+        let desc_modal = document.getElementById("desc_modal");
+        let seedetail = document.getElementById("btnSeeDetail" + id);
+        let nama = seedetail.getAttribute("data-name");
+        let picture = seedetail.getAttribute("data-picture");
+        let category = seedetail.getAttribute("data-category");
+        // let unit = seedetail.getAttribute('data-unit')
+        let price = seedetail.getAttribute("data-price");
+        let desc = seedetail.getAttribute("data-desc");
+        img_modal.src = picture ?? "";
+        name_modal.innerHTML = nama ?? "Nama Produk";
+        category_modal.innerHTML = category ?? "Kategori";
+        // unit_modal.innerHTML = unit ?? 'Satuan';
+        price_modal.innerHTML = price ?? "Harga Produk";
+        desc_modal.innerHTML = desc ?? "Deskripsi Produk";
         return;
-    }
+    };
 }
 
 const dropdownButtonOutbound = document.getElementById(

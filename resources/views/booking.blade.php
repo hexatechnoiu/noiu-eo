@@ -56,7 +56,6 @@
                                 <th scope="col" class="px-4 py-4">Full Name</th>
                                 <th scope="col" class="px-4 py-3">Package Name</th>
                                 <th scope="col" class="px-4 py-3">For Date</th>
-                                <th scope="col" class="px-4 py-3">Amount</th>
                                 <th scope="col" class="px-4 py-3">Price</th>
                                 <th scope="col" class="px-4 py-3">Payment Method</th>
                                 <th scope="col" class="px-4 py-3">
@@ -70,7 +69,6 @@
                                     <td class="px-4 py-3">Hafiz Haekal</td>
                                     <td class="px-4 py-3 max-w-[14rem]">Paket Outbound 2 Hari 1 Malam</td>
                                     <td class="px-4 py-3">21/05/2006</td>
-                                    <td class="px-4 py-3">1</td>
                                     <td class="px-4 py-3">Rp. 850.000</td>
                                     <td class="px-4 py-3">Gopay</td>
                                     <td class="px-4 py-3 flex items-center justify-end">
@@ -208,10 +206,6 @@
                             <input type="date" name="date" id="date" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                         </div>
                         <div>
-                            <label for="amount" class="block mb-2 text-sm font-medium text-black">Amount</label>
-                            <input type="number" name="amount" id="amount" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="10" required>
-                        </div>
-                        <div>
                             <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
                             <input type="text" name="price" id="price" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                         </div>
@@ -286,10 +280,6 @@
                             <input type="date" name="date" id="date" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                         </div>
                         <div>
-                            <label for="amount" class="block mb-2 text-sm font-medium text-black">Amount</label>
-                            <input type="number" name="amount" id="amount" value="1" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="10" required>
-                        </div>
-                        <div>
                             <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
                             <input type="text" name="price" id="price" value="Rp. 850.000" class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Rp. 250.000" required>
                         </div>
@@ -349,10 +339,6 @@
                     <div>
                         <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
                         <span class="font-light text-base text-neutral-60">21/05/2006</span>
-                    </div>
-                    <div>
-                        <label for="amount" class="block mb-2 text-sm font-medium text-black">Amount</label>
-                        <span class="font-light text-base text-neutral-60">1</span>
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>

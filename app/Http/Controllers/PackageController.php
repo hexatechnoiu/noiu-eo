@@ -43,7 +43,7 @@ class PackageController extends Controller
             'package_type_id' => 'exists:package_types,id'
         ]);
 
-        $valData['unit'] = 'Pax';
+        // $valData['unit'] = 'Pax';
 
         if ($request->file('picture')) {
             $valData['picture'] = Storage::disk('public')->putFile('picture', $request->file('picture'));

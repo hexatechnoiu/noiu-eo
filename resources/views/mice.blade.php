@@ -19,12 +19,12 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-black">{{ $pkg->name }}</h5>
-                                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp.
-                                    {{ $pkg->price }}<span class="text-sm font-medium text-neutral-60"> /<span id="unit_modal"></span></span></p>
-                                <button id="btnSeeDetail{{ $pkg->id }}" onclick="ViewModal({{ $pkg->id }})" data-category="{{ $tpkg->name }}"
-                                    data-name="{{ $pkg->name }}" data-picture="{{ asset('/storage/' . $pkg->picture) }}"
-                                    data-unit="{{ $pkg->unit }}" data-price="{{ $pkg->price }}"
-                                    data-desc="{!! $pkg->desc !!}" type="button" data-modal-target="seeDetailModal" data-modal-toggle="seeDetailModal" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-[400ms]">
+                                <p class="mb-2 text-lg font-semibold tracking-tight text-primary-40">Rp. {{ number_format($pkg->price, 0, ',', '.') }}<span class="text-sm font-medium text-neutral-60"> /Pax</span></p>
+                                <button type="button" id="btnSeeDetail{{ $pkg->id }}" onclick="ViewModal({{ $pkg->id }})"
+                                    data-category="{{ $tpkg->name }}" data-name="{{ $pkg->name }}"
+                                    data-picture="{{ asset('/storage/' . $pkg->picture) }}" data-price="{{ number_format($pkg->price, 0, ',', '.') }}"
+                                    data-desc="{!! $pkg->desc !!}" data-modal-target="seeDetailModal" data-modal-toggle="seeDetailModal"
+                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-[400ms]">
                                     See Detail
                                     <i class="fa-solid fa-arrow-right fa-sm ml-2"></i>
                                 </button>
@@ -54,8 +54,7 @@
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Price</dt>
-                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="price_modal"></span>
-                                /<span id="unit_modal"></span></dd>
+                            <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="price_modal"></span> /Pax</dd>
                         </dl>
                         <dl>
                             <dt class="mt-2 font-semibold leading-none text-black">Description</dt>
