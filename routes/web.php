@@ -24,10 +24,11 @@ use App\Models\Package;
 Route::redirect('/', '/home');
 
 Route::get('/home', function () {
+    $ben = Benefits::get();
     return view('home', [
         "title" => "Beranda",
         "active" => "home",
-        "benefits" => Benefits::latest()->get()
+        "benefits" => $ben
     ]);
 })->name('home');
 

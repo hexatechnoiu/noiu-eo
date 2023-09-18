@@ -43,7 +43,7 @@ class PackageController extends Controller
             'package_type_id' => 'exists:package_types,id'
         ]);
 
-        $valData['unit'] = 'orang';
+        $valData['unit'] = 'Pax';
 
         if ($request->file('picture')) {
             $valData['picture'] = Storage::disk('public')->putFile('picture', $request->file('picture'));
@@ -101,6 +101,6 @@ class PackageController extends Controller
     public function destroy(Package $package)
     {
         Package::destroy($package->id);
-        return redirect()->back()->with('success', 'Package ID: ' . $package->id . ' Has Been deleted sucessfully');
+        return redirect()->back()->with('success', $package->name . ' Has Been deleted sucessfully');
     }
 }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('benefits', function (Blueprint $table) {
             $table->id();
+            $table->string('icon');
             $table->string('title');
             $table->text('desc');
-            $table->string('icon')->default('fa-solid fa-thumbs-up fa-lg');
             $table->timestamps();
         });
     }

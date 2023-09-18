@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Benefits extends Model
 {
     use HasFactory;
-        protected $fillable = [
-            'title',
-            'desc',
-            'icon',
+    protected $fillable = [
+        'icon',
+        'title',
+        'desc'
     ];
-    protected $guarded = [
-        'id'
-    ];
+    // protected $guarded = [
+    //     'id'
+    // ];
 }
