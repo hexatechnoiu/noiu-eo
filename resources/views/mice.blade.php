@@ -4,7 +4,7 @@
 
     @foreach ($data as $pc)
         @foreach ($pc->package_types as $tpkg)
-            <section id="{{ $tpkg->name }}" class="bg-center bg-no-repeat bg-white bg-blend-multiply pt-20 pb-5">
+            <section id="{{ strtolower($tpkg->name) }}" class="bg-center bg-no-repeat bg-white bg-blend-multiply pt-20 pb-5">
                 <div class="px-4 mx-auto max-w-screen-xl text-center">
                     <h1 class="mb-2 text-3xl font-extrabold tracking-tight leading-none text-black sm:text-4xl md:text-5xl lg:text-6xl">
                         {{ $tpkg->name }} Package</h1>

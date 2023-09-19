@@ -21,40 +21,40 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
-        
+
         Package_category::create([
-        'name' => 'Outbound',
-        'status' => 'active'
+            'name' => 'Outbound',
+            'status' => 'active'
         ]);
         Package_category::create([
             'name' => 'MICE',
             'status' => 'active'
-            ]);
+        ]);
 
 
-            // PACKAGE TYPE
+        // PACKAGE TYPE
+        Package_type::create([
+            'name' => 'Outbound',
+            'status' => 'active',
+            'package_category_id' => 1
+        ]);
         Package_type::create([
             'name' => 'Offroad',
             'status' => 'active',
             'package_category_id' => 1
         ]);
         Package_type::create([
-            'name' => 'Outbound',
+            'name' => 'Rafting',
             'status' => 'active',
             'package_category_id' => 1
         ]);
-        
+
         Package_type::create([
             'name' => 'Others',
             'status' => 'active',
             'package_category_id' => 1
         ]);
-        
-        Package_type::create([
-            'name' => 'Rafting',
-            'status' => 'active',
-            'package_category_id' => 1
-        ]);
+
         Package_type::create([
             'name' => 'Meeting',
             'status' => 'active',

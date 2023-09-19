@@ -17,7 +17,7 @@ class Package_category extends Model
 
     public function Package_types()
     {
-        return $this->hasMany(Package_type::class);
+        return $this->hasMany(Package_type::class)->oldest();
     }
     public function Packages()
     {

@@ -1,7 +1,20 @@
+// Laravel built-in
 import "./bootstrap";
-import "@fortawesome/fontawesome-free/css/all.css";
+
+// External
 import "flowbite";
+import "slick-carousel/slick/slick";
+
+// CSS
+import "@fortawesome/fontawesome-free/css/all.css";
+import "slick-carousel/slick/slick.css";
 import "../css/App.css";
+
+
+window.copyData = (id) => {
+const category_trigger = document.getElementById('category-dropdown-button');
+
+}
 
 window.transfer_data = (id) => {
     // Tombol

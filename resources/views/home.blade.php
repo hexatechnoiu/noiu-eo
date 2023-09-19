@@ -40,12 +40,14 @@
 
 {{-- Clients Logo --}}
 <section class="bg-primary-40 py-6">
-    <div class="logo-slider ml-10 lg:ml-24 space-x-7">
+    <div class="logo-slider ml-12 lg:ml-24 space-x-7">
+
         @for ($i = 1; $i <= 12; $i++)
-        <div class="flex justify-center items-center cursor-default">
-            <img class="w-12 md:w-24 my-auto hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo' . $i . '.png') }}" alt="">
+        <div class="flex justify-center items-center cursor-pointer">
+            <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo' . $i . '.png') }}" alt="">
         </div>
         @endfor
+        
     </div>
 </section>
 

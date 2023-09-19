@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Models\Benefits;
 use App\Models\Package_category;
 use Illuminate\Support\Facades\Route;
@@ -73,13 +74,14 @@ Route::controller(DashboardController::class)->group(
         Route::get('/dashboard', 'index')->middleware('auth');
         Route::get('/dashboard/users', 'user')->middleware('auth');
         // Route::get('/dashboard/packages', 'packages')->middleware('auth');
-        Route::get('/dashboard/categories', 'categories')->middleware('auth');
     }
-)->name('dashboard');
+    )->name('dashboard');
+    Route::resource('/dashboard/categories', CategoriesController::class)->middleware('auth');
 
 
 Route::controller(UserController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
+        //
     Route::get('/register', 'register')->middleware('guest');
     Route::post('/register', 'store');
     Route::post('/login', 'authenticate');
