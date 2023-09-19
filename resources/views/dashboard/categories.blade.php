@@ -1,6 +1,55 @@
 @extends('layouts.dashboardmain')
 
 @section('container')
+@if (session('success'))
+<div class="flex justify-end">
+    <div id="alert-3"
+        class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed z-50"
+        role="alert">
+        <div class="flex items-center">
+            <i class="fa-solid fa-circle-check"></i>
+            <span class="sr-only">Info</span>
+            <div class="ml-4 mr-2 text-sm font-medium">
+                {{ session('success') }}
+            </div>
+        </div>
+        <button type="button"
+            class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8"
+            data-dismiss-target="#alert-3" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
+            <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
+        </div>
+    </div>
+</div>
+@endif
+
+@foreach ($errors->all() as $e)
+<div class="flex justify-end">
+<div id="alert-3"
+    class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-red-700 bg-red-200 fixed z-50"
+    role="alert">
+    <div class="flex items-center">
+        <i class="fa-solid fa-circle-xmark"></i>
+        <span class="sr-only">Info</span>
+        <div class="ml-4 mr-2 text-sm font-medium">
+            {{ $e }}
+        </div>
+    </div>
+    <button type="button"
+        class="text-red-700 hover:bg-red-300 duration-[400ms] rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 inline-flex items-center justify-center h-8 w-8"
+        data-dismiss-target="#alert-3" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
+        <div id="time-bar" class="h-1 bg-red-700" style="width: 100%;"></div>
+    </div>
+</div>
+</div>
+@endforeach
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
@@ -38,7 +87,7 @@
                                         <td class="px-4 py-3 max-w-[10rem]">{{ $type->name }}</td>
                                         <td class="px-4 py-3 flex items-center justify-end">
                                             <button id="category-dropdown-button" data-dropdown-toggle="category-dropdown"
-                                            onclick="copyData({{ $type->id }}, {{ $type-> }})"
+                                            onclick="copyData(`{{ $type->id }}`, `{{ $type->name}}`, `{{ $cat->id}}`)"
                                                 class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
                                                 type="button">
                                                 <i class="fa-solid fa-ellipsis fa-lg"></i>
@@ -102,18 +151,32 @@
                 </div>
 
                 <!-- Modal body -->
-                <form action="/dashboard/categories" method="POST">
+                <form action="/dashboard/categories" method="POST" id="update_modal">
                     @method('POST')
                     @csrf
                     <div class="mb-4">
                         <div>
-                            <label for="categoryName" class="block mb-2 text-sm font-medium text-black">Category
+                            <label for="create_categoryName" class="block mb-2 text-sm font-medium text-black">Category
                                 Name</label>
-                            <input type="text" name="categoryName" id="categoryName"
+                            <input type="text" name="name" id="create_categoryName"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                                 placeholder="Category Name" required="">
                         </div>
                     </div>
+                    <div class="mb-4">
+                        <div>
+                            <label for="update_category" class="block mb-2 text-sm font-medium text-black">Page
+                                Name</label>
+                                <select id="create_category" name="package_category_id"
+                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
+                                <option>Select Page To view</option>
+                                @foreach ($categories as $pt)
+                                    <option value="{{ $pt->id }}">{{ $pt->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <button type="submit"
                         class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         <i class="fa fa-plus mr-2"></i>
@@ -142,23 +205,22 @@
                 </div>
 
                 <!-- Modal body -->
-                <form id="cat_update_form" method="POST">
+                <form id="update_form" method="POST">
                     @csrf
                     @method('put')
                     <div class="mb-4">
                         <div>
-                            <label for="categoryName" class="block mb-2 text-sm font-medium text-black">Category
+                            <label for="update_categoryName" class="block mb-2 text-sm font-medium text-black">Category
                                 Name</label>
-                            <input type="text" name="categoryName" id="categoryName" value="Outbound"
+                            <input type="text" name="name" id="update_categoryName" value="Outbound"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="Category Name" required="">
+                                placeholder="Category Name">
                         </div>
                     </div>
                     <div class="mb-4">
                         <div>
-                            <label for="categoryName" class="block mb-2 text-sm font-medium text-black">Category
-                                Name</label>
-                            <select id="update_category" name="package_type_id"
+                            <label for="create_categoryName" class="block mb-2 text-sm font-medium text-black">Which Page?</label>
+                            <select id="update_category" name="package_category_id"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                                 <option>Select Category</option>
                                 @foreach ($categories as $pt)
@@ -236,15 +298,20 @@
                 <div class="text-neutral-60 w-11 h-11 my-3.5 mx-auto">
                     <i class="fa-solid fa-trash-can fa-2xl"></i>
                 </div>
-                <p class="mb-4 text-neutral-60">Are you sure you want to delete this category?</p>
-                <div class="flex justify-center items-center space-x-4">
+                <p class="mb-4 text-neutral-60">Are you sure you want to delete this category? (<span id="delete_categoryName"></span>)</p>
+
+                <form method="POST" class="flex justify-center items-center space-x-4" id="delete_form">
+                    @csrf
+                    @method('DELETE')
+
                     <button data-modal-toggle="deleteModal" type="button"
                         class="py-2 px-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No,
                         cancel</button>
                     <button type="submit"
                         class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300">Yes,
                         I'm sure</button>
-                </div>
+                </form>
+
             </div>
         </div>
     </div>

@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Package_typeController;
 use App\Http\Controllers\PackageController;
 use App\Models\OurTeam;
-use App\Models\Package;
+use App\Models\Package_type;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +77,6 @@ Route::controller(DashboardController::class)->group(
         // Route::get('/dashboard/packages', 'packages')->middleware('auth');
     }
     )->name('dashboard');
-    Route::resource('/dashboard/categories', CategoriesController::class)->middleware('auth');
 
 
 Route::controller(UserController::class)->group(function () {
@@ -90,3 +90,4 @@ Route::controller(UserController::class)->group(function () {
 
 Route::post('/send', [InboxController::class, 'store']);
 Route::resource('/dashboard/packages', PackageController::class)->middleware('auth');
+Route::resource('/dashboard/categories', Package_typeController::class)->middleware('auth');

@@ -11,8 +11,25 @@ import "slick-carousel/slick/slick.css";
 import "../css/App.css";
 
 
-window.copyData = (id) => {
-const category_trigger = document.getElementById('category-dropdown-button');
+window.copyData = (id, name, cat_id) => {
+    try {
+        let update_modal = document.getElementById("update_form");
+        let delete_modal = document.getElementById("delete_form");
+        let update_categoryName = document.getElementById("update_categoryName");
+        let delete_categoryName = document.getElementById("delete_categoryName");
+        let update_category = document.getElementById("update_category");
+    
+        update_modal.action = "/dashboard/categories/" + id;
+        delete_modal.action = "/dashboard/categories/" + id;
+    
+        update_categoryName.value = name;
+        delete_categoryName.InnerHTML = name;
+        update_category.selectedIndex = cat_id;
+    
+        return
+    } catch (error) {
+        alert(error)
+    }
 
 }
 

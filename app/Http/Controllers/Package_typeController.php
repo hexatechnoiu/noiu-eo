@@ -6,7 +6,7 @@ use App\Models\Package_category;
 use App\Models\Package_type;
 use Illuminate\Http\Request;
 
-class CategoriesController extends Controller
+class Package_typeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -33,7 +33,14 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "name" => "required",
+            "package_category_id" => "required",
+        ]);
+        $data['status'] = "active";
+        Package_type::create($data);
+        return redirect()->back()->with(['success' => 'Category created successfully']);
+
     }
 
     /**
@@ -55,16 +62,22 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Package_type $package_type)
+    public function update(string $id, Request $request, Package_type $package_type)
     {
-        //
+        $data = $request->validate([
+            "name" => "required",
+            "package_category_id" => "required",
+        ]);
+        Package_type::where('id', $id)->update($data);
+        return redirect()->back()->with('success', 'Package has been updated');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Package_type $package_type)
+    public function destroy(string $id, Package_type $package_type)
     {
-        //
+        Package_type::destroy($id);
+        return redirect()->back()->with('success', $id . ' Has Been deleted sucessfully');
     }
 }
