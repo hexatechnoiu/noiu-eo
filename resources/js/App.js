@@ -3,12 +3,11 @@ import "./bootstrap";
 
 // External
 import "flowbite";
-import "slick-carousel/slick/slick";
 
 // CSS
 import "@fortawesome/fontawesome-free/css/all.css";
-import "slick-carousel/slick/slick.css";
 import "../css/App.css";
+import "../css/slick.css";
 
 
 window.copyData = (id, name, cat_id) => {

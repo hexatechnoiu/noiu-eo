@@ -1,4 +1,4 @@
-<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="fixed top-0 z-40 inline-flex items-center p-[5px] mt-2 ml-3 text-sm bg-primary-20 text-white hover:bg-white hover:text-primary-20 rounded-lg lg:hidden focus:outline-none focus:ring-2 focus:ring-primary-10">
+<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="fixed top-0 z-40 inline-flex items-center p-[5px] mt-2 ml-3 text-sm bg-primary-20 text-white hover:bg-white hover:text-primary-20 duration-[400ms] rounded-lg lg:hidden focus:outline-none focus:ring-2 focus:ring-primary-10">
     <span class="sr-only">Open sidebar</span>
     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
@@ -6,8 +6,8 @@
     </svg>
 </button>
 
-<aside id="default-sidebar" class="fixed top-0 left-0 z-40 h-screen transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidenav">
-    <div class="overflow-y-auto py-5 px-3 h-full bg-primary-20">
+<aside id="default-sidebar" class="fixed bg-primary-20 top-0 left-0 z-40 min-h-full transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidenav">
+    <div class="overflow-y-auto py-5 px-3">
         <ul class="space-y-2">
             <li>
                 <a href="/" class="flex items-center p-2 pb-0">
@@ -88,8 +88,7 @@
                 </li>
             </ul>
         @endauth
-    </div>
-    @auth
+        @auth
         <div class="absolute bottom-0 left-0 p-4 w-full whitespace-nowrap flex z-20 bg-primary-20 border-t border-white">
             <img src="{{ asset( '/storage/'. auth()->user()->avatar) }}" class="h-10 w-10 my-auto rounded-full object-cover"
                 alt="Profile" />
@@ -116,6 +115,8 @@
             </a>
         </div>
     @endguest
+    </div>
+    
 </aside>
 
 {{-- Modal Logout --}}

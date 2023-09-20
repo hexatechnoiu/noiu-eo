@@ -73,6 +73,7 @@
                 <p class="font-light text-neutral-60 sm:text-xl">HexaTech</p>
             </div>
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                
                 @foreach ($ourTeams as $team)
                     <div class="max-w-xs text-sm text-center text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto mb-5 p-14 hover:scale-110 transition-transform duration-[400ms]">
                         <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset( $team->image) }}" alt="{{ $team->name }}">
