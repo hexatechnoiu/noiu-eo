@@ -75,7 +75,7 @@
                         </form>
                     </div>
                     <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                        <button type="button" id="createBookingModalButton" data-modal-target="createBookingModal" data-modal-toggle="createBookingModal" class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-primary-10 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
+                        <button type="button" id="createBookingModalButton" data-modal-target="createBookingModal" data-modal-toggle="createBookingModal" class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
                             <i class="fa-solid fa-plus mr-2"></i>
                             <span>Booking Now</span>
                         </button>
@@ -376,19 +376,6 @@
                         <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
                         <span class="font-light text-base text-neutral-60">Rp. 850.000</span>
                     </div>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center space-x-3 sm:space-x-4">
-                        <button type="button" class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            <i class="fa-solid fa-pen-to-square mr-2"></i>
-                            Edit
-                        </button>
-                        <button type="button" class="py-2.5 px-5 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 hover:text-primary-40 duration-[400ms] focus:z-10 focus:ring-4 focus:ring-primary-10">Preview</button>
-                    </div>
-                    <button type="button" class="inline-flex items-center text-white bg-red-600 hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        <i class="fa-solid fa-trash-can mr-2"></i>
-                        Delete
-                    </button>
                 </div>
             </div>
         </div>

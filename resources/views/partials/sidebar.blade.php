@@ -8,16 +8,20 @@
 
 <aside id="default-sidebar" class="fixed bg-primary-20 top-0 left-0 z-40 min-h-full transition-transform -translate-x-full lg:translate-x-0" aria-label="Sidenav">
     <div class="overflow-y-auto py-5 px-3">
+      <div class="flex flex-col justify-between items-start">
+        <div class="flex items-center p-2 pb-0 mb-6">
+            <a href="/">
+                <img src="{{ asset('img/logo-eo.svg') }}" class="h-12 text-white" alt="NOIU Logo" />
+            </a>
+          </div>
+          <div>
+            <button type="button" data-drawer-hide="default-sidebar" aria-controls="default-sidebar" class="lg:hidden text-white bg-transparent hover:bg-secondary-40 hover:text-black rounded-lg text-sm py-4 px-2 my-auto absolute top-8 right-3 inline-flex items-center">
+                <i class="fa-solid fa-xmark fa-xl"></i>
+                <span class="sr-only">Close menu</span>
+            </button>
+        </div>
+      </div>
         <ul class="space-y-2">
-            <li>
-                <a href="/" class="flex items-center p-2 pb-0">
-                    <img src="{{ asset('img/logo-eo.svg') }}" class="h-12 mb-6 text-white" alt="NOIU Logo" />
-                    <button type="button" data-drawer-hide="default-sidebar" aria-controls="default-sidebar" class="lg:hidden text-white bg-transparent hover:bg-secondary-40 hover:text-black rounded-lg text-sm py-4 px-2 my-auto absolute top-8 right-3 inline-flex items-center">
-                        <i class="fa-solid fa-xmark fa-xl"></i>
-                        <span class="sr-only">Close menu</span>
-                    </button>
-                </a>
-            </li>
             <li>
                 <a href="/home" class="{{ $active === 'home' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
                     <i class="fa-solid fa-house"></i>
@@ -116,7 +120,7 @@
         </div>
     @endguest
     </div>
-    
+
 </aside>
 
 {{-- Modal Logout --}}
@@ -136,7 +140,7 @@
                 <form action="/logout" method="POST">
                     @csrf
                     <button data-modal-toggle="logoutModal" type="button" class="py-2 px-3 mr-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No, cancel</button>
-                    <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10">Yes, I'm sure</button>
+                    <button type="submit" class="py-2 px-3 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20">Yes, I'm sure</button>
                 </form>
             </div>
         </div>

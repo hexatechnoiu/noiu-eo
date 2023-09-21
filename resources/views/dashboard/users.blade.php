@@ -6,7 +6,7 @@
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto py-10 px-4 lg:px-6">
             <div class="flex items-start mb-8 max-w-screen-sm gap-[20vw] md:gap-[27vw]">
-                <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight text-black bg-secondary-40 hover:text-white hover:bg-primary-40 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
+                <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight hover:text-white hover:bg-primary-40 text-black bg-neutral-20 focus:ring-4 focus:ring-primary-10 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
                 <h2 class="flex justify-center mb-2 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Users</h2>
             </div>
             <!-- Start coding here -->
@@ -24,7 +24,7 @@
                         </form>
                     </div>
                     <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                        <button type="button" id="createUserModalButton" data-modal-target="createUserModal" data-modal-toggle="createUserModal" class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-primary-10 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2 focus:outline-none">
+                        <button type="button" id="createUserModalButton" data-modal-target="createUserModal" data-modal-toggle="createUserModal" class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2 focus:outline-none">
                             <i class="fa-solid fa-plus mr-2"></i>
                             <span>Add New User</span>
                         </button>
@@ -350,19 +350,6 @@
                     <dt class="mt-2 font-semibold leading-none text-black">Email</dt><dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">hafizhaekal03@gmail.com</dd></dl>
                     <dt class="mt-2 font-semibold leading-none text-black">Phone</dt><dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">087894818815</dd></dl>
                     <dl><dt class="mt-2 font-semibold leading-none text-black">Address</dt><dd class="mb-4 font-light text-neutral-60 sm:mb-5">Jl.Tanjung Manunggal V No.30 RT04 RW03 Desa Sukatali, Kec.Situraja, Kab.Sumedang, Jawa Barat, 45371</dd>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center space-x-3 sm:space-x-4">
-                        <button type="button" class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            <i class="fa-solid fa-pen-to-square mr-2"></i>
-                            Edit
-                        </button>
-                        <button type="button" class="py-2.5 px-5 text-sm font-medium text-black focus:outline-none bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 hover:text-primary-40 duration-[400ms] focus:z-10 focus:ring-4 focus:ring-primary-10">Preview</button>
-                    </div>
-                    <button type="button" class="inline-flex items-center text-white bg-red-600 hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        <i class="fa-solid fa-trash-can mr-2"></i>
-                        Delete
-                    </button>
                 </div>
             </div>
         </div>

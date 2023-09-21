@@ -17,7 +17,7 @@
                             class="max-w-xs bg-white border border-neutral-20 rounded-lg shadow mx-auto md:mx-0 mb-5 md:ml-9">
                             <div class="rounded-t-lg w-[318px] h-[229px] overflow-hidden">
                                 <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500 cursor-pointer"
-                                  src="{{ asset('/storage/' . $pkg->picture) }}" alt="" loading="lazy" />
+                                  src="{{ asset('/storage/' . $pkg->picture) }}" alt="" loading="eager" />
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-black">{{ $pkg->name }}</h5>
@@ -53,7 +53,7 @@
                 <!-- Modal header -->
                 <div class="flex flex-col md:flex-row gap-4">
                     <div class="md:mb-4 md:w-[600px]">
-                        <img id="img_modal" class="mb-4 w-full h-full rounded-lg" alt="Image" loading="lazy">
+                        <img id="img_modal" class="mb-4 w-full h-full rounded-lg" alt="Image" loading="eager">
                     </div>
                     <div class="md:w-3/4">
                         <h3 id="name_modal" class="mb-6 text-2xl text-black font-semibold"></h3>
@@ -83,7 +83,7 @@
                 <div class="flex justify-end items-center">
                     <div class="flex items-center space-x-3 sm:space-x-4">
                         <a href="/booking"
-                            class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             <i class="fa-solid fa-plus mr-2"></i>
                             Booking Now
                         </a>

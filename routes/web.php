@@ -11,6 +11,7 @@ use App\Http\Controllers\Package_typeController;
 use App\Http\Controllers\PackageController;
 use App\Models\OurTeam;
 use App\Models\Package_type;
+use App\Http\Requests\SearchPackageRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,3 +92,5 @@ Route::controller(UserController::class)->group(function () {
 Route::post('/send', [InboxController::class, 'store']);
 Route::resource('/dashboard/packages', PackageController::class)->middleware('auth');
 Route::resource('/dashboard/categories', Package_typeController::class)->middleware('auth');
+
+// Route::get('/dashboard/packages', [PackageController::class, 'index']);

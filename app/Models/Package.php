@@ -14,7 +14,6 @@ class Package extends Model
         'name',
         'desc',
         'price',
-        'unit',
         'package_type_id'
     ];
     protected $guarded = [

@@ -4,7 +4,7 @@
 
     @if (session('showAlert'))
     <div class="flex justify-end">
-        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-red-700 bg-red-200 fixed" role="alert">
+        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed" role="alert">
             <div class="flex items-center">
                 <i class="fa-solid fa-circle-check"></i>
                 <span class="sr-only">Info</span>
@@ -12,19 +12,19 @@
                     Log Out successfully!
                 </div>
             </div>
-            <button type="button" class="text-red-700 hover:bg-red-300 duration-[400ms] rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
+            <button type="button" class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
                 <span class="sr-only">Close</span>
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-red-700" style="width: 100%;"></div>
+                <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
             </div>
         </div>
     </div>
     @endif
 
 {{-- Hero Section --}}
-<section class="bg-center bg-no-repeat bg-cover bg-neutral-40 bg-blend-multiply lg:h-[100vh]" style="background-image: url('{{ asset('img/noiu.jpg') }}')" loading="lazy">
+<section class="bg-center bg-no-repeat bg-cover bg-neutral-40 bg-blend-multiply lg:h-[100vh]" style="background-image: url('{{ asset('img/noiu-hero.jpg') }}')" loading="eager">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-44 lg:py-56">
         <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-white sm:text-4xl md:text-5xl lg:text-6xl">Together We Make
             <span id="typewriter" class="text-secondary-40"></span>
@@ -40,7 +40,7 @@
 
 {{-- Clients Logo --}}
 <section class="bg-primary-40 py-6">
-    <div class="logo-slider ml-12 lg:ml-24 space-x-7">
+    <div class="logo-slider ml-16 lg:ml-24 space-x-7">
         @for ($i = 1; $i <= 12; $i++)
         <div class="flex justify-center items-center cursor-pointer">
             <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo' . $i . '.png') }}" alt="" loading="lazy">
@@ -54,7 +54,7 @@
 <section class="bg-white px-12 mt-10 lg:mt-20">
     <div class="flex flex-col lg:flex-row gap-8 items-center mx-auto max-w-screen-xl xl:gap-16">
         <div class="lg:w-[200px] lg:h-[320px] rounded-lg overflow-hidden cursor-pointer">
-            <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500" src="{{ asset('img/noiu.jpg') }}" alt="NOIU Image" loading="lazy">
+            <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500" src="{{ asset('img/noiu.jpg') }}" alt="NOIU Image" loading="eager">
         </div>
         <div class="lg:w-3/4">
             <h2 class="mb-4 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">NOIU EVENT ORGANIZER</h2>
@@ -91,7 +91,7 @@
             <p class="max-w-2xl font-light text-white sm:text-xl">Number One I'ts You</p>
         </div>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a href="/package" class="inline-flex justify-center items-center py-3 px-7 text-lg font-normal text-center rounded-lg text-black bg-secondary-40 border-[3px] border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 duration-[400ms]">
+            <a href="/outbound" class="inline-flex justify-center items-center py-3 px-7 text-lg font-normal text-center rounded-lg text-black bg-secondary-40 border-[3px] border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 duration-[400ms]">
                 Book Now
             </a>
         </div>

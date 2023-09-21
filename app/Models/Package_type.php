@@ -22,4 +22,8 @@ class Package_type extends Model
     {
         return $this->belongsTo(Package_category::class);
     }
+    // public function search($request)
+    // {
+    //     return $this->where('name', 'like', '%' . $request->search . '%')->get();
+    // }
 }

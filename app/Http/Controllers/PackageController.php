@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
+use App\Http\Requests\SearchPackageRequest;
 
 class PackageController extends Controller
 {
@@ -16,10 +17,18 @@ class PackageController extends Controller
      */
     public function index()
     {
+        $package = Package_type::with('Packages')->get();
+
+        if(request('search')) {
+          $package->where('name', 'LIKE', '%' . request('search') . '%');
+        }
+
         return view('dashboard.packages', [
-            "package_type" => Package_type::with('Packages')->get(),
+            // "package_type" => Package_type::with('Packages')->get(),
             "title" => "Packages | Dashboard",
-            "active" => "dashboard"
+            "active" => "dashboard",
+            "package_type" => Package_type::with('Packages')->get()
+
         ]);
     }
 
@@ -107,4 +116,15 @@ class PackageController extends Controller
         Package::destroy($package->id);
         return redirect()->back()->with('success', $package->name . ' Has Been deleted sucessfully');
     }
+
+    // public function search(SearchPackageRequest $request)
+    // {
+    //   if($request->has('search')) {
+    //     $package = Package_type::where('name', 'LIKE', '%' . $request->search . '%')->get();
+    //   }
+    //   else {
+    //       $package = Package_type::all();
+    //   }
+    //   return view('dashboard/packages', ['packages' => $package]);
+    // }
 }

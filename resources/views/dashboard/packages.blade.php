@@ -56,24 +56,22 @@
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
             <div class="flex items-start mb-8 max-w-screen-sm gap-[15vw] md:gap-[25vw]">
-                <a href="/dashboard"
-                    class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight text-black bg-secondary-40 hover:text-white hover:bg-primary-40 duration-[400ms]"><i
-                        class="fa-solid fa-arrow-left mr-2"></i>Back</a>
-                <h2 class="flex justify-center mb-2 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Packages
-                </h2>
+              <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight hover:text-white hover:bg-primary-40 text-black bg-neutral-20 focus:ring-4 focus:ring-primary-10 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
+                <h2 class="flex justify-center mb-2 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Packages</h2>
             </div>
             <!-- Start coding here -->
             <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
-                        <form class="flex items-center">
-                            <label for="simple-search" class="sr-only">Search</label>
+                        <form action="/dashboard/packages" class="form-inline flex items-center" method="GET">
+                          @csrf
+                            <label for="search" class="sr-only">Search</label>
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-magnifying-glass w-5 h-5 text-neutral-60"></i>
                                 </div>
-                                <input type="text" id="simple-search"
-                                    class="bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2"
+                                <input type="text" name="search"
+                                    class="form-control bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2"
                                     placeholder="Search" required>
                             </div>
                         </form>
@@ -82,7 +80,7 @@
                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                         <button type="button" id="createPackageModalButton" data-modal-target="createPackageModal"
                             data-modal-toggle="createPackageModal"
-                            class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-primary-10 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
+                            class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
                             <i class="fa-solid fa-plus mr-2"></i>
                             <span>Add New Package</span>
                         </button>
@@ -278,7 +276,7 @@
                         </div>
                     </div>
                     <button type="submit"
-                        class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                         <i class="fa fa-plus mr-2"></i>
                         Add New Package
                     </button>
@@ -353,7 +351,7 @@
                     </div>
                     <div class="flex items-center space-x-4">
                         <button type="submit"
-                            class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Update Package
                         </button>
                     </div>
