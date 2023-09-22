@@ -34,7 +34,7 @@
                         </div>
                         <div>
                             <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone</label>
-                            <input type="text" name="phone" value="{{old('phone')}}" id="phone" class="bg-neutral-10 border @error('phone') border-red-700 @enderror text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Phone" required="">
+                            <input type="tel" placeholder="08123456789012" name="phone" value="{{old('phone')}}" id="phone" class="bg-neutral-10 border @error('phone') border-red-700 @enderror text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Phone" required="">
                             @error('phone')
                                 <small class="text-red-600 text-sm">{{$message}}</small>
                             @enderror

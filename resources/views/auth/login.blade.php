@@ -24,7 +24,7 @@
     @endif
 
     <section class="flex flex-col items-center justify-center px-6 py-10 mx-auto md:h-screen">
-        <div class="w-full bg-white rounded-lg shadow-xl border border-neutral-20 my-4 sm:max-w-md">
+        <div class="w-full bg-white rounded-lg shadow-xl border border-neutral-20 my-28 sm:max-w-md">
             <img src="{{ asset('img/logo-eo-blue.svg') }}" class="h-16 mt-6 mx-auto" alt="NOIU Logo" />
 
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">

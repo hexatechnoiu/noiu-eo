@@ -17,7 +17,7 @@
                             class="max-w-xs bg-white border border-neutral-20 rounded-lg shadow mx-auto md:mx-0 mb-5 md:ml-9">
                             <div class="rounded-t-lg w-[318px] h-[229px] overflow-hidden">
                                 <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500 cursor-pointer"
-                                  src="{{ asset('/storage/' . $pkg->picture) }}" alt="" loading="eager" />
+                                  src="{{ Storage::url($pkg->picture) }}" loading="eager" />
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-2 text-xl font-bold tracking-tight text-black">{{ $pkg->name }}</h5>
@@ -27,9 +27,7 @@
                                 <button type="button" id="btnSeeDetail{{ $pkg->id }}"
                                     onclick="ViewModal({{ $pkg->id }})" data-category="{{ $tpkg->name }}"
                                     data-name="{{ $pkg->name }}"
-                                    data-picture="@if (strpos($pkg->picture, 'unsplash') !== false) {{ $pkg->picture }}
-                                @else
-                                    {{ asset('/storage/' . $pkg->picture) }} @endif"
+                                    data-picture="{{ Storage::url($pkg->picture) }}"
                                     data-price="{{ number_format($pkg->price, 0, ',', '.') }}"
                                     data-desc="{!! $pkg->desc !!}" data-modal-target="seeDetailModal"
                                     data-modal-toggle="seeDetailModal"
@@ -53,7 +51,7 @@
                 <!-- Modal header -->
                 <div class="flex flex-col md:flex-row gap-4">
                     <div class="md:mb-4 md:w-[600px]">
-                        <img id="img_modal" class="mb-4 w-full h-full rounded-lg" alt="Image" loading="eager">
+                        <img id="img_modal" class="mb-4 w-full h-full rounded-lg object-cover" alt="Image" loading="eager">
                     </div>
                     <div class="md:w-3/4">
                         <h3 id="name_modal" class="mb-6 text-2xl text-black font-semibold"></h3>

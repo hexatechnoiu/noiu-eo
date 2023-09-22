@@ -54,10 +54,8 @@ class PackageController extends Controller
             'package_type_id' => 'exists:package_types,id'
         ]);
 
-        // $valData['unit'] = 'Pax';
-
         if ($request->file('picture')) {
-            $valData['picture'] = Storage::disk('public')->putFile('picture', $request->file('picture'));
+            $valData['picture'] = $request->file('picture')->store('picture', 'public');
         }
 
         Package::create($valData);
@@ -101,7 +99,7 @@ class PackageController extends Controller
             if ($request->oldPicture) {
                 Storage::delete($request->oldPicture);
             }
-            $data['picture'] = Storage::disk('public')->putFile('picture', $request->file('picture'));
+            $data['picture'] = $request->file('picture')->store('picture', 'public');
         }
 
         Package::where('id', $package->id)->update($data);

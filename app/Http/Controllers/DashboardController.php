@@ -8,21 +8,14 @@ use App\Models\User;
 
 class DashboardController extends Controller
 {
-    public function user()
-    {
-        return view('dashboard.users', [
-            "title" => "Users",
-            "active" => "dashboard",
-            "users" => User::latest()->get()
-        ]);
-    }
+
     public function packages()
     {
 
     }
     public function categories()
     {
-        
+
     }
     public function index()
     {

@@ -83,23 +83,28 @@
             </li>
         </ul>
         @auth
-            <ul class="pt-5 mt-5 space-y-2 border-t border-white">
-                <li>
-                    <a href="/dashboard" class="{{ $active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
-                        <i class="fa-solid fa-gauge-high fa-lg"></i>
-                        <span class="ml-3">Dashboard</span>
-                    </a>
-                </li>
-            </ul>
+        @if (strtolower(auth()->user()->role) == "admin")
+        <ul class="pt-5 mt-5 space-y-2 border-t border-white">
+          <li>
+            <a href="/dashboard" class="{{ $active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+              <i class="fa-solid fa-gauge-high fa-lg"></i>
+              <span class="ml-3">Dashboard</span>
+            </a>
+          </li>
+        </ul>
+        @endif
         @endauth
         @auth
-        <div class="absolute bottom-0 left-0 p-4 w-full whitespace-nowrap flex z-20 bg-primary-20 border-t border-white">
+        <div class="flex flex-row justify-between absolute bottom-0 left-0 p-4 w-full whitespace-nowrap z-20 bg-primary-20 border-t border-white">
+          <div class="flex flex-row">
             <img src="{{ asset( '/storage/'. auth()->user()->avatar) }}" class="h-10 w-10 my-auto rounded-full object-cover"
                 alt="Profile" />
             <ul class="my-auto">
                 <li class="ml-3 text-white max-w-[100px] truncate">{{ auth()->user()->name }}</li>
                 <li class="ml-3 text-white text-xs">{{ auth()->user()->role }}</li>
             </ul>
+          </div>
+          <div>
             <button type="button" data-tooltip-target="tooltip-logout" data-modal-target="logoutModal" data-modal-toggle="logoutModal" class="p-2 ml-9 text-base font-normal text-white rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                 <i class="fa-solid fa-right-from-bracket fa-lg"></i>
             </button>
@@ -107,6 +112,7 @@
                 Log Out
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
+          </div>
         </div>
     @endauth
     @guest

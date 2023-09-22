@@ -101,14 +101,6 @@
                                                         </button>
                                                     </li>
                                                     <li>
-                                                        <button type="button" data-modal-target="readCategoryModal"
-                                                            data-modal-toggle="readCategoryModal"
-                                                            class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                            <i class="fa-solid fa-eye mr-2"></i>
-                                                            Preview
-                                                        </button>
-                                                    </li>
-                                                    <li>
                                                         <button type="button" data-modal-target="deleteModal"
                                                             data-modal-toggle="deleteModal"
                                                             class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
