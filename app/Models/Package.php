@@ -17,7 +17,6 @@ class Package extends Model
         'package_type_id'
     ];
     protected $guarded = [
-        'id'
     ];
 
 

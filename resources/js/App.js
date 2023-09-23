@@ -1,3 +1,4 @@
+"use strict"
 // Laravel built-in
 import "./bootstrap";
 
@@ -10,8 +11,36 @@ import "../css/App.css";
 import "../css/slick.css";
 
 
+window.copy_book = (id, cat_id) => {
+  let btn = document.getElementById('booking-dropdown-button' + id);
+  let data = btn.dataset;
+  // form
+  document.getElementById('update_booking_form').action = "/booking/" + id;
+  document.getElementById('delete_booking_form').action = "/booking/" + id;
+
+
+  document.getElementById('prename').innerHTML = data.name;
+  document.getElementById('prephone').innerHTML = data.phone;
+  document.getElementById('prepayment').innerHTML = data.paymentMethod;
+  document.getElementById('predate').innerHTML = data.date;
+  document.getElementById('preprice').innerHTML = Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+  }).format(data.pkgPrice);
+  document.getElementById('prepackagename').innerHTML = data.pkgName;
+  document.getElementById('precatname').innerHTML = data.pkgCatName;
+
+  // Fields
+  document.getElementById('name').value = data.name;
+  document.getElementById('payment_method').value = data.paymentMethod;
+  document.getElementById('package').value = cat_id
+  document.getElementById('date').value = data.date;
+  console.log(document.getElementById('phone').value = data.phone.replace(/[\(\)\.\-\+\,\/]/g, ''));
+
+
+}
+
 window.copy_userdata = (id) => {
-  try {
     const btn = document.getElementById('user-dropdown-button' + id)
     const data = btn.dataset;
 
@@ -37,15 +66,12 @@ window.copy_userdata = (id) => {
     phoneFields.value = data.phone;
     addressFields.value = data.address;
     return
-  } catch (e) {
-    alert(e.message)
-  }
+
 
   // const avatar = document.getElementById('avatar');
 
 }
 window.copyData = (id, name, cat_id) => {
-  try {
     let update_modal = document.getElementById("update_form");
     let delete_modal = document.getElementById("delete_form");
     let update_categoryName = document.getElementById("update_categoryName");
@@ -58,15 +84,7 @@ window.copyData = (id, name, cat_id) => {
     update_categoryName.value = name;
     delete_categoryName.InnerHTML = name;
     update_category.selectedIndex = cat_id;
-
     return
-  } catch (error) {
-    alert(error)
-  }
-
-
-
-
 }
 
 window.transfer_data = (id) => {

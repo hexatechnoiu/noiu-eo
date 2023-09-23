@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoriesController;
 use App\Models\Benefits;
 use App\Models\Package_category;
@@ -12,6 +13,7 @@ use App\Http\Controllers\PackageController;
 use App\Models\OurTeam;
 use App\Models\Package_type;
 use App\Http\Requests\SearchPackageRequest;
+use App\Models\Package;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,7 @@ Route::get('/home', function () {
         "active" => "home",
         "benefits" => $ben
     ]);
-})->name('home');
+});
 
 Route::get('/outbound', function () {
     $package = Package_category::where(['id'=>1])->with('Package_types.Packages')->get();
@@ -62,15 +64,6 @@ Route::get('/contact', function () {
         "ourTeams" => $ot
     ]);
 })->name('contact');
-
-Route::get('/booking', function () {
-    return view('booking', [
-        "title" => "Booking",
-        "active" => "booking"
-    ]);
-})->middleware('auth')->name('booking');
-
-
 Route::controller(DashboardController::class)->group(
     function () {
         Route::get('/dashboard', 'index')->middleware('auth');
@@ -80,8 +73,7 @@ Route::controller(DashboardController::class)->group(
 
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/login', 'login')->name('login');
-        //
+    Route::get('/login', 'login')->middleware('guest')->name('login');
     Route::get('/register', 'register')->middleware('guest');
     Route::post('/register', 'store');
     Route::post('/login', 'authenticate');
@@ -92,5 +84,6 @@ Route::post('/send', [InboxController::class, 'store']);
 Route::resource('/dashboard/packages', PackageController::class)->middleware('auth');
 Route::resource('/dashboard/categories', Package_typeController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
+Route::resource('/booking', BookingController::class)->middleware('auth');
 
 // Route::get('/dashboard/packages', [PackageController::class, 'index']);

@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('phone')->unique();
             $table->enum('payment_method', ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO']);
-            $table->dateTime('date');
+            $table->date('date');
             $table->foreignId('package_id');
             $table->timestamps();
         });

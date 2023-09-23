@@ -75,7 +75,7 @@
             <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 @foreach ($ourTeams as $team)
                     <div class="max-w-xs text-sm text-center text-neutral-60 bg-white border border-neutral-20 rounded-xl shadow-lg mx-auto mb-5 p-16 hover:scale-110 transition-transform duration-[400ms]">
-                        <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ asset( $team->image) }}" alt="{{ $team->name }}" loading="eager">
+                        <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="{{ Storage::url($team->image) }}" alt="{{ $team->name }}" loading="eager">
                         <h3 class="mb-1 text-xl font-bold tracking-tight text-black">
                             {{ $team->name }}
                         </h3>
@@ -99,5 +99,5 @@
             </div>
         </div>
     </section>
-    
+
 @endsection

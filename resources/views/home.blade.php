@@ -23,6 +23,7 @@
     </div>
     @endif
 
+
 {{-- Hero Section --}}
 <section class="bg-center bg-no-repeat bg-cover bg-neutral-40 bg-blend-multiply lg:h-[100vh]" style="background-image: url('{{ asset('img/noiu-hero.jpg') }}')" loading="eager">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-44 lg:py-56">

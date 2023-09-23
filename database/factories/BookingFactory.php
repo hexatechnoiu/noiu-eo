@@ -19,7 +19,7 @@ class BookingFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'phone' => $this->faker->phoneNumber(),
-            'date' => $this->faker->dateTime(),
+            'date' => $this->faker->date(),
             'payment_method' => $this->faker->randomElement(['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO']),
             'package_id' => $this->faker->numberBetween(1, 25),
         ];

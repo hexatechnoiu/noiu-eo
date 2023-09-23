@@ -12,117 +12,121 @@ use App\Http\Requests\SearchPackageRequest;
 
 class PackageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $package = Package_type::with('Packages')->get();
-
-        if(request('search')) {
-          $package->where('name', 'LIKE', '%' . request('search') . '%');
-        }
-
-        return view('dashboard.packages', [
-            // "package_type" => Package_type::with('Packages')->get(),
-            "title" => "Packages | Dashboard",
-            "active" => "dashboard",
-            "package_type" => Package_type::with('Packages')->get()
-
-        ]);
+  /**
+   * Display a listing of the resource.
+   */
+  public function index()
+  {
+    $package = Package_type::with('Packages')->get();
+    if (request('search')) {
+      $pkg = Package_type::with(['Packages' => function ($query) {
+        $query->where('name', 'LIKE', '%' . request('search') . '%');
+      }])->get();
+      return view('dashboard.packages', [
+        "title" => "Packages | Dashboard",
+        "active" => "dashboard",
+        "package_type" => $pkg,
+      ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    return view('dashboard.packages', [
+      // "package_type" => Package_type::with('Packages')->get(),
+      "title" => "Packages | Dashboard",
+      "active" => "dashboard",
+      "package_type" => $package,
+    ]);
+  }
+
+  /**
+   * Show the form for creating a new resource.
+   */
+  public function create()
+  {
+    //
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   */
+  public function store(StorePackageRequest $request)
+  {
+    $request['price'] = str_replace('.', '', $request->price);
+    $valData = $request->validate([
+      'picture' => 'image|file|mimes:png,jpg,svg,gif,jpeg,webp',
+      'name' => 'required',
+      'desc' => 'required',
+      'price' => 'required|numeric',
+      'package_type_id' => 'exists:package_types,id'
+    ]);
+
+    if ($request->file('picture')) {
+      $valData['picture'] = $request->file('picture')->store('picture', 'public');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorePackageRequest $request)
-    {
-        $request['price'] = str_replace('.', '', $request->price);
-        $valData = $request->validate([
-            'picture' => 'image|file|mimes:png,jpg,svg,gif,jpeg,webp',
-            'name' => 'required',
-            'desc' => 'required',
-            'price' => 'required|numeric',
-            'package_type_id' => 'exists:package_types,id'
-        ]);
+    Package::create($valData);
 
-        if ($request->file('picture')) {
-            $valData['picture'] = $request->file('picture')->store('picture', 'public');
-        }
+    return redirect()->back()->with(['success' => 'Package created successfully']);
+  }
 
-        Package::create($valData);
+  /**
+   * Display the specified resource.
+   */
+  public function show(Package $package)
+  {
+    //
+  }
 
-        return redirect()->back()->with(['success' => 'Package created successfully']);
+  /**
+   * Show the form for editing the specified resource.
+   */
+  public function edit(Package $package)
+  {
+    //
+  }
+
+  /**
+   * Update the specified resource in storage.
+   */
+  public function update(UpdatePackageRequest $request, Package $package)
+  {
+    $request['price'] = str_replace(['.', ','], '', $request->price);
+    $data = $request->validate(
+      [
+        'picture' => 'image|file|max:2048|mimes:png,jpg,svg,jpeg,webp',
+        'name' => 'required',
+        'desc' => 'required',
+        'price'  => 'required|numeric',
+        'package_type_id' => 'exists:package_types,id'
+      ]
+    );
+
+    if ($request->file('picture')) {
+      if ($request->oldPicture) {
+        Storage::delete($request->oldPicture);
+      }
+      $data['picture'] = $request->file('picture')->store('picture', 'public');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Package $package)
-    {
-        //
+    Package::where('id', $package->id)->update($data);
+    return redirect()->back()->with('success', 'Package has been updated');
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   */
+  public function destroy(Package $package)
+  {
+    Package::destroy($package->id);
+    return redirect()->back()->with('success', $package->name . ' Has Been deleted sucessfully');
+  }
+
+  public function search(SearchPackageRequest $request)
+  {
+    if ($request->has('search')) {
+      $package = Package_type::where('name', 'LIKE', '%' . $request->search . '%')->get();
+    } else {
+      $package = Package_type::all();
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Package $package)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePackageRequest $request, Package $package)
-    {
-        $request['price'] = str_replace(['.', ','], '', $request->price);
-        $data = $request->validate(
-            [
-                'picture' => 'image|file|max:2048|mimes:png,jpg,svg,jpeg,webp',
-                'name' => 'required',
-                'desc' => 'required',
-                'price'  => 'required|numeric',
-                'package_type_id' => 'exists:package_types,id'
-            ]
-        );
-
-        if ($request->file('picture')) {
-            if ($request->oldPicture) {
-                Storage::delete($request->oldPicture);
-            }
-            $data['picture'] = $request->file('picture')->store('picture', 'public');
-        }
-
-        Package::where('id', $package->id)->update($data);
-        return redirect()->back()->with('success', 'Package has been updated');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Package $package)
-    {
-        Package::destroy($package->id);
-        return redirect()->back()->with('success', $package->name . ' Has Been deleted sucessfully');
-    }
-
-    // public function search(SearchPackageRequest $request)
-    // {
-    //   if($request->has('search')) {
-    //     $package = Package_type::where('name', 'LIKE', '%' . $request->search . '%')->get();
-    //   }
-    //   else {
-    //       $package = Package_type::all();
-    //   }
-    //   return view('dashboard/packages', ['packages' => $package]);
-    // }
+    return view('dashboard/packages', ['packages' => $package]);
+  }
 }

@@ -97,7 +97,7 @@
         @auth
         <div class="flex flex-row justify-between absolute bottom-0 left-0 p-4 w-full whitespace-nowrap z-20 bg-primary-20 border-t border-white">
           <div class="flex flex-row">
-            <img src="{{ asset( '/storage/'. auth()->user()->avatar) }}" class="h-10 w-10 my-auto rounded-full object-cover"
+            <img src="{{ Storage::url(auth()->user()->avatar) }}" class="h-10 w-10 my-auto rounded-full object-cover"
                 alt="Profile" />
             <ul class="my-auto">
                 <li class="ml-3 text-white max-w-[100px] truncate">{{ auth()->user()->name }}</li>

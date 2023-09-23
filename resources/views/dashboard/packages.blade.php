@@ -64,7 +64,6 @@
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
                         <form action="/dashboard/packages" class="form-inline flex items-center" method="GET">
-                          @csrf
                             <label for="search" class="sr-only">Search</label>
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -101,7 +100,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($package_type as $pkg_type)
+                            @foreach ($package_type as $pkg_type)
                                 @foreach ($pkg_type->packages as $pkg)
                                     <tr class="border-b">
                                         <td class="px-4 py-3 max-w-[5rem]"><img
@@ -156,10 +155,7 @@
                                         </td>
                                     </tr>
                                 @endforeach
-
-                            @empty
-                                <p>empty :/</p>
-                            @endforelse
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
