@@ -19,7 +19,7 @@ class DashboardController extends Controller
   }
   public function index()
   {
-    $packages = Package::latest()->get();
+    $packages = Package::orderBy('package_type_id')->get();
     $package_types = Package_type::get();
     $users = User::get();
     $count = [
@@ -39,15 +39,16 @@ class DashboardController extends Controller
         'icon' => 'fa-solid fa-clipboard-list fa-2xl'
       ],
     ];
+
     return view('dashboard.index', [
       "title" => "Dashboard",
       "active" => "dashboard",
-      'users' => $users,
-      'count' => collect($count),
-      'categories' => $package_types,
-      'packages' => $packages,
-      'paylist' => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
-      'books' => Booking::latest()->paginate(5)
+      "users" => $users,
+      "count" => collect($count),
+      "categories" => $package_types,
+      "packages" => $packages,
+      "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
+      "books" => Booking::latest()->paginate(5)
     ]);
   }
 }

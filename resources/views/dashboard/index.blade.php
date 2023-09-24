@@ -74,7 +74,7 @@
 
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
-        <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
+        <div class="mx-auto max-w-screen-xl text-center pt-10 pb-28 px-4 lg:px-6">
             <h2 class="flex justify-center mb-8 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Booking</h2>
             <!-- Start coding here -->
             <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
@@ -172,9 +172,40 @@
                         </tbody>
                     </table>
                 </div>
-                <nav
-                    class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4">
-                    {{ $books->links() }}
+                <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
+                    aria-label="Table navigation">
+                    <span class="text-sm font-normal text-neutral-60">
+                        Showing
+                        <span class="font-semibold text-black">
+                            {{ $books->firstItem() }}-{{ $books->lastItem() }}
+                        </span>
+                        of
+                        <span class="font-semibold text-black">{{ $books->total() }}</span>
+                    </span>
+                    <ul class="inline-flex items-stretch -space-x-px">
+                        <li>
+                            <a href="{{ $books->previousPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $books->onFirstPage() ? 'cursor-not-allowed' : '' }}">
+                                <span class="sr-only">Previous</span>
+                                <i class="fa-solid fa-chevron-left fa-sm"></i>
+                            </a>
+                        </li>
+                        @foreach ($books->getUrlRange(1, $books->lastPage()) as $page => $url)
+                            <li>
+                                <a href="{{ $url }}"
+                                  class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $books->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $books->currentPage() ? 'z-10' : '' }}">
+                                    {{ $page }}
+                                </a>
+                            </li>
+                        @endforeach
+                        <li>
+                            <a href="{{ $books->nextPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $books->hasMorePages() ? '' : 'cursor-not-allowed' }}">
+                                <span class="sr-only">Next</span>
+                                <i class="fa-solid fa-chevron-right fa-sm"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </div>

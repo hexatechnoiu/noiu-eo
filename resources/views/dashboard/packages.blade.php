@@ -54,7 +54,7 @@
 
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
-        <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
+        <div class="mx-auto max-w-screen-xl text-center pt-10 pb-28 px-4 lg:px-6">
             <div class="flex items-start mb-8 max-w-screen-sm gap-[15vw] md:gap-[25vw]">
               <a href="/dashboard" class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight hover:text-white hover:bg-primary-40 text-black bg-neutral-20 focus:ring-4 focus:ring-primary-10 duration-[400ms]"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
                 <h2 class="flex justify-center mb-2 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Packages</h2>
@@ -100,61 +100,58 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($package_type as $pkg_type)
-                                @foreach ($pkg_type->packages as $pkg)
-                                    <tr class="border-b">
-                                        <td class="px-4 py-3 max-w-[5rem]"><img
-                                                src="{{ asset('/storage/' . $pkg->picture) }}"></td>
-                                        <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->name }}</td>
-                                        <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->package_type->name }}</td>
-                                        <td class="px-4 py-3">{{ number_format($pkg->price, 0, ',', '.') }}</td>
-                                        <td scope="row" class="px-4 py-3 max-w-[12rem] truncate">{{ $pkg->desc }}</td>
-                                        <td class="px-4 py-8 flex items-center justify-end">
-                                            <button id="package-dropdown-button{{ $pkg->id }}"
-                                                data-picture="{{ $pkg->picture }}"
-                                                data-picture-url="{{ asset('/storage/' . $pkg->picture) }}"
-                                                data-id="{{ $pkg->id }}" data-name="{{ $pkg->name }}"
-                                                data-cat_id="{{ $pkg->package_type->id }}"
-                                                data-category="{{ $pkg->package_type->name }}"
-                                                data-price="{{ number_format($pkg->price, 0, ',', '.') }}" data-desc="{{ $pkg->desc }}"
-                                                onclick="transfer_data({{ $pkg->id }})"
-                                                data-dropdown-toggle="package-dropdown"
-                                                class="font-medium hover:bg-neutral-20 py-1.5 px-2 my-auto text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
-                                                type="button">
-                                                <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                            </button>
-                                            <div id="package-dropdown"
-                                                class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                                <ul class="py-1 text-sm" aria-labelledby="package-dropdown-button">
-                                                    <li>
-                                                        <button type="button" data-modal-target="updatePackageModal"
-                                                            data-modal-toggle="updatePackageModal"
-                                                            class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                            <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                            <span>Edit</span>
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="button" data-modal-target="readPackageModal"
-                                                            data-modal-toggle="readPackageModal"
-                                                            class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                            <i class="fa-solid fa-eye mr-2"></i>
-                                                            Preview
-                                                        </button>
-                                                    </li>
-                                                    <li>
-                                                        <button type="button" data-modal-target="deleteModal"
-                                                            data-modal-toggle="deleteModal"
-                                                            class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                                            <i class="fa-solid fa-trash-can mr-2"></i>
-                                                            Delete
-                                                        </button>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                            @foreach ($packages as $pkg)
+                                <tr class="border-b">
+                                    <td class="px-4 py-3 max-w-[5rem]"><img src="{{ asset('/storage/' . $pkg->picture) }}"></td>
+                                    <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->name }}</td>
+                                    <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->package_type->name }}</td>
+                                    <td class="px-4 py-3">{{ number_format($pkg->price, 0, ',', '.') }}</td>
+                                    <td scope="row" class="px-4 py-3 max-w-[12rem] truncate">{{ $pkg->desc }}</td>
+                                    <td class="px-4 py-8 flex items-center justify-end">
+                                        <button id="package-dropdown-button{{ $pkg->id }}"
+                                            data-picture="{{ $pkg->picture }}"
+                                            data-picture-url="{{ asset('/storage/' . $pkg->picture) }}"
+                                            data-id="{{ $pkg->id }}" data-name="{{ $pkg->name }}"
+                                            data-cat_id="{{ $pkg->package_type->id }}"
+                                            data-category="{{ $pkg->package_type->name }}"
+                                            data-price="{{ number_format($pkg->price, 0, ',', '.') }}" data-desc="{{ $pkg->desc }}"
+                                            onclick="transfer_data({{ $pkg->id }})"
+                                            data-dropdown-toggle="package-dropdown"
+                                            class="font-medium hover:bg-neutral-20 py-1.5 px-2 my-auto text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
+                                            type="button">
+                                            <i class="fa-solid fa-ellipsis fa-lg"></i>
+                                        </button>
+                                        <div id="package-dropdown"
+                                            class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
+                                            <ul class="py-1 text-sm" aria-labelledby="package-dropdown-button">
+                                                <li>
+                                                    <button type="button" data-modal-target="updatePackageModal"
+                                                        data-modal-toggle="updatePackageModal"
+                                                        class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                        <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                                        <span>Edit</span>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" data-modal-target="readPackageModal"
+                                                        data-modal-toggle="readPackageModal"
+                                                        class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                        <i class="fa-solid fa-eye mr-2"></i>
+                                                        Preview
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" data-modal-target="deleteModal"
+                                                        data-modal-toggle="deleteModal"
+                                                        class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
+                                                        <i class="fa-solid fa-trash-can mr-2"></i>
+                                                        Delete
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -163,41 +160,31 @@
                     aria-label="Table navigation">
                     <span class="text-sm font-normal text-neutral-60">
                         Showing
-                        <span class="font-semibold text-black">1-10</span>
+                        <span class="font-semibold text-black">
+                            {{ $packages->firstItem() }}-{{ $packages->lastItem() }}
+                        </span>
                         of
-                        <span class="font-semibold text-black">1000</span>
+                        <span class="font-semibold text-black">{{ $packages->total() }}</span>
                     </span>
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
-                            <a href="#"
-                                class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black">
+                            <a href="{{ $packages->previousPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $packages->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                 <span class="sr-only">Previous</span>
                                 <i class="fa-solid fa-chevron-left fa-sm"></i>
                             </a>
                         </li>
+                        @foreach ($packages->getUrlRange(1, $packages->lastPage()) as $page => $url)
+                            <li>
+                                <a href="{{ $url }}"
+                                  class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $packages->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $packages->currentPage() ? 'z-10' : '' }}">
+                                    {{ $page }}
+                                </a>
+                            </li>
+                        @endforeach
                         <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">1</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">2</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-current="page"
-                                class="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">3</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">...</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">100</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black">
+                            <a href="{{ $packages->nextPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $packages->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                 <span class="sr-only">Next</span>
                                 <i class="fa-solid fa-chevron-right fa-sm"></i>
                             </a>
@@ -273,8 +260,7 @@
                     </div>
                     <button type="submit"
                         class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        <i class="fa fa-plus mr-2"></i>
-                        Add New Package
+                        Add Package
                     </button>
                 </form>
             </div>
@@ -315,8 +301,8 @@
                             @enderror
                         </div>
                         <div>
-                            <label for="update_name" class="block mb-2 text-sm font-medium text-black">Package
-                                Name</label>
+                            <label for="update_name" class="block mb-2 text-sm font-medium text-black">
+                              Package Name</label>
                             <input type="text" name="name" id="update_name" value="{{ old('name') }}"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                                 placeholder="Package Name" required>

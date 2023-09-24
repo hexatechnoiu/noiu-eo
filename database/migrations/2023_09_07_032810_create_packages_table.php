@@ -16,7 +16,6 @@ return new class extends Migration {
             $table->string('name');
             $table->text('desc');
             $table->bigInteger('price');
-            $table->string('unit');
             $table->foreignId('package_type_id');
             $table->timestamps();
         });

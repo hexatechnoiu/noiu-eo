@@ -17,24 +17,36 @@ class PackageController extends Controller
    */
   public function index()
   {
-    $package = Package_type::with('Packages')->get();
-    if (request('search')) {
-      $pkg = Package_type::with(['Packages' => function ($query) {
-        $query->where('name', 'LIKE', '%' . request('search') . '%');
-      }])->get();
-      return view('dashboard.packages', [
-        "title" => "Packages | Dashboard",
-        "active" => "dashboard",
-        "package_type" => $pkg,
-      ]);
-    }
+    // $package = Package_type::with('Packages')->get();
+
+    // if (request('search')) {
+    //   $pkg = Package_type::with(['Packages' => function ($query) {
+    //     $query->where('name', 'LIKE', '%' . request('search') . '%');
+    //   }])->get();
+    //   return view('dashboard.packages', [
+    //     "title" => "Packages | Dashboard",
+    //     "active" => "dashboard",
+    //     "package_type" => $pkg,
+    //     "packs" => Package::latest()->paginate(5)
+    //   ]);
+    // }
+
+    $packages = Package::orderBy('package_type_id')->paginate(5);
 
     return view('dashboard.packages', [
-      // "package_type" => Package_type::with('Packages')->get(),
-      "title" => "Packages | Dashboard",
-      "active" => "dashboard",
-      "package_type" => $package,
+        "title" => "Packages | Dashboard",
+        "active" => "dashboard",
+        "package_type" => Package_type::with('Packages')->get(),
+        "packages" => $packages
     ]);
+
+    // return view('dashboard.packages', [
+    //   // "package_type" => Package_type::with('Packages')->get(),
+    //   "title" => "Packages | Dashboard",
+    //   "active" => "dashboard",
+    //   "package_type" => Package_type::with('Packages')->get(),
+    //   "packs" => Package::latest()->paginate(5)
+    // ]);
   }
 
   /**
@@ -52,7 +64,7 @@ class PackageController extends Controller
   {
     $request['price'] = str_replace('.', '', $request->price);
     $valData = $request->validate([
-      'picture' => 'image|file|mimes:png,jpg,svg,gif,jpeg,webp',
+      'picture' => 'image|file|mimes:png,jpg,svg,gif,jpeg,webp|max:4096',
       'name' => 'required',
       'desc' => 'required',
       'price' => 'required|numeric',

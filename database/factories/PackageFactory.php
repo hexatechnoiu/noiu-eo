@@ -42,7 +42,6 @@ class PackageFactory extends Factory
             ]),
             'name' => $this->faker->name(),
             'price' => $this->faker->numberBetween(125000, 1250000),
-            'unit' => $this->faker->sentence(1),
             'desc' => $this->faker->sentence(20),
             'package_type_id' => $this->faker->numberBetween(1, 5)
         ];

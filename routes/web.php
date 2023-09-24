@@ -64,6 +64,7 @@ Route::get('/contact', function () {
         "ourTeams" => $ot
     ]);
 })->name('contact');
+
 Route::controller(DashboardController::class)->group(
     function () {
         Route::get('/dashboard', 'index')->middleware('auth');

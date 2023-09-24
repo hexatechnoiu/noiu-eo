@@ -2,8 +2,6 @@
 
 @section('container')
 
-
-
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
@@ -122,8 +120,7 @@
 
                     <button type="submit"
                         class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        <i class="fa fa-plus mr-2"></i>
-                        Add New Category
+                        Add Category
                     </button>
                 </form>
             </div>
@@ -172,15 +169,10 @@
                             </select>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
                         <button type="submit"
                             class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Update Category
-                        </button>
-                        <button type="button"
-                            class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            <i class="fa-solid fa-trash-can mr-2"></i>
-                            Delete
                         </button>
                     </div>
                 </form>

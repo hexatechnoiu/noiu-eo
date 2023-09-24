@@ -16,7 +16,7 @@ class UserController extends Controller
     return view('dashboard.users', [
       "title" => "Users",
       "active" => "dashboard",
-      "users" => User::latest()->get()
+      "users" => User::latest()->paginate(5)
     ]);
   }
   public function register()
@@ -47,6 +47,7 @@ class UserController extends Controller
       return back()->with('loginError', "Email or password is incorrect!");
     }
   }
+  
   public function logout()
   {
     Auth::logout();

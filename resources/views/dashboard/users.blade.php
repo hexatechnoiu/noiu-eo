@@ -51,7 +51,7 @@
     @endif
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
-        <div class="mx-auto py-10 px-4 lg:px-6">
+        <div class="mx-auto pt-10 pb-28 px-4 lg:px-6">
             <div class="flex items-start mb-8 max-w-screen-sm gap-[20vw] md:gap-[27vw]">
                 <a href="/dashboard"
                     class="text-sm font-medium py-1 px-2 sm:py-1.5 sm:px-3 rounded-lg tracking-tight hover:text-white hover:bg-primary-40 text-black bg-neutral-20 focus:ring-4 focus:ring-primary-10 duration-[400ms]"><i
@@ -149,109 +149,6 @@
                                     </li>
                                 </ul>
                             </div>
-
-                            {{-- <tr class="border-b">
-                                <td class="w-1 px-4 py-3"><img src="{{ asset('img/team/hafiz.jpg') }}" alt=""></td>
-                                <td class="px-4 py-3">Hafiz Haekal</td>
-                                <td class="px-4 py-3">hafizhaekal03@gmail.com</td>
-                                <td class="px-4 py-3">087894818815</td>
-                                <td class="px-4 py-3 max-w-[12rem] truncate">Jl.Tanjung Manunggal V No.30 RT04 RW03 Desa Sukatali, Kec.Situraja, Kab.Sumedang, Jawa Barat, 45371</td>
-                                <td class="px-4 py-3 my-6 flex items-center justify-end">
-                                    <button id="user-dropdown-button" data-dropdown-toggle="user-dropdown" class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
-                                        <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                    </button>
-                                    <div id="user-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                        <ul class="py-1 text-sm" aria-labelledby="user-dropdown-button">
-                                            <li>
-                                                <button type="button" data-modal-target="updateUserModal" data-modal-toggle="updateUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                    <span>Edit</span>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="readUserModal" data-modal-toggle="readUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-eye mr-2"></i>
-                                                    Preview
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                                    <i class="fa-solid fa-trash-can mr-2"></i>
-                                                    Delete
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="w-1 px-4 py-3"><img src="{{ asset('img/team/azfa.jpg') }}" alt=""></td>
-                                <td class="px-4 py-3">Muhammad Azfa</td>
-                                <td class="px-4 py-3">azfasa15@gmail.com</td>
-                                <td class="px-4 py-3">085156105763</td>
-                                <td class="px-4 py-3 max-w-[12rem] truncate">Jl.Tanjung Manunggal V No.30 RT04 RW03 Desa Sukatali, Kec.Situraja, Kab.Sumedang, Jawa Barat, 45371</td>
-                                <td class="px-4 py-3 my-6 flex items-center justify-end">
-                                    <button id="user-dropdown-button" data-dropdown-toggle="user-dropdown" class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
-                                        <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                    </button>
-                                    <div id="user-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                        <ul class="py-1 text-sm" aria-labelledby="user-dropdown-button">
-                                            <li>
-                                                <button type="button" data-modal-target="updateUserModal" data-modal-toggle="updateUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                    <span>Edit</span>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="readUserModal" data-modal-toggle="readUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-eye mr-2"></i>
-                                                    Preview
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                                    <i class="fa-solid fa-trash-can mr-2"></i>
-                                                    Delete
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="border-b">
-                                <td class="w-1 px-4 py-3"><img src="{{ asset('img/team/ghazy.jpg') }}" alt=""></td>
-                                <td class="px-4 py-3">M Ghazy</td>
-                                <td class="px-4 py-3">xylviet@gmail.com</td>
-                                <td class="px-4 py-3">085158266733</td>
-                                <td class="px-4 py-3 max-w-[12rem] truncate">Jl.Tanjung Manunggal V No.30 RT04 RW03 Desa Sukatali, Kec.Situraja, Kab.Sumedang, Jawa Barat, 45371</td>
-                                <td class="px-4 py-3 my-6 flex items-center justify-end">
-                                    <button id="user-dropdown-button" data-dropdown-toggle="user-dropdown" class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10" type="button">
-                                        <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                    </button>
-                                    <div id="user-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                        <ul class="py-1 text-sm" aria-labelledby="user-dropdown-button">
-                                            <li>
-                                                <button type="button" data-modal-target="updateUserModal" data-modal-toggle="updateUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                    <span>Edit</span>
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="readUserModal" data-modal-toggle="readUserModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                    <i class="fa-solid fa-eye mr-2"></i>
-                                                    Preview
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal" class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                                    <i class="fa-solid fa-trash-can mr-2"></i>
-                                                    Delete
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -259,41 +156,31 @@
                     aria-label="Table navigation">
                     <span class="text-sm font-normal text-neutral-60">
                         Showing
-                        <span class="font-semibold text-black">1-10</span>
+                        <span class="font-semibold text-black">
+                            {{ $users->firstItem() }}-{{ $users->lastItem() }}
+                        </span>
                         of
-                        <span class="font-semibold text-black">1000</span>
+                        <span class="font-semibold text-black">{{ $users->total() }}</span>
                     </span>
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
-                            <a href="#"
-                                class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black">
+                            <a href="{{ $users->previousPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $users->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                 <span class="sr-only">Previous</span>
                                 <i class="fa-solid fa-chevron-left fa-sm"></i>
                             </a>
                         </li>
+                        @foreach ($users->getUrlRange(1, $users->lastPage()) as $page => $url)
+                            <li>
+                                <a href="{{ $url }}"
+                                  class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $users->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $users->currentPage() ? 'z-10' : '' }}">
+                                    {{ $page }}
+                                </a>
+                            </li>
+                        @endforeach
                         <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">1</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">2</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-current="page"
-                                class="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">3</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">...</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">100</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black">
+                            <a href="{{ $users->nextPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $users->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                 <span class="sr-only">Next</span>
                                 <i class="fa-solid fa-chevron-right fa-sm"></i>
                             </a>
@@ -427,15 +314,10 @@
                                 placeholder="Your Address"></textarea>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
                         <button type="submit"
                             class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Update User
-                        </button>
-                        <button type="button"
-                            class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            <i class="fa-solid fa-trash-can mr-2"></i>
-                            Delete
                         </button>
                     </div>
                 </form>
