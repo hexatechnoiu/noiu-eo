@@ -77,7 +77,8 @@ class Package_typeController extends Controller
      */
     public function destroy(string $id, Package_type $package_type)
     {
-        Package_type::destroy($id);
-        return redirect()->back()->with('success', $id . ' Has Been deleted sucessfully');
+        $category = Package_type::find($id); 
+        $category->delete();
+        return redirect()->back()->with('success', 'Category '.$category->name . ' Has Been deleted sucessfully');
     }
 }

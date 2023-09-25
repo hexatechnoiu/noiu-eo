@@ -19,17 +19,17 @@ class PackageController extends Controller
   {
     // $package = Package_type::with('Packages')->get();
 
-    // if (request('search')) {
-    //   $pkg = Package_type::with(['Packages' => function ($query) {
-    //     $query->where('name', 'LIKE', '%' . request('search') . '%');
-    //   }])->get();
-    //   return view('dashboard.packages', [
-    //     "title" => "Packages | Dashboard",
-    //     "active" => "dashboard",
-    //     "package_type" => $pkg,
-    //     "packs" => Package::latest()->paginate(5)
-    //   ]);
-    // }
+    if (request('search')) {
+      $pkg = Package_type::with(['Packages' => function ($query) {
+        $query->where('name', 'LIKE', '%' . request('search') . '%');
+      }])->get();
+      return view('dashboard.packages', [
+        "title" => "Packages | Dashboard",
+        "active" => "dashboard",
+        "package_type" => $pkg,
+        "packs" => Package::latest()->paginate(5)
+      ]);
+    }
 
     $packages = Package::orderBy('package_type_id')->paginate(5);
 
