@@ -113,7 +113,7 @@
                                             data-avatar="{{ $u->avatar }}" data-address="{{ $u->address }}"
                                             data-email="{{ $u->email }}" data-phone="{{ $u->phone }}"
                                             data-dropdown-toggle="user-dropdown"
-                                            onclick="copy_userdata({{ $u->id }})"
+                                            onclick="copy_user_data({{ $u->id }})"
                                             class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
                                             type="button">
                                             <i class="fa-solid fa-ellipsis fa-lg"></i>

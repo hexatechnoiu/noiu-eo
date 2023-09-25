@@ -14,10 +14,15 @@ class Booking extends Model
         'phone',
         'payment_method',
         'package_id',
+        'user_id',
         'date'
     ];
     public function Package()
     {
         return $this->belongsTo(Package::class, 'package_id');
+    }
+    public function User()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

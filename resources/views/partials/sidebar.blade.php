@@ -49,10 +49,13 @@
                 @endif
 
                 <ul id="dropdown-outbound" class="hidden py-2 space-y-2">
+                  @foreach ($sidebar_package_type as $items)
                     <li>
-                        <a href="/outbound#outbound" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Outbound</a>
+                        <a href="/outbound#{{strtolower($items->name)}}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">{{$items->name}}</a>
                     </li>
-                    <li>
+                  @endforeach
+
+                    {{-- <li>
                         <a href="/outbound#offroad" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Offroad</a>
                     </li>
                     <li>
@@ -60,7 +63,8 @@
                     </li>
                     <li>
                         <a href="/outbound#others" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Others</a>
-                    </li>
+                    </li> --}}
+
                 </ul>
             </li>
             <li>

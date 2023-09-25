@@ -24,12 +24,12 @@
                     </div>
                     <div
                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                        <button type="button" id="createBookingModalButton" data-modal-target="createBookingModal"
-                            data-modal-toggle="createBookingModal"
+                        <a {{-- id="createBookingModalButton" data-modal-target="createBookingModal"
+                            data-modal-toggle="createBookingModal" --}} href="{{route('outbound')}}"
                             class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
                             <i class="fa-solid fa-plus mr-2"></i>
                             <span>Booking Now</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="overflow-x-auto">
@@ -147,7 +147,7 @@
     <!-- End block -->
 
 
-@include('partials.mbooking')
+    @include('partials.booking_modal')
     <!-- Update modal -->
     <div id="updateBookingModal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">

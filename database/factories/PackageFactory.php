@@ -40,7 +40,7 @@ class PackageFactory extends Factory
                 'packages/rafting5.jpg',
                 'packages/sumedang.jpg',
             ]),
-            'name' => $this->faker->name(),
+            'name' => $this->faker->sentence(),
             'price' => $this->faker->numberBetween(125000, 1250000),
             'desc' => $this->faker->sentence(20),
             'package_type_id' => $this->faker->numberBetween(1, 5)

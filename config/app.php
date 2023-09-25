@@ -160,6 +160,7 @@ return [
          * Package Service Providers...
          */
 
+        App\Providers\MainLayoutProvider::class,
         /*
          * Application Service Providers...
          */

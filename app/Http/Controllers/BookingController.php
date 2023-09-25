@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Invoice;
 use App\Models\Booking;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use DateTime;
+use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Stmt\TryCatch;
 
 class BookingController extends Controller
 {
@@ -16,9 +22,9 @@ class BookingController extends Controller
 
 
 
-    $booking = Booking::latest()->get();
-    if (request('search')){
-      $booking = Booking::latest()->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%');
+    $booking = Booking::latest()->where('user_id', auth()->user()->id)->get();
+    if (request('search')) {
+      $booking = Booking::latest()->where('user_id', auth()->user()->id)->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%');
 
       return view('booking', [
         "title" => "Booking",
@@ -27,7 +33,7 @@ class BookingController extends Controller
       ]);
     }
 
-    if (request('package_id')){
+    if (request('package_id')) {
       $anunya = Package::find(request('package_id'));
       return view('booking', [
         "title" => "Booking",
@@ -56,7 +62,56 @@ class BookingController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    // Benerin phone untuk mencegah vulnerable
+    $request['phone'] =  str_replace([" ", ".", "+", "(", ")"], '', $request['phone']);
+
+    // Validasi datanya
+    $validated_data = $request->validate([
+      "name" => "required",
+      "user_id" => "required|exists:users,id",
+      "package_id" => "required|exists:packages,id",
+      "date" => "required|date",
+      "payment_method" => "required",
+      "phone" => "required|numeric",
+    ]);
+
+    // Format tanggalnya
+    $originalDate = new DateTime($validated_data['date']);
+    $formattedDate = $originalDate->format('d F Y');
+
+    // return $validated_data;
+    // Booking::create($validated_data);
+
+    // Cari Package Dan User sesuai dengan itunya
+    $package = Package::find($validated_data['package_id']);
+    $user = User::find($validated_data['user_id']);
+    $detail = [
+      "booking_id" => "10",
+      "user_name_db" => $user->name,
+      "order_name" => $validated_data['name'],
+      "subject" => "Your Order from NOIU EO",
+      "image_url" => "https://gdrive.azfasa15.workers.dev/noiu.svg",
+      "reply_name" => "NOIU EO",
+      "reply_mail" => "laravel@noiu-eo.com",
+      "package_name" => $package->name,
+      "payment_method" => $validated_data['payment_method'],
+      "package_price" => "Rp. " . number_format($package->price, 0, ',', '.'),
+      "package_desc" => $package->desc,
+      "for_date" => $formattedDate,
+    ];
+    // return [
+    //   $user,
+    //   $package
+    // ];
+    try {
+      Mail::to($user->email)->send(new Invoice(collect($detail)));
+      return redirect()->back()->with(['success' => 'Booked successfully, Enjoy!']);
+    } catch (\Throwable $th) {
+      return redirect()->back()->withErrors(['success_but_email_not_sent' => 'Cant send email, But Booked Successfully, Enjoy!']);
+      // throw $th;
+    } finally {
+    }
+    // return dd($validated_data);
   }
 
   /**

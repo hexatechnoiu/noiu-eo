@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\Package_typeController;
 use App\Http\Controllers\PackageController;
 use App\Models\OurTeam;
@@ -86,5 +87,5 @@ Route::resource('/dashboard/packages', PackageController::class)->middleware('au
 Route::resource('/dashboard/categories', Package_typeController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/booking', BookingController::class)->middleware('auth');
-
+Route::get("/test_email", [MailController::class, 'index']);
 // Route::get('/dashboard/packages', [PackageController::class, 'index']);

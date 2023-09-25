@@ -45,7 +45,7 @@ class UserController extends Controller
   public function authenticate(Request $request)
   {
     $credentials = $request->validate([
-      'email' => 'required|email:dns',
+      'email' => 'required|email|exists:users,email',
       'password' => 'required'
     ]);
 
@@ -81,9 +81,9 @@ class UserController extends Controller
   {
     $validatedData = $request->validate([
       'avatar' => 'required|image|mimes:png,jpg,svg,jpeg,webp,gif|max:4096',
-      'email' => 'required|email:dns|unique:users',
+      'email' => 'required|email|unique:users',
       'name' => 'required|min:3|max:255',
-      'phone' => 'required|numeric|digits_between:8,15|unique:users',
+      'phone' => 'required|numeric|digits_between:8,20|unique:users',
       'address' => 'required|max:255|min:3',
       'password' => 'required|min:8|max:255',
       'confirm-password' => 'required|min:2|max:255',
@@ -99,7 +99,7 @@ class UserController extends Controller
 
     $validatedData['password'] = Hash::make($validatedData['password']);
     User::create($validatedData);
-    return redirect('/login')->with('showAlert', true);
+    return redirect('/login')->with('success', 'Account registered successfully');
   }
 
   /**

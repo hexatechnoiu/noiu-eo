@@ -28,7 +28,7 @@
         <div class="sm:grid sm:grid-cols-2 lg:flex-row gap-16 mx-auto max-w-screen-xl justify-center">
             <div class="">
                 <h2 class="mb-1 text-3xl tracking-tight font-extrabold text-black sm:text-4xl">Get in Touch</h2>
-                <p class="max-w-2xl mb-6 font-light text-neutral-60 sm:text-lg">Number One I'ts You</p>
+                <p class="max-w-2xl mb-6 text-neutral-60 text-md">Number One I'ts You. <br> <small class="leading-tight font-light">* You can contact us below if you have any problem related to this website or our services</small></p>
                 <form method="POST" action="/send">
                     @csrf
                     <div class="grid gap-6 my-6 md:grid-cols-2">

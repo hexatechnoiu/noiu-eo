@@ -121,7 +121,7 @@
                                     <td class="px-4 py-3">{{ $b->payment_method }}</td>
                                     <td class="px-4 py-3 flex items-center justify-end">
                                         <button id="booking-dropdown-button{{ $b->id }}"
-                                            onclick="copy_book({{ $b->id }},{{ $b->package->id }})"
+                                            onclick="copy_booking_data({{ $b->id }},{{ $b->package->id }})"
                                             data-pkg-name="{{ $b->package->name }}"
                                             data-pkg-cat-name="{{ $b->package->Package_type->name }}"
                                             data-pkg-price="{{ $b->package->price }}"

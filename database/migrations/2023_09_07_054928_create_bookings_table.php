@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Package;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +18,8 @@ return new class extends Migration {
             $table->string('phone')->unique();
             $table->enum('payment_method', ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO']);
             $table->date('date');
-            $table->foreignId('package_id');
+            $table->foreignIdFor(Package::class);
+            $table->foreignIdFor(User::class);
             $table->timestamps();
         });
     }
