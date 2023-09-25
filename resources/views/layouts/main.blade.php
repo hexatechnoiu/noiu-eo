@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="/css/slick.css">
         <title>{{ $title ?? 'NOIU page' }}</title>
         @vite(['resources/js/App.js'])
     </head>
@@ -14,6 +15,7 @@
         <span id="progress-value" class="h-10 w-10 bg-white rounded-full grid place-items-center text-primary-20 text-2xl"><i class="fa-solid fa-arrow-up"></i></span>
     </div>
 
+        @include('partials.alert')
         @include('partials.sidebar')
 
             <div class="lg:ml-[250px]">

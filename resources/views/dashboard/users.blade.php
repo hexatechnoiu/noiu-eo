@@ -1,7 +1,8 @@
 @extends('layouts.dashboardmain')
 
 @section('container')
-    @foreach ($errors->all() as $e)
+
+    {{-- @foreach ($errors->all() as $e)
         <div class="flex justify-end">
             <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-red-700 bg-red-200 fixed z-50"
                 role="alert">
@@ -48,7 +49,7 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif --}}
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto pt-10 pb-28 px-4 lg:px-6">
@@ -63,13 +64,13 @@
             <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
-                        <form class="flex items-center">
+                        <form class="flex items-center" method="GET">
                             <label for="simple-search" class="sr-only">Search</label>
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-magnifying-glass w-5 h-5 text-neutral-60"></i>
                                 </div>
-                                <input type="text" id="simple-search"
+                                <input type="text" id="simple-search" name="search"
                                     class="bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-ring-primary-40 block w-full pl-10 p-2"
                                     placeholder="Search" required="">
                             </div>

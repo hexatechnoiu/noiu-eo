@@ -2,28 +2,6 @@
 
 @section('container')
 
-    @if (session('showAlert'))
-    <div class="flex justify-end">
-        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed" role="alert">
-            <div class="flex items-center">
-                <i class="fa-solid fa-circle-check"></i>
-                <span class="sr-only">Info</span>
-                <div class="ml-4 mr-2 text-sm font-medium">
-                    Log Out successfully!
-                </div>
-            </div>
-            <button type="button" class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
-                <span class="sr-only">Close</span>
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
-            </div>
-        </div>
-    </div>
-    @endif
-
-
 {{-- Hero Section --}}
 <section class="bg-center bg-no-repeat bg-cover bg-neutral-40 bg-blend-multiply lg:h-[100vh]" style="background-image: url('{{ asset('img/noiu-hero.jpg') }}')" loading="eager">
     <div class="px-4 mx-auto max-w-screen-xl text-center py-44 lg:py-56">
@@ -55,7 +33,7 @@
 <section class="bg-white px-12 mt-10 lg:mt-20">
     <div class="flex flex-col lg:flex-row gap-8 items-center mx-auto max-w-screen-xl xl:gap-16">
         <div class="lg:w-[200px] lg:h-[320px] rounded-lg overflow-hidden cursor-pointer">
-            <img class="object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500" src="{{ asset('img/noiu.jpg') }}" alt="NOIU Image" loading="eager">
+            <img class="z-20 object-cover w-full h-full transform origin-center hover:scale-125 transition-transform duration-500" src="{{ asset('img/noiu.jpg') }}" alt="NOIU Image" loading="eager">
         </div>
         <div class="lg:w-3/4">
             <h2 class="mb-4 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">NOIU EVENT ORGANIZER</h2>

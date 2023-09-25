@@ -8,7 +8,31 @@ import "flowbite";
 // CSS
 import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/App.css";
-import "../css/slick.css";
+// import "../css/slick.css";
+if (document.querySelector(".logo-slider")){
+$(".logo-slider").slick({
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  arrows: false,
+  autoplay: true,
+  autoplaySpeed: 1500,
+  infinite: true,
+  responsive: [
+    {
+      breakpoint: 641, // Breakpoint for mobile devices
+      settings: {
+        slidesToShow: 4,
+      },
+    },
+    {
+      breakpoint: 426, // Breakpoint for mobile devices
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+  ],
+});
+}
 
 
 window.copy_book = (id, cat_id) => {
@@ -41,50 +65,50 @@ window.copy_book = (id, cat_id) => {
 }
 
 window.copy_userdata = (id) => {
-    const btn = document.getElementById('user-dropdown-button' + id)
-    const data = btn.dataset;
+  const btn = document.getElementById('user-dropdown-button' + id)
+  const data = btn.dataset;
 
-    const nameFields = document.getElementById('name')
-    const emailFields = document.getElementById('email');
-    const phoneFields = document.getElementById('phone');
-    const addressFields = document.getElementById('address')
+  const nameFields = document.getElementById('name')
+  const emailFields = document.getElementById('email');
+  const phoneFields = document.getElementById('phone');
+  const addressFields = document.getElementById('address')
 
-    document.getElementById('prename').innerHTML = data.name;
-    document.getElementById('prepicture').src = "/storage/" + data.avatar;
-    document.getElementById('prephone').innerHTML = data.phone;
-    document.getElementById('preaddress').innerHTML = data.address;
-    document.getElementById('premail').innerHTML = data.email;
-    document.getElementById('old_avatar').innerHTML = data.avatar;
+  document.getElementById('prename').innerHTML = data.name;
+  document.getElementById('prepicture').src = "/storage/" + data.avatar;
+  document.getElementById('prephone').innerHTML = data.phone;
+  document.getElementById('preaddress').innerHTML = data.address;
+  document.getElementById('premail').innerHTML = data.email;
+  document.getElementById('old_avatar').innerHTML = data.avatar;
 
-    document.getElementById('user_delete_form').action = "/dashboard/users/" + id;
-    document.getElementById('user_update_form').action = "/dashboard/users/" + id;
+  document.getElementById('user_delete_form').action = "/dashboard/users/" + id;
+  document.getElementById('user_update_form').action = "/dashboard/users/" + id;
 
 
 
-    nameFields.value = data.name;
-    emailFields.value = data.email;
-    phoneFields.value = data.phone;
-    addressFields.value = data.address;
-    return
+  nameFields.value = data.name;
+  emailFields.value = data.email;
+  phoneFields.value = data.phone;
+  addressFields.value = data.address;
+  return
 
 
   // const avatar = document.getElementById('avatar');
 
 }
 window.copyData = (id, name, cat_id) => {
-    let update_modal = document.getElementById("update_form");
-    let delete_modal = document.getElementById("delete_form");
-    let update_categoryName = document.getElementById("update_categoryName");
-    let delete_categoryName = document.getElementById("delete_categoryName");
-    let update_category = document.getElementById("update_category");
+  let update_modal = document.getElementById("update_form");
+  let delete_modal = document.getElementById("delete_form");
+  let update_categoryName = document.getElementById("update_categoryName");
+  let delete_categoryName = document.getElementById("delete_categoryName");
+  let update_category = document.getElementById("update_category");
 
-    update_modal.action = "/dashboard/categories/" + id;
-    delete_modal.action = "/dashboard/categories/" + id;
+  update_modal.action = "/dashboard/categories/" + id;
+  delete_modal.action = "/dashboard/categories/" + id;
 
-    update_categoryName.value = name;
-    delete_categoryName.InnerHTML = name;
-    update_category.selectedIndex = cat_id;
-    return
+  update_categoryName.value = name;
+  delete_categoryName.InnerHTML = name;
+  update_category.selectedIndex = cat_id;
+  return
 }
 
 window.transfer_data = (id) => {
@@ -149,6 +173,7 @@ if (
   window.location.pathname.includes("outbound") ||
   window.location.pathname.includes("mice")
 ) {
+
   window.ViewModal = (id) => {
     let img_modal = document.getElementById("img_modal");
     let name_modal = document.getElementById("name_modal");
@@ -169,6 +194,7 @@ if (
     // unit_modal.innerHTML = unit ?? 'Satuan';
     price_modal.innerHTML = price ?? "Harga Produk";
     desc_modal.innerHTML = desc ?? "Deskripsi Produk";
+    document.getElementById("package_id").value = id;
     return;
   };
 }
@@ -238,29 +264,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Slick
-$(".logo-slider").slick({
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  arrows: false,
-  autoplay: true,
-  autoplaySpeed: 1500,
-  infinite: true,
-  responsive: [
-    {
-      breakpoint: 641, // Breakpoint for mobile devices
-      settings: {
-        slidesToShow: 4,
-      },
-    },
-    {
-      breakpoint: 426, // Breakpoint for mobile devices
-      settings: {
-        slidesToShow: 3,
-      },
-    },
-  ],
-});
 
 // Scroll To Top
 let calcScrollValue = () => {

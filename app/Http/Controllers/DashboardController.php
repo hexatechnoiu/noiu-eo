@@ -8,6 +8,8 @@ use App\Models\Package;
 use App\Models\Package_type;
 use App\Models\User;
 
+use function Laravel\Prompts\search;
+
 class DashboardController extends Controller
 {
 
@@ -19,6 +21,7 @@ class DashboardController extends Controller
   }
   public function index()
   {
+
     $packages = Package::orderBy('package_type_id')->get();
     $package_types = Package_type::get();
     $users = User::get();
@@ -40,15 +43,33 @@ class DashboardController extends Controller
       ],
     ];
 
-    return view('dashboard.index', [
-      "title" => "Dashboard",
-      "active" => "dashboard",
-      "users" => $users,
-      "count" => collect($count),
-      "categories" => $package_types,
-      "packages" => $packages,
-      "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
-      "books" => Booking::latest()->paginate(5)
-    ]);
+    if (request("search")){
+      $pkg = Package::orderBy('package_type_id')->where('name', 'LIKE', '%' . request('search') . '%')->get();
+      return view('dashboard.index', [
+        "title" => "Dashboard",
+        "active" => "dashboard",
+        "users" => $users,
+        "count" => collect($count),
+        "categories" => $package_types,
+        "packages" => $pkg,
+        "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
+        "books" => Booking::latest()->where('name', 'LIKE', '%' . request('search') . '%')->paginate(5)
+      ]);
+    } else {
+
+      return view('dashboard.index', [
+        "title" => "Dashboard",
+        "active" => "dashboard",
+        "users" => $users,
+        "count" => collect($count),
+        "categories" => $package_types,
+        "packages" => $packages,
+        "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
+        "books" => Booking::latest()->paginate(5)
+      ]);
+    }
+
+
+
   }
 }

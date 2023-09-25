@@ -42,6 +42,7 @@
             </section>
         @endforeach
     @endforeach
+
     {{-- See Detail Modal --}}
     <div id="seeDetailModal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -78,15 +79,16 @@
                         </button>
                     </div>
                 </div>
-                <div class="flex justify-end items-center">
+                <form id="seeDetailForm" method="GET" class="flex justify-end items-center" action="/booking">
+                  <input type="hidden" name="package_id" id="package_id" aria-hidden="true">
                     <div class="flex items-center space-x-3 sm:space-x-4">
-                        <a href="/booking"
+                        <button type="submit"
                             class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             <i class="fa-solid fa-cart-shopping mr-2"></i>
                             Booking Now
-                        </a>
+                        </button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

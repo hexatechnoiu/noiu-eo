@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\Package;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -12,9 +13,33 @@ class BookingController extends Controller
    */
   public function index()
   {
+
+
+
+    $booking = Booking::latest()->get();
+    if (request('search')){
+      $booking = Booking::latest()->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%');
+
+      return view('booking', [
+        "title" => "Booking",
+        "active" => "booking",
+        "booking" => $booking
+      ]);
+    }
+
+    if (request('package_id')){
+      $anunya = Package::find(request('package_id'));
+      return view('booking', [
+        "title" => "Booking",
+        "active" => "booking",
+        "booking" => $booking,
+        "anunya" => $anunya
+      ]);
+    }
     return view('booking', [
       "title" => "Booking",
-      "active" => "booking"
+      "active" => "booking",
+      "booking" => $booking
     ]);
   }
 

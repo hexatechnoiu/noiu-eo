@@ -69,7 +69,7 @@ class Package_typeController extends Controller
             "package_category_id" => "required",
         ]);
         Package_type::where('id', $id)->update($data);
-        return redirect()->back()->with('success', 'Package has been updated');
+        return redirect()->back()->with('success', 'Category has been updated');
     }
 
     /**
@@ -77,8 +77,8 @@ class Package_typeController extends Controller
      */
     public function destroy(string $id, Package_type $package_type)
     {
-        $category = Package_type::find($id); 
+        $category = Package_type::find($id);
         $category->delete();
-        return redirect()->back()->with('success', 'Category '.$category->name . ' Has Been deleted sucessfully');
+        return redirect()->back()->with('success', 'Category Has Been deleted sucessfully');
     }
 }

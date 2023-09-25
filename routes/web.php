@@ -35,7 +35,7 @@ Route::get('/home', function () {
         "active" => "home",
         "benefits" => $ben
     ]);
-});
+})->name('home');
 
 Route::get('/outbound', function () {
     $package = Package_category::where(['id'=>1])->with('Package_types.Packages')->get();

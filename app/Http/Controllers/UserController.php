@@ -9,10 +9,19 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
+use function Laravel\Prompts\search;
+
 class UserController extends Controller
 {
   public function index()
   {
+    if (request("search")) {
+      return view('dashboard.users', [
+        "title" => "Users",
+        "active" => "dashboard",
+        "users" => User::where('name', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%')->latest()->paginate(5)
+      ]);
+    }
     return view('dashboard.users', [
       "title" => "Users",
       "active" => "dashboard",
@@ -42,18 +51,18 @@ class UserController extends Controller
 
     if (Auth::attempt($credentials)) {
       $request->session()->regenerate();
-      return redirect()->intended('/dashboard')->with('showAlert', true);
+      return redirect()->intended('/dashboard')->with('success', 'Log In successfully');
     } else {
-      return back()->with('loginError', "Email or password is incorrect!");
+      return back()->withError('error', "Email or password is incorrect!");
     }
   }
-  
+
   public function logout()
   {
     Auth::logout();
     request()->session()->invalidate();
     request()->session()->regenerateToken();
-    return redirect(route('home'))->with('showAlert', true);
+    return redirect(route('home'))->with('success', 'Log Out successfully!');
   }
 
   /**
@@ -125,7 +134,6 @@ class UserController extends Controller
 
     if ($request->file('avatar')) {
       $rules['avatar'] = 'image|file|max:2048|mimes:png,jpg,svg,jpeg,webp';
-
     }
 
     $data = $request->validate($rules);
@@ -147,6 +155,6 @@ class UserController extends Controller
   public function destroy(User $user)
   {
     User::destroy($user->id);
-    return redirect()->back()->with('success', 'User ' . $user->name . ' has been deleted sucessfully');
+    return redirect()->back()->with('success', 'User has been deleted sucessfully');
   }
 }

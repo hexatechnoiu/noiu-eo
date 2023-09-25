@@ -20,25 +20,24 @@ class PackageController extends Controller
     // $package = Package_type::with('Packages')->get();
 
     if (request('search')) {
-      $pkg = Package_type::with(['Packages' => function ($query) {
-        $query->where('name', 'LIKE', '%' . request('search') . '%');
-      }])->get();
+      $packages = Package::where('name', 'LIKE', '%' . request('search') . '%')->orderBy('package_type_id')->paginate(5);
       return view('dashboard.packages', [
         "title" => "Packages | Dashboard",
         "active" => "dashboard",
-        "package_type" => $pkg,
-        "packs" => Package::latest()->paginate(5)
+        "package_type" => Package_type::get(),
+        "packages" => $packages
+      ]);
+    } else {
+      $packages = Package::orderBy('package_type_id')->paginate(5);
+      return view('dashboard.packages', [
+        "title" => "Packages | Dashboard",
+        "active" => "dashboard",
+        "package_type" => Package_type::get(),
+        "packages" => $packages
       ]);
     }
 
-    $packages = Package::orderBy('package_type_id')->paginate(5);
 
-    return view('dashboard.packages', [
-        "title" => "Packages | Dashboard",
-        "active" => "dashboard",
-        "package_type" => Package_type::with('Packages')->get(),
-        "packages" => $packages
-    ]);
 
     // return view('dashboard.packages', [
     //   // "package_type" => Package_type::with('Packages')->get(),
@@ -129,7 +128,7 @@ class PackageController extends Controller
   public function destroy(Package $package)
   {
     Package::destroy($package->id);
-    return redirect()->back()->with('success', $package->name . ' Has Been deleted sucessfully');
+    return redirect()->back()->with('success', 'Package Has Been deleted sucessfully');
   }
 
   public function search(SearchPackageRequest $request)

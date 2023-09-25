@@ -2,31 +2,6 @@
 
 @section('container')
 
-    @if (session('success'))
-        <div class="flex justify-end">
-            <div id="alert-3"
-                class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed z-50"
-                role="alert">
-                <div class="flex items-center">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span class="sr-only">Info</span>
-                    <div class="ml-4 mr-2 text-sm font-medium">
-                        {{ session('success') }}
-                    </div>
-                </div>
-                <button type="button"
-                    class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8"
-                    data-dismiss-target="#alert-3" aria-label="Close">
-                    <span class="sr-only">Close</span>
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
-                    <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
-                </div>
-            </div>
-        </div>
-    @endif
-
     @foreach ($errors->all() as $e)
     <div class="flex justify-end">
         <div id="alert-3"
@@ -69,9 +44,9 @@
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-magnifying-glass w-5 h-5 text-neutral-60"></i>
                                 </div>
-                                <input type="text" name="search"
+                                <input type="text" name="search" value="{{ request('search')}}"
                                     class="form-control bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2"
-                                    placeholder="Search" required>
+                                    placeholder="Search">
                             </div>
                         </form>
                     </div>
