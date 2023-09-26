@@ -53,7 +53,7 @@ class UserController extends Controller
       $request->session()->regenerate();
       return redirect()->intended('/dashboard')->with('success', 'Log In successfully');
     } else {
-      return back()->withError('error', "Email or password is incorrect!");
+      return back()->withError('error', "Email Or Password Is Incorrect!");
     }
   }
 
@@ -62,7 +62,7 @@ class UserController extends Controller
     Auth::logout();
     request()->session()->invalidate();
     request()->session()->regenerateToken();
-    return redirect(route('home'))->with('success', 'Log Out successfully!');
+    return redirect(route('home'))->with('success', 'Log Out Successfully!');
   }
 
   /**
@@ -99,7 +99,7 @@ class UserController extends Controller
 
     $validatedData['password'] = Hash::make($validatedData['password']);
     User::create($validatedData);
-    return redirect('/login')->with('success', 'Account registered successfully');
+    return redirect('/login')->with('success', 'Account Registrated Successfully');
   }
 
   /**
@@ -146,7 +146,7 @@ class UserController extends Controller
     }
 
     User::where('id', $user->id)->update($data);
-    return redirect()->back()->with('success', 'User data has been updated');
+    return redirect()->back()->with('success', 'User Data Has Been Updated');
   }
 
   /**
@@ -155,6 +155,6 @@ class UserController extends Controller
   public function destroy(User $user)
   {
     User::destroy($user->id);
-    return redirect()->back()->with('success', 'User has been deleted sucessfully');
+    return redirect()->back()->with('success', 'User Has Been Deleted Sucessfully');
   }
 }

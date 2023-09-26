@@ -1,28 +1,6 @@
 @extends('layouts.dashboardmain')
 
 @section('container')
-
-    @if (session('showAlert'))
-    <div class="flex justify-end">
-        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-5 mr-5 text-green-800 bg-green-100 fixed" role="alert">
-            <div class="flex items-center">
-                <i class="fa-solid fa-circle-check"></i>
-                <span class="sr-only">Info</span>
-                <div class="ml-4 mr-2 text-sm font-medium">
-                    Registrated successfully!
-                </div>
-            </div>
-            <button type="button" class="text-green-500 hover:bg-green-200 duration-[400ms] rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
-                <span class="sr-only">Close</span>
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-green-500" style="width: 100%;"></div>
-            </div>
-        </div>
-    </div>
-    @endif
-
     <section class="flex flex-col items-center justify-center px-6 py-10 mx-auto md:h-screen">
         <div class="w-full bg-white rounded-lg shadow-xl border border-neutral-20 my-28 sm:max-w-md">
             <img src="{{ asset('img/logo-eo-blue.svg') }}" class="h-16 mt-6 mx-auto" alt="NOIU Logo" />

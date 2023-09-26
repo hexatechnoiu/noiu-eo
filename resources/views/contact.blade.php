@@ -1,28 +1,6 @@
 @extends('layouts.main')
 
 @section('container')
-
-    @if (session()->has('inbox'))
-    <div class="flex justify-end lg:mr-[635px]">
-        <div id="alert-3" class="flex flex-row items-center px-4 py-3 mb-4 mt-10 mr-5 text-primary-40 bg-primary-10 fixed animate-fade-in" role="alert">
-            <div class="flex items-center">
-                <i class="fa-solid fa-circle-check"></i>
-                <span class="sr-only">Info</span>
-                <div class="ml-4 mr-2 text-sm font-medium">
-                    {{ session('inbox') }}
-                </div>
-            </div>
-            <button type="button" class="text-primary-40 hover:bg-blue-400 duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 p-1.5 inline-flex items-center justify-center h-8 w-8" data-dismiss-target="#alert-3" aria-label="Close">
-                <span class="sr-only">Close</span>
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="w-full h-1 bg-gray-300 mt-2 absolute bottom-0 left-0">
-                <div id="time-bar" class="h-1 bg-primary-40" style="width: 100%;"></div>
-            </div>
-        </div>
-    </div>
-    @endif
-
     {{-- Get In Touch --}}
     <section class="bg-white px-12 my-10">
         <div class="sm:grid sm:grid-cols-2 lg:flex-row gap-16 mx-auto max-w-screen-xl justify-center">
@@ -99,5 +77,4 @@
             </div>
         </div>
     </section>
-
 @endsection

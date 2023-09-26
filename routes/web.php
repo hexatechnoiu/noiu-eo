@@ -88,4 +88,5 @@ Route::resource('/dashboard/categories', Package_typeController::class)->middlew
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/booking', BookingController::class)->middleware('auth');
 Route::get("/test_email", [MailController::class, 'index']);
+Route::get("/email", [MailController::class, 'show']);
 // Route::get('/dashboard/packages', [PackageController::class, 'index']);
