@@ -3,8 +3,60 @@
 @section('container')
     <section class="bg-white">
         <div class="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
-            <div class="mx-auto lg:mx-0 mb-4 max-w-screen-sm lg:mb-8">
-                <h2 class="text-2xl font-normal text-black">Dashboard</h2>
+            <div class="flex justify-between px-10 mx-0 mb-4 max-w-screen-lg lg:mb-8">
+                <div>
+                    <h2 class="text-2xl font-normal text-black">Dashboard</h2>
+                </div>
+                <div class="">
+                    {{-- <i class="fa-solid fa-bell fa-lg"></i> --}}
+                    <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
+                        class="flex items-center justify-center text-sm font-medium text-center focus:outline-none bg-primary-40 rounded-md transition-all duration-200 hover:shadow-mdshadow-primary-40 text-white dark:hover:text-white dark:text-gray-400"
+                        onclick="
+        this.classList.contains('shadow-xl')? this.classList.remove('shadow-xl') :
+                        this.classList.add('shadow-xl')"
+                        type="button">
+                        <div class="p-2">
+                            <i class="fa fa-bell fa-lg fa-outline p-2"></i>
+                        </div>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNotification"
+                        class="z-20 hidden w-full max-w-sm mx-10 shadow-lg bg-white divide-y divide-gray-100 rounded-lg dark:bg-gray-800 dark:divide-gray-700"
+                        aria-labelledby="dropdownNotificationButton">
+                        <div
+                            class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-inherit dark:bg-gray-800 dark:text-white">
+                            Notifications
+                        </div>
+                        <div class="divide-y divide-white dark:divide-gray-700">
+                            @foreach ($inbox as $noti)
+                                <a class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <div class="flex-shrink-0">
+                                        <img class="rounded-full w-11 h-11" src="/favicon.png" alt="{{ $noti->name }}">
+                                    </div>
+                                    <div class="w-full pl-3">
+                                        <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">New message from <span
+                                                class="font-semibold text-gray-900 dark:text-white">{{ $noti->name }}</span>:
+                                            "{{ $noti->message }}"</div>
+                                        <div class="text-xs text-blue-600 dark:text-blue-500">
+                                            {{ $noti->created_at->diffForHumans() }}</div>
+                                    </div>
+                                </a>
+                            @endforeach
+
+                        </div>
+                        <a href="#"
+                            class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-inherit hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                            <div class="inline-flex items-center ">
+                                <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
+                                    <path
+                                        d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                                </svg>
+                                View all
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <div
@@ -101,8 +153,7 @@
                                             data-pkg-cat-name="{{ $b->package->Package_type->name }}"
                                             data-pkg-price="{{ $b->package->price }}"
                                             data-dropdown-toggle="booking-dropdown" data-name="{{ $b->name }}"
-                                            data-phone="{!! $b->phone !!}"
-                                            data-date="{{ $b->date }}"
+                                            data-phone="{!! $b->phone !!}" data-date="{{ $b->date }}"
                                             data-payment-method="{{ $b->payment_method }}" data-id="{{ $b->id }}"
                                             data-package-id="{{ $b->package->id }}"
                                             class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
@@ -160,7 +211,7 @@
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
                             <a href="{{ $booking->previousPageUrl() }}"
-                              class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->onFirstPage() ? 'cursor-not-allowed' : '' }}">
+                                class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                 <span class="sr-only">Previous</span>
                                 <i class="fa-solid fa-chevron-left fa-sm"></i>
                             </a>
@@ -168,14 +219,14 @@
                         @foreach ($booking->getUrlRange(1, $booking->lastPage()) as $page => $url)
                             <li>
                                 <a href="{{ $url }}"
-                                  class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $booking->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $booking->currentPage() ? 'z-10' : '' }}">
+                                    class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $booking->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $booking->currentPage() ? 'z-10' : '' }}">
                                     {{ $page }}
                                 </a>
                             </li>
                         @endforeach
                         <li>
                             <a href="{{ $booking->nextPageUrl() }}"
-                              class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->hasMorePages() ? '' : 'cursor-not-allowed' }}">
+                                class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                 <span class="sr-only">Next</span>
                                 <i class="fa-solid fa-chevron-right fa-sm"></i>
                             </a>
@@ -342,9 +393,10 @@
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
-            <form id="delete_booking_form" method="POST" class="relative p-4 text-center bg-white rounded-lg shadow sm:p-5">
-              @csrf
-              @method("DELETE")
+            <form id="delete_booking_form" method="POST"
+                class="relative p-4 text-center bg-white rounded-lg shadow sm:p-5">
+                @csrf
+                @method('DELETE')
                 <button type="button"
                     class="text-neutral-60 absolute top-2.5 right-2.5 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 ml-auto inline-flex items-center"
                     data-modal-toggle="deleteModal">

@@ -36,7 +36,7 @@
                                         <td class="px-4 py-3 max-w-[10rem]">{{ $type->name }}</td>
                                         <td class="px-4 py-3 flex items-center justify-end">
                                             <button id="category-dropdown-button" data-dropdown-toggle="category-dropdown"
-                                            onclick="copyData(`{{ $type->id }}`, `{{ $type->name}}`, `{{ $cat->id}}`)"
+                                            onclick="copyData(`{{ $type->id }}`, `{{ $type->name}}`, `{{ $type->package_category->id}}`)"
                                                 class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
                                                 type="button">
                                                 <i class="fa-solid fa-ellipsis fa-lg"></i>

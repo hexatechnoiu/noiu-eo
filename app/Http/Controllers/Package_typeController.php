@@ -16,7 +16,7 @@ class Package_typeController extends Controller
         return view('dashboard.categories', [
             "title" => "Categories",
             "active" => "dashboard",
-            "categories" => Package_category::with('Package_types')->latest()->get()
+            "categories" => Package_category::with('Package_types')->get()
         ]);
     }
 

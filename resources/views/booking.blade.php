@@ -16,28 +16,29 @@
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-magnifying-glass w-5 h-5 text-neutral-60"></i>
                                 </div>
-                                <input type="text" id="simple-search" name="search"
+                                <input type="text" id="simple-search" name="search" value="{{ request('search')}}""
                                     class="bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2"
                                     placeholder="Search">
                             </div>
                         </form>
                     </div>
-
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
-                        type="button"><i class="fa-solid fa-cart-shopping mr-2"></i>Booking Now</button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                        <ul class="py-2 text-sm text-gray-700 text-start" aria-labelledby="dropdownDefaultButton">
-                            <li>
-                                <a href="{{ route('outbound') }}" class="block px-4 py-2 hover:bg-gray-100">Outbound
-                                    Package</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('mice') }}" class="block px-4 py-2 hover:bg-gray-100">Event Organizer</a>
-                            </li>
-                        </ul>
+                    <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                            class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2"
+                            type="button"><i class="fa-solid fa-cart-shopping mr-2"></i>Booking Now</button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            <ul class="py-2 text-sm text-gray-700 text-start" aria-labelledby="dropdownDefaultButton">
+                                <li>
+                                    <a href="{{ route('outbound') }}" class="block px-4 py-2 hover:bg-gray-100">Outbound Package</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('mice') }}" class="block px-4 py-2 hover:bg-gray-100">Event Organizer</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
 
                     {{-- <div
                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
@@ -52,7 +53,6 @@
                             <span>Event Organizer</span>
                         </a>
                     </div> --}}
-                </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
                         <thead class="text-xs text-neutral-60 uppercase bg-neutral-10">

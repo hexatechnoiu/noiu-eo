@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
-use App\Models\Categories;
+use App\Models\Inbox;
 use App\Models\Package;
 use App\Models\Package_type;
 use App\Models\User;
@@ -25,6 +25,8 @@ class DashboardController extends Controller
     $packages = Package::orderBy('package_type_id')->get();
     $package_types = Package_type::get();
     $users = User::get();
+    $booking = Booking::latest()->paginate(5);
+    $inbox = Inbox::where('status', 'unread')->latest()->take(4)->get();
     $count = [
       [
         'name' => 'Users',
@@ -44,18 +46,9 @@ class DashboardController extends Controller
     ];
 
     if (request("search")){
-      $pkg = Package::orderBy('package_type_id')->where('name', 'LIKE', '%' . request('search') . '%')->get();
-      return view('dashboard.index', [
-        "title" => "Dashboard",
-        "active" => "dashboard",
-        "users" => $users,
-        "count" => collect($count),
-        "categories" => $package_types,
-        "packages" => $pkg,
-        "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
-        "books" => Booking::latest()->where('name', 'LIKE', '%' . request('search') . '%')->paginate(5)
-      ]);
-    } else {
+      $packages = Package::orderBy('package_type_id')->where('name', 'LIKE', '%' . request('search') . '%')->get();
+      $booking = Booking::latest()->where('name', 'LIKE', '%' . request('search') . '%')->paginate(5);
+    }
 
       return view('dashboard.index', [
         "title" => "Dashboard",
@@ -65,9 +58,9 @@ class DashboardController extends Controller
         "categories" => $package_types,
         "packages" => $packages,
         "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
-        "booking" => Booking::latest()->paginate(5)
+        "booking" => $booking,
+        "inbox" => $inbox
       ]);
-    }
 
 
 

@@ -29,7 +29,7 @@
                         <label for="password" class="block mb-2 text-sm font-medium text-black">Password</label>
                         <div class="relative flex items-center">
                             <input type="password" name="password" id="password" placeholder="Your Password" autocomplete="none" class="bg-white border text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5 pr-10" required>
-                            <span id="togglePassword" class="toggle-password cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2" onclick="togglePasswordField()">
+                            <span onclick="togglePasswordField('password', 'eyeIcon')" id="togglePassword" class="toggle-password cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2">
                                 <i id="eyeIcon" class="fas fa-eye-slash"></i>
                             </span>
                         </div>
@@ -55,20 +55,3 @@
         </div>
     </section>
     @endsection
-
-    <script>
-        function togglePasswordField() {
-            const passwordField = document.getElementById("password");
-            const eyeIcon = document.getElementById("eyeIcon");
-
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                eyeIcon.classList.remove("fa-eye-slash");
-                eyeIcon.classList.add("fa-eye");
-            } else {
-                passwordField.type = "password";
-                eyeIcon.classList.remove("fa-eye");
-                eyeIcon.classList.add("fa-eye-slash");
-            }
-        };
-    </script>

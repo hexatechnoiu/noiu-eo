@@ -71,18 +71,11 @@ if (window.location.pathname.includes("/dashboard/users")) {
 
 if (window.location.pathname.includes("/dashboard/categories")) {
   window.copyData = (id, name, cat_id) => {
-    let update_modal = document.getElementById("update_form");
-    let delete_modal = document.getElementById("delete_form");
-    let update_categoryName = document.getElementById("update_categoryName");
-    let delete_categoryName = document.getElementById("delete_categoryName");
-    let update_category = document.getElementById("update_category");
-
-    update_modal.action = "/dashboard/categories/" + id;
-    delete_modal.action = "/dashboard/categories/" + id;
-
-    update_categoryName.value = name;
-    delete_categoryName.innerHTML = name;
-    update_category.value = name;
+    document.getElementById("update_form").action = "/dashboard/categories/" + id;
+    let delete_modal = document.getElementById("delete_form").action = "/dashboard/categories/" + id;
+    let update_categoryName = document.getElementById("update_categoryName").value = name;
+    let delete_categoryName = document.getElementById("delete_categoryName").innerHTML = name;
+    let update_category = document.getElementById("update_category").selectedIndex = cat_id;
     return
   }
 }

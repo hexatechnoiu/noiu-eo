@@ -12,7 +12,7 @@
                     @csrf
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div>
-                            <label for="avatar" class="block mb-2 text-sm font-medium text-black">Profile Picture</label>
+                            <label for="avatar" class="block mb-2 text-sm font-medium text-black">Profile Picture <span class="text-neutral-40 text-xs">[MAX. 4MB]</span></label>
                             <input type="file" id="avatar" name="avatar" class="form-control bg-neutral-10 border @error('avatar') border-red-700 @enderror text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer" accept="image/*">
                             @error('avatar')
                                 <small class="text-red-600 text-sm">{{$message}}</small>
@@ -51,7 +51,7 @@
                             <div class="relative flex items-center">
                                 <input type="password" name="password" id="password" placeholder="Your Password" autocomplete="none" class="bg-white border @error('password') border-red-700 @enderror text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5 pr-10" required>
                                 <span class="toggle-password cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2" onclick="togglePasswordField('password', 'eyeIconPassword')">
-                                    <i id="eyeIconPassword" class="fas fa-eye-slash"></i>
+                                    <i id="eyeIconPassword" class="fas fa-eye"></i>
                                 </span>
                             </div>
                             @error('password')
@@ -62,8 +62,8 @@
                             <label for="confirm-password" class="block mb-2 text-sm font-medium text-black">Confirm Password</label>
                             <div class="relative flex items-center">
                                 <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Your Password" autocomplete="none" class="bg-neutral-10 border @error('confirm-password') border-red-700 @enderror text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" required="">
-                                <span class="toggle-password cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2" onclick="togglePasswordField('confirm-password', 'eyeIconConfirmPassword')">
-                                    <i id="eyeIconConfirmPassword" class="fas fa-eye-slash"></i>
+                                <span onclick="togglePasswordField('confirm-password', 'eyeIconConfirmPassword')" class="toggle-password cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2">
+                                    <i id="eyeIconConfirmPassword" class="fas fa-eye"></i>
                                 </span>
                             </div>
                             @error('confirm-password')
@@ -84,20 +84,3 @@
     </section>
 
 @endsection
-
-<script>
-    function togglePasswordField(fieldId, iconId) {
-        const passwordField = document.getElementById(fieldId);
-        const eyeIcon = document.getElementById(iconId);
-
-        if (passwordField.type === "password") {
-            passwordField.type = "text";
-            eyeIcon.classList.remove("fa-eye-slash");
-            eyeIcon.classList.add("fa-eye");
-        } else {
-            passwordField.type = "password";
-            eyeIcon.classList.remove("fa-eye");
-            eyeIcon.classList.add("fa-eye-slash");
-        }
-    };
-</script>

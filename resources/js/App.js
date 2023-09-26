@@ -3,10 +3,10 @@
 import "./bootstrap";
 
 // External
-if (!(window.location.pathname.includes("home"))){
-  import("flowbite");
-}
+import("flowbite");
 import "./Alert";
+
+import "./PasswordToggle";
 import "./ModalDataCopier";
 
 // CSS
@@ -65,46 +65,46 @@ function toggleIcon(button) {
 }
 
 // Typewriter
-  document.addEventListener("DOMContentLoaded", function () {
-    const typewriter = document.getElementById("typewriter");
-    const words = ["Happy", "Innovative", "Distruptive", "Magic"];
-    let wordIndex = 0;
-    let letterIndex = 0;
-    let deleting = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const typewriter = document.getElementById("typewriter");
+  const words = ["Happy", "Innovative", "Distruptive", "Magic"];
+  let wordIndex = 0;
+  let letterIndex = 0;
+  let deleting = false;
 
-    function typeNextLetter() {
-      const word = words[wordIndex];
+  function typeNextLetter() {
+    const word = words[wordIndex];
 
+    if (!deleting) {
+      typewriter.textContent = word.substring(0, letterIndex + 1);
+      letterIndex++;
+    } else {
+      typewriter.textContent = word.substring(0, letterIndex);
+      letterIndex--;
+    }
+
+    if (!deleting && letterIndex <= word.length) {
+      setTimeout(typeNextLetter, 200); // Delay before typing next letter
+    } else {
       if (!deleting) {
-        typewriter.textContent = word.substring(0, letterIndex + 1);
-        letterIndex++;
+        deleting = true;
+        setTimeout(typeNextLetter, 2000); // Delay before starting to delete
       } else {
-        typewriter.textContent = word.substring(0, letterIndex);
-        letterIndex--;
-      }
-
-      if (!deleting && letterIndex <= word.length) {
-        setTimeout(typeNextLetter, 200); // Delay before typing next letter
-      } else {
-        if (!deleting) {
-          deleting = true;
-          setTimeout(typeNextLetter, 2000); // Delay before starting to delete
+        if (letterIndex >= 0) {
+          setTimeout(typeNextLetter, 200); // Delay before deleting next letter
         } else {
-          if (letterIndex >= 0) {
-            setTimeout(typeNextLetter, 200); // Delay before deleting next letter
-          } else {
-            wordIndex = (wordIndex + 1) % words.length;
-            letterIndex = 0;
-            deleting = false;
-            setTimeout(typeNextLetter, 500); // Delay before typing next word
-          }
+          wordIndex = (wordIndex + 1) % words.length;
+          letterIndex = 0;
+          deleting = false;
+          setTimeout(typeNextLetter, 500); // Delay before typing next word
         }
       }
     }
-    if (typewriter) {
-      typeNextLetter();
-    }
-  });
+  }
+  if (typewriter) {
+    typeNextLetter();
+  }
+});
 
 
 
@@ -130,20 +130,3 @@ let calcScrollValue = () => {
 
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
-
-// togglePassword (eye) Login
-function togglePasswordField() {
-  const passwordField = document.getElementById("password");
-  const eyeIcon = document.getElementById("eyeIcon");
-  if (passwordField || eyeIcon) {
-    if (passwordField.type === "password") {
-      passwordField.type = "text";
-      eyeIcon.classList.remove("fa-eye-slash");
-      eyeIcon.classList.add("fa-eye");
-    } else {
-      passwordField.type = "password";
-      eyeIcon.classList.remove("fa-eye");
-      eyeIcon.classList.add("fa-eye-slash");
-    }
-  }
-}
