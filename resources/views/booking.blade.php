@@ -10,27 +10,48 @@
             <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
-                        <form class="flex items-center">
+                        <form class="flex items-center" method="GET">
                             <label for="simple-search" class="sr-only">Search</label>
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-magnifying-glass w-5 h-5 text-neutral-60"></i>
                                 </div>
-                                <input type="text" id="simple-search"
+                                <input type="text" id="simple-search" name="search"
                                     class="bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2"
-                                    placeholder="Search" required>
+                                    placeholder="Search">
                             </div>
                         </form>
                     </div>
-                    <div
+
+                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                        type="button"><i class="fa-solid fa-cart-shopping mr-2"></i>Booking Now</button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                        <ul class="py-2 text-sm text-gray-700 text-start" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                                <a href="{{ route('outbound') }}" class="block px-4 py-2 hover:bg-gray-100">Outbound
+                                    Package</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('mice') }}" class="block px-4 py-2 hover:bg-gray-100">Event Organizer</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {{-- <div
                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                        <a {{-- id="createBookingModalButton" data-modal-target="createBookingModal"
-                            data-modal-toggle="createBookingModal" --}} href="{{route('outbound')}}"
+                        <a href="{{ route('outbound') }}"
                             class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
                             <i class="fa-solid fa-plus mr-2"></i>
-                            <span>Booking Now</span>
+                            <span>Outbound Package</span>
                         </a>
-                    </div>
+                        <a href="{{ route('mice') }}"
+                            class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
+                            <i class="fa-solid fa-plus mr-2"></i>
+                            <span>Event Organizer</span>
+                        </a>
+                    </div> --}}
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
@@ -55,16 +76,23 @@
                                     <td class="px-4 py-3">Rp. {{ number_format($book->package->price, 0, ',', '.') }}</td>
                                     <td class="px-4 py-3">{{ $book->payment_method }}</td>
                                     <td class="px-4 py-3 flex items-center justify-end">
-                                        <button id="booking-dropdown-button" data-dropdown-toggle="booking-dropdown"
+                                        <button id="booking-dropdown-button{{ $book->id }}"
+                                            onclick="booking_detail({{ $book->id }})"
+                                            data-dropdown-toggle="booking-dropdown"
                                             class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
-                                            type="button">
+                                            data-name="{{ $book->name }}" data-phone="{{ $book->phone }}"
+                                            data-payment-method="{{ $book->payment_method }}"
+                                            data-package-name="{{ $book->package->name }}"
+                                            data-package-price="{{ $book->package->price }}"
+                                            data-package-category="{{ $book->package->package_type->name }}"
+                                            data-date="{{ $book->date }}" type="button">
                                             <i class="fa-solid fa-ellipsis fa-lg"></i>
                                         </button>
                                         <div id="booking-dropdown"
                                             class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
                                             <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
                                                 <li>
-                                                    <button type="button" data-modal-target="updateBookingModal"
+                                                    <button disabled type="button" data-modal-target="updateBookingModal"
                                                         data-modal-toggle="updateBookingModal"
                                                         class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
                                                         <i class="fa-solid fa-pen-to-square mr-2"></i>
@@ -80,11 +108,11 @@
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <button type="button" data-modal-target="deleteModal"
+                                                    <button disabled type="button" data-modal-target="deleteModal"
                                                         data-modal-toggle="deleteModal"
                                                         class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
                                                         <i class="fa-solid fa-trash-can mr-2"></i>
-                                                        Delete
+                                                        Remove
                                                     </button>
                                                 </li>
                                             </ul>
@@ -96,51 +124,44 @@
                         </tbody>
                     </table>
                 </div>
-                <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
-                    aria-label="Table navigation">
-                    <span class="text-sm font-normal text-neutral-60">
-                        Showing
-                        <span class="font-semibold text-black">1-10</span>
-                        of
-                        <span class="font-semibold text-black">1000</span>
-                    </span>
-                    <ul class="inline-flex items-stretch -space-x-px">
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black">
-                                <span class="sr-only">Previous</span>
-                                <i class="fa-solid fa-chevron-left fa-sm"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">1</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">2</a>
-                        </li>
-                        <li>
-                            <a href="#" aria-current="page"
-                                class="flex items-center justify-center text-sm z-10 py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">3</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">...</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center text-sm py-2 px-3 leading-tight text-neutral-60 bg-white border border-neutral-30 hover:bg-neutral-20 hover:text-black">100</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black">
-                                <span class="sr-only">Next</span>
-                                <i class="fa-solid fa-chevron-right fa-sm"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                @if ($booking->lastItem() < 2)
+                @else
+                    <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
+                        aria-label="Table navigation">
+                        <span class="text-sm font-normal text-neutral-60">
+                            Showing
+                            <span class="font-semibold text-black">
+                                {{ $booking->firstItem() }}-{{ $booking->lastItem() }}
+                            </span>
+                            of
+                            <span class="font-semibold text-black">{{ $booking->total() }}</span>
+                        </span>
+                        <ul class="inline-flex items-stretch -space-x-px">
+                            <li>
+                                <a href="{{ $booking->previousPageUrl() }}"
+                                    class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->onFirstPage() ? 'cursor-not-allowed' : '' }}">
+                                    <span class="sr-only">Previous</span>
+                                    <i class="fa-solid fa-chevron-left fa-sm"></i>
+                                </a>
+                            </li>
+                            @foreach ($booking->getUrlRange(1, $booking->lastPage()) as $page => $url)
+                                <li>
+                                    <a href="{{ $url }}"
+                                        class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $booking->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $booking->currentPage() ? 'z-10' : '' }}">
+                                        {{ $page }}
+                                    </a>
+                                </li>
+                            @endforeach
+                            <li>
+                                <a href="{{ $booking->nextPageUrl() }}"
+                                    class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->hasMorePages() ? '' : 'cursor-not-allowed' }}">
+                                    <span class="sr-only">Next</span>
+                                    <i class="fa-solid fa-chevron-right fa-sm"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                @endif
             </div>
         </div>
     </section>
@@ -166,7 +187,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <form action="#">
+                <form method="GET">
                     <h3 class="text-lg font-semibold text-black mb-4">Data Customer :</h3>
                     <div class="grid gap-4 mb-4 sm:grid-cols-3">
                         <div>
@@ -267,34 +288,35 @@
                 <div class="grid gap-4 pb-5 mb-4 sm:grid-cols-3 border-b">
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
-                        <span class="font-light text-base text-neutral-60">Hafiz Haekal</span>
+                        <span class="font-light text-base text-neutral-60" id="read_user_name"></span>
                     </div>
                     <div>
                         <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone Number</label>
-                        <span class="font-light text-base text-neutral-60">087894818815</span>
+                        <span class="font-light text-base text-neutral-60" id="read_user_phone">087894818815</span>
                     </div>
                     <div>
                         <label for="payment" class="block mb-2 text-sm font-medium text-black">Payment Method</label>
-                        <span class="font-light text-base text-neutral-60">Gopay</span>
+                        <span class="font-light text-base text-neutral-60" id="read_payment_method"></span>
                     </div>
                 </div>
                 <h3 class="text-lg font-semibold text-black mb-4">Data Package :</h3>
                 <div class="grid gap-4 mb-4 sm:grid-cols-3">
                     <div>
                         <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
-                        <span class="font-light text-base text-neutral-60">Paket Outbound 2 Hari 1 Malam</span>
+                        <span class="font-light text-base text-neutral-60" id="read_package_name"></span>
                     </div>
                     <div>
                         <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
-                        <span class="font-light text-base text-neutral-60">Outbound</span>
+                        <span class="font-light text-base text-neutral-60" id="read_package_category"></span>
+
                     </div>
                     <div>
                         <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
-                        <span class="font-light text-base text-neutral-60">21/05/2006</span>
+                        <span class="font-light text-base text-neutral-60" id="read_date">21/05/2006</span>
                     </div>
                     <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
-                        <span class="font-light text-base text-neutral-60">Rp. 850.000</span>
+                        <span class="font-light text-base text-neutral-60" id="read_package_price"></span>
                     </div>
                 </div>
             </div>

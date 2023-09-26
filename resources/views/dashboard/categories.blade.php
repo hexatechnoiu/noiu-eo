@@ -106,7 +106,7 @@
                     </div>
                     <div class="mb-4">
                         <div>
-                            <label for="update_category" class="block mb-2 text-sm font-medium text-black">Page
+                            <label for="create_category" class="block mb-2 text-sm font-medium text-black">Page
                                 Name</label>
                                 <select id="create_category" name="package_category_id"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
@@ -152,14 +152,14 @@
                         <div>
                             <label for="update_categoryName" class="block mb-2 text-sm font-medium text-black">Category
                                 Name</label>
-                            <input type="text" name="name" id="update_categoryName" value="Outbound"
+                            <input type="text" name="name" id="update_categoryName"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                                 placeholder="Category Name">
                         </div>
                     </div>
                     <div class="mb-4">
                         <div>
-                            <label for="create_categoryName" class="block mb-2 text-sm font-medium text-black">Which Page?</label>
+                            <label for="update_category" class="block mb-2 text-sm font-medium text-black">Which Page?</label>
                             <select id="update_category" name="package_category_id"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                                 <option>Select Category</option>

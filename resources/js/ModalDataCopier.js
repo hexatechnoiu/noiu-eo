@@ -1,6 +1,6 @@
 
 
-if (window.location.pathname.includes("/dashboard")) {
+if (window.location.pathname.includes("/dashboard") || window.location.pathname.includes("/booking")) {
   window.copy_booking_data = (id, cat_id) => {
     let btn = document.getElementById('booking-dropdown-button' + id);
     let data = btn.dataset;
@@ -10,6 +10,13 @@ if (window.location.pathname.includes("/dashboard")) {
 
 
     document.getElementById('prename').innerHTML = data.name;
+    document.getElementById('prephone').innerHTML = data.phone;
+    document.getElementById('prepayment').innerHTML = data.paymentMethod;
+    document.getElementById('predate').innerHTML = data.date;
+    document.getElementById('preprice').innerHTML = Intl.NumberFormat('id-ID', {
+      style: 'currency',
+      currency: 'IDR',
+    }).format(data.pkgPrice);
     document.getElementById('prephone').innerHTML = data.phone;
     document.getElementById('prepayment').innerHTML = data.paymentMethod;
     document.getElementById('predate').innerHTML = data.date;
@@ -31,7 +38,6 @@ if (window.location.pathname.includes("/dashboard")) {
 }
 
 if (window.location.pathname.includes("/dashboard/users")) {
-
   window.copy_user_data = (id) => {
     const btn = document.getElementById('user-dropdown-button' + id)
     const data = btn.dataset;
@@ -76,9 +82,41 @@ if (window.location.pathname.includes("/dashboard/categories")) {
 
     update_categoryName.value = name;
     delete_categoryName.innerHTML = name;
-    update_category.selectedIndex = cat_id;
+    update_category.value = name;
     return
   }
+}
+
+
+if (
+  window.location.pathname.includes("outbound") ||
+  window.location.pathname.includes("mice")
+) {
+  window.ViewModal = (id) => {
+    let trigger_button = document.getElementById("btnSeeDetail" + id);
+    let data = trigger_button.dataset;
+
+
+    let package_name = data["name"]
+    let package_picture = data["picture"]
+    let package_category = data["category"]
+    // let unit = seedetail.getAttribute('data-unit')
+    let package_price = data["price"]
+    let desc = data["desc"]
+
+    document.getElementById("name_modal").innerHTML = package_name ?? "Nama Produk";
+
+    document.getElementById("img_modal").src = package_picture ?? "";
+    document.getElementById("category_detail").innerHTML = package_category
+    document.getElementById("price_modal").innerHTML = package_price ?? "Harga Produk";
+    document.getElementById("desc_modal").innerHTML = desc ?? "Deskripsi Produk";
+
+    document.getElementById("package_id").value = id;
+    document.getElementById('packageName').value = package_name;
+    document.getElementById('booking_category').value = package_category;
+    document.getElementById('booking_price').value = package_price.replace(/[\.\,]/g, "");
+    return;
+  };
 }
 
 if (window.location.pathname.includes("/dashboard/packages")) {
@@ -140,4 +178,19 @@ if (window.location.pathname.includes("/dashboard/packages")) {
     umodal.action = "/dashboard/packages/" + id;
     return;
   };
+}
+
+window.booking_detail = (id) => {
+  const trigger = document.getElementById('booking-dropdown-button' + id);
+  const data = trigger.dataset;
+
+  document.getElementById('read_user_name').innerHTML = data.name;
+  document.getElementById('read_user_phone').innerHTML = data.phone;
+  document.getElementById('read_payment_method').innerHTML = data.paymentMethod;
+  console.log(data.packageCategory)
+  document.getElementById('read_package_name').innerHTML = data.packageName;
+  document.getElementById('read_package_category').innerHTML = data.packageCategory;
+  document.getElementById('read_package_price').innerHTML = data.price;
+  document.getElementById('read_date').innerHTML = data.date;
+
 }

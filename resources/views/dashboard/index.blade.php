@@ -87,7 +87,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($books as $b)
+                            @foreach ($booking as $b)
                                 <tr class="border-b">
                                     <td class="px-4 py-3">{{ $b->name }}</td>
                                     <td class="px-4 py-3 max-w-[14rem]">{{ $b->package->name }}</td>
@@ -152,30 +152,30 @@
                     <span class="text-sm font-normal text-neutral-60">
                         Showing
                         <span class="font-semibold text-black">
-                            {{ $books->firstItem() }}-{{ $books->lastItem() }}
+                            {{ $booking->firstItem() }}-{{ $booking->lastItem() }}
                         </span>
                         of
-                        <span class="font-semibold text-black">{{ $books->total() }}</span>
+                        <span class="font-semibold text-black">{{ $booking->total() }}</span>
                     </span>
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
-                            <a href="{{ $books->previousPageUrl() }}"
-                              class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $books->onFirstPage() ? 'cursor-not-allowed' : '' }}">
+                            <a href="{{ $booking->previousPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                 <span class="sr-only">Previous</span>
                                 <i class="fa-solid fa-chevron-left fa-sm"></i>
                             </a>
                         </li>
-                        @foreach ($books->getUrlRange(1, $books->lastPage()) as $page => $url)
+                        @foreach ($booking->getUrlRange(1, $booking->lastPage()) as $page => $url)
                             <li>
                                 <a href="{{ $url }}"
-                                  class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $books->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $books->currentPage() ? 'z-10' : '' }}">
+                                  class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $booking->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $booking->currentPage() ? 'z-10' : '' }}">
                                     {{ $page }}
                                 </a>
                             </li>
                         @endforeach
                         <li>
-                            <a href="{{ $books->nextPageUrl() }}"
-                              class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $books->hasMorePages() ? '' : 'cursor-not-allowed' }}">
+                            <a href="{{ $booking->nextPageUrl() }}"
+                              class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                 <span class="sr-only">Next</span>
                                 <i class="fa-solid fa-chevron-right fa-sm"></i>
                             </a>

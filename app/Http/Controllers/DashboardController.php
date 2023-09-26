@@ -65,7 +65,7 @@ class DashboardController extends Controller
         "categories" => $package_types,
         "packages" => $packages,
         "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
-        "books" => Booking::latest()->paginate(5)
+        "booking" => Booking::latest()->paginate(5)
       ]);
     }
 

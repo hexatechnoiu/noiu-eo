@@ -3,7 +3,9 @@
 import "./bootstrap";
 
 // External
-import "flowbite";
+if (!(window.location.pathname.includes("home"))){
+  import("flowbite");
+}
 import "./Alert";
 import "./ModalDataCopier";
 
@@ -37,36 +39,7 @@ if (document.querySelector(".logo-slider")) {
     ],
   });
 }
-if (
-  window.location.pathname.includes("outbound") ||
-  window.location.pathname.includes("mice")
-) {
 
-  window.ViewModal = (id) => {
-    let trigger_button = document.getElementById("btnSeeDetail" + id);
-    let data = trigger_button.dataset;
-
-
-    let package_name = data["name"]
-    let package_picture = data["picture"]
-    let package_category = data["category"]
-    // let unit = seedetail.getAttribute('data-unit')
-    let package_price = data["price"]
-    let desc = data["desc"]
-
-    document.getElementById("name_modal").innerHTML = package_name ?? "Nama Produk";
-    document.getElementById("img_modal").src = package_picture ?? "";
-    document.getElementById("category_detail").innerHTML = package_category
-    document.getElementById("price_modal").innerHTML = package_price ?? "Harga Produk";
-    document.getElementById("desc_modal").innerHTML = desc ?? "Deskripsi Produk";
-
-    document.getElementById("package_id").value = id;
-    document.getElementById('packageName').value = package_name;
-    document.getElementById('booking_category').value = package_category;
-    document.getElementById('booking_price').value = package_price.replace(/[\.\,]/g, "");
-    return;
-  };
-}
 
 const dropdownButtonOutbound = document.getElementById(
   "dropdown-button-outbound"

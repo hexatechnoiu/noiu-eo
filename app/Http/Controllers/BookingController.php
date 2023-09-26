@@ -22,30 +22,21 @@ class BookingController extends Controller
 
 
 
-    $booking = Booking::latest()->where('user_id', auth()->user()->id)->get();
+    $booking = Booking::latest()->where('user_id', auth()->user()->id)->paginate(5);
     if (request('search')) {
-      $booking = Booking::latest()->where('user_id', auth()->user()->id)->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%');
+      $booking = Booking::latest()->where('user_id', auth()->user()->id)->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%')->paginate(5);
 
-      return view('booking', [
-        "title" => "Booking",
-        "active" => "booking",
-        "booking" => $booking
-      ]);
-    }
-
-    if (request('package_id')) {
-      $anunya = Package::find(request('package_id'));
       return view('booking', [
         "title" => "Booking",
         "active" => "booking",
         "booking" => $booking,
-        "anunya" => $anunya
       ]);
     }
+
     return view('booking', [
       "title" => "Booking",
       "active" => "booking",
-      "booking" => $booking
+      "booking" => $booking,
     ]);
   }
 
@@ -80,7 +71,7 @@ class BookingController extends Controller
     $formattedDate = $originalDate->format('d F Y');
 
     // return $validated_data;
-    // Booking::create($validated_data);
+    Booking::create($validated_data);
 
     // Cari Package Dan User sesuai dengan itunya
     $package = Package::find($validated_data['package_id']);
@@ -103,14 +94,14 @@ class BookingController extends Controller
     //   $user,
     //   $package
     // ];
-    try {
-      Mail::to($user->email)->send(new Invoice(collect($detail)));
-      return redirect()->back()->with(['success' => 'Booked successfully, Enjoy!']);
-    } catch (\Throwable $th) {
-      return redirect()->back()->withErrors(['success_but_email_not_sent' => 'Cant send email, But Booked Successfully, Enjoy!']);
-      // throw $th;
-    } finally {
-    }
+    Mail::to($user->email)->send(new Invoice(collect($detail)));
+    return redirect(route('booking.index'))->with(['success' => 'Booked successfully. Please check your emailfor invoce, Enjoy!']);
+    // try {
+    // } catch (\Throwable $th) {
+    //   return redirect()->back()->withErrors(['success_but_email_not_sent' => 'Cant send email, But Booked Successfully, Enjoy!']);
+    //   // throw $th;
+    // } finally {
+    // }
     // return dd($validated_data);
   }
 
@@ -145,7 +136,7 @@ class BookingController extends Controller
     ]);
 
     Booking::where('id', $booking->id)->update($data);
-    return redirect()->back()->with(['success' => "Booking has been updated successfully"]);
+    return redirect(route('booking.index'))->with(['success' => "Booking has been updated successfully"]);
   }
 
   /**
