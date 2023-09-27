@@ -26,7 +26,7 @@ class DashboardController extends Controller
     $package_types = Package_type::get();
     $users = User::get();
     $booking = Booking::latest()->paginate(5);
-    $inbox = Inbox::where('status', 'unread')->latest()->take(4)->get();
+    $inbox = Inbox::where('status', 'unread')->latest()->take(5)->get();
     $count = [
       [
         'name' => 'Users',

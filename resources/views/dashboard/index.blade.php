@@ -12,7 +12,7 @@
                     <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
                         class="flex items-center justify-center text-sm font-medium text-center focus:outline-none bg-primary-40 rounded-md transition-all duration-200 hover:shadow-mdshadow-primary-40 text-white dark:hover:text-white dark:text-gray-400"
                         onclick="
-        this.classList.contains('shadow-xl')? this.classList.remove('shadow-xl') :
+                        this.classList.contains('shadow-xl')? this.classList.remove('shadow-xl') :
                         this.classList.add('shadow-xl')"
                         type="button">
                         <div class="p-2">
@@ -34,9 +34,8 @@
                                         <img class="rounded-full w-11 h-11" src="/favicon.png" alt="{{ $noti->name }}">
                                     </div>
                                     <div class="w-full pl-3">
-                                        <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">New message from <span
-                                                class="font-semibold text-gray-900 dark:text-white">{{ $noti->name }}</span>:
-                                            "{{ $noti->message }}"</div>
+                                        <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span class="font-semibold text-gray-900 dark:text-white">{{ $noti->name }}</span>:
+                                            {{ $noti->message }}</div>
                                         <div class="text-xs text-blue-600 dark:text-blue-500">
                                             {{ $noti->created_at->diffForHumans() }}</div>
                                     </div>

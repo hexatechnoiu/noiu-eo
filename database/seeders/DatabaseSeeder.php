@@ -32,7 +32,9 @@ class DatabaseSeeder extends Seeder
       'name' => 'MICE',
       'status' => 'active',
     ]);
-    Inbox::factory(10)->create();
+
+    Inbox::factory(25)->create();
     Booking::factory(10)->create();
+    
   }
 }

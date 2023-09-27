@@ -16,6 +16,19 @@ class UserSeeder extends Seeder
   public function run(): void
   {
     User::factory(10)->create();
+
+    DB::table('users')->insert([
+      'avatar' => 'team/admin.jpg',
+      'name' => 'HEXATECH',
+      'email' => 'admin@gmail.com',
+      'phone' => '081234567891',
+      'role' => 'Admin',
+      'address' => '59, Jl. Arif Rahman Hakim, Kotakaler, Sumedang Utara, Sumedang Regency, West Java 45355',
+      'email_verified_at' => now(),
+      'password' => Hash::make('admin'),
+      'remember_token' => Str::random(10),
+    ]);
+
     DB::table('users')->insert([
       'avatar' => 'team/azfa.jpg',
       'name' => 'Muhammad azfa salman akbar',
