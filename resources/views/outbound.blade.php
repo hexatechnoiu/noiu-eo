@@ -28,7 +28,8 @@
                                     onclick="ViewModal({{ $pkg->id }})" data-category="{{ $tpkg->name }}"
                                     data-name="{{ $pkg->name }}" data-picture="{{ Storage::url($pkg->picture) }}"
                                     data-price="{{ number_format($pkg->price, 0, ',', '.') }}"
-                                    data-desc="{!! $pkg->desc !!}" data-modal-target="seeDetailModal"
+                                    data-desc="{!! $pkg->desc !!}"
+                                    data-modal-target="seeDetailModal"
                                     data-modal-toggle="seeDetailModal"
                                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-primary-40 rounded-lg hover:text-black hover:bg-secondary-40 focus:ring-4 focus:outline-none focus:ring-secondary-20 duration-[400ms]">
                                     See Detail

@@ -15,6 +15,10 @@ class UserController extends Controller
 {
   public function index()
   {
+    if(strtolower(auth()->user()->role) != 'admin'){
+      return abort(401);
+    }
+
     if (request("search")) {
       return view('dashboard.users', [
         "title" => "Users",
@@ -51,7 +55,12 @@ class UserController extends Controller
 
     if (Auth::attempt($credentials)) {
       $request->session()->regenerate();
+
+      if(strtolower(auth()->user()->role) != 'admin'){
+        return redirect()->intended(route('booking.index'))->with('success', 'Log In successfully');
+      }
       return redirect()->intended('/dashboard')->with('success', 'Log In successfully');
+
     } else {
       return back()->withError('error', "Email Or Password Is Incorrect!");
     }

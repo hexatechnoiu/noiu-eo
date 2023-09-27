@@ -7,7 +7,7 @@
             <h2 class="flex justify-center mb-8 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Booking</h2>
 
             <!-- Start coding here -->
-            <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
+            <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
                         <form class="flex items-center" method="GET">
@@ -124,7 +124,7 @@
                         </tbody>
                     </table>
                 </div>
-                @if ($booking->lastItem() < 2)
+                @if ($booking->lastItem() < 6)
                 @else
                     <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
                         aria-label="Table navigation">

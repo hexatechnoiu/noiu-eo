@@ -21,6 +21,9 @@ class DashboardController extends Controller
   }
   public function index()
   {
+    if(strtolower(auth()->user()->role) != 'admin'){
+      return abort(401);
+    }
 
     $packages = Package::orderBy('package_type_id')->get();
     $package_types = Package_type::get();

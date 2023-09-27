@@ -17,6 +17,9 @@ class PackageController extends Controller
    */
   public function index()
   {
+    if(strtolower(auth()->user()->role) != 'admin'){
+      return abort(401);
+    }
     // $package = Package_type::with('Packages')->get();
 
     if (request('search')) {

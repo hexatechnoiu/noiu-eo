@@ -21,7 +21,7 @@
                     </button>
                     <!-- Dropdown menu -->
                     <div id="dropdownNotification"
-                        class="z-20 hidden w-full max-w-sm mx-10 shadow-lg bg-white divide-y divide-gray-100 rounded-lg dark:bg-gray-800 dark:divide-gray-700"
+                        class="z-20 hidden w-full mr-10 max-w-sm mx-10 shadow-lg bg-white divide-y divide-gray-100 rounded-lg dark:bg-gray-800 dark:divide-gray-700"
                         aria-labelledby="dropdownNotificationButton">
                         <div
                             class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-inherit dark:bg-gray-800 dark:text-white">

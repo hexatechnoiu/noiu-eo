@@ -37,7 +37,7 @@
             <div class="flex justify-end items-center">
                 <div class="flex items-center space-x-3 sm:space-x-4">
                     @auth
-                        <button data-modal-hide="seeDetailModal" data-modal-toggle="order_booking_modal"
+                        <button data-modal-hide="seeDetailModal" data-modal-toggle="order_booking_modal" onclick="document.getElementById('order_booking_modal').classList.remove('translate-y-6')"
                             class="text-white inline-flex items-center bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             <i class="fa-solid fa-cart-shopping mr-2"></i>
                             Booking Now

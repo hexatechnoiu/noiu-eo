@@ -13,6 +13,10 @@ class Package_typeController extends Controller
      */
     public function index()
     {
+        if(strtolower(auth()->user()->role) != 'admin'){
+            return abort(401);
+          }
+
         return view('dashboard.categories', [
             "title" => "Categories",
             "active" => "dashboard",

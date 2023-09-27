@@ -30,6 +30,18 @@ class UserSeeder extends Seeder
     ]);
 
     DB::table('users')->insert([
+      'avatar' => 'team/admin.jpg',
+      'name' => 'Pelanggan',
+      'email' => 'user@gmail.com',
+      'phone' => '081234567892',
+      'role' => 'User',
+      'address' => 'Sumedang, Situ, Sumedang Utara, Sumedang Regency, West Java 45621',
+      'email_verified_at' => now(),
+      'password' => Hash::make('user'),
+      'remember_token' => Str::random(10),
+    ]);
+
+    DB::table('users')->insert([
       'avatar' => 'team/azfa.jpg',
       'name' => 'Muhammad azfa salman akbar',
       'email' => 'azfasa15@gmail.com',

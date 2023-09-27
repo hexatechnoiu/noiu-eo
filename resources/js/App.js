@@ -1,9 +1,9 @@
-"use strict"
+"use strict";
 // Laravel built-in
 import "./bootstrap";
 
 // External
-import("flowbite");
+import "flowbite";
 import "./Alert";
 
 import "./PasswordToggle";
@@ -12,7 +12,6 @@ import "./ModalDataCopier";
 // CSS
 import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/App.css";
-
 
 if (document.querySelector(".logo-slider")) {
   import("../css/slick.css");
@@ -39,7 +38,6 @@ if (document.querySelector(".logo-slider")) {
     ],
   });
 }
-
 
 const dropdownButtonOutbound = document.getElementById(
   "dropdown-button-outbound"
@@ -105,8 +103,6 @@ document.addEventListener("DOMContentLoaded", function () {
     typeNextLetter();
   }
 });
-
-
 
 // Scroll To Top
 let calcScrollValue = () => {

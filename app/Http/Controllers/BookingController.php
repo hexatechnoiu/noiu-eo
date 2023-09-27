@@ -19,9 +19,6 @@ class BookingController extends Controller
    */
   public function index()
   {
-
-
-
     $booking = Booking::latest()->where('user_id', auth()->user()->id)->paginate(5);
     if (request('search')) {
       $booking = Booking::latest()->where('user_id', auth()->user()->id)->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%')->paginate(5);
