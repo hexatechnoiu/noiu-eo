@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->enum('payment_method', ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO']);
             $table->date('date');
             $table->foreignIdFor(Package::class);

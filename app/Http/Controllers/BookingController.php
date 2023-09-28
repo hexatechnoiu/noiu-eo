@@ -58,7 +58,7 @@ class BookingController extends Controller
       "name" => "required",
       "user_id" => "required|exists:users,id",
       "package_id" => "required|exists:packages,id",
-      "date" => "required|date",
+      "date" => "required|date|unique:booking,date",
       "payment_method" => "required",
       "phone" => "required|numeric",
     ]);
@@ -87,19 +87,10 @@ class BookingController extends Controller
       "package_desc" => $package->desc,
       "for_date" => $formattedDate,
     ];
-    // return [
-    //   $user,
-    //   $package
-    // ];
+
     Mail::to($user->email)->send(new Invoice(collect($detail)));
     return redirect(route('booking.index'))->with(['success' => 'Booked successfully. Please check your emailfor invoce, Enjoy!']);
-    // try {
-    // } catch (\Throwable $th) {
-    //   return redirect()->back()->withErrors(['success_but_email_not_sent' => 'Cant send email, But Booked Successfully, Enjoy!']);
-    //   // throw $th;
-    // } finally {
-    // }
-    // return dd($validated_data);
+
   }
 
   /**

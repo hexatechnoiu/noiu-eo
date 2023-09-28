@@ -13,17 +13,16 @@ if (window.location.pathname.includes("/dashboard") || window.location.pathname.
     document.getElementById('prephone').innerHTML = data.phone;
     document.getElementById('prepayment').innerHTML = data.paymentMethod;
     document.getElementById('predate').innerHTML = data.date;
-    document.getElementById('preprice').innerHTML = Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
+    document.getElementById('preprice').innerHTML = "Rp. " + Intl.NumberFormat('id-ID', {
+      style: 'decimal',
     }).format(data.pkgPrice);
-    document.getElementById('prephone').innerHTML = data.phone;
-    document.getElementById('prepayment').innerHTML = data.paymentMethod;
-    document.getElementById('predate').innerHTML = data.date;
-    document.getElementById('preprice').innerHTML = Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-    }).format(data.pkgPrice);
+    // document.getElementById('prephone').innerHTML = data.phone;
+    // document.getElementById('prepayment').innerHTML = data.paymentMethod;
+    // document.getElementById('predate').innerHTML = data.date;
+    // document.getElementById('preprice').innerHTML = Intl.NumberFormat('id-ID', {
+    //   style: 'currency',
+    //   currency: 'IDR',
+    // }).format(data.pkgPrice);
     document.getElementById('prepackagename').innerHTML = data.pkgName;
     document.getElementById('precatname').innerHTML = data.pkgCatName;
 
@@ -101,13 +100,18 @@ if (
 
     document.getElementById("img_modal").src = package_picture ?? "";
     document.getElementById("category_detail").innerHTML = package_category
-    document.getElementById("price_modal").innerHTML = package_price ?? "Harga Produk";
+    document.getElementById("price_modal").innerHTML = Intl.NumberFormat('id-ID', {
+      style: 'decimal'
+    }).format(package_price) ?? "Harga Produk";
+
     document.getElementById("desc_modal").innerHTML = desc ?? "Deskripsi Produk";
 
     document.getElementById("package_id").value = id;
     document.getElementById('packageName').value = package_name;
     document.getElementById('booking_category').value = package_category;
-    document.getElementById('booking_price').value = package_price.replace(/[\.\,]/g, "");
+    document.getElementById('booking_price').value = "Rp. " + Intl.NumberFormat('id-ID', {
+      style: 'decimal',
+    }).format(package_price);
     return;
   };
 }
@@ -183,7 +187,9 @@ window.booking_detail = (id) => {
   console.log(data.packageCategory)
   document.getElementById('read_package_name').innerHTML = data.packageName;
   document.getElementById('read_package_category').innerHTML = data.packageCategory;
-  document.getElementById('read_package_price').innerHTML = data.price;
+  document.getElementById('read_package_price').innerHTML = "Rp. " + Intl.NumberFormat('id-ID', {
+    style: 'decimal',
+  }).format(data.packagePrice);
   document.getElementById('read_date').innerHTML = data.date;
 
 }

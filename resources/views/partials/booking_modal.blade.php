@@ -40,10 +40,11 @@
                         <label for="payment" class="block mb-2 text-sm font-medium text-black">Payment Method</label>
                         <select id="payment" name="payment_method"
                             class="bg-neutral-10 border border-primary-40 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
-                            <option selected="">Select Payment Method</option>
+
+                            <option >Select Payment Method</option>
                             <option value="Debit">Debit</option>
                             <option value="Credit">Credit</option>
-                            <option value="Gopay">Gopay</option>
+                            <option value="Gopay" selected>Gopay</option>
                             <option value="ShopeePay">ShopeePay</option>
                             <option value="Dana">Dana</option>
                             <option value="Ovo">Ovo</option>
@@ -84,7 +85,7 @@
                         <input type="text" name="price" id="booking_price"
                             class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                             placeholder="Rp. 250.000" required
-                            value="Rp. {{ number_format($selected_booking->price ?? 0, 0, ',', '.') }}" disabled>
+                            disabled>
                     </div>
                 </div>
                 <div class="flex justify-end items-center">
