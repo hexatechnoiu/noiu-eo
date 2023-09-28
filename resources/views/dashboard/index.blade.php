@@ -7,50 +7,44 @@
                 <div>
                     <h2 class="text-2xl font-normal text-black">Dashboard</h2>
                 </div>
-                <div class="">
-                    {{-- <i class="fa-solid fa-bell fa-lg"></i> --}}
-                    <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
-                        class="flex items-center justify-center text-sm font-medium text-center focus:outline-none bg-primary-40 rounded-md transition-all duration-200 hover:shadow-mdshadow-primary-40 text-white dark:hover:text-white dark:text-gray-400"
-                        onclick="
-                        this.classList.contains('shadow-xl')? this.classList.remove('shadow-xl') :
-                        this.classList.add('shadow-xl')"
-                        type="button">
-                        <div class="p-2">
-                            <i class="fa fa-bell fa-lg fa-outline p-2"></i>
-                        </div>
+                <div>
+                    <button type="button" id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"  data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="300" data-dropdown-placement="left"
+                        class="z-30 relative inline-flex items-center py-5 px-3.5 text-sm font-medium text-center text-white bg-primary-40 rounded-full hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20"
+                        onclick="this.classList.contains('shadow-xl') ? this.classList.remove('shadow-xl') : this.classList.add('shadow-xl')">
+                        <i class="fa fa-bell fa-lg fa-outline"></i>
+                        <span class="sr-only">Notifications</span>
+                        <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">8</div>
                     </button>
+
                     <!-- Dropdown menu -->
                     <div id="dropdownNotification"
-                        class="z-20 hidden w-full mr-10 max-w-sm mx-10 shadow-lg bg-white divide-y divide-gray-100 rounded-lg dark:bg-gray-800 dark:divide-gray-700"
+                        class="z-20 hidden w-[350px] sm:w-full mr-[500px] max-w-sm border border-primary-10 shadow-sm shadow-primary-40 bg-white divide-y divide-neutral-20 rounded-lg"
                         aria-labelledby="dropdownNotificationButton">
                         <div
-                            class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-inherit dark:bg-gray-800 dark:text-white">
-                            Notifications
+                            class="block px-4 py-2 font-semibold text-base text-center text-neutral-60 rounded-t-lg bg-inherit">
+                            Messages
                         </div>
-                        <div class="divide-y divide-white dark:divide-gray-700">
-                            @foreach ($inbox as $noti)
-                                <a class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <div class="divide-y divide-white">
+                            @foreach ($inbox as $notif)
+                                <a class="flex px-4 py-3 hover:bg-neutral-20 duration-[400ms]">
                                     <div class="flex-shrink-0">
-                                        <img class="rounded-full w-11 h-11" src="/favicon.png" alt="{{ $noti->name }}">
+                                        <img class="rounded-full w-11 h-11" src="/favicon.png" alt="{{ $notif->name }}">
                                     </div>
-                                    <div class="w-full pl-3">
-                                        <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span class="font-semibold text-gray-900 dark:text-white">{{ $noti->name }}</span>:
-                                            {{ $noti->message }}</div>
-                                        <div class="text-xs text-blue-600 dark:text-blue-500">
-                                            {{ $noti->created_at->diffForHumans() }}</div>
+                                    <div class="w-full pl-3 text-start">
+                                        <div class="text-neutral-60 text-sm mb-1.5"><span class="font-semibold text-black">{{ $notif->name }}</span>:
+                                            {{ $notif->message }}
+                                          </div>
+                                        <div class="text-xs text-primary-40">
+                                            {{ $notif->created_at->diffForHumans() }}
+                                        </div>
                                     </div>
                                 </a>
                             @endforeach
-
                         </div>
                         <a href="#"
-                            class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-inherit hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                            class="block py-2 text-sm font-medium text-center text-black rounded-b-lg bg-inherit hover:bg-neutral-20 duration-[400ms]">
                             <div class="inline-flex items-center ">
-                                <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
-                                    <path
-                                        d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-                                </svg>
+                              <i class="fa-solid fa-eye mr-2"></i>
                                 View all
                             </div>
                         </a>
@@ -285,8 +279,8 @@
                         </div>
                     </div>
                     <h3 class="text-lg font-semibold text-black mt-8 mb-4">Data Package :</h3>
-                    <div class="flex gap-4 mb-4 sm:grid-cols-3">
-                        <div class="w-full">
+                    <div class="flex flex-wrap sm:flex-nowrap gap-4 mb-4 sm:grid-cols-3">
+                        <div class="sm:w-[67.5%]">
                             <label for="package" class="block mb-2 text-sm font-medium text-black">Package
                             </label>
                             <select type="text" name="package_id" id="package"
@@ -305,7 +299,7 @@
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                             </select>
                         </div> --}}
-                        <div>
+                        <div class="w-full sm:w-[32.5%]">
                             <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
                             <input type="date" name="date" id="date"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
@@ -322,7 +316,7 @@
                             </select>
                         </div> --}}
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex justify-end items-center">
                         <button type="submit"
                             class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Update Booking
@@ -365,20 +359,20 @@
                     </div>
                 </div>
                 <h3 class="text-lg font-semibold text-black mb-4">Data Package :</h3>
-                <div class="grid gap-4 mb-4 sm:grid-cols-3">
-                    <div>
+                <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                    <div class="w-full">
                         <p class="block mb-2 text-sm font-medium text-black">Package Name</p>
                         <span class="font-light text-base text-neutral-60" id="prepackagename"></span>
                     </div>
-                    <div>
+                    <div class="sm:ml-[34.5%]">
                         <p class="block mb-2 text-sm font-medium text-black">Category</p>
                         <span class="font-light text-base text-neutral-60" id="precatname"></span>
                     </div>
-                    <div>
+                    <div class="w-full">
                         <p class="block mb-2 text-sm font-medium text-black">For Date</p>
                         <span class="font-light text-base text-neutral-60" id="predate"></span>
                     </div>
-                    <div>
+                    <div class="sm:ml-[34.5%]">
                         <p class="block mb-2 text-sm font-medium text-black">Price</p>
                         <span class="font-light text-base text-neutral-60" id="preprice"></span>
                     </div>

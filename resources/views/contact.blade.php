@@ -1,12 +1,17 @@
 @extends('layouts.main')
 
 @section('container')
+
     {{-- Get In Touch --}}
     <section class="bg-white px-12 my-10">
         <div class="sm:grid sm:grid-cols-2 lg:flex-row gap-16 mx-auto max-w-screen-xl justify-center">
             <div class="">
-                <h2 class="mb-1 text-3xl tracking-tight font-extrabold text-black sm:text-4xl">Get in Touch</h2>
-                <p class="max-w-2xl mb-6 text-neutral-60 text-md">Number One I'ts You. <br> <small class="leading-tight font-light">* You can contact us below if you have any problem related to this website or our services</small></p>
+                <h2 class="text-3xl tracking-tight font-extrabold text-black sm:text-4xl">Get in Touch</h2>
+                <p class="max-w-2xl my-1 text-neutral-60 text-md">Number One I'ts You. <br></p>
+                <div class="flex items-center p-3 mb-4 text-sm text-primary-40 border border-primary-10 rounded-lg bg-blue-50" role="alert">
+                    <i class="fa-solid fa-circle-info mr-3"></i>
+                    <span class="leading-tight text-xs">Please contact us if you have problems with our website or services.</span>
+                </div>
                 <form method="POST" action="/send">
                     @csrf
                     <div class="grid gap-6 my-6 md:grid-cols-2">
@@ -77,4 +82,5 @@
             </div>
         </div>
     </section>
+
 @endsection

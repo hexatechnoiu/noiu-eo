@@ -13,9 +13,9 @@ import "./ModalDataCopier";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "../css/App.css";
 
-if (document.querySelector(".logo-slider")) {
+if (document.querySelector("#logo-slider")) {
   import("../css/slick.css");
-  $(".logo-slider").slick({
+  $("#logo-slider").slick({
     slidesToShow: 5,
     slidesToScroll: 1,
     arrows: false,

@@ -7,7 +7,7 @@
             <h2 class="flex justify-center mb-8 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Booking</h2>
 
             <!-- Start coding here -->
-            <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg">
+            <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
                         <form class="flex items-center" method="GET">
@@ -27,32 +27,18 @@
                             class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2"
                             type="button"><i class="fa-solid fa-cart-shopping mr-2"></i>Booking Now</button>
                         <!-- Dropdown menu -->
-                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                            <ul class="py-2 text-sm text-gray-700 text-start" aria-labelledby="dropdownDefaultButton">
+                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-neutral-20 rounded-lg shadow-lg w-full md:w-[168px]">
+                            <ul class="py-2 text-sm text-neutral-60 text-center" aria-labelledby="dropdownDefaultButton">
                                 <li>
-                                    <a href="{{ route('outbound') }}" class="block px-4 py-2 hover:bg-gray-100">Outbound Package</a>
+                                    <a href="{{ route('outbound') }}" class="block px-4 py-2 hover:bg-neutral-20 duration-[400ms]">Outbound Package</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('mice') }}" class="block px-4 py-2 hover:bg-gray-100">Event Organizer</a>
+                                    <a href="{{ route('mice') }}" class="block px-4 py-2 hover:bg-neutral-20 duration-[400ms]">Event Organizer</a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
+                      </div>
+                  </div>
                 </div>
-
-                    {{-- <div
-                        class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                        <a href="{{ route('outbound') }}"
-                            class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
-                            <i class="fa-solid fa-plus mr-2"></i>
-                            <span>Outbound Package</span>
-                        </a>
-                        <a href="{{ route('mice') }}"
-                            class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
-                            <i class="fa-solid fa-plus mr-2"></i>
-                            <span>Event Organizer</span>
-                        </a>
-                    </div> --}}
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
                         <thead class="text-xs text-neutral-60 uppercase bg-neutral-10">
@@ -120,11 +106,10 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>
-                @if ($booking->lastItem() < 6)
+                @if ($booking->lastItem() < 2)
                 @else
                     <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
                         aria-label="Table navigation">
@@ -300,21 +285,20 @@
                     </div>
                 </div>
                 <h3 class="text-lg font-semibold text-black mb-4">Data Package :</h3>
-                <div class="grid gap-4 mb-4 sm:grid-cols-3">
-                    <div>
+                <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                    <div class="w-full">
                         <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package Name</label>
                         <span class="font-light text-base text-neutral-60" id="read_package_name"></span>
                     </div>
-                    <div>
+                    <div class="sm:ml-[34.5%]">
                         <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
                         <span class="font-light text-base text-neutral-60" id="read_package_category"></span>
-
                     </div>
-                    <div>
+                    <div class="w-full">
                         <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
                         <span class="font-light text-base text-neutral-60" id="read_date">21/05/2006</span>
                     </div>
-                    <div>
+                    <div class="sm:ml-[34.5%]">
                         <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
                         <span class="font-light text-base text-neutral-60" id="read_package_price"></span>
                     </div>

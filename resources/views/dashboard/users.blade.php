@@ -315,7 +315,7 @@
                                 placeholder="Your Address"></textarea>
                         </div>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex justify-end items-center">
                         <button type="submit"
                             class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Update User

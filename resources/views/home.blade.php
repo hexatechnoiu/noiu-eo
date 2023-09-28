@@ -19,13 +19,12 @@
 
 {{-- Clients Logo --}}
 <section class="bg-primary-40 py-6">
-    <div class="logo-slider ml-16 lg:ml-24 space-x-7">
+    <div id="logo-slider" class="ml-16 lg:ml-24 space-x-7">
         @for ($i = 1; $i <= 12; $i++)
         <div class="flex justify-center items-center cursor-pointer">
             <img class="w-12 md:w-24 hover:scale-110 transition-transform duration-[400ms] cursor-pointer" src="{{ asset('img/clients/logo' . $i . '.png') }}" alt="" loading="lazy">
         </div>
         @endfor
-
     </div>
 </section>
 
@@ -69,8 +68,8 @@
             <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-white sm:text-4xl">Ready for an unforgatable tour with noiu?</h2>
             <p class="max-w-2xl font-light text-white sm:text-xl">Number One I'ts You</p>
         </div>
-        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <a href="/outbound" class="inline-flex justify-center items-center py-3 px-7 text-lg font-normal text-center rounded-lg text-black bg-secondary-40 border-[3px] border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 duration-[400ms]">
+        <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
+            <a href="/booking" class="inline-flex w-full sm:w-auto justify-center items-center py-3 px-7 text-lg font-normal text-center rounded-lg text-black bg-secondary-40 border-[3px] border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 duration-[400ms]">
                 Book Now
             </a>
         </div>

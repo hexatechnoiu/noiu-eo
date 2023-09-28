@@ -8,12 +8,12 @@ if (window.location.pathname.includes("/register") || window.location.pathname.i
     if (eyeIcon && passwordField) {
       if (passwordField.type === "password") {
         passwordField.type = "text";
-        eyeIcon.classList.remove("fa-eye-slash");
-        eyeIcon.classList.add("fa-eye");
-      } else {
-        passwordField.type = "password";
         eyeIcon.classList.remove("fa-eye");
         eyeIcon.classList.add("fa-eye-slash");
+      } else {
+        passwordField.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
       }
     }
   }

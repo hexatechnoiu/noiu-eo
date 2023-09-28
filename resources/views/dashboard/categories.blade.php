@@ -10,11 +10,11 @@
                 <h2 class="flex justify-center mb-2 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Categories</h2>
             </div>
             <!-- Start coding here -->
-            <div class="bg-neutral-10 max-w-sm relative shadow-2xl sm:rounded-lg overflow-hidden">
-                <div class="w-full m-4 md:w-auto items-stretch md:items-center justify-start">
+            <div class="bg-neutral-10 p-4 max-w-sm relative shadow-2xl sm:rounded-lg overflow-hidden">
+                <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                     <button type="button" id="createCategoryModalButton" data-modal-target="createCategoryModal"
                         data-modal-toggle="createCategoryModal"
-                        class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
+                        class="flex items-center justify-center w-full text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2">
                         <i class="fa-solid fa-plus mr-2"></i>
                         <span>Add New Category</span>
                     </button>
@@ -117,11 +117,12 @@
                             </select>
                         </div>
                     </div>
-
-                    <button type="submit"
-                        class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        Add Category
-                    </button>
+                    <div class="flex justify-end items-center">
+                        <button type="submit"
+                            class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                            Add Category
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -169,7 +170,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="flex items-center">
+                    <div class="flex justify-end items-center">
                         <button type="submit"
                             class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             Update Category

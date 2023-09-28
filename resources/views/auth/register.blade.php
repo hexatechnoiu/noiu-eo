@@ -2,7 +2,7 @@
 
 @section('container')
 
-    <section class="flex flex-col items-center justify-center px-6 py-10 mx-auto md:h-screen">
+    <section class="flex flex-col items-center justify-center px-6 pt-10 pb-20 mx-auto md:h-screen">
         <div class="w-full bg-white rounded-lg border border-neutral-20 shadow-xl my-4 sm:max-w-xl">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
@@ -34,7 +34,7 @@
                         </div>
                         <div>
                             <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone</label>
-                            <input type="tel" placeholder="08123456789012" name="phone" value="{{old('phone')}}" id="phone" class="bg-neutral-10 border @error('phone') border-red-700 @enderror text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Phone" required="">
+                            <input type="tel" placeholder="081234567891" name="phone" value="{{old('phone')}}" id="phone" class="bg-neutral-10 border @error('phone') border-red-700 @enderror text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5" placeholder="Your Phone" required="">
                             @error('phone')
                                 <small class="text-red-600 text-sm">{{$message}}</small>
                             @enderror

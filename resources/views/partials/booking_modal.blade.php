@@ -26,20 +26,20 @@
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
                         <input type="text" name="name" id="name"
-                            class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
+                            class="bg-neutral-10 border border-primary-40 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                             placeholder="Your Name" required @auth value="{{ auth()->user()->name }}" @endauth>
                     </div>
                     <div>
                         <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone Number</label>
                         <input type="text" name="phone" id="phone"
-                            class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
+                            class="bg-neutral-10 border border-primary-40 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                             placeholder="081234512345" required @auth
-value="{{ auth()->user()->phone }}" @endauth>
+                            value="{{ auth()->user()->phone }}" @endauth>
                     </div>
                     <div>
                         <label for="payment" class="block mb-2 text-sm font-medium text-black">Payment Method</label>
                         <select id="payment" name="payment_method"
-                            class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
+                            class="bg-neutral-10 border border-primary-40 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                             <option selected="">Select Payment Method</option>
                             <option value="Debit">Debit</option>
                             <option value="Credit">Credit</option>
@@ -51,10 +51,11 @@ value="{{ auth()->user()->phone }}" @endauth>
                     </div>
                 </div>
                 <h3 class="text-lg font-semibold text-black mt-8 mb-4">Data Package :</h3>
-                <div class="grid gap-4 mb-4 sm:grid-cols-3">
+                <div class="grid gap-4 mb-4 sm:grid-cols-2">
                     <div>
-                        <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package
-                            Name</label>
+                        <label for="packageName" class="block mb-2 text-sm font-medium text-black">
+                          Package Name
+                        </label>
                         <input type="text" name="packageName" id="packageName"
                             class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                             placeholder="Package Name" required disabled value="{{ $selected_booking->name ?? '' }}">
@@ -62,7 +63,6 @@ value="{{ auth()->user()->phone }}" @endauth>
 
                     <div>
                         <label for="booking_category" class="block mb-2 text-sm font-medium text-black">Category</label>
-
                         <select disabled id="booking_category"
                             class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                             <option>Select Category</option>
@@ -76,8 +76,8 @@ value="{{ auth()->user()->phone }}" @endauth>
                     <div>
                         <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
                         <input type="date" name="date" id="date"
-                            class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                            placeholder="Rp. 250.000" required>
+                            class="bg-neutral-10 border border-primary-40 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
+                            placeholder="01/01/2024" required>
                     </div>
                     <div>
                         <label for="booking_price" class="block mb-2 text-sm font-medium text-black">Price</label>
@@ -87,11 +87,12 @@ value="{{ auth()->user()->phone }}" @endauth>
                             value="Rp. {{ number_format($selected_booking->price ?? 0, 0, ',', '.') }}" disabled>
                     </div>
                 </div>
-                <button type="submit"
-                    class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 text-center">
-                    <i class="fa-solid fa-cart-shopping mr-2"></i>
-                    Booking
-                </button>
+                <div class="flex justify-end items-center">
+                    <button type="submit"
+                        class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 mt-2 text-center">
+                        Booking
+                    </button>
+                </div>
             </form>
         </div>
     </div>

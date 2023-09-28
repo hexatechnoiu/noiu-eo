@@ -130,13 +130,13 @@
                             <a href="#" class="hover:text-secondary-40 duration-[400ms]">Privacy Policy</a>
                         </li>
                         <li class="mb-4">
-                            <a href="#" class="hover:text-secondary-40 duration-[400ms]">Licensing</a>
+                            <a href="https://laravel.com" target="blank" class="hover:text-secondary-40 duration-[400ms]">Licensing</a>
                         </li>
                         <li class="mb-4">
                             <a href="#" class="hover:text-secondary-40 duration-[400ms]">Terms &amp; Conditions</a>
                         </li>
                         <li class="mb-4">
-                            <a data-modal-toggle="FAQModal" class="hover:text-secondary-40 duration-[400ms]">FAQ</a>
+                            <a data-modal-toggle="FAQModal" class="hover:text-secondary-40 duration-[400ms] cursor-pointer">FAQ</a>
                         </li>
                     </ul>
                 </div>
