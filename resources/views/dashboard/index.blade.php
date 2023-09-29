@@ -9,8 +9,7 @@
                 </div>
                 <div>
                     <button type="button" id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"  data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="300" data-dropdown-placement="left"
-                        class="z-30 relative inline-flex items-center py-5 px-3.5 text-sm font-medium text-center text-white bg-primary-40 rounded-full hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20"
-                        onclick="this.classList.contains('shadow-xl') ? this.classList.remove('shadow-xl') : this.classList.add('shadow-xl')">
+                        class="z-30 relative inline-flex items-center py-5 px-3.5 text-sm font-medium text-center text-white bg-primary-40 rounded-full hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20">
                         <i class="fa fa-bell fa-lg fa-outline"></i>
                         <span class="sr-only">Notifications</span>
                         <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">8</div>
@@ -31,9 +30,13 @@
                                         <img class="rounded-full w-11 h-11" src="/favicon.png" alt="{{ $notif->name }}">
                                     </div>
                                     <div class="w-full pl-3 text-start">
-                                        <div class="text-neutral-60 text-sm mb-1.5"><span class="font-semibold text-black">{{ $notif->name }}</span>:
-                                            {{ $notif->message }}
-                                          </div>
+                                        <div class="text-neutral-60 text-sm mb-1.5">
+                                            <span class="font-semibold text-black">{{ $notif->name }}</span>
+                                            <span class="max-w-[100px] truncate text-ellipsis">
+                                                {{ $notif->message }}
+
+                                            </span>
+                                        </div>
                                         <div class="text-xs text-primary-40">
                                             {{ $notif->created_at->diffForHumans() }}
                                         </div>
@@ -41,7 +44,7 @@
                                 </a>
                             @endforeach
                         </div>
-                        <a href="#"
+                        <a href="/dashboard/inbox"
                             class="block py-2 text-sm font-medium text-center text-black rounded-b-lg bg-inherit hover:bg-neutral-20 duration-[400ms]">
                             <div class="inline-flex items-center ">
                               <i class="fa-solid fa-eye mr-2"></i>

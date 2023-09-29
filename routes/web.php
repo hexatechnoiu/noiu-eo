@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\CategoriesController;
+use App\Models\Inbox;
+use App\Models\OurTeam;
+use App\Models\Package;
 use App\Models\Benefits;
+use App\Models\Package_type;
 use App\Models\Package_category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\InboxController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\Package_typeController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PackageController;
-use App\Models\OurTeam;
-use App\Models\Package_type;
 use App\Http\Requests\SearchPackageRequest;
-use App\Models\Package;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\Package_typeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::redirect('/', '/home');
 Route::get('/home', function () {
     $ben = Benefits::get();
     return view('home', [
-        "title" => "Beranda",
+        "title" => "Home",
         "active" => "home",
         "benefits" => $ben
     ]);
@@ -66,6 +67,14 @@ Route::get('/contact', function () {
     ]);
 })->name('contact');
 
+Route::get('/dashboard/inbox', function () {
+  return view('dashboard.inbox', [
+      "title" => "Message",
+      "active" => "dashboard",
+      "inbox" => Inbox::latest()->paginate(5)
+  ]);
+});
+
 Route::controller(DashboardController::class)->group(
     function () {
         Route::get('/dashboard', 'index')->middleware('auth');
@@ -88,5 +97,7 @@ Route::resource('/dashboard/categories', Package_typeController::class)->middlew
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/booking', BookingController::class)->middleware('auth');
 Route::get("/test_email", [MailController::class, 'index']);
-Route::get("/email", [MailController::class, 'show']);
+
+Route::get("/email/invoice", [MailController::class, 'invoice']);
+Route::get("/email/reply", [MailController::class, 'reply']);
 // Route::get('/dashboard/packages', [PackageController::class, 'index']);

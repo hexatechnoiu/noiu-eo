@@ -58,7 +58,7 @@ class BookingController extends Controller
       "name" => "required",
       "user_id" => "required|exists:users,id",
       "package_id" => "required|exists:packages,id",
-      "date" => "required|date|unique:booking,date",
+      "date" => "required|date|unique:bookings,date",
       "payment_method" => "required",
       "phone" => "required|numeric",
     ]);

@@ -17,7 +17,7 @@
                     </dl>
                     <dl>
                         <dt class="mt-2 font-semibold leading-none text-black">Price</dt>
-                        <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5">Rp. <span id="price_modal"></span>
+                        <dd class="mb-4 font-light text-base text-neutral-60 sm:mb-5"><span id="price_modal"></span>
                             /Pax</dd>
                     </dl>
                     <dl>

@@ -42,7 +42,7 @@
             </section>
         @endforeach
     @endforeach
-    @include('partials.detail_modal')
+        @include('partials.detail_modal')
     @auth
         @include('partials.booking_modal')
     @endauth

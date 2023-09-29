@@ -25,7 +25,7 @@ class MailController extends Controller
 
     Mail::to('hafizhaekal03@gmail.com')->send(new Invoice(collect($detail)));
   }
-  public function show()
+  public function reply()
   {
     $detail = [
       "booking_id" => "10",

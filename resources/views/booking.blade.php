@@ -1,6 +1,7 @@
-@extends('layouts.main')
+@extends('layouts.dashboardmain')
 
 @section('container')
+
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
