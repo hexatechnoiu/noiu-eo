@@ -52,16 +52,19 @@ class BookingController extends Controller
   {
     // Benerin phone untuk mencegah vulnerable
     $request['phone'] =  str_replace([" ", ".", "+", "(", ")"], '', $request['phone']);
+    $request['status'] =  'unpaid';
 
     // Validasi datanya
     $validated_data = $request->validate([
       "name" => "required",
+      "status" => "required",
       "user_id" => "required|exists:users,id",
       "package_id" => "required|exists:packages,id",
       "date" => "required|date|unique:bookings,date",
       "payment_method" => "required",
       "phone" => "required|numeric",
     ]);
+
 
     // Format tanggalnya
     $originalDate = new DateTime($validated_data['date']);
@@ -75,10 +78,11 @@ class BookingController extends Controller
     $user = User::find($validated_data['user_id']);
     $detail = [
       "booking_id" => "10",
+      "status" => "Belum bayar",
       "user_name_db" => $user->name,
       "order_name" => $validated_data['name'],
       "subject" => "Your Order from NOIU EO",
-      "image_url" => "https://gdrive.azfasa15.workers.dev/noiu.svg",
+      "image_url" => "https://gdrive.azfasa15.workers.dev/noiu",
       "reply_name" => "NOIU EO",
       "reply_mail" => "laravel@noiu-eo.com",
       "package_name" => $package->name,

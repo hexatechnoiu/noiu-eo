@@ -21,6 +21,7 @@ class DashboardController extends Controller
   }
   public function index()
   {
+    $status = ['canceled', 'pending_canceled', 'done', 'paid', 'unpaid'];
     if(strtolower(auth()->user()->role) != 'admin'){
       return abort(401);
     }
@@ -62,7 +63,8 @@ class DashboardController extends Controller
         "packages" => $packages,
         "paylist" => ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO'],
         "booking" => $booking,
-        "inbox" => $inbox
+        "inbox" => $inbox,
+        "status" => $status
       ]);
 
 

@@ -78,14 +78,14 @@
                                         <div id="booking-dropdown"
                                             class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
                                             <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
-                                                <li>
+                                                {{-- <li>
                                                     <button disabled type="button" data-modal-target="updateBookingModal"
                                                         data-modal-toggle="updateBookingModal"
                                                         class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
                                                         <i class="fa-solid fa-pen-to-square mr-2"></i>
                                                         <span>Edit</span>
                                                     </button>
-                                                </li>
+                                                </li> --}}
                                                 <li>
                                                     <button type="button" data-modal-target="readBookingModal"
                                                         data-modal-toggle="readBookingModal"
@@ -95,11 +95,12 @@
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <button disabled type="button" data-modal-target="deleteModal"
-                                                        data-modal-toggle="deleteModal"
+                                                    <button
+                                                     type="button" data-modal-target="CancelModal"
+                                                        data-modal-toggle="CancelModal"
                                                         class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
                                                         <i class="fa-solid fa-trash-can mr-2"></i>
-                                                        Remove
+                                                        Cancel
                                                     </button>
                                                 </li>
                                             </ul>
@@ -156,7 +157,7 @@
 
     @include('partials.booking_modal')
     <!-- Update modal -->
-    <div id="updateBookingModal" tabindex="-1" aria-hidden="true"
+    {{-- <div id="updateBookingModal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-4xl max-h-full">
             <!-- Modal content -->
@@ -246,13 +247,13 @@
                         <button type="button"
                             class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                             <i class="fa-solid fa-trash-can mr-2"></i>
-                            Delete
+                            Cancel
                         </button>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Read modal -->
     <div id="readBookingModal" tabindex="-1" aria-hidden="true"
@@ -308,24 +309,24 @@
         </div>
     </div>
 
-    <!-- Delete modal -->
-    <div id="deleteModal" tabindex="-1" aria-hidden="true"
+    <!-- Cancel modal -->
+    <div id="CancelModal" tabindex="-1" aria-hidden="true"
         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative p-4 w-full max-w-md max-h-full">
             <!-- Modal content -->
             <div class="relative p-4 text-center bg-white rounded-lg shadow sm:p-5">
                 <button type="button"
                     class="text-neutral-60 absolute top-2.5 right-2.5 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 ml-auto inline-flex items-center"
-                    data-modal-toggle="deleteModal">
+                    data-modal-toggle="CancelModal">
                     <i class="fa-solid fa-xmark fa-xl"></i>
                     <span class="sr-only">Close modal</span>
                 </button>
                 <div class="text-neutral-60 w-11 h-11 my-3.5 mx-auto">
                     <i class="fa-solid fa-trash-can fa-2xl"></i>
                 </div>
-                <p class="mb-4 text-neutral-60">Are you sure you want to delete this booked?</p>
+                <p class="mb-4 text-neutral-60">Are you sure you want to Cancel this booked?</p>
                 <div class="flex justify-center items-center space-x-4">
-                    <button data-modal-toggle="deleteModal" type="button"
+                    <button data-modal-toggle="CancelModal" type="button"
                         class="py-2 px-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No,
                         cancel</button>
                     <button type="submit"

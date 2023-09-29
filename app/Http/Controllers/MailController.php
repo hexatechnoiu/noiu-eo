@@ -29,6 +29,7 @@ class MailController extends Controller
   {
     $detail = [
       "booking_id" => "10",
+      "status" => "unpaid",
       "subject" => "Your trip invoice from NOIU EO",
       "image_url" => "https://gdrive.azfasa15.workers.dev/noiu.svg",
       "reply_name" => "Muhammad Azfa",
@@ -42,7 +43,7 @@ class MailController extends Controller
       "for_date" => "05 October 2023",
     ];
 
-    return view('emails.test', [
+    return view('emails.invoice', [
       'detail' => $detail
     ]);
   }

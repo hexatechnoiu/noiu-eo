@@ -2,17 +2,20 @@
 
 @section('container')
     <section class="bg-white">
-        <div class="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
+        <div cclasslass="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
             <div class="flex justify-between px-10 mx-0 mb-4 max-w-screen-lg lg:mb-8">
                 <div>
                     <h2 class="text-2xl font-normal text-black">Dashboard</h2>
                 </div>
                 <div>
-                    <button type="button" id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"  data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="300" data-dropdown-placement="left"
+                    <button type="button" id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification"
+                        data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="300" data-dropdown-placement="left"
                         class="z-30 relative inline-flex items-center py-5 px-3.5 text-sm font-medium text-center text-white bg-primary-40 rounded-full hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20">
                         <i class="fa fa-bell fa-lg fa-outline"></i>
                         <span class="sr-only">Notifications</span>
-                        <div class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">8</div>
+                        <div
+                            class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">
+                            8</div>
                     </button>
 
                     <!-- Dropdown menu -->
@@ -31,11 +34,8 @@
                                     </div>
                                     <div class="w-full pl-3 text-start">
                                         <div class="text-neutral-60 text-sm mb-1.5">
-                                            <span class="font-semibold text-black">{{ $notif->name }}</span>
-                                            <span class="max-w-[100px] truncate text-ellipsis">
-                                                {{ $notif->message }}
-
-                                            </span>
+                                            <p class="font-semibold text-black">{{ $notif->name }}</p>
+                                            <p class="max-w-[12rem] truncate">{{ $notif->message }}</p>
                                         </div>
                                         <div class="text-xs text-primary-40">
                                             {{ $notif->created_at->diffForHumans() }}
@@ -47,7 +47,7 @@
                         <a href="/dashboard/inbox"
                             class="block py-2 text-sm font-medium text-center text-black rounded-b-lg bg-inherit hover:bg-neutral-20 duration-[400ms]">
                             <div class="inline-flex items-center ">
-                              <i class="fa-solid fa-eye mr-2"></i>
+                                <i class="fa-solid fa-eye mr-2"></i>
                                 View all
                             </div>
                         </a>
@@ -308,6 +308,7 @@
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                                 placeholder="Rp. 250.000" required>
                         </div>
+
                         {{-- <div>
                             <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
                             <select type="text" name="price" disabled id="price" value="Rp. 850.000"
@@ -318,6 +319,19 @@
                                 @endforeach
                             </select>
                         </div> --}}
+                    </div>
+                    <h3 class="text-lg font-semibold text-black mb-4">Status :</h3>
+
+                    <div class="flex flex-wrap sm:flex-nowrap gap-4 mb-4 sm:grid-cols-3">
+                        <select type="text" name="status" id="package"
+                            class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block p-2.5"
+                            placeholder="Package Name" required>
+                            @foreach ($status as $s)
+                                <option value="{{ $s }}">
+                                    {{ ucfirst($s) }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="flex justify-end items-center">
                         <button type="submit"
