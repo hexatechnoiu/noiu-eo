@@ -137,7 +137,7 @@
                         <tbody>
                             @foreach ($booking as $b)
                                 <tr class="border-b">
-                                    <td class="px-4 py-3">{{ $b->name }}</td>
+                                    <td class="px-4 py-3">({{ $b->status }}){{ $b->name }}</td>
                                     <td class="px-4 py-3 max-w-[14rem]">{{ $b->package->name }}</td>
                                     <td class="px-4 py-3">{{ $b->date }}</td>
                                     <td class="px-4 py-3">Rp. {{ $b->package->price }}</td>

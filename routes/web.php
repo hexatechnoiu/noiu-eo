@@ -96,7 +96,7 @@ Route::resource('/dashboard/packages', PackageController::class)->middleware('au
 Route::resource('/dashboard/categories', Package_typeController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/booking', BookingController::class)->middleware('auth');
-Route::get("/test_email", [MailController::class, 'index']);
+// Route::get("/test_email", [MailController::class, 'index']);
 
 Route::get("/email/invoice", [MailController::class, 'invoice']);
 Route::get("/email/reply", [MailController::class, 'reply']);
