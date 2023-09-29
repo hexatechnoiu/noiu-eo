@@ -137,10 +137,28 @@
                         <tbody>
                             @foreach ($booking as $b)
                                 <tr class="border-b">
-                                    <td class="px-4 py-3">({{ $b->status }}){{ $b->name }}</td>
+                                    <td class="px-4 py-3">
+                                        <span
+                                            class="
+                                    @if (strtolower($b->status) == 'cancelled') badge-sm-cancelled
+                                      @elseif (strtolower($b->status) == 'done')
+                                      badge-sm-done
+                                      @elseif (strtolower($b->status) == 'paid')
+                                      badge-sm-paid
+                                      @elseif (strtolower($b->status) == 'unpaid')
+                                      badge-sm-unpaid
+                                      @else
+                                      badge-sm-default
+                                      @endif
+                                    ">
+                                            {{ $b->status }}
+                                        </span>
+
+                                        {{ $b->name }}
+                                    </td>
                                     <td class="px-4 py-3 max-w-[14rem]">{{ $b->package->name }}</td>
                                     <td class="px-4 py-3">{{ $b->date }}</td>
-                                    <td class="px-4 py-3">Rp. {{ $b->package->price }}</td>
+                                    <td class="px-4 py-3">Rp. {{ number_format($b->package->price, 0, ',', '.') }}</td>
                                     <td class="px-4 py-3">{{ $b->payment_method }}</td>
                                     <td class="px-4 py-3 flex items-center justify-end">
                                         <button id="booking-dropdown-button{{ $b->id }}"
@@ -148,6 +166,7 @@
                                             data-pkg-name="{{ $b->package->name }}"
                                             data-pkg-cat-name="{{ $b->package->Package_type->name }}"
                                             data-pkg-price="{{ $b->package->price }}"
+                                            data-status="{{ $b->status }}"
                                             data-dropdown-toggle="booking-dropdown" data-name="{{ $b->name }}"
                                             data-phone="{!! $b->phone !!}" data-date="{{ $b->date }}"
                                             data-payment-method="{{ $b->payment_method }}" data-id="{{ $b->id }}"
@@ -323,9 +342,10 @@
                     <h3 class="text-lg font-semibold text-black mb-4">Status :</h3>
 
                     <div class="flex flex-wrap sm:flex-nowrap gap-4 mb-4 sm:grid-cols-3">
-                        <select type="text" name="status" id="package"
+                        <select type="text" name="status" id="status"
                             class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block p-2.5"
-                            placeholder="Package Name" required>
+                            required>
+                            <option selected>Select Value</option>
                             @foreach ($status as $s)
                                 <option value="{{ $s }}">
                                     {{ ucfirst($s) }}

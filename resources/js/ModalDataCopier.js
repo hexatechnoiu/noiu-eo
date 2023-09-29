@@ -9,8 +9,10 @@ if (
     document.getElementById("update_booking_form").action = "/booking/" + id;
     document.getElementById("delete_booking_form").action = "/booking/" + id;
 
+
     document.getElementById("prename").innerHTML = data.name;
     document.getElementById("prephone").innerHTML = data.phone;
+    document.getElementById("status").value = data.status;
     document.getElementById("prepayment").innerHTML = data.paymentMethod;
     document.getElementById("predate").innerHTML = data.date;
     document.getElementById("preprice").innerHTML = "Rp. " + data.pkgPrice;
@@ -25,12 +27,10 @@ if (
     document.getElementById("payment_method").value = data.paymentMethod;
     document.getElementById("package").value = cat_id;
     document.getElementById("date").value = data.date;
-    console.log(
       (document.getElementById("phone").value = data.phone.replace(
         /[\(\)\.\-\+\,\/]/g,
         ""
       ))
-    );
     return;
   };
 }
@@ -178,10 +178,10 @@ window.booking_detail = (id) => {
   const trigger = document.getElementById("booking-dropdown-button" + id);
   const data = trigger.dataset;
 
+  document.getElementById("delete_form_booking").action = "/booking/cancel/" + id;
   document.getElementById("read_user_name").innerHTML = data.name;
   document.getElementById("read_user_phone").innerHTML = data.phone;
   document.getElementById("read_payment_method").innerHTML = data.paymentMethod;
-  console.log(data.packageCategory);
   document.getElementById("read_package_name").innerHTML = data.packageName;
   document.getElementById("read_package_category").innerHTML =
     data.packageCategory;

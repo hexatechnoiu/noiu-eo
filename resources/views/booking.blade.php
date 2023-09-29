@@ -17,28 +17,32 @@
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                     <i class="fa-solid fa-magnifying-glass w-5 h-5 text-neutral-60"></i>
                                 </div>
-                                <input type="text" id="simple-search" name="search" value="{{ request('search')}}""
+                                <input type="text" id="simple-search" name="search" value="{{ request('search') }}""
                                     class="bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2"
                                     placeholder="Search">
                             </div>
                         </form>
                     </div>
-                    <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+                    <div
+                        class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                             class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2"
                             type="button"><i class="fa-solid fa-cart-shopping mr-2"></i>Booking Now</button>
                         <!-- Dropdown menu -->
-                        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-neutral-20 rounded-lg shadow-lg w-full md:w-[168px]">
+                        <div id="dropdown"
+                            class="z-10 hidden bg-white divide-y divide-neutral-20 rounded-lg shadow-lg w-full md:w-[168px]">
                             <ul class="py-2 text-sm text-neutral-60 text-center" aria-labelledby="dropdownDefaultButton">
                                 <li>
-                                    <a href="{{ route('outbound') }}" class="block px-4 py-2 hover:bg-neutral-20 duration-[400ms]">Outbound Package</a>
+                                    <a href="{{ route('outbound') }}"
+                                        class="block px-4 py-2 hover:bg-neutral-20 duration-[400ms]">Outbound Package</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('mice') }}" class="block px-4 py-2 hover:bg-neutral-20 duration-[400ms]">Event Organizer</a>
+                                    <a href="{{ route('mice') }}"
+                                        class="block px-4 py-2 hover:bg-neutral-20 duration-[400ms]">Event Organizer</a>
                                 </li>
                             </ul>
-                      </div>
-                  </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
@@ -57,7 +61,23 @@
                         <tbody>
                             @foreach ($booking as $book)
                                 <tr class="border-b">
-                                    <td class="px-4 py-3">{{ $book->name }}</td>
+                                    <td class="px-4 py-3">
+                                        <span
+                                            class="
+                                @if (strtolower($book->status) == 'done') badge-sm-done
+                                @elseif (strtolower($book->status) == 'paid')
+                                badge-sm-paid
+                                @elseif (strtolower($book->status) == 'unpaid')
+                                badge-sm-unpaid
+                                @else
+                                badge-sm-default @endif
+                              ">
+                                            {{ $book->status }}
+                                        </span>
+
+
+                                        {{ $book->name }}
+                                    </td>
                                     <td class="px-4 py-3 max-w-[14rem]">{{ $book->package->name }}</td>
                                     <td class="px-4 py-3">{{ $book->date }}</td>
                                     <td class="px-4 py-3">Rp. {{ number_format($book->package->price, 0, ',', '.') }}</td>
@@ -95,8 +115,7 @@
                                                     </button>
                                                 </li>
                                                 <li>
-                                                    <button
-                                                     type="button" data-modal-target="CancelModal"
+                                                    <button type="button" data-modal-target="CancelModal"
                                                         data-modal-toggle="CancelModal"
                                                         class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
                                                         <i class="fa-solid fa-trash-can mr-2"></i>
@@ -324,15 +343,17 @@
                 <div class="text-neutral-60 w-11 h-11 my-3.5 mx-auto">
                     <i class="fa-solid fa-trash-can fa-2xl"></i>
                 </div>
-                <p class="mb-4 text-neutral-60">Are you sure you want to Cancel this booked?</p>
-                <div class="flex justify-center items-center space-x-4">
+                <p class="mb-4 text-neutral-60">Are you sure you want to cancel this booking?</p>
+                <form method="POST" action="" id="delete_form_booking" class="flex justify-center items-center space-x-4">
+                  @csrf
+                  @method('PUT')
                     <button data-modal-toggle="CancelModal" type="button"
                         class="py-2 px-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No,
                         cancel</button>
                     <button type="submit"
                         class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300">Yes,
                         I'm sure</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>

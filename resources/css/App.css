@@ -7,7 +7,25 @@
 @layer utilities {
     .invalid-feedback{
         @apply py-2 border-2 bg-[#ff000055] border-[#ff0000]
-    } 
+    }
+    .badge-sm {
+      @apply text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full
+    }
+    .badge-sm-default {
+      @apply badge-sm text-slate-800 bg-slate-300
+    }
+    .badge-sm-cancelled {
+      @apply bg-red-600 text-white badge-sm
+    }
+    .badge-sm-done {
+      @apply badge-sm bg-secondary-50 text-gray-950
+    }
+    .badge-sm-paid {
+      @apply badge-sm bg-primary-30 text-white
+    }
+    .badge-sm-unpaid {
+      @apply badge-sm bg-gray-800 text-white
+    }
 }
 
 @tailwind base;

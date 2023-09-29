@@ -100,4 +100,7 @@ Route::resource('/booking', BookingController::class)->middleware('auth');
 
 Route::get("/email/invoice", [MailController::class, 'invoice']);
 Route::get("/email/reply", [MailController::class, 'reply']);
+Route::put("/booking/cancel/{Booking:id}", [BookingController::class, 'cancel']);
+
+
 // Route::get('/dashboard/packages', [PackageController::class, 'index']);

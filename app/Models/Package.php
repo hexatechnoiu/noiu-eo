@@ -9,7 +9,7 @@ class Package extends Model
 {
   use HasFactory;
 
-  protected $with = ['Package_type'];
+  // protected $with = ['Package_type'];
 
   // protected $fillable = [
   //   'picture',

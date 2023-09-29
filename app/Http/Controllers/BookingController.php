@@ -19,7 +19,7 @@ class BookingController extends Controller
    */
   public function index()
   {
-    $booking = Booking::latest()->where('user_id', auth()->user()->id)->paginate(5);
+    $booking = Booking::latest()->where('user_id', auth()->user()->id)->whereNot('status','Cancelled')->paginate(5);
     if (request('search')) {
       $booking = Booking::latest()->where('user_id', auth()->user()->id)->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%')->paginate(5);
 
@@ -52,7 +52,7 @@ class BookingController extends Controller
   {
     // Benerin phone untuk mencegah vulnerable
     $request['phone'] =  str_replace([" ", ".", "+", "(", ")"], '', $request['phone']);
-    $request['status'] =  'unpaid';
+    $request['status'] =  'Pending';
 
     // Validasi datanya
     $validated_data = $request->validate([
@@ -93,7 +93,7 @@ class BookingController extends Controller
     ];
 
     Mail::to($user->email)->send(new Invoice(collect($detail)));
-    return redirect(route('booking.index'))->with(['success' => 'Booked successfully. Please check your emailfor invoce, Enjoy!']);
+    return redirect(route('booking.index'))->with(['success' => 'Booked successfully. Please check your  email for your invoce, Enjoy!']);
 
   }
 
@@ -123,12 +123,13 @@ class BookingController extends Controller
       "name" => "required",
       "phone" => "required|numeric",
       "payment_method" => "required",
+      "status" => "required",
       "package_id" => "required",
       "date" => "date|required"
     ]);
 
     Booking::where('id', $booking->id)->update($data);
-    return redirect(route('booking.index'))->with(['success' => "Booking has been updated successfully"]);
+    return redirect()->back()->with(['success' => "Booking has been updated successfully"]);
   }
 
   /**
@@ -138,5 +139,12 @@ class BookingController extends Controller
   {
     Booking::destroy($booking->id);
     return redirect()->back()->with(['success' => "Booking successfully dekleted"]);
+  }
+
+  public function cancel(int $id){
+    $booking = Booking::where('id', $id);
+    $booking->update(['status'=> 'Pending Cancel']);
+    return redirect()->back()->with(['success' => "Cancel Booking Requested To Admin"]);
+
   }
 }

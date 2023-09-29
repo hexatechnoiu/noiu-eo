@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Package_type extends Model
 {
   use HasFactory;
-  protected $with = ['Packages', 'Package_category'];
   protected $guarded = ['id'];
 
   public function Packages()

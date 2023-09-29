@@ -21,7 +21,7 @@ class DashboardController extends Controller
   }
   public function index()
   {
-    $status = ['canceled', 'pending_canceled', 'done', 'paid', 'unpaid'];
+    $status = ['Cancelled', 'Pending Cancel', 'Done', 'Paid', 'Unpaid'];
     if(strtolower(auth()->user()->role) != 'admin'){
       return abort(401);
     }
