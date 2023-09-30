@@ -65,7 +65,7 @@
 <section class="bg-primary-40 px-12 py-6 mt-10 lg:mt-20">
     <div class="flex flex-col md:flex-row mx-auto max-w-screen-xl py-6 gap-8 items-center xl:gap-16">
         <div class="lg:w-3/4">
-            <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-white sm:text-4xl">Ready for an unforgatable tour with noiu?</h2>
+            <h2 class="mb-4 text-3xl tracking-tight font-extrabold text-white sm:text-4xl">Ready for an unforgotable tour with noiu?</h2>
             <p class="max-w-2xl font-light text-white sm:text-xl">Number One I'ts You</p>
         </div>
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4 w-full sm:w-auto">

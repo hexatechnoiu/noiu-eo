@@ -126,3 +126,19 @@ let calcScrollValue = () => {
 
 window.onscroll = calcScrollValue;
 window.onload = calcScrollValue;
+
+// Truncate Message
+document.addEventListener("DOMContentLoaded", function() {
+  const messageElements = document.querySelectorAll(".message");
+  const maksimalKata = 20;
+
+  messageElements.forEach(function(messageElement) {
+    const message = messageElement.textContent.trim();
+    const messageArray = message.split(" ");
+
+    if (messageArray.length > maksimalKata) {
+      const potonganMessage = messageArray.slice(0, maksimalKata).join(" ");
+      messageElement.textContent = `${potonganMessage}...`;
+    }
+  });
+});

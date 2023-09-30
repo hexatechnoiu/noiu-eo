@@ -4,11 +4,11 @@
 
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
-        <div class="mx-auto max-w-screen-xl text-center py-10 px-4 lg:px-6">
+        <div class="mx-auto max-w-screen-xl text-center pt-10 pb-24 px-4 lg:px-6">
             <h2 class="flex justify-center mb-8 text-2xl sm:text-4xl tracking-tight font-extrabold text-black">Booking</h2>
 
             <!-- Start coding here -->
-            <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
+            <div class="bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden {{ $booking->isEmpty() ? 'pb-10' : '' }}">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
                         <form class="flex items-center" method="GET">
@@ -48,6 +48,7 @@
                     <table class="w-full text-sm text-left text-neutral-60">
                         <thead class="text-xs text-neutral-60 uppercase bg-neutral-10">
                             <tr>
+                                <th scope="col" class="pl-4 py-4">Status</th>
                                 <th scope="col" class="px-4 py-4">Full Name</th>
                                 <th scope="col" class="px-4 py-3">Package Name</th>
                                 <th scope="col" class="px-4 py-3">For Date</th>
@@ -59,75 +60,78 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($booking as $book)
-                                <tr class="border-b">
-                                    <td class="px-4 py-3">
-                                        <span
-                                            class="
-                                @if (strtolower($book->status) == 'done') badge-sm-done
-                                @elseif (strtolower($book->status) == 'paid')
-                                badge-sm-paid
-                                @elseif (strtolower($book->status) == 'unpaid')
-                                badge-sm-unpaid
-                                @else
-                                badge-sm-default @endif
-                              ">
-                                            {{ $book->status }}
-                                        </span>
-
-
-                                        {{ $book->name }}
-                                    </td>
-                                    <td class="px-4 py-3 max-w-[14rem]">{{ $book->package->name }}</td>
-                                    <td class="px-4 py-3">{{ $book->date }}</td>
-                                    <td class="px-4 py-3">Rp. {{ number_format($book->package->price, 0, ',', '.') }}</td>
-                                    <td class="px-4 py-3">{{ $book->payment_method }}</td>
-                                    <td class="px-4 py-3 flex items-center justify-end">
-                                        <button id="booking-dropdown-button{{ $book->id }}"
-                                            onclick="booking_detail({{ $book->id }})"
-                                            data-dropdown-toggle="booking-dropdown"
-                                            class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
-                                            data-name="{{ $book->name }}" data-phone="{{ $book->phone }}"
-                                            data-payment-method="{{ $book->payment_method }}"
-                                            data-package-name="{{ $book->package->name }}"
-                                            data-package-price="{{ $book->package->price }}"
-                                            data-package-category="{{ $book->package->package_type->name }}"
-                                            data-date="{{ $book->date }}" type="button">
-                                            <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                        </button>
-                                        <div id="booking-dropdown"
-                                            class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                            <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
-                                                {{-- <li>
-                                                    <button disabled type="button" data-modal-target="updateBookingModal"
-                                                        data-modal-toggle="updateBookingModal"
-                                                        class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                        <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                        <span>Edit</span>
-                                                    </button>
-                                                </li> --}}
-                                                <li>
-                                                    <button type="button" data-modal-target="readBookingModal"
-                                                        data-modal-toggle="readBookingModal"
-                                                        class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                        <i class="fa-solid fa-eye mr-2"></i>
-                                                        Preview
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <button type="button" data-modal-target="CancelModal"
-                                                        data-modal-toggle="CancelModal"
-                                                        class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                                        <i class="fa-solid fa-trash-can mr-2"></i>
-                                                        Cancel
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                          @foreach ($booking as $book)
+                              <tr class="border-b">
+                                  <td class="pl-4 py-3">
+                                      <span class="
+                                          @if (strtolower($book->status) == 'done')
+                                          badge-sm-done
+                                          @elseif (strtolower($book->status) == 'paid')
+                                          badge-sm-paid
+                                          @elseif (strtolower($book->status) == 'unpaid')
+                                          badge-sm-unpaid
+                                          @elseif (strtolower($book->status) == 'cancelled')
+                                          badge-sm-cancelled
+                                          @else
+                                          badge-sm-default
+                                          @endif
+                                          ">
+                                          {{ $book->status }}
+                                      </span>
+                                  </td>
+                                  <td class="px-4 py-3">{{ $book->name }}</td>
+                                  <td class="px-4 py-3 max-w-[14rem]">{{ $book->package->name }}</td>
+                                  <td class="px-4 py-3">{{ $book->date }}</td>
+                                  <td class="px-4 py-3">Rp. {{ number_format($book->package->price, 0, ',', '.') }}</td>
+                                  <td class="px-4 py-3">{{ $book->payment_method }}</td>
+                                  <td class="px-4 py-3">
+                                      <button id="booking-dropdown-button{{ $book->id }}"
+                                          onclick="booking_detail({{ $book->id }})"
+                                          data-dropdown-toggle="booking-dropdown"
+                                          class="font-medium hover:bg-neutral-20 py-1.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
+                                          data-name="{{ $book->name }}" data-phone="{{ $book->phone }}"
+                                          data-payment-method="{{ $book->payment_method }}"
+                                          data-package-name="{{ $book->package->name }}"
+                                          data-package-price="{{ $book->package->price }}"
+                                          data-formatted_price="{{ number_format($book->package->price, 0, ',', '.') }}"
+                                          data-package-category="{{ $book->package->package_type->name }}"
+                                          data-date="{{ $book->date }}"
+                                          data-status="{{ $book->status }}" type="button">
+                                          <i class="fa-solid fa-ellipsis fa-lg"></i>
+                                      </button>
+                                      <div id="booking-dropdown"
+                                          class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
+                                          <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
+                                              {{-- <li>
+                                                  <button disabled type="button" data-modal-target="updateBookingModal"
+                                                      data-modal-toggle="updateBookingModal"
+                                                      class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                      <i class="fa-solid fa-pen-to-square mr-2"></i>
+                                                      <span>Edit</span>
+                                                  </button>
+                                              </li> --}}
+                                              <li>
+                                                  <button type="button" data-modal-target="readBookingModal"
+                                                      data-modal-toggle="readBookingModal"
+                                                      class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
+                                                      <i class="fa-solid fa-eye mr-2"></i>
+                                                      Preview
+                                                  </button>
+                                              </li>
+                                              <li>
+                                                  <button type="button" data-modal-target="CancelModal"
+                                                      data-modal-toggle="CancelModal"
+                                                      class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
+                                                      <i class="fa-solid fa-trash-can mr-2"></i>
+                                                      Cancel
+                                                  </button>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                  </td>
+                              </tr>
+                          @endforeach
+                      </tbody>
                     </table>
                 </div>
                 @if ($booking->lastItem() < 2)
@@ -144,13 +148,13 @@
                         </span>
                         <ul class="inline-flex items-stretch -space-x-px">
                             <li>
-                                <a href="{{ $booking->previousPageUrl() }}"
+                                <a href="{{ $booking->withQueryString()->previousPageUrl() }}"
                                     class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                     <span class="sr-only">Previous</span>
                                     <i class="fa-solid fa-chevron-left fa-sm"></i>
                                 </a>
                             </li>
-                            @foreach ($booking->getUrlRange(1, $booking->lastPage()) as $page => $url)
+                            @foreach ($booking->getUrlRange(1, $booking->withQueryString()->lastPage()) as $page => $url)
                                 <li>
                                     <a href="{{ $url }}"
                                         class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $booking->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $booking->currentPage() ? 'z-10' : '' }}">
@@ -159,7 +163,7 @@
                                 </li>
                             @endforeach
                             <li>
-                                <a href="{{ $booking->nextPageUrl() }}"
+                                <a href="{{ $booking->withQueryString()->nextPageUrl() }}"
                                     class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                     <span class="sr-only">Next</span>
                                     <i class="fa-solid fa-chevron-right fa-sm"></i>
@@ -315,13 +319,20 @@
                         <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
                         <span class="font-light text-base text-neutral-60" id="read_package_category"></span>
                     </div>
-                    <div class="w-full">
+                </div>
+                <div class="grid gap-4 mb-4 sm:grid-cols-3">
+                    <div>
                         <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
                         <span class="font-light text-base text-neutral-60" id="read_date">21/05/2006</span>
                     </div>
-                    <div class="sm:ml-[34.5%]">
+                    <div>
                         <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
                         <span class="font-light text-base text-neutral-60" id="read_package_price"></span>
+                    </div>
+                    <div>
+                        <label for="status" class="block mb-2 text-sm font-medium text-black">Status</label>
+                        <span id="read_package_status">
+                        </span>
                     </div>
                 </div>
             </div>
@@ -357,4 +368,11 @@
             </div>
         </div>
     </div>
+
+    <div>
+      <a href="https://wa.me/087894818815/" target="blank" class="fixed bottom-5 right-5 sm:bottom-10 sm:right-10 z-40 h-14 w-14 flex justify-center items-center bg-primary-40 text-white text-2xl border-[3px] border-white rounded-full shadow-md hover:shadow-primary-20 hover:shadow-lg hover:scale-105 transition-all duration-[400ms] cursor-pointer">
+          <i class="fa-brands fa-whatsapp fa-lg"></i>
+      </a>
+  </div>
+
 @endsection

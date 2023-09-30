@@ -23,7 +23,7 @@
       </div>
         <ul class="space-y-2">
             <li>
-                <a href="/home" class="{{ $active === 'home' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
+                <a href="/" class="{{ $active === 'home' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black duration-[400ms]">
                     <i class="fa-solid fa-house"></i>
                     <span class="ml-3">Home</span>
                 </a>

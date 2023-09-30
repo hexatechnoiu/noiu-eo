@@ -23,7 +23,7 @@
                                 </div>
                                 <input type="text" id="simple-search" name="search"
                                     class="bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-ring-primary-40 block w-full pl-10 p-2"
-                                    placeholder="Search" required="">
+                                    placeholder="Search">
                             </div>
                         </form>
                     </div>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
-                        <thead class="text-base text-neutral-60 uppercase bg-neutral-10">
+                        <thead class="text-sm text-neutral-60 uppercase bg-neutral-10">
                             <tr>
                                 <th scope="col" class="px-4 py-4">Profile Picture</th>
                                 <th scope="col" class="px-4 py-3">Full Name</th>
@@ -54,18 +54,18 @@
                         <tbody>
                             @foreach ($users as $u)
                                 <tr class="border-b">
-                                    <td class="w-1 px-4 py-3"><img src="{{ asset('/storage/' . $u->avatar) }}"></td>
-                                    <td class="px-4 py-3">{{ $u->name }}</td>
+                                    <td class="px-4 py-3"><img class="max-w-[5rem]" src="{{ asset('/storage/' . $u->avatar) }}"></td>
+                                    <td class="px-4 py-3 max-w-[10rem]">{{ $u->name }}</td>
                                     <td class="px-4 py-3">{{ $u->email }}</td>
                                     <td class="px-4 py-3">{{ $u->phone }}</td>
                                     <td class="px-4 py-3 max-w-[12rem] truncate">{{ $u->address }}</td>
-                                    <td class="px-4 py-3 my-6 flex items-center justify-end">
+                                    <td class="px-4 py-3">
                                         <button id="user-dropdown-button{{ $u->id }}" data-name="{{ $u->name }}"
                                             data-avatar="{{ $u->avatar }}" data-address="{{ $u->address }}"
                                             data-email="{{ $u->email }}" data-phone="{{ $u->phone }}"
                                             data-dropdown-toggle="user-dropdown"
                                             onclick="copy_user_data({{ $u->id }})"
-                                            class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
+                                            class="font-medium hover:bg-neutral-20 py-1.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
                                             type="button">
                                             <i class="fa-solid fa-ellipsis fa-lg"></i>
                                         </button>
@@ -116,13 +116,13 @@
                     </span>
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
-                            <a href="{{ $users->previousPageUrl() }}"
+                            <a href="{{ $users->withQueryString()->previousPageUrl() }}"
                               class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $users->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                 <span class="sr-only">Previous</span>
                                 <i class="fa-solid fa-chevron-left fa-sm"></i>
                             </a>
                         </li>
-                        @foreach ($users->getUrlRange(1, $users->lastPage()) as $page => $url)
+                        @foreach ($users->getUrlRange(1, $users->withQueryString()->lastPage()) as $page => $url)
                             <li>
                                 <a href="{{ $url }}"
                                   class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $users->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $users->currentPage() ? 'z-10' : '' }}">
@@ -131,7 +131,7 @@
                             </li>
                         @endforeach
                         <li>
-                            <a href="{{ $users->nextPageUrl() }}"
+                            <a href="{{ $users->withQueryString()->nextPageUrl() }}"
                               class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $users->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                 <span class="sr-only">Next</span>
                                 <i class="fa-solid fa-chevron-right fa-sm"></i>

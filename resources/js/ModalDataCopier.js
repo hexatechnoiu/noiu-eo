@@ -9,28 +9,41 @@ if (
     document.getElementById("update_booking_form").action = "/booking/" + id;
     document.getElementById("delete_booking_form").action = "/booking/" + id;
 
-
     document.getElementById("prename").innerHTML = data.name;
     document.getElementById("prephone").innerHTML = data.phone;
-    document.getElementById("status").value = data.status;
     document.getElementById("prepayment").innerHTML = data.paymentMethod;
     document.getElementById("predate").innerHTML = data.date;
     document.getElementById("preprice").innerHTML = "Rp. " + data.pkgPrice;
-    // document.getElementById('prephone').innerHTML = data.phone;
-    // document.getElementById('prepayment').innerHTML = data.paymentMethod;
-    // document.getElementById('predate').innerHTML = data.date;
+    document.getElementById("preprice").innerHTML =
+      "Rp. " + data.formatted_price;
+
     document.getElementById("prepackagename").innerHTML = data.pkgName;
     document.getElementById("precatname").innerHTML = data.pkgCatName;
+    document.getElementById("status").value = data.status;
+    let prestatus = document.getElementById("prestatus");
+    prestatus.innerHTML = data.status;
+    if (data.status.toLocaleLowerCase() == "done") {
+      prestatus.classList = "badge-sm-done";
+    } else if (data.status.toLocaleLowerCase() === "paid") {
+      prestatus.classList = "badge-sm-paid";
+    } else if (data.status.toLocaleLowerCase() === "unpaid") {
+      prestatus.classList = "badge-sm-unpaid";
+    } else if (data.status.toLocaleLowerCase() == "cancelled") {
+      prestatus.classList = "badge-sm-cancelled";
+    } else {
+      prestatus.classList = "badge-sm-default";
+    }
 
     // Fields
     document.getElementById("name").value = data.name;
     document.getElementById("payment_method").value = data.paymentMethod;
     document.getElementById("package").value = cat_id;
     document.getElementById("date").value = data.date;
-      (document.getElementById("phone").value = data.phone.replace(
-        /[\(\)\.\-\+\,\/]/g,
-        ""
-      ))
+    document.getElementById("prestatus").value = data.status;
+    document.getElementById("phone").value = data.phone.replace(
+      /[\(\)\.\-\+\,\/]/g,
+      ""
+    );
     return;
   };
 }
@@ -178,7 +191,8 @@ window.booking_detail = (id) => {
   const trigger = document.getElementById("booking-dropdown-button" + id);
   const data = trigger.dataset;
 
-  document.getElementById("delete_form_booking").action = "/booking/cancel/" + id;
+  document.getElementById("delete_form_booking").action =
+    "/booking/cancel/" + id;
   document.getElementById("read_user_name").innerHTML = data.name;
   document.getElementById("read_user_phone").innerHTML = data.phone;
   document.getElementById("read_payment_method").innerHTML = data.paymentMethod;
@@ -186,6 +200,25 @@ window.booking_detail = (id) => {
   document.getElementById("read_package_category").innerHTML =
     data.packageCategory;
   document.getElementById("read_package_price").innerHTML =
-    "Rp. " + data.packagePrice;
+    "Rp. " + data.formatted_price;
   document.getElementById("read_date").innerHTML = data.date;
+  const readpkgstatus = document.getElementById("read_package_status");
+  readpkgstatus.innerHTML = data.status;
+  if (data.status.toLocaleLowerCase() == "done") {
+    readpkgstatus.classList = "badge-sm-done";
+  } else if (data.status.toLocaleLowerCase() === "paid") {
+    readpkgstatus.classList = "badge-sm-paid";
+  } else if (data.status.toLocaleLowerCase() === "unpaid") {
+    readpkgstatus.classList = "badge-sm-unpaid";
+  } else if (data.status.toLocaleLowerCase() == "cancelled") {
+    readpkgstatus.classList = "badge-sm-cancelled";
+  } else {
+    readpkgstatus.classList = "badge-sm-default";
+  }
+
+  readpk.innerHTML = data.status;
+};
+
+window.inbox_copy = (id) => {
+  document.getElementById("inbox_id").value = id;
 };

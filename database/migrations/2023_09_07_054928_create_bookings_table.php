@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('phone');
             $table->enum('payment_method', ['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO']);
-            $table->enum('status', ['Cancelled', 'Pending Cancel', 'Done', 'Paid', 'Unpaid']);
+            $table->enum('status', ['Unpaid', 'Paid', 'Pending Cancel', 'Cancelled', 'Done'])->default('Unpaid');
             $table->date('date');
             $table->foreignIdFor(Package::class);
             $table->foreignIdFor(User::class);

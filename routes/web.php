@@ -28,9 +28,9 @@ use App\Http\Controllers\Package_typeController;
 |
 */
 
-Route::redirect('/', '/home');
+// Route::redirect('/', '/home');
 
-Route::get('/home', function () {
+Route::get('/', function () {
     $ben = Benefits::get();
     return view('home', [
         "title" => "Home",
@@ -101,6 +101,7 @@ Route::resource('/booking', BookingController::class)->middleware('auth');
 Route::get("/email/invoice", [MailController::class, 'invoice']);
 Route::get("/email/reply", [MailController::class, 'reply']);
 Route::put("/booking/cancel/{Booking:id}", [BookingController::class, 'cancel']);
+Route::post("/inbox/reply", [InboxController::class, 'reply']);
 
 
 // Route::get('/dashboard/packages', [PackageController::class, 'index']);

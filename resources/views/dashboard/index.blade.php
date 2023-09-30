@@ -2,7 +2,7 @@
 
 @section('container')
     <section class="bg-white">
-        <div cclasslass="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
+        <div class="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
             <div class="flex justify-between px-10 mx-0 mb-4 max-w-screen-lg lg:mb-8">
                 <div>
                     <h2 class="text-2xl font-normal text-black">Dashboard</h2>
@@ -15,8 +15,8 @@
                         <span class="sr-only">Notifications</span>
                         <div
                             class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2">
-                            8</div>
-                    </button>
+                            {{ $inbox_count }}
+                         </button>
 
                     <!-- Dropdown menu -->
                     <div id="dropdownNotification"
@@ -35,7 +35,7 @@
                                     <div class="w-full pl-3 text-start">
                                         <div class="text-neutral-60 text-sm mb-1.5">
                                             <p class="font-semibold text-black">{{ $notif->name }}</p>
-                                            <p class="max-w-[12rem] truncate">{{ $notif->message }}</p>
+                                            <p class="message max-w-[20rem]">{{ $notif->message }}</p>
                                         </div>
                                         <div class="text-xs text-primary-40">
                                             {{ $notif->created_at->diffForHumans() }}
@@ -83,12 +83,12 @@
                 </a> --}}
                 @foreach ($count as $count)
                     <a href="/dashboard/{{ strtolower($count['name']) }}"
-                        class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
+                        class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-10 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
                         <div class="flex flex-col items-start leading-normal gap-2">
-                            <p class="text-lg lg:text-xl font-medium text-white">{{ $count['name'] }}</p>
-                            <h5 class="text-3xl font-semibold tracking-tight text-white">{{ $count['total'] }}</h5>
+                            <p class="text-lg lg:text-xl font-medium text-primary-40">{{ $count['name'] }}</p>
+                            <h5 class="text-3xl font-semibold tracking-tight text-primary-40">{{ $count['total'] }}</h5>
                         </div>
-                        <div class="text-xl lg:text-3xl text-white"><i class="{{ $count['icon'] }}"></i></div>
+                        <div class="text-xl lg:text-3xl text-primary-40"><i class="{{ $count['icon'] }}"></i></div>
                     </a>
                 @endforeach
             </div>
@@ -111,19 +111,19 @@
                                 </div>
                                 <input name="search" type="text" id="simple-search"
                                     class="bg-white border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full pl-10 p-2"
-                                    placeholder="Search" required>
+                                    placeholder="Search">
                             </div>
                         </form>
                     </div>
                     <div
                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-
                     </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
                         <thead class="text-xs text-neutral-60 uppercase bg-neutral-10">
                             <tr>
+                                <th scope="col" class="pl-4 py-4">Status</th>
                                 <th scope="col" class="px-4 py-4">Full Name</th>
                                 <th scope="col" class="px-4 py-3">Package Name</th>
                                 <th scope="col" class="px-4 py-3">For Date</th>
@@ -137,79 +137,76 @@
                         <tbody>
                             @foreach ($booking as $b)
                                 <tr class="border-b">
-                                    <td class="px-4 py-3">
-                                        <span
-                                            class="
-                                    @if (strtolower($b->status) == 'cancelled') badge-sm-cancelled
-                                      @elseif (strtolower($b->status) == 'done')
-                                      badge-sm-done
-                                      @elseif (strtolower($b->status) == 'paid')
-                                      badge-sm-paid
-                                      @elseif (strtolower($b->status) == 'unpaid')
-                                      badge-sm-unpaid
-                                      @else
-                                      badge-sm-default
-                                      @endif
-                                    ">
+                                    <td class="pl-4 py-3">
+                                        <span class="
+                                            @if (strtolower($b->status) == 'cancelled')
+                                            badge-sm-cancelled
+                                            @elseif (strtolower($b->status) == 'done')
+                                            badge-sm-done
+                                            @elseif (strtolower($b->status) == 'paid')
+                                            badge-sm-paid
+                                            @elseif (strtolower($b->status) == 'unpaid')
+                                            badge-sm-unpaid
+                                            @else
+                                            badge-sm-defautl
+                                            @endif
+                                            ">
                                             {{ $b->status }}
                                         </span>
-
-                                        {{ $b->name }}
+                                    <td class="px-4 py-3">{{ $b->name }}</td>
                                     </td>
                                     <td class="px-4 py-3 max-w-[14rem]">{{ $b->package->name }}</td>
                                     <td class="px-4 py-3">{{ $b->date }}</td>
                                     <td class="px-4 py-3">Rp. {{ number_format($b->package->price, 0, ',', '.') }}</td>
                                     <td class="px-4 py-3">{{ $b->payment_method }}</td>
-                                    <td class="px-4 py-3 flex items-center justify-end">
+                                    <td class="px-4 py-3">
                                         <button id="booking-dropdown-button{{ $b->id }}"
                                             onclick="copy_booking_data({{ $b->id }},{{ $b->package->id }})"
                                             data-pkg-name="{{ $b->package->name }}"
                                             data-pkg-cat-name="{{ $b->package->Package_type->name }}"
                                             data-pkg-price="{{ $b->package->price }}"
-                                            data-status="{{ $b->status }}"
+                                            data-formatted_price="{{ number_format($b->package->price, 0, ',', '.') }}"
                                             data-dropdown-toggle="booking-dropdown" data-name="{{ $b->name }}"
                                             data-phone="{!! $b->phone !!}" data-date="{{ $b->date }}"
                                             data-payment-method="{{ $b->payment_method }}" data-id="{{ $b->id }}"
                                             data-package-id="{{ $b->package->id }}"
-                                            class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
+                                            data-status="{{ $b->status }}"
+                                            class="font-medium hover:bg-neutral-20 py-1.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
                                             type="button">
-                                            <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                        </button>
-
-                                    </td>
-                                </tr>
+                                              <i class="fa-solid fa-ellipsis fa-lg"></i>
+                                          </button>
+                                      <div id="booking-dropdown"
+                                            class="hidden z-10 w-44 bg-white  rounded divide-y divide-neutral-20 shadow">
+                                           <ul class="py-1 text-sm"  aria-labelledby="booking-dropdown-button">
+                                                 <li>
+                                                  <button type="but  ton" data-modal-target="updateBookingModal"
+                                                      data-modal-toggle="updateBookingModal"
+                                                        class="flex w-full items-center py-2 px-4 hover:bg-ne utral-20 duration-[400ms] text-neutral-60">
+                                                       <i  class="fa-solid fa-pen-to-square mr-2"></i>
+                                                        <span>Edit</span>
+                                                    </button>
+                                                 </li>
+                                                <li>
+                                                   <button type="button" data-modal-target="readBookingModal"
+                                                         data-modal-toggle="readBookingModal"
+                                                       class="flex w-full items-center py-2 px-4 hover:bg-ne utral-20 duration-[400ms] text-neutral-60">
+                                                         <i class="fa-solid fa-eye mr-2"></i>
+                                                        Preview
+                                                  </button>
+                                                  </li>
+                                                <li>
+                                                  <button ty pe="button" data-modal-target="deleteModal"
+                                                      data-modal-toggle="deleteModal"
+                                                      class="flex w-full items-center py-2 px-4 hover:bg  -neutral-20 duration-[400ms] text-red-500">
+                                                      <i class="fa-solid fa-trash-can mr-2"></i>
+                                                      Delete
+                                                   </button>
+                                                </li>
+                                            </ul>
+                                      </div>
+                                  </td>
+                              </tr>
                             @endforeach
-
-
-                            <div id="booking-dropdown"
-                                class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
-                                    <li>
-                                        <button type="button" data-modal-target="updateBookingModal"
-                                            data-modal-toggle="updateBookingModal"
-                                            class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                            <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                            <span>Edit</span>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button" data-modal-target="readBookingModal"
-                                            data-modal-toggle="readBookingModal"
-                                            class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                            <i class="fa-solid fa-eye mr-2"></i>
-                                            Preview
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button" data-modal-target="deleteModal"
-                                            data-modal-toggle="deleteModal"
-                                            class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                            <i class="fa-solid fa-trash-can mr-2"></i>
-                                            Delete
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
                         </tbody>
                     </table>
                 </div>
@@ -225,13 +222,13 @@
                     </span>
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
-                            <a href="{{ $booking->previousPageUrl() }}"
+                            <a href="{{ $booking->withQueryString()->previousPageUrl() }}"
                                 class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                 <span class="sr-only">Previous</span>
                                 <i class="fa-solid fa-chevron-left fa-sm"></i>
                             </a>
                         </li>
-                        @foreach ($booking->getUrlRange(1, $booking->lastPage()) as $page => $url)
+                        @foreach ($booking->getUrlRange(1, $booking->withQueryString()->lastPage()) as $page => $url)
                             <li>
                                 <a href="{{ $url }}"
                                     class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $booking->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $booking->currentPage() ? 'z-10' : '' }}">
@@ -240,7 +237,7 @@
                             </li>
                         @endforeach
                         <li>
-                            <a href="{{ $booking->nextPageUrl() }}"
+                            <a href="{{ $booking->withQueryString()->nextPageUrl() }}"
                                 class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $booking->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                 <span class="sr-only">Next</span>
                                 <i class="fa-solid fa-chevron-right fa-sm"></i>
@@ -275,7 +272,6 @@
                 <form method="POST" id="update_booking_form">
                     @csrf
                     @method('put')
-
                     <h3 class="text-lg font-semibold text-black mb-4">Data Customer :</h3>
                     <div class="grid gap-4 mb-4 sm:grid-cols-3">
                         <div>
@@ -340,8 +336,7 @@
                         </div> --}}
                     </div>
                     <h3 class="text-lg font-semibold text-black mb-4">Status :</h3>
-
-                    <div class="flex flex-wrap sm:flex-nowrap gap-4 mb-4 sm:grid-cols-3">
+                    <div class="grid sm:grid-cols-3 gap-4 mb-4">
                         <select type="text" name="status" id="status"
                             class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block p-2.5"
                             required>
@@ -405,13 +400,19 @@
                         <p class="block mb-2 text-sm font-medium text-black">Category</p>
                         <span class="font-light text-base text-neutral-60" id="precatname"></span>
                     </div>
-                    <div class="w-full">
+                </div>
+                <div class="grid gap-4 mb-4 sm:grid-cols-3">
+                    <div>
                         <p class="block mb-2 text-sm font-medium text-black">For Date</p>
                         <span class="font-light text-base text-neutral-60" id="predate"></span>
                     </div>
-                    <div class="sm:ml-[34.5%]">
+                    <div>
                         <p class="block mb-2 text-sm font-medium text-black">Price</p>
                         <span class="font-light text-base text-neutral-60" id="preprice"></span>
+                    </div>
+                    <div>
+                        <label for="prestatus" class="block mb-2 text-sm font-medium text-black">Status</label>
+                        <span id="prestatus"></span>
                     </div>
                 </div>
             </div>
@@ -442,10 +443,11 @@
                         class="py-2 px-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No,
                         cancel</button>
                     <button type="submit"
-                        class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300">Yes,
-                        I'm sure</button>
+                        class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300">
+                        Yes i'm sure
                 </div>
             </form>
         </div>
     </div>
+
 @endsection

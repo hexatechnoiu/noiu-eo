@@ -8,27 +8,32 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class ReplyMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+public $data;
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
-        //
-    }
+  public function __construct($data)
+  {
+    $this->data = $data;
+  }
 
     /**
      * Get the message envelope.
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: 'Reply Mail',
-        );
+    return new Envelope(
+      from: new Address('admin@noiu.eo', $this->data['replier']),
+      replyTo: [
+        new Address($this->data['reply_mail'], $this->data['replier'])
+      ],
+      subject: $this->data['subject'],
+    );
     }
 
     /**
@@ -37,15 +42,9 @@ class ReplyMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.reply-mail',
+            view: 'emails.reply',
         );
     }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
     public function attachments(): array
     {
         return [];

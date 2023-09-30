@@ -43,7 +43,7 @@ class MailController extends Controller
       "for_date" => "05 October 2023",
     ];
 
-    return view('emails.invoice', [
+    return view('emails.reply', [
       'detail' => $detail
     ]);
   }

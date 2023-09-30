@@ -87,6 +87,9 @@
                             placeholder="Rp. 250.000" required
                             disabled>
                     </div>
+                    <div>
+                        <input type="hidden" name="status" value="Unpaid">
+                    </div>
                 </div>
                 <div class="flex justify-end items-center">
                     <button type="submit"

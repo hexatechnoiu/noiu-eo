@@ -20,7 +20,7 @@ class InboxFactory extends Factory
       'name' => $this->faker->name(),
       'email' => $this->faker->unique()->safeEmail(),
       'status' => $this->faker->randomElement(['read', 'unread']),
-      'message' => $this->faker->sentence(mt_rand(1, 10)),
+      'message' => $this->faker->sentence(mt_rand(20, 50)),
     ];
   }
 }

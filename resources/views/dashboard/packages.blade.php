@@ -62,7 +62,7 @@
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
-                        <thead class="text-xs text-neutral-60 uppercase bg-neutral-10">
+                        <thead class="text-sm text-neutral-60 uppercase bg-neutral-10">
                             <tr>
                                 <th scope="col" class="px-4 py-4">Picture</th>
                                 <th scope="col" class="px-4 py-3">Package Name</th>
@@ -80,9 +80,9 @@
                                     <td class="px-4 py-3 max-w-[5rem]"><img src="{{ asset('/storage/' . $pkg->picture) }}"></td>
                                     <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->name }}</td>
                                     <td class="px-4 py-3 max-w-[10rem]">{{ $pkg->package_type->name }}</td>
-                                    <td class="px-4 py-3">{{ number_format($pkg->price, 0, ',', '.') }}</td>
+                                    <td class="px-4 py-3">Rp. {{ number_format($pkg->price, 0, ',', '.') }}</td>
                                     <td scope="row" class="px-4 py-3 max-w-[12rem] truncate">{{ $pkg->desc }}</td>
-                                    <td class="px-4 py-8 flex items-center justify-end">
+                                    <td class="px-4 py-8">
                                         <button id="package-dropdown-button{{ $pkg->id }}"
                                             data-picture="{{ $pkg->picture }}"
                                             data-picture-url="{{ asset('/storage/' . $pkg->picture) }}"
@@ -143,13 +143,13 @@
                     </span>
                     <ul class="inline-flex items-stretch -space-x-px">
                         <li>
-                            <a href="{{ $packages->previousPageUrl() }}"
+                            <a href="{{ $packages->withQueryString()->previousPageUrl() }}"
                               class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-neutral-60 bg-white rounded-l-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $packages->onFirstPage() ? 'cursor-not-allowed' : '' }}">
                                 <span class="sr-only">Previous</span>
                                 <i class="fa-solid fa-chevron-left fa-sm"></i>
                             </a>
                         </li>
-                        @foreach ($packages->getUrlRange(1, $packages->lastPage()) as $page => $url)
+                        @foreach ($packages->getUrlRange(1, $packages->withQueryString()->lastPage()) as $page => $url)
                             <li>
                                 <a href="{{ $url }}"
                                   class="flex items-center justify-center text-sm py-2 px-3 leading-tight {{ $page == $packages->currentPage() ? 'text-black bg-neutral-20' : 'text-neutral-60 bg-white' }} border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $page == $packages->currentPage() ? 'z-10' : '' }}">
@@ -158,7 +158,7 @@
                             </li>
                         @endforeach
                         <li>
-                            <a href="{{ $packages->nextPageUrl() }}"
+                            <a href="{{ $packages->withQueryString()->nextPageUrl() }}"
                               class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-neutral-60 bg-white rounded-r-lg border border-neutral-30 hover:bg-neutral-20 hover:text-black duration-[400ms] {{ $packages->hasMorePages() ? '' : 'cursor-not-allowed' }}">
                                 <span class="sr-only">Next</span>
                                 <i class="fa-solid fa-chevron-right fa-sm"></i>

@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use DateTime;
 use Illuminate\Support\Facades\Mail;
-use PhpParser\Node\Stmt\TryCatch;
 
 class BookingController extends Controller
 {
@@ -19,9 +18,9 @@ class BookingController extends Controller
    */
   public function index()
   {
-    $booking = Booking::latest()->where('user_id', auth()->user()->id)->whereNot('status','Cancelled')->paginate(5);
+    $booking = Booking::latest()->where('user_id', auth()->user()->id)->paginate(5);
     if (request('search')) {
-      $booking = Booking::latest()->where('user_id', auth()->user()->id)->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%')->paginate(5);
+    $booking = Booking::latest()->where('user_id', auth()->user()->id)->where('name', 'LIKE', '%' . request('search') . '%')->orWhere('payment_method', 'LIKE', '%' . request('search') . '%')->orWhere('phone', 'LIKE', '%' . request('search') . '%')->paginate(5);
 
       return view('booking', [
         "title" => "Booking",
@@ -138,13 +137,13 @@ class BookingController extends Controller
   public function destroy(Booking $booking)
   {
     Booking::destroy($booking->id);
-    return redirect()->back()->with(['success' => "Booking successfully dekleted"]);
+    return redirect()->back()->with(['success' => "Booking has been deleted successfully"]);
   }
 
   public function cancel(int $id){
     $booking = Booking::where('id', $id);
     $booking->update(['status'=> 'Pending Cancel']);
-    return redirect()->back()->with(['success' => "Cancel Booking Requested To Admin"]);
+    return redirect()->back()->with(['success' => "Cancel booking request has been sent to admin"]);
 
   }
 }

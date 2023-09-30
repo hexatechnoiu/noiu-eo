@@ -94,7 +94,7 @@
                     <a href="https://www.instagram.com/noiu.eo/" target="blank" class="flex justify-center items-center w-10 h-10 text-xl rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
                         <i class="fa-brands fa-instagram fa-lg text-center"></i>
                     </a>
-                    <a href="https://www.facebook.com/" target="blank" class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
+                    <a href="https://www.facebook.com/noiu-eo" target="blank" class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
                         <i class="fa-brands fa-facebook-f fa-lg text-center"></i>
                     </a>
                     <a href="https://www.tiktok.com/@noiu.eo" target="blank" class="flex justify-center items-center w-10 h-10 rounded-full text-white hover:text-primary-40 bg-primary-40 hover:bg-white hover:scale-125 hover:rotate-[720deg] transition-all duration-[400ms]">
