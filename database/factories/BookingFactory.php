@@ -22,7 +22,7 @@ class BookingFactory extends Factory
             'date' => $this->faker->date(),
             'payment_method' => $this->faker->randomElement(['Cancelled', 'Pending Cancel', 'Done', 'Paid', 'Unpaid']),
             'payment_method' => $this->faker->randomElement(['Debit', 'Credit', 'GoPay', 'ShopeePay', 'Dana', 'OVO']),
-            'package_id' => $this->faker->numberBetween(1, 25),
+            'package_id' => $this->faker->numberBetween(1, 20),
             'user_id' => $this->faker->numberBetween(1, 25),
         ];
     }
