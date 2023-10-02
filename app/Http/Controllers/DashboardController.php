@@ -12,13 +12,6 @@ use function Laravel\Prompts\search;
 
 class DashboardController extends Controller
 {
-
-  public function packages()
-  {
-  }
-  public function categories()
-  {
-  }
   public function index()
   {
     $status = ['Unpaid', 'Paid', 'Pending Cancel', 'Cancelled', 'Done'];
@@ -69,8 +62,5 @@ class DashboardController extends Controller
         "inbox_count" => $inbox_count,
         "status" => $status
       ]);
-
-
-
   }
 }

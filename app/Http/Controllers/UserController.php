@@ -74,18 +74,6 @@ class UserController extends Controller
     return redirect(route('home'))->with('success', 'Log Out Successfully!');
   }
 
-  /**
-   * Show the form for creating a new resource.
-   */
-
-  public function create()
-  {
-    //
-  }
-
-  /**
-   * Store a newly created resource in storage.
-   */
   public function store(Request $request)
   {
     $validatedData = $request->validate([
@@ -110,26 +98,6 @@ class UserController extends Controller
     User::create($validatedData);
     return redirect('/login')->with('success', 'Account Registrated Successfully');
   }
-
-  /**
-   * Display the specified resource.
-   */
-  public function show(User $user)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   */
-  public function edit(User $user)
-  {
-    //
-  }
-
-  /**
-   * Update the specified resource in storage.
-   */
   public function update(Request $request, User $user)
   {
     $request['phone'] = str_replace(['-', '+', ' '], '', $request['phone']);

@@ -1,6 +1,7 @@
 @extends('layouts.dashboardmain')
 
 @section('container')
+
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
         <div class="mx-auto pt-10 pb-28 px-4 lg:px-6">
@@ -27,15 +28,6 @@
                             </div>
                         </form>
                     </div>
-                    {{-- <div
-                        class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
-                        <button type="button" id="createUserModalButton" data-modal-target="createUserModal"
-                            data-modal-toggle="createUserModal"
-                            class="flex items-center justify-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-20 duration-[400ms] font-medium rounded-lg text-sm px-4 py-2 focus:outline-none">
-                            <i class="fa-solid fa-plus mr-2"></i>
-                            <span>Add New User</span>
-                        </button>
-                    </div> --}}
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-neutral-60">
@@ -143,70 +135,6 @@
         </div>
     </section>
     <!-- End block -->
-
-    <!-- Create modal -->
-    {{-- <div id="createUserModal" tabindex="-1" aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-2xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
-                <!-- Modal header -->
-                <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5">
-                    <h3 class="text-2xl font-semibold text-black">Add User</h3>
-                    <button type="button"
-                        class="text-neutral-60 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 ml-auto inline-flex items-center"
-                        data-modal-target="createUserModal" data-modal-toggle="createUserModal">
-                        <i class="fa-solid fa-xmark fa-xl"></i>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-                <!-- Modal body -->
-                <form action="#">
-                    <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                        <div>
-                            <label for="image" class="block mb-2 text-sm font-medium text-black">Profil Picture</label>
-                            <input type="file" id="image" name="image"
-                                class="form-control @error('image') is-invalid @enderror bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full cursor-pointer">
-                            @error('image')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
-                            <input type="text" name="name" id="name"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="Your Name" required="">
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-black">Email</label>
-                            <input type="text" name="email" id="email"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="hexatechnoiu@gmail.com" required="">
-                        </div>
-                        <div>
-                            <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone</label>
-                            <input type="text" name="phone" id="phone"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="Your Phone" required="">
-                        </div>
-                        <div class="sm:col-span-2"><label for="address"
-                                class="block mb-2 text-sm font-medium text-black">Address</label>
-                            <textarea id="address" rows="4"
-                                class="block p-2.5 w-full text-sm text-black bg-neutral-10 rounded-lg border border-neutral-30 focus:ring-primary-20 focus:border-primary-40"
-                                placeholder="Your Address"></textarea>
-                        </div>
-                    </div>
-                    <button type="submit"
-                        class="inline-flex items-center text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        <i class="fa-solid fa-plus mr-2"></i>
-                        Add New User
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div> --}}
 
     <!-- Update modal -->
     <div id="updateUserModal" tabindex="-1" aria-hidden="true"
@@ -344,4 +272,5 @@
             </div>
         </div>
     </div>
+    
 @endsection

@@ -79,12 +79,12 @@
                                           {{ $book->status }}
                                       </span>
                                   </td>
-                                  <td class="px-4 py-3">{{ $book->name }}</td>
-                                  <td class="px-4 py-3 max-w-[14rem]">{{ $book->package->name }}</td>
-                                  <td class="px-4 py-3">{{ $book->date }}</td>
-                                  <td class="px-4 py-3">Rp. {{ number_format($book->package->price, 0, ',', '.') }}</td>
-                                  <td class="px-4 py-3">{{ $book->payment_method }}</td>
-                                  <td class="px-4 py-3">
+                                  <td class="pl-2 py-3">{{ $book->name }}</td>
+                                  <td class="px-2 py-3 max-w-[14rem]">{{ $book->package->name }}</td>
+                                  <td class="px-2 py-3">{{ $book->date }}</td>
+                                  <td class="px-2 py-3">Rp. {{ number_format($book->package->price, 0, ',', '.') }}</td>
+                                  <td class="px-2 py-3">{{ $book->payment_method }}</td>
+                                  <td class="px-2 py-3">
                                       <button id="booking-dropdown-button{{ $book->id }}"
                                           onclick="booking_detail({{ $book->id }})"
                                           data-dropdown-toggle="booking-dropdown"
@@ -102,14 +102,6 @@
                                       <div id="booking-dropdown"
                                           class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
                                           <ul class="py-1 text-sm" aria-labelledby="booking-dropdown-button">
-                                              {{-- <li>
-                                                  <button disabled type="button" data-modal-target="updateBookingModal"
-                                                      data-modal-toggle="updateBookingModal"
-                                                      class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                      <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                      <span>Edit</span>
-                                                  </button>
-                                              </li> --}}
                                               <li>
                                                   <button type="button" data-modal-target="readBookingModal"
                                                       data-modal-toggle="readBookingModal"
@@ -177,106 +169,7 @@
     </section>
     <!-- End block -->
 
-
     @include('partials.booking_modal')
-    <!-- Update modal -->
-    {{-- <div id="updateBookingModal" tabindex="-1" aria-hidden="true"
-        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <div class="relative p-4 w-full max-w-4xl max-h-full">
-            <!-- Modal content -->
-            <div class="relative p-4 bg-white rounded-lg shadow sm:p-5">
-                <!-- Modal header -->
-                <div class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5">
-                    <h3 class="text-2xl font-semibold text-black">Booking</h3>
-                    <button type="button"
-                        class="text-neutral-60 bg-transparent hover:bg-neutral-20 hover:text-black duration-[400ms] rounded-lg text-sm py-4 px-2 ml-auto inline-flex items-center"
-                        data-modal-target="updateBookingModal" data-modal-toggle="updateBookingModal">
-                        <i class="fa-solid fa-xmark fa-xl"></i>
-                        <span class="sr-only">Close modal</span>
-                    </button>
-                </div>
-
-                <!-- Modal body -->
-                <form method="GET">
-                    <h3 class="text-lg font-semibold text-black mb-4">Data Customer :</h3>
-                    <div class="grid gap-4 mb-4 sm:grid-cols-3">
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-black">Full Name</label>
-                            <input type="text" name="name" id="name" value="Hafiz Haekal"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="Your Name" required>
-                        </div>
-                        <div>
-                            <label for="phone" class="block mb-2 text-sm font-medium text-black">Phone Number</label>
-                            <input type="number" name="phone" id="phone" value="087894818815"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="085771805236" required>
-                        </div>
-                        <div>
-                            <label for="payment" class="block mb-2 text-sm font-medium text-black">Payment Method</label>
-                            <select id="payment"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
-                                <option selected="">Select Payment Method</option>
-                                <option value="Debit">Debit</option>
-                                <option value="Credit">Credit</option>
-                                <option value="Gopay">Gopay</option>
-                                <option value="ShopeePay">ShopeePay</option>
-                                <option value="Dana">Dana</option>
-                                <option value="Ovo">Ovo</option>
-                            </select>
-                        </div>
-                    </div>
-                    <h3 class="text-lg font-semibold text-black mt-8 mb-4">Data Package :</h3>
-                    <div class="grid gap-4 mb-4 sm:grid-cols-3">
-                        <div>
-                            <label for="packageName" class="block mb-2 text-sm font-medium text-black">Package
-                                Name</label>
-                            <input type="text" name="packageName" id="packageName"
-                                value="Paket Outbound 2 Hari 1 Malam"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="Package Name" required>
-                        </div>
-                        <div>
-                            <label for="category_disabled"
-                                class="block mb-2 text-sm font-medium text-black">Category</label>
-                            <select disabled id="category_disabled"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
-                                <option selected="">Select Category</option>
-                                <option value="Outbound">Outbound</option>
-                                <option value="Offroad">Offroad</option>
-                                <option value="Rafting">Rafting</option>
-                                <option value="Meeting">Meeting</option>
-                                <option value="Others">Others</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
-                            <input type="date" name="date" id="date"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="Rp. 250.000" required>
-                        </div>
-                        <div>
-                            <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
-                            <input type="text" name="price" id="price" value="Rp. 850.000"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
-                                placeholder="Rp. 250.000" required>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <button type="submit"
-                            class="text-white bg-primary-40 hover:text-black hover:bg-secondary-40 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-secondary-20 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            Update Booking
-                        </button>
-                        <button type="button"
-                            class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                            <i class="fa-solid fa-trash-can mr-2"></i>
-                            Cancel
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div> --}}
 
     <!-- Read modal -->
     <div id="readBookingModal" tabindex="-1" aria-hidden="true"
@@ -369,10 +262,11 @@
         </div>
     </div>
 
-    <div>
-      <a href="https://wa.me/087894818815/" target="blank" class="fixed bottom-5 right-5 sm:bottom-10 sm:right-10 z-40 h-14 w-14 flex justify-center items-center bg-primary-40 text-white text-2xl border-[3px] border-white rounded-full shadow-md hover:shadow-primary-20 hover:shadow-lg hover:scale-105 transition-all duration-[400ms] cursor-pointer">
-          <i class="fa-brands fa-whatsapp fa-lg"></i>
+    <div class="fixed bottom-5 right-5 py-1.5 px-4 sm:bottom-10 sm:right-10 z-30 flex justify-center items-center gap-2 bg-primary-10 text-primary-40 font-medium text-2xl rounded-xl shadow-md hover:shadow-primary-20 hover:shadow-lg hover:scale-105 transition-all duration-[400ms] cursor-pointer">
+      <a href="https://wa.me/087894818815/" target="blank">
+          <i class="fa-brands fa-whatsapp fa-sm font-medium"></i>
       </a>
+      <p class="text-sm">Pay now</p>
   </div>
 
 @endsection

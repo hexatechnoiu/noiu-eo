@@ -1,8 +1,10 @@
 @extends('layouts.dashboardmain')
 
 @section('container')
-        <link rel="stylesheet" type="text/css" href="/css/trix.css">
-        <script type="text/javascript" src="/js/trix.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.js"></script>
+
     <!-- Start block -->
     <section class="bg-white p-3 sm:p-5 antialiased">
       <div class="mx-auto max-w-screen-xl text-center pt-10 pb-20 px-4 lg:px-6">
@@ -42,53 +44,13 @@
                                               <span>Reply</span>
                                           </div>
                                       </button>
-                                      {{-- <button id="ibxing-dropdown-button{{ $ibx->id }}"
-                                          onclick="ibxing_detail({{ $ibx->id }})"
-                                          data-dropdown-toggle="ibxing-dropdown"
-                                          class="inline-flex items-center font-medium hover:bg-neutral-20 py-3.5 px-2 text-center text-neutral-60 hover:text-black duration-[400ms] rounded-lg focus:ring-2 focus:ring-primary-10 focus:border-primary-10"
-                                          data-name="{{ $ibx->name }}" data-phone="{{ $ibx->phone }}"
-                                          data-payment-method="{{ $ibx->payment_method }}"
-                                          data-package-name="{{ $ibx->package->name }}"
-                                          data-package-price="{{ $ibx->package->price }}"
-                                          data-package-category="{{ $ibx->package->package_type->name }}"
-                                          data-date="{{ $ibx->date }}" type="button">
-                                          <i class="fa-solid fa-ellipsis fa-lg"></i>
-                                      </button> --}}
-                                      {{-- <div id="inbox-dropdown"
-                                          class="hidden z-10 w-44 bg-white rounded divide-y divide-neutral-20 shadow">
-                                          <ul class="py-1 text-sm" aria-labelledby="inbox-dropdown-button">
-                                              <li>
-                                                  <button disabled type="button" data-modal-target="updateinboxModal"
-                                                      data-modal-toggle="updateinboxModal"
-                                                      class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                      <i class="fa-solid fa-pen-to-square mr-2"></i>
-                                                      <span>Edit</span>
-                                                  </button>
-                                              </li>
-                                              <li>
-                                                  <button type="button" data-modal-target="readinboxModal"
-                                                      data-modal-toggle="readinboxModal"
-                                                      class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-neutral-60">
-                                                      <i class="fa-solid fa-eye mr-2"></i>
-                                                      Preview
-                                                  </button>
-                                              </li>
-                                              <li>
-                                                  <button disabled type="button" data-modal-target="deleteModal"
-                                                      data-modal-toggle="deleteModal"
-                                                      class="flex w-full items-center py-2 px-4 hover:bg-neutral-20 duration-[400ms] text-red-500">
-                                                      <i class="fa-solid fa-trash-can mr-2"></i>
-                                                      Remove
-                                                  </button>
-                                              </li>
-                                          </ul>
-                                      </div> --}}
                                   </td>
                               </tr>
                           @endforeach
                       </tbody>
                   </table>
               </div>
+
               @if ($inbox->lastItem() < 2)
               @else
                   <nav class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
@@ -167,6 +129,6 @@
               </form>
           </div>
       </div>
-    </div>
+  </div>
 
 @endsection

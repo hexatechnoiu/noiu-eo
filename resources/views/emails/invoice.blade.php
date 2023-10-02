@@ -96,7 +96,7 @@
                   <td>{{ $detail['package_name'] }}</td>
               </tr>
               <tr>
-                <th>Desc</th>
+                <th>Description</th>
 
                   <td style="word-wrap: break-word">{{ $detail['package_desc'] }}</td>
               </tr>

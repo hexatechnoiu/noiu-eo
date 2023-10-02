@@ -152,6 +152,6 @@
         </div>
     </div>
     <div class="flex items-center justify-center py-6 mt-7 lg:ml-[250px] border-t border-white">
-        <span class="text-xs sm:text-base font-light text-white text-center">© {{date('Y')}} <a href="#">Hexatech™</a>. All Rights Reserved.</span>
+        <span class="text-xs sm:text-base font-light text-white text-center">© {{date('Y')}} <a href="#">Hexatech™</a>. All Rights Reserved | Supported by SMKN 2 Sumedang.</span>
     </div>
 </footer>

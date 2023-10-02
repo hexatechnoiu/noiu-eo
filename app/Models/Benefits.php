@@ -13,7 +13,4 @@ class Benefits extends Model
         'title',
         'desc'
     ];
-    // protected $guarded = [
-    //     'id'
-    // ];
 }

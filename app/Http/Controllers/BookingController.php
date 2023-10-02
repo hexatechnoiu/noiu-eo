@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
   public function index()
   {
     $booking = Booking::latest()->where('user_id', auth()->user()->id)->paginate(5);
@@ -26,6 +23,8 @@ class BookingController extends Controller
         "title" => "Booking",
         "active" => "booking",
         "booking" => $booking,
+      "sbc" => $booking->count()
+
       ]);
     }
 
@@ -33,20 +32,16 @@ class BookingController extends Controller
       "title" => "Booking",
       "active" => "booking",
       "booking" => $booking,
+      "sbc" => $booking->count()
     ]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   */
+
   public function create()
   {
-    //
+
   }
 
-  /**
-   * Store a newly created resource in storage.
-   */
   public function store(Request $request)
   {
     // Benerin phone untuk mencegah vulnerable
@@ -77,11 +72,10 @@ class BookingController extends Controller
     $user = User::find($validated_data['user_id']);
     $detail = [
       "booking_id" => "10",
-      "status" => "Belum bayar",
+      "status" => $validated_data['status'],
       "user_name_db" => $user->name,
       "order_name" => $validated_data['name'],
       "subject" => "Your Order from NOIU EO",
-      "image_url" => "https://gdrive.azfasa15.workers.dev/noiu",
       "reply_name" => "NOIU EO",
       "reply_mail" => "laravel@noiu-eo.com",
       "package_name" => $package->name,
@@ -96,28 +90,8 @@ class BookingController extends Controller
 
   }
 
-  /**
-   * Display the specified resource.
-   */
-  public function show(Booking $booking)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   */
-  public function edit(Booking $booking)
-  {
-    //
-  }
-
-  /**
-   * Update the specified resource in storage.
-   */
   public function update(Request $request, Booking $booking)
   {
-    // return dd($request);
     $data = $request->validate([
       "name" => "required",
       "phone" => "required|numeric",
@@ -127,13 +101,31 @@ class BookingController extends Controller
       "date" => "date|required"
     ]);
 
-    Booking::where('id', $booking->id)->update($data);
+
+    $Booking = Booking::find($booking->id);
+    $Booking->update($data);
+    $originalDate = new DateTime($data['date']);
+    $formattedDate = $originalDate->format('d F Y');
+
+    $detail = [
+      "booking_id" => $Booking->id,
+      "user_name_db" => $Booking->User->name,
+      "order_name" => $data['name'],
+      "status" => $data['status'],
+      "subject" => "Your Order Has Changed",
+      "reply_name" => "NOIU EO",
+      "reply_mail" => "laravel@noiu-eo.com",
+      "package_name" => $booking->package->name,
+      "payment_method" => $data['payment_method'],
+      "package_price" => "Rp. " . number_format($Booking->package->price, 0, ',', '.'),
+      "package_desc" => $Booking->package->desc,
+      "for_date" => $formattedDate,
+    ];
+    Mail::to($Booking->user->email)->send(new Invoice(collect($detail)));
     return redirect()->back()->with(['success' => "Booking has been updated successfully"]);
   }
 
-  /**
-   * Remove the specified resource from storage.
-   */
+
   public function destroy(Booking $booking)
   {
     Booking::destroy($booking->id);
@@ -144,6 +136,5 @@ class BookingController extends Controller
     $booking = Booking::where('id', $id);
     $booking->update(['status'=> 'Pending Cancel']);
     return redirect()->back()->with(['success' => "Cancel booking request has been sent to admin"]);
-
   }
 }

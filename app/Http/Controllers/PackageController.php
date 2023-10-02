@@ -12,15 +12,12 @@ use App\Http\Requests\SearchPackageRequest;
 
 class PackageController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   */
+
   public function index()
   {
     if(strtolower(auth()->user()->role) != 'admin'){
       return abort(401);
     }
-    // $package = Package_type::with('Packages')->get();
 
     if (request('search')) {
       $packages = Package::where('name', 'LIKE', '%' . request('search') . '%')->orderBy('package_type_id')->paginate(5);
@@ -39,29 +36,8 @@ class PackageController extends Controller
         "packages" => $packages
       ]);
     }
-
-
-
-    // return view('dashboard.packages', [
-    //   // "package_type" => Package_type::with('Packages')->get(),
-    //   "title" => "Packages | Dashboard",
-    //   "active" => "dashboard",
-    //   "package_type" => Package_type::with('Packages')->get(),
-    //   "packs" => Package::latest()->paginate(5)
-    // ]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   */
-  public function create()
-  {
-    //
-  }
-
-  /**
-   * Store a newly created resource in storage.
-   */
   public function store(StorePackageRequest $request)
   {
     $request['price'] = str_replace('.', '', $request->price);
@@ -76,31 +52,9 @@ class PackageController extends Controller
     if ($request->file('picture')) {
       $valData['picture'] = $request->file('picture')->store('picture', 'public');
     }
-
     Package::create($valData);
-
     return redirect()->back()->with(['success' => 'Package created successfully']);
   }
-
-  /**
-   * Display the specified resource.
-   */
-  public function show(Package $package)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   */
-  public function edit(Package $package)
-  {
-    //
-  }
-
-  /**
-   * Update the specified resource in storage.
-   */
   public function update(UpdatePackageRequest $request, Package $package)
   {
     $request['price'] = str_replace(['.', ','], '', $request->price);
@@ -124,10 +78,6 @@ class PackageController extends Controller
     Package::where('id', $package->id)->update($data);
     return redirect()->back()->with('success', 'Package has been updated');
   }
-
-  /**
-   * Remove the specified resource from storage.
-   */
   public function destroy(Package $package)
   {
     Package::destroy($package->id);

@@ -1,15 +1,18 @@
 @extends('layouts.main')
 
 @section('container')
+
     @foreach ($data as $pc)
         @foreach ($pc->package_types as $tpkg)
             <section id="{{ strtolower($tpkg->name) }}" class="bg-center bg-no-repeat bg-white bg-blend-multiply pt-20 pb-5">
                 <div class="px-4 mx-auto max-w-screen-xl text-center">
                     <h1
                         class="mb-2 text-3xl font-extrabold tracking-tight leading-none text-black sm:text-4xl md:text-5xl lg:text-6xl">
-                        {{ $tpkg->name }} Package</h1>
+                        {{ $tpkg->name }} Package
+                    </h1>
                     <p class="mb-8 text-lg font-normal text-neutral-40 lg:text-xl sm:px-16 lg:px-48">
-                        Paket {{ $tpkg->name }}</p>
+                        Paket {{ $tpkg->name }}
+                    </p>
                 </div>
                 <div class="flex flex-wrap justify-start right-0 lg:mx-0">
                     @foreach ($tpkg->packages as $pkg)
@@ -42,8 +45,11 @@
             </section>
         @endforeach
     @endforeach
-        @include('partials.detail_modal')
+
+    @include('partials.detail_modal')
+
     @auth
         @include('partials.booking_modal')
     @endauth
+
 @endsection

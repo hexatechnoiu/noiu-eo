@@ -1,6 +1,7 @@
 @extends('layouts.dashboardmain')
 
 @section('container')
+
     <section class="bg-white">
         <div class="max-w-screen-xl py-10 px-4 lg:px-6 text-center lg:text-start mx-auto">
             <div class="flex justify-between px-10 mx-0 mb-4 max-w-screen-lg lg:mb-8">
@@ -30,7 +31,7 @@
                             @foreach ($inbox as $notif)
                                 <a class="flex px-4 py-3 hover:bg-neutral-20 duration-[400ms]">
                                     <div class="flex-shrink-0">
-                                        <img class="rounded-full w-11 h-11" src="/favicon.png" alt="{{ $notif->name }}">
+                                        <img class="rounded-full w-11 h-11" src="/favicon-noiu.png" alt="{{ $notif->name }}">
                                     </div>
                                     <div class="w-full pl-3 text-start">
                                         <div class="text-neutral-60 text-sm mb-1.5">
@@ -55,32 +56,7 @@
                 </div>
             </div>
 
-            <div
-                class="flex flex-col md:flex-row justify-evenly gap-8 max-w-full p-6 bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
-                {{-- <a href="/dashboard/users"
-                    class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
-                    <div class="flex flex-col items-start leading-normal gap-2">
-                        <p class="text-lg lg:text-xl font-medium text-white">Users</p>
-                        <h5 class="text-3xl font-semibold tracking-tight text-white">{{ $users }}</h5>
-                    </div>
-                    <div class="text-xl lg:text-3xl text-white"><i class=""></i></div>
-                </a>
-                <a href="/dashboard/packages"
-                    class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
-                    <div class="flex flex-col items-start leading-normal gap-2">
-                        <p class="text-lg lg:text-xl font-medium text-white">Packages</p>
-                        <h5 class="text-3xl font-semibold tracking-tight text-white">{{ $packages }}</h5>
-                    </div>
-                    <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-clipboard-list fa-2xl"></i></div>
-                </a>
-                <a href="/dashboard/categories"
-                    class="flex flex-row items-center justify-between p-4 gap-10 bg-primary-40 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
-                    <div class="flex flex-col items-start leading-normal gap-2">
-                        <p class="text-lg lg:text-xl font-medium text-white">Categories</p>
-                        <h5 class="text-3xl font-semibold tracking-tight text-white">{{ $categories }}</h5>
-                    </div>
-                    <div class="text-xl lg:text-3xl text-white"><i class="fa-solid fa-list-check fa-2xl"></i></div>
-                </a> --}}
+            <div class="flex flex-col md:flex-row justify-evenly gap-8 max-w-full p-6 bg-neutral-10 relative shadow-2xl sm:rounded-lg overflow-hidden">
                 @foreach ($count as $count)
                     <a href="/dashboard/{{ strtolower($count['name']) }}"
                         class="flex flex-row items-center justify-between p-4 gap-16 bg-primary-10 rounded-lg shadow md:w-[250px] hover:shadow-primary-20 hover:shadow-2xl hover:scale-105 transition-all duration-[400ms]">
@@ -148,18 +124,18 @@
                                             @elseif (strtolower($b->status) == 'unpaid')
                                             badge-sm-unpaid
                                             @else
-                                            badge-sm-defautl
+                                            badge-sm-default
                                             @endif
                                             ">
                                             {{ $b->status }}
                                         </span>
-                                    <td class="px-4 py-3">{{ $b->name }}</td>
                                     </td>
-                                    <td class="px-4 py-3 max-w-[14rem]">{{ $b->package->name }}</td>
-                                    <td class="px-4 py-3">{{ $b->date }}</td>
-                                    <td class="px-4 py-3">Rp. {{ number_format($b->package->price, 0, ',', '.') }}</td>
-                                    <td class="px-4 py-3">{{ $b->payment_method }}</td>
-                                    <td class="px-4 py-3">
+                                    <td class="pl-2 py-3">{{ $b->name }}</td>
+                                    <td class="px-2 py-3">{{ $b->package->name }}</td>
+                                    <td class="px-2 py-3">{{ $b->date }}</td>
+                                    <td class="px-2 py-3">Rp. {{ number_format($b->package->price, 0, ',', '.') }}</td>
+                                    <td class="px-2 py-3">{{ $b->payment_method }}</td>
+                                    <td class="px-2 py-3">
                                         <button id="booking-dropdown-button{{ $b->id }}"
                                             onclick="copy_booking_data({{ $b->id }},{{ $b->package->id }})"
                                             data-pkg-name="{{ $b->package->name }}"
@@ -311,29 +287,12 @@
                                 @endforeach
                             </select>
                         </div>
-                        {{-- <div>
-                            <label for="category" class="block mb-2 text-sm font-medium text-black">Category</label>
-                            <select id="category" disabled
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
-                            </select>
-                        </div> --}}
                         <div class="w-full sm:w-[32.5%]">
                             <label for="date" class="block mb-2 text-sm font-medium text-black">For Date</label>
                             <input type="date" name="date" id="date"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5"
                                 placeholder="Rp. 250.000" required>
                         </div>
-
-                        {{-- <div>
-                            <label for="price" class="block mb-2 text-sm font-medium text-black">Price</label>
-                            <select type="text" name="price" disabled id="price" value="Rp. 850.000"
-                                class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5 appearance-none"
-                                required>
-                                @foreach ($packages as $ap)
-                                    <option value="{{ $ap->id }}">{{ $ap->price }}</option>
-                                @endforeach
-                            </select>
-                        </div> --}}
                     </div>
                     <h3 class="text-lg font-semibold text-black mb-4">Status :</h3>
                     <div class="grid sm:grid-cols-3 gap-4 mb-4">

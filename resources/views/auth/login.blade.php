@@ -1,6 +1,7 @@
 @extends('layouts.dashboardmain')
 
 @section('container')
+
     <section class="flex flex-col items-center justify-center px-6 py-10 mx-auto md:h-screen">
         <div class="w-full bg-white rounded-lg shadow-xl border border-neutral-20 my-28 sm:max-w-md">
             <img src="{{ asset('img/logo-eo-blue.svg') }}" class="h-16 mt-6 mx-auto" alt="NOIU Logo" />
@@ -30,7 +31,7 @@
                         <div class="relative flex items-center">
                             <input type="password" name="password" id="password" placeholder="Your Password" autocomplete="none" class="bg-white border text-black sm:text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5 pr-10" required>
                             <span onclick="togglePasswordField('password', 'eyeIcon')" id="togglePassword" class="toggle-password cursor-pointer absolute right-4 top-1/2 transform -translate-y-1/2">
-                                <i id="eyeIcon" class="fas fa-eye-slash"></i>
+                                <i id="eyeIcon" class="fas fa-eye"></i>
                             </span>
                         </div>
                         @error('password')
@@ -54,4 +55,5 @@
             </div>
         </div>
     </section>
-    @endsection
+
+@endsection

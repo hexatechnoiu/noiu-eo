@@ -214,7 +214,6 @@
                             <select id="category" name="package_type_id"
                                 class="bg-neutral-10 border border-neutral-30 text-black text-sm rounded-lg focus:ring-primary-20 focus:border-primary-40 block w-full p-2.5">
                                 <option>Select Category</option>
-
                                 @foreach ($package_type as $pt)
                                     <option value="{{ $pt->id }}">{{ $pt->name }}</option>
                                 @endforeach

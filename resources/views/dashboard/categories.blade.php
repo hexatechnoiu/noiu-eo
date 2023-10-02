@@ -223,7 +223,6 @@
                 <form method="POST" class="flex justify-center items-center space-x-4" id="delete_form">
                     @csrf
                     @method('DELETE')
-
                     <button data-modal-toggle="deleteModal" type="button"
                         class="py-2 px-3 text-sm font-medium text-neutral-60 bg-white rounded-lg border border-neutral-30 hover:bg-neutral-20 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-primary-10 hover:text-black focus:z-10">No,
                         cancel</button>
@@ -231,8 +230,8 @@
                         class="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 duration-[400ms] focus:ring-4 focus:outline-none focus:ring-red-300">Yes,
                         I'm sure</button>
                 </form>
-
             </div>
         </div>
     </div>
+
 @endsection

@@ -28,8 +28,6 @@ use App\Http\Controllers\Package_typeController;
 |
 */
 
-// Route::redirect('/', '/home');
-
 Route::get('/', function () {
     $ben = Benefits::get();
     return view('home', [
@@ -96,12 +94,8 @@ Route::resource('/dashboard/packages', PackageController::class)->middleware('au
 Route::resource('/dashboard/categories', Package_typeController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('auth');
 Route::resource('/booking', BookingController::class)->middleware('auth');
-// Route::get("/test_email", [MailController::class, 'index']);
 
-Route::get("/email/invoice", [MailController::class, 'invoice']);
 Route::get("/email/reply", [MailController::class, 'reply']);
+
 Route::put("/booking/cancel/{Booking:id}", [BookingController::class, 'cancel']);
 Route::post("/inbox/reply", [InboxController::class, 'reply']);
-
-
-// Route::get('/dashboard/packages', [PackageController::class, 'index']);

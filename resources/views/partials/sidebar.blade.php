@@ -54,17 +54,6 @@
                         <a href="/outbound#{{strtolower($items->name)}}" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">{{$items->name}}</a>
                     </li>
                   @endforeach
-
-                    {{-- <li>
-                        <a href="/outbound#offroad" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Offroad</a>
-                    </li>
-                    <li>
-                        <a href="/outbound#rafting" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Rafting</a>
-                    </li>
-                    <li>
-                        <a href="/outbound#others" class="flex items-center p-2 pl-11 w-full text-base font-normal text-white hover:text-black rounded-lg group hover:bg-secondary-40 duration-[400ms]">Others</a>
-                    </li> --}}
-
                 </ul>
             </li>
             <li>
@@ -77,6 +66,9 @@
                 <a href="/booking" class="{{ $active === 'booking' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
                     <i class="fa-solid fa-clipboard-check fa-lg"></i>
                     <span class="flex-1 ml-3 whitespace-nowrap">Booking</span>
+                    <span class="inline-flex justify-center items-center w-5 h-5 text-xs font-semibold rounded-full">
+                        {{ $sbc ?? '' }}
+                    </span>
                 </a>
             </li>
             <li>
@@ -87,50 +79,50 @@
             </li>
         </ul>
         @auth
-        @if (strtolower(auth()->user()->role) == "admin")
-        <ul class="pt-5 mt-5 space-y-2 border-t border-white">
-          <li>
-            <a href="/dashboard" class="{{ $active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
-              <i class="fa-solid fa-gauge-high fa-lg"></i>
-              <span class="ml-3">Dashboard</span>
-            </a>
-          </li>
-        </ul>
-        @endif
+            @if (strtolower(auth()->user()->role) == "admin")
+                <ul class="pt-5 mt-5 space-y-2 border-t border-white">
+                  <li>
+                    <a href="/dashboard" class="{{ $active === 'dashboard' ? 'bg-secondary-40 text-black group' : 'text-white' }} flex items-center p-2 py-auto text-base font-normal rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                      <i class="fa-solid fa-gauge-high fa-lg"></i>
+                      <span class="ml-3">Dashboard</span>
+                    </a>
+                  </li>
+                </ul>
+            @endif
         @endauth
-        @auth
-        <div class="flex flex-row justify-between absolute bottom-0 left-0 p-4 w-full whitespace-nowrap z-20 bg-primary-20 border-t border-white">
-          <div class="flex flex-row">
-            <img src="{{ Storage::url(auth()->user()->avatar) }}" class="h-10 w-10 my-auto rounded-full object-cover"
-                alt="Profile" />
-            <ul class="my-auto">
-                <li class="ml-3 text-white max-w-[100px] truncate">{{ auth()->user()->name }}</li>
-                <li class="ml-3 text-white text-xs">{{ auth()->user()->role }}</li>
-            </ul>
-          </div>
-          <div>
-            <button type="button" data-tooltip-target="tooltip-logout" data-modal-target="logoutModal" data-modal-toggle="logoutModal" class="p-2 ml-9 text-base font-normal text-white rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
-                <i class="fa-solid fa-right-from-bracket fa-lg"></i>
-            </button>
-            <div id="tooltip-logout" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-black rounded-lg shadow-sm opacity-0 transition-opacity duration-[400ms] tooltip">
-                Log Out
-                <div class="tooltip-arrow" data-popper-arrow></div>
-            </div>
-          </div>
-        </div>
-    @endauth
-    @guest
-        <div class="flex flex-wrap z-20 absolute justify-center bottom-0 left-0 py-4 px-2 w-full whitespace-nowrap bg-primary-20 gap-2">
-            <a href="/register" class="py-[7px] px-[77px] mx-auto text-base font-medium rounded-lg text-secondary-40 bg-transparent border-2 border-secondary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-50 group duration-[400ms]">
-                <span class="mr-2">Sign Up</span>
-            </a>
-            <a href="/login" class="py-[7px] px-[84px] mx-auto text-base font-medium rounded-lg text-black bg-secondary-40 border-2 border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 group duration-[400ms]">
-                <span class="mr-2">Log In</span>
-            </a>
-        </div>
-    @endguest
-    </div>
 
+        @auth
+            <div class="flex flex-row justify-between absolute bottom-0 left-0 p-4 w-full whitespace-nowrap z-20 bg-primary-20 border-t border-white">
+              <div class="flex flex-row">
+                <img src="{{ Storage::url(auth()->user()->avatar) }}" class="h-10 w-10 my-auto rounded-full object-cover"
+                    alt="Profile" />
+                <ul class="my-auto">
+                    <li class="ml-3 text-white max-w-[100px] truncate">{{ auth()->user()->name }}</li>
+                    <li class="ml-3 text-white text-xs">{{ auth()->user()->role }}</li>
+                </ul>
+              </div>
+              <div>
+                <button type="button" data-tooltip-target="tooltip-logout" data-modal-target="logoutModal" data-modal-toggle="logoutModal" class="p-2 ml-9 text-base font-normal text-white rounded-lg hover:bg-secondary-40 hover:text-black group duration-[400ms]">
+                    <i class="fa-solid fa-right-from-bracket fa-lg"></i>
+                </button>
+                <div id="tooltip-logout" role="tooltip" class="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-black rounded-lg shadow-sm opacity-0 transition-opacity duration-[400ms] tooltip">
+                    Log Out
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+              </div>
+            </div>
+        @endauth
+        @guest
+            <div class="flex flex-wrap z-20 absolute justify-center bottom-0 left-0 py-4 px-2 w-full whitespace-nowrap bg-primary-20 gap-2">
+                <a href="/register" class="py-[7px] px-[77px] mx-auto text-base font-medium rounded-lg text-secondary-40 bg-transparent border-2 border-secondary-40 hover:text-black hover:bg-secondary-40 focus:ring-4 focus:ring-secondary-50 group duration-[400ms]">
+                    <span class="mr-2">Sign Up</span>
+                </a>
+                <a href="/login" class="py-[7px] px-[84px] mx-auto text-base font-medium rounded-lg text-black bg-secondary-40 border-2 border-secondary-40 hover:text-secondary-40 hover:bg-transparent focus:ring-4 focus:ring-secondary-50 group duration-[400ms]">
+                    <span class="mr-2">Log In</span>
+                </a>
+            </div>
+        @endguest
+    </div>
 </aside>
 
 {{-- Modal Logout --}}

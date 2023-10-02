@@ -24,14 +24,16 @@ class InboxController extends Controller
     public function reply(Request $request){
     $ibx = Inbox::find($request->inbox_id);
     $data =[
-"old_message" => $ibx->message,
-"subject" => auth()->user()->name . " replied to your message",
-"replier" => auth()->user()->name,
-"content" => $request->reply,
-"reply_mail" => "admin@noiu-eo.com",
-];
+        "old_message" => $ibx->message,
+        "old_name" => $ibx->message,
+        "subject" => auth()->user()->name . " replied to your message",
+        "replier" => auth()->user()->name,
+        "content" => $request->reply,
+        "reply_mail" => "admin@noiu-eo.com",
+        "username" => $ibx->name,
+    ];
 
-Mail::to($ibx['email'])->send(new ReplyMail(collect($data)));
-return redirect()->back()->with('success', 'Reply successfully sent to '. $ibx["email"]);
+    Mail::to($ibx['email'])->send(new ReplyMail(collect($data)));
+    return redirect()->back()->with('success', 'Reply successfully sent to '. $ibx["email"]);
     }
 }
