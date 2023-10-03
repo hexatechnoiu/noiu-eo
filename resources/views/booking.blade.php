@@ -48,13 +48,13 @@
                     <table class="w-full text-sm text-left text-neutral-60">
                         <thead class="text-xs text-neutral-60 uppercase bg-neutral-10">
                             <tr>
-                                <th scope="col" class="pl-4 py-4">Status</th>
-                                <th scope="col" class="px-4 py-4">Full Name</th>
-                                <th scope="col" class="px-4 py-3">Package Name</th>
-                                <th scope="col" class="px-4 py-3">For Date</th>
-                                <th scope="col" class="px-4 py-3">Price</th>
-                                <th scope="col" class="px-4 py-3">Payment Method</th>
-                                <th scope="col" class="px-4 py-3">
+                                <th scope="col" class="pl-4 py-3">Status</th>
+                                <th scope="col" class="px-2 py-3">Full Name</th>
+                                <th scope="col" class="px-2 py-3">Package Name</th>
+                                <th scope="col" class="px-2 py-3">For Date</th>
+                                <th scope="col" class="px-2 py-3">Price</th>
+                                <th scope="col" class="px-2 py-3">Payment Method</th>
+                                <th scope="col" class="px-2 py-3">
                                     <span class="sr-only">Actions</span>
                                 </th>
                             </tr>

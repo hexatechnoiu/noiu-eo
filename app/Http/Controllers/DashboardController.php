@@ -22,7 +22,7 @@ class DashboardController extends Controller
     $packages = Package::orderBy('package_type_id')->get();
     $package_types = Package_type::get();
     $users = User::get();
-    $booking = Booking::latest()->paginate(5);
+    $booking = Booking::latest()->with('Package')->paginate(5);
     $inbox = Inbox::latest()->take(3)->get();
     $ibx = Inbox::get();
     $inbox_count = Inbox::count();
@@ -46,7 +46,7 @@ class DashboardController extends Controller
 
     if (request("search")){
       $packages = Package::orderBy('package_type_id')->where('name', 'LIKE', '%' . request('search') . '%')->get();
-      $booking = Booking::latest()->where('name', 'LIKE', '%' . request('search') . '%')->paginate(5);
+      $booking = Booking::latest()->with('Package')->where('name', 'LIKE', '%' . request('search') . '%')->paginate(5);
     }
 
       return view('dashboard.index', [
